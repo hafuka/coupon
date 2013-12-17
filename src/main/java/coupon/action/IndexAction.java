@@ -19,13 +19,8 @@ import org.seasar.struts.annotation.Execute;
 
 public class IndexAction {
 	
-	public String word;
-	
     @Execute(validator = false)
 	public String index() {
-    	
-    	word = "hafuka satoshi";
-    	
         return "index.ftl";
 	}
 }

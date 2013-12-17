@@ -67,38 +67,9 @@
       <arg>traceCustomizer</arg>
     </initMethod>
     <initMethod name="addCustomizer">
-      <arg>requiredTxCustomizer</arg>
-    </initMethod>
-    <initMethod name="addCustomizer">
       <arg>
         <component class="org.seasar.framework.container.customizer.TxAttributeCustomizer"/>
       </arg>
-    </initMethod>
-  </component>
-  <component name="logicCustomizer" class="org.seasar.framework.container.customizer.CustomizerChain">
-    <initMethod name="addCustomizer">
-      <arg>traceCustomizer</arg>
-    </initMethod>
-  </component>
-  <component name="daoCustomizer" class="org.seasar.framework.container.customizer.CustomizerChain">
-    <initMethod name="addCustomizer">
-      <arg>traceCustomizer</arg>
-    </initMethod>
-    <initMethod name="addCustomizer">
-      <arg>s2DaoCustomizer</arg>
-    </initMethod>
-  </component>
-  <component name="dxoCustomizer" class="org.seasar.framework.container.customizer.CustomizerChain">
-    <initMethod name="addCustomizer">
-      <arg>traceCustomizer</arg>
-    </initMethod>
-    <initMethod name="addCustomizer">
-      <arg>s2DxoCustomizer</arg>
-    </initMethod>
-  </component>
-  <component name="helperCustomizer" class="org.seasar.framework.container.customizer.CustomizerChain">
-    <initMethod name="addCustomizer">
-      <arg>traceCustomizer</arg>
     </initMethod>
   </component>
 </components>

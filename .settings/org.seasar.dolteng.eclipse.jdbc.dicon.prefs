@@ -1,7 +1,0 @@
-Charset=UTF-8
-ConnectionName=jdbc.dicon
-ConnectionUrl=jdbc\:mysql\://133.242.205.64\:3306/voice_chat
-DriverClass=com.mysql.jdbc.Driver
-Pass=hafuka3104
-User=root
-eclipse.preferences.version=1

@@ -1,4 +1,4 @@
-DaoType=S2Dao
+DaoType=S2JDBC
 DefaultResourcePath=/coupon/src/main/resources
 DefaultRootPackage=coupon
 DefaultSrcPath=/coupon/src/main/java
@@ -6,4 +6,3 @@ ServletPath=/coupon
 ViewType=SA-Struts
 WebContentsRoot=src/main/webapp/
 eclipse.preferences.version=1
-prefs.children=jdbc.dicon,

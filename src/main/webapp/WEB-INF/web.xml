@@ -20,38 +20,38 @@
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 version="2.4">
+
 <!-- 
     <context-param>
         <param-name>sastruts.VIEW_PREFIX</param-name>
         <param-value>/WEB-INF/view</param-value>
     </context-param>
- -->
-	<!-- freemarkerの設定 start -->
+-->
+    <!-- freemarkerの設定 start -->
 	<servlet>
-	<servlet-name>freemarker</servlet-name>
-	<servlet-class>freemarker.ext.servlet.FreemarkerServlet</servlet-class>
-	<init-param>
-	<param-name>TemplatePath</param-name>
-	<param-value>/WEB-INF/view</param-value>
-	</init-param>
-	<init-param>
-	<param-name>TemplateDelay</param-name>
-	<param-value>0</param-value>
-	</init-param>
-	<init-param>
-	<param-name>NoCache</param-name>
-	<param-value>false</param-value>
-	</init-param>
-	<init-param>
-	<param-name>DefaultEncoding</param-name>
-	<param-value>UTF-8</param-value>
-	</init-param>
-	<init-param>
-	<param-name>ContentType</param-name>
-	<param-value>text/html; charset=UTF-8</param-value>
-	</init-param>
-	
-	<load-on-startup>1</load-on-startup>
+		<servlet-name>freemarker</servlet-name>
+		<servlet-class>freemarker.ext.servlet.FreemarkerServlet</servlet-class>
+		<init-param>
+		<param-name>TemplatePath</param-name>
+		<param-value>/WEB-INF/view</param-value>
+		</init-param>
+		<init-param>
+		<param-name>TemplateDelay</param-name>
+		<param-value>0</param-value>
+		</init-param>
+		<init-param>
+		<param-name>NoCache</param-name>
+		<param-value>false</param-value>
+		</init-param>
+		<init-param>
+		<param-name>DefaultEncoding</param-name>
+		<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+		<param-name>ContentType</param-name>
+		<param-value>text/html; charset=UTF-8</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
 	<servlet-mapping>
@@ -59,7 +59,7 @@ version="2.4">
 	<url-pattern>*.ftl</url-pattern>
 	</servlet-mapping>
 	<!-- freemarkerの設定 end -->
-	
+
     <filter>
         <filter-name>encodingfilter</filter-name>
         <filter-class>org.seasar.extension.filter.EncodingFilter</filter-class>

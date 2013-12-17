@@ -4,6 +4,6 @@
 <title>Dolteng Auto Generated</title>
 </head>
 <body>
-<h1><a href="/coupon/mypage/mypage">ログイン</a></h1>
+<h1>マイページ</h1>
 </body>
 </html>

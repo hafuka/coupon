@@ -1,12 +1,12 @@
-package coupon.action.mypage;
+package coupon.action.coupon;
 
 import org.seasar.struts.annotation.Execute;
 
-public class MypageAction {
-	
+public class CouponAction {
+
 	@Execute(validator = false)
 	public String index() {
-        return "/mypage/mypage.ftl";
+        return "/coupon/coupon.ftl";
 	}
 	
 }

@@ -24,7 +24,6 @@ public class IndexAction {
 	
     @Execute(validator = false)
 	public String index() {
-    	word = "hafuka satoshi";
-        return "index.ftl";
+        return "top.ftl";
 	}
 }

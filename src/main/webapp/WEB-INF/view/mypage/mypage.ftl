@@ -57,7 +57,7 @@
         <#-- リンクナビ -->
         <nav>
             <div class="textCenter mv20">
-                <a href="${urlPath}/top" class="btn btnNormal autoMargin fcWhite fs22">TOPへ</a>
+                <a href="${urlPath}/" class="btn btnNormal autoMargin fcWhite fs22">TOPへ</a>
             </div>
         </nav>
 

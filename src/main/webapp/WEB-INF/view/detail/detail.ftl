@@ -1,72 +1,27 @@
 <!DOCTYPE html>
 <html lang="ja">
     <head>
-        <title>COUPON ISLAND - 今日、ドコ行く？ -</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-        <link rel="stylesheet" href="/coupon/css/main.css">
+        <#-- 共通headのインクルード -->
+        <#include "/common/htmlHead.ftl">
     </head>
 
-    <body class="secondOutline">
+    <body class="outline secondContents">
 
-        <!-- ヘッダーメニュー -->
-        <header>
-            <ul class="clear">
-                <li class="menuList floatLeft textCenter">
-                    <a href="mypage.html">
-                        <div class="textCenter">
-                            <img src="/coupon/images/nav/menu_mypage.png" width="67" height="36" class="vTop">
-                        </div>
-                        <div class="textCenter lheight0">
-                            <img src="/coupon/images/nav/menu_mypage_title.png" width="67" height="15" class="vTop">
-                        </div>
-                    </a>
-                </li>
-                <li class="menuList floatLeft textCenter">
-                    <a href="coupon.html">
-                        <div class="textCenter">
-                            <img src="/coupon/images/nav/menu_doko.png" width="67" height="36" class="vTop">
-                        </div>
-                        <div class="textCenter lheight0">
-                            <img src="/coupon/images/nav/menu_doko_title.png" width="67" height="15" class="vTop">
-                        </div>
-                    </a>
-                </li>
-                <li class="menuList floatLeft textCenter">
-                    <a href="premium.html">
-                        <div class="textCenter">
-                            <img src="/coupon/images/nav/menu_premium.png" width="67" height="36" class="vTop">
-                        </div>
-                        <div class="textCenter lheight0">
-                            <img src="/coupon/images/nav/menu_premium_title.png" width="67" height="15" class="vTop">
-                        </div>
-                    </a>
-                </li>
-                <li class="menuList floatLeft textCenter">
-                    <a href="box.html">
-                        <div class="textCenter">
-                            <img src="/coupon/images/nav/menu_box.png" width="67" height="36" class="vTop">
-                        </div>
-                        <div class="textCenter lheight0">
-                            <img src="/coupon/images/nav/menu_box_title.png" width="67" height="15" class="vTop">
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </header>
+        <#-- ヘッダーメニューのインクルード -->
+        <#include "/common/header.ftl">
 
-        <!-- 店舗詳細 -->
+        <#-- 店舗詳細 -->
         <section>
             <h1 class="headline headlineNormal mt20">日比谷Bar 有楽町店</h1>
-            <div class="bgWhite p10">
-                <div class="w320 autoMargin">
+            <div class="bgWhite borderBottomGreen p10">
+                <div class="w300 autoMargin">
                     <div class="table">
                         <div class="cell pr10">
-                            <img src="/coupon/images/storeThumnail.jpg" width="85" height="85" class="borderGray vTop">
+                            <img src="${imagePath}/images/storeThumnail.jpg" width="85" height="85" class="borderGray vTop">
                         </div>
 
                         <div class="cell vTop relative couponInfoArea pv5 ph10">
-                            <h2 class="bgRound">♪クーポン情報♪</h2>
+                            <h2 class="bgRoundSmall">♪クーポン情報♪</h2>
                             <p class="textCenter fcRed fs18 pv5">お会計50%OFF!!</p>
                         </div>
                     </div>
@@ -74,12 +29,12 @@
                     <div class="mv10 table autoMargin">
                         <div class="cell textCenter pr20">
                             <a href="" class="btn btnPrimary autoMargin w140">
-                                <img src="images/btn_txt_tel.png" width="100" height="22" class="pt5">
+                                <img src="${imagePath}/images/btn_txt_tel.png" width="100" height="22" class="pt5">
                             </a>
                         </div>
                         <div class="cell textCenter">
-                            <a href="mypage.html" class="btn btnPrimary autoMargin w140">
-                                <img src="/coupon/images/btn_txt_map.png" width="100" height="22" class="pt5">
+                            <a href="" class="btn btnPrimary autoMargin w140">
+                                <img src="${imagePath}/images/btn_txt_map.png" width="100" height="22" class="pt5">
                             </a>
                         </div>
                     </div>
@@ -111,50 +66,24 @@
             </div>
         </section>
 
+        <#-- リンクナビ -->
         <nav>
             <div class="mv20">
                 <div class="textCenter mv10">
-                    <a href="" class="btn btnPrimary autoMargin fcWhite fs22">今日ドコ行く？</a>
+                    <a href="${urlPath}/coupon/coupon" class="btn btnPrimary autoMargin fcWhite fs22">今日ドコ行く？</a>
                 </div>
                 <div class="textCenter mv10">
-                    <a href="mypage.html" class="btn btnNormal autoMargin fcWhite fs22">マイページへ</a>
+                    <a href="${urlPath}/mypage/mypage" class="btn btnNormal autoMargin fcWhite fs22">マイページへ</a>
                 </div>
             </div>
         </nav>
 
-        <!-- フッターメニュー -->
-        <footer>
-            <ul class="clear">
-                <li class="menuList floatLeft textCenter">
-                    <a href="mypage.html">
-                        <div class="textCenter">
-                            <img src="/coupon/images/nav/menu_mypage.png" width="67" height="36" class="vTop">
-                        </div>
-                    </a>
-                </li>
-                <li class="menuList floatLeft textCenter">
-                    <a href="coupon.html">
-                        <div class="textCenter">
-                            <img src="/coupon/images/nav/menu_doko.png" width="67" height="36" class="vTop">
-                        </div>
-                    </a>
-                </li>
-                <li class="menuList floatLeft textCenter">
-                    <a href="premium.html">
-                        <div class="textCenter">
-                            <img src="/coupon/images/nav/menu_premium.png" width="67" height="36" class="vTop">
-                        </div>
-                    </a>
-                </li>
-                <li class="menuList floatLeft textCenter">
-                    <a href="box.html">
-                        <div class="textCenter">
-                            <img src="/coupon/images/nav/menu_box.png" width="67" height="36" class="vTop">
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </footer>
+        <#-- フッターメニューのインクルード -->
+        <#include "/common/footer.ftl">
+
+        <#-- 共通JavaScriptのインクルード -->
+        <#include "/common/htmlFoot.ftl">
 
     </body>
+
 </html>

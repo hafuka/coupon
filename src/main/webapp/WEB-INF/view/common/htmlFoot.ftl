@@ -1,0 +1,1 @@
+        <script src="/coupon/js/common.js"></script>

@@ -65,7 +65,7 @@
         <section>
             <ul class="couponList borderTopGreen">
                 <li>
-                    <a href="detail.html">
+                    <a href="${urlPath}/detail">
                         <div class="table">
                             <div class="cell pr10">
                                 <img src="${imagePath}/images/storeThumnail.jpg" width="85" height="85" class="borderGray">
@@ -81,7 +81,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="detail.html">
+                    <a href="${urlPath}/detail">
                         <div class="table">
                             <div class="cell pr10">
                                 <img src="${imagePath}/images/storeThumnail.jpg" width="85" height="85" class="borderGray">
@@ -106,7 +106,7 @@
                     <a href="" class="btn btnPrimary autoMargin fcWhite fs22">プレミアム ドコ行く？</a>
                 </div>
                 <div class="textCenter mv10">
-                    <a href="${urlPath}/mypage/mypage" class="btn btnNormal autoMargin fcWhite fs22">マイページへ</a>
+                    <a href="${urlPath}/mypage" class="btn btnNormal autoMargin fcWhite fs22">マイページへ</a>
                 </div>
             </div>
         </nav>

@@ -1,4 +1,4 @@
-package coupon.action.mypage;
+package coupon.action;
 
 import org.seasar.struts.annotation.Execute;
 

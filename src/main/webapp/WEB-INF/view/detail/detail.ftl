@@ -70,10 +70,10 @@
         <nav>
             <div class="mv20">
                 <div class="textCenter mv10">
-                    <a href="${urlPath}/coupon/coupon" class="btn btnPrimary autoMargin fcWhite fs22">今日ドコ行く？</a>
+                    <a href="${urlPath}/coupon" class="btn btnPrimary autoMargin fcWhite fs22">今日ドコ行く？</a>
                 </div>
                 <div class="textCenter mv10">
-                    <a href="${urlPath}/mypage/mypage" class="btn btnNormal autoMargin fcWhite fs22">マイページへ</a>
+                    <a href="${urlPath}/mypage" class="btn btnNormal autoMargin fcWhite fs22">マイページへ</a>
                 </div>
             </div>
         </nav>

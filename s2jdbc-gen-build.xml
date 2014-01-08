@@ -75,6 +75,8 @@
     </gen-sqlfileconstants>
     <gen-service
       classpathdir="${classpathdir}"
+      serviceclassnamesuffix="Dao"
+      servicepackagename="dao"
       rootpackagename="${rootpackagename}"
       entitypackagename="${entitypackagename}"
       javafiledestdir="${javafiledestdir}"
@@ -98,6 +100,8 @@
     </gen-entitytest>
     <gen-servicetest
       classpathdir="${classpathdir}"
+      serviceclassnamesuffix="Dao"
+      servicepackagename="dao"
       rootpackagename="${rootpackagename}"
       javafiledestdir="${testjavafiledestdir}"
       javafileencoding="${javafileencoding}"

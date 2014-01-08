@@ -2,11 +2,11 @@ package coupon.action;
 
 import org.seasar.struts.annotation.Execute;
 
-public class CouponAction {
+public class RegisterAction {
 
-	@Execute(validator = false)
+	@Execute(validator=false)
 	public String index() {
-        return "/coupon/coupon.ftl";
+		return "/register/register.ftl";
 	}
 	
 }

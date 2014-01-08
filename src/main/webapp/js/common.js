@@ -240,7 +240,7 @@ ci.cumulativeOffset = function(element) {
  * @param elm 対象のエレメント名
  * @param options delay:待機時間, speed:フェードアウト速度
  */
-ci.sliderImages = function (elm, options) {
+var sliderImages = function (elm, options) {
     var timer;
     var index = 1;
     var speed = 25;
@@ -430,5 +430,14 @@ var ajaxJsonGlobal = function(options, callback) {
         }else if( splitUrlList[5] == 'box' ){
             ci.addClass(menuList[3], 'active');
         }
+        
+        //ボタン押下時の挙動
+        var touchActiveList = ci.qsa('.jsTouchActive');
+        ci.bind(touchActiveList, 'touchstart', function() {
+            ci.addClass(this, 'touchActive');
+        });
+        ci.bind(touchActiveList, 'touchend', function() {
+            ci.removeClass(this, 'touchActive');
+        });
     });
 })();

@@ -56,7 +56,7 @@
                     </table>
 
                     <div class="textCenter mv10">
-                        <a href="" class="btn btnNormal autoMargin fcWhite fs22">使っちゃお♪</a>
+                        <a href="" class="btn btnNormal jsTouchActive autoMargin">使っちゃお♪</a>
                     </div>
 
                     <p class="textRight fcOrange fs13">
@@ -70,10 +70,10 @@
         <nav>
             <div class="mv20">
                 <div class="textCenter mv10">
-                    <a href="${urlPath}/coupon/coupon" class="btn btnPrimary autoMargin fcWhite fs22">今日ドコ行く？</a>
+                    <a href="${urlPath}/coupon/coupon" class="btn btnPrimary jsTouchActive autoMargin">今日ドコ行く？</a>
                 </div>
                 <div class="textCenter mv10">
-                    <a href="${urlPath}/mypage/mypage" class="btn btnNormal autoMargin fcWhite fs22">マイページへ</a>
+                    <a href="${urlPath}/mypage/mypage" class="btn btnNormal jsTouchActive autoMargin">マイページへ</a>
                 </div>
             </div>
         </nav>

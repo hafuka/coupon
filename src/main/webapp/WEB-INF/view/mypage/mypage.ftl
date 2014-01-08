@@ -46,7 +46,7 @@
                     <img src="${imagePath}/images/mypage/mypage_field.png" width="100%" class="vTop">
                 </div>
                 <div class="textCenter relative" style="margin-top: -60px; z-index: 20;">
-                    <a href="${urlPath}/box/box" class="btn btnNormal autoMargin fcWhite fs22">クーポンBOX</a>
+                    <a href="${urlPath}/box/box" class="btn btnNormal jsTouchActive autoMargin">クーポンBOX</a>
                 </div>
                 <div class="gullImage">
                     <img src="${imagePath}/images/mypage/mypage_kamome.png" width="65" height="25">
@@ -57,7 +57,7 @@
         <#-- リンクナビ -->
         <nav>
             <div class="textCenter mv20">
-                <a href="${urlPath}/" class="btn btnNormal autoMargin fcWhite fs22">TOPへ</a>
+                <a href="${urlPath}/" class="btn btnNormal jsTouchActive autoMargin">TOPへ</a>
             </div>
         </nav>
 

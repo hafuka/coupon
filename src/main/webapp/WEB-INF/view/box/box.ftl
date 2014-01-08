@@ -87,7 +87,7 @@
         <nav>
             <div class="mv20">
                 <div class="textCenter">
-                    <a href="${urlPath}/mypage/mypage" class="btn btnNormal autoMargin fcWhite fs22">マイページへ</a>
+                    <a href="${urlPath}/mypage/mypage" class="btn btnNormal jsTouchActive autoMargin">マイページへ</a>
                 </div>
             </div>
         </nav>

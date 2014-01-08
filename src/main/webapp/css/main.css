@@ -250,31 +250,48 @@ input[type="text"] {
 }
 
 /* ボタン */
+
 .btn {
     position: relative;
     display: block;
-    width: 300px;
-    height: 50px;
+    width: 260px;
+    height: 40px;
     border-radius: 5px;
     padding: 7px;
     text-align: center;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     font-weight: bold;
-    line-height: 1.5;
-    -webkit-box-shadow: 2px 2px 1px #fff inset, -2px -2px 1px #fff inset;
-    box-shadow: 2px 2px 1px #fff inset, -2px -2px 1px #fff inset;
+    font-size: 18px;
+    color: #fff;
+    line-height: 1.2;
     text-shadow: 1px 1px 1px #ccc;
 }
 
 .btnPrimary {
     border: 2px solid #538610;
     background: #339a03;
+    -webkit-box-shadow: 1px 1px 1px #e4f9d4 inset, -1px -1px 1px #e4f9d4 inset, 0 5px 0 #304e12, 0 7px 3px #ced8c4;
+    box-shadow: 1px 1px 1px #e4f9d4 inset, -1px -1px 1px #e4f9d4 inset, 0 5px 0 #304e12, 0 7px 3px #ced8c4;
 }
 
 .btnNormal {
-    border: 2px solid #ff6609;
+    border: 2px solid #ff6600;
     background: #ff812d;
+    -webkit-box-shadow: 1px 1px 1px #f9e3d4 inset, -1px -1px 1px #f9e3d4 inset, 0 5px 0 #cc3300, 0 7px 3px #d5c0b3;
+    box-shadow: 1px 1px 1px #f9e3d4 inset, -1px -1px 1px #f9e3d4 inset, 0 5px 0 #cc3300, 0 7px 3px #d5c0b3;
+}
+
+.btnPrimary.touchActive {
+    top: 3px;
+    -webkit-box-shadow: 1px 1px 1px #eee inset, -1px -1px 1px #eee inset, 0 2px 0 #304e12, 0 5px 3px #ced8c4;
+    box-shadow: 1px 1px 1px #eee inset, -1px -1px 1px #eee inset, 0 2px 0 #304e12, 0 5px 3px #ced8c4;
+}
+
+.btnNormal.touchActive {
+    top: 3px;
+    -webkit-box-shadow: 1px 1px 1px #eee inset, -1px -1px 1px #eee inset, 0 2px 0 #cc3300, 0 5px 3px #d5c0b3;
+    box-shadow: 1px 1px 1px #eee inset, -1px -1px 1px #eee inset, 0 2px 0 #cc3300, 0 5px 3px #d5c0b3;
 }
 
 .btnCircle {
@@ -315,12 +332,6 @@ input[type="text"] {
     -webkit-box-shadow: 2px 2px 1px #fff inset, -2px -2px 1px #fff inset, 2px -2px 1px #fff inset, -2px 2px 1px #fff inset;
     box-shadow: 2px 2px 1px #fff inset, -2px -2px 1px #fff inset, 2px -2px 1px #fff inset, -2px 2px 1px #fff inset;
     text-shadow: 1px 1px 1px #ccc;
-}
-
-.btn.touchActive {
-    top: 2px;
-    -webkit-box-shadow: inset 1px 1px 1px #fff, inset -1px -1px 1px #fff;
-    box-shadow: inset 1px 1px 1px #fff, inset -1px -1px 1px #fff;
 }
 
 /* 吹き出し */

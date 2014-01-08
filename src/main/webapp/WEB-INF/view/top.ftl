@@ -20,11 +20,11 @@
         <nav>
             <div class="mv20">
                 <div class="textCenter mv10">
-                    <a href="${urlPath}/mypage/mypage" class="btn btnNormal autoMargin fcWhite fs22">ログイン</a>
+                    <a href="${urlPath}/mypage/mypage" class="btn btnNormal jsTouchActive autoMargin">ログイン</a>
                 </div>
 
                 <div class="textCenter mv10">
-                    <a href="${urlPath}/mypage/mypage" class="btn btnPrimary autoMargin fcWhite fs22">新規会員登録</a>
+                    <a href="${urlPath}/mypage/mypage" class="btn btnPrimary jsTouchActive autoMargin">新規会員登録</a>
                 </div>
             </div>
         </nav>

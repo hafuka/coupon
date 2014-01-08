@@ -65,7 +65,7 @@
         <section>
             <ul class="couponList borderTopGreen">
                 <li>
-                    <a href="detail.html">
+                    <a href="${urlPath}/detail/detail">
                         <div class="table">
                             <div class="cell pr10">
                                 <img src="${imagePath}/images/storeThumnail.jpg" width="85" height="85" class="borderGray">
@@ -81,7 +81,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="detail.html">
+                    <a href="${urlPath}/detail/detail">
                         <div class="table">
                             <div class="cell pr10">
                                 <img src="${imagePath}/images/storeThumnail.jpg" width="85" height="85" class="borderGray">

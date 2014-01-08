@@ -17,41 +17,37 @@
                     はふてぃアイランド
                 </p>
             </h1>
-
-            <div class="table autoMargin mv5">
-                <div class="cell pr20">
-                    <a href="${urlPath}/coupon/coupon">
-                        <div class="btnCircleBig">
-                            <img src="${imagePath}/images/mypage/main_btn_doko.png" width="115" height="80" class="vTop">
-                        </div>
-                    </a>
-                </div>
-                <div class="cell">
-                    <a href="${urlPath}/premium/premium">
-                        <div class="btnCircleBig">
-                            <img src="${imagePath}/images/mypage/main_btn_premium.png" width="115" height="80" class="vTop">
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="relative">
+            
+            <div class="relative mt10">
                 <div class="autoMargin w320">
                     <div class="underballoon mh10">
                         <p>1回プレミアムクーポンがひけるよ♪</p>
                         <p class="pointArea">現在のポイント：13pt</p>
                     </div>
                 </div>
-                <div style="margin-top: -30px;">
+                <div class="mtMinus30">
                     <img src="${imagePath}/images/mypage/mypage_field.png" width="100%" class="vTop">
-                </div>
-                <div class="textCenter relative" style="margin-top: -60px; z-index: 20;">
-                    <a href="${urlPath}/box/box" class="btn btnNormal jsTouchActive autoMargin">クーポンBOX</a>
                 </div>
                 <div class="gullImage">
                     <img src="${imagePath}/images/mypage/mypage_kamome.png" width="65" height="25">
                 </div>
             </div>
+
+            <div class="table autoMargin mv5">
+                <div class="cell pr20">
+                    <a href="${urlPath}/coupon" class="btnSquere relative zIndex20 mtMinus70 pt25">
+                        今日ドコ行く？
+                        <#--<img src="${imagePath}/images/mypage/main_btn_doko.png" width="115" height="80" class="vTop"> -->
+                    </a>
+                </div>
+                <div class="cell">
+                    <a href="${urlPath}/premium" class="btnSquere relative zIndex20 mtMinus70 pt15">
+                        プレミアム<br>今日ドコ行く？
+                        <#-- <img src="${imagePath}/images/mypage/main_btn_premium.png" width="115" height="80" class="vTop"> -->
+                    </a>
+                </div>
+            </div>
+
         </section>
 
         <#-- リンクナビ -->

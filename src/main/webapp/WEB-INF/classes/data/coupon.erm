@@ -113,7 +113,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2014-01-08 11:50:41</creation_date>
-			<updated_date>2014-01-08 18:56:10</updated_date>
+			<updated_date>2014-01-08 19:30:44</updated_date>
 			<model_property>
 				<name>プロジェクト名</name>
 				<value></value>
@@ -269,16 +269,16 @@
 		</word>
 		<word>
 			<id>9</id>
-			<length>null</length>
+			<length>128</length>
 			<decimal>null</decimal>
 			<array>false</array>
 			<array_dimension>null</array_dimension>
 			<unsigned>false</unsigned>
 			<args></args>
 			<description></description>
-			<logical_name>更新日時</logical_name>
-			<physical_name>ins_datetime</physical_name>
-			<type>datetime</type>
+			<logical_name>メールアドレス</logical_name>
+			<physical_name>email</physical_name>
+			<type>varchar(n)</type>
 		</word>
 		<word>
 			<id>10</id>
@@ -289,7 +289,7 @@
 			<unsigned>false</unsigned>
 			<args></args>
 			<description></description>
-			<logical_name>登録日時</logical_name>
+			<logical_name>更新日時</logical_name>
 			<physical_name>ins_datetime</physical_name>
 			<type>datetime</type>
 		</word>
@@ -315,8 +315,8 @@
 			<unsigned>false</unsigned>
 			<args></args>
 			<description></description>
-			<logical_name>使用期限</logical_name>
-			<physical_name>limit_datetime</physical_name>
+			<logical_name>登録日時</logical_name>
+			<physical_name>ins_datetime</physical_name>
 			<type>datetime</type>
 		</word>
 		<word>
@@ -328,22 +328,22 @@
 			<unsigned>false</unsigned>
 			<args></args>
 			<description></description>
-			<logical_name>使用期限日数</logical_name>
-			<physical_name>limit_days</physical_name>
-			<type>integer</type>
+			<logical_name>使用期限</logical_name>
+			<physical_name>limit_datetime</physical_name>
+			<type>datetime</type>
 		</word>
 		<word>
 			<id>14</id>
-			<length>128</length>
+			<length>null</length>
 			<decimal>null</decimal>
 			<array>false</array>
 			<array_dimension>null</array_dimension>
 			<unsigned>false</unsigned>
 			<args></args>
 			<description></description>
-			<logical_name>メールアドレス</logical_name>
-			<physical_name>mail</physical_name>
-			<type>varchar(n)</type>
+			<logical_name>使用期限日数</logical_name>
+			<physical_name>limit_days</physical_name>
+			<type>integer</type>
 		</word>
 		<word>
 			<id>15</id>
@@ -593,7 +593,7 @@
 			<option></option>
 			<columns>
 				<normal_column>
-					<word_id>29</word_id>
+					<word_id>30</word_id>
 					<id>0</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -689,7 +689,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>1</word_id>
+					<word_id>2</word_id>
 					<id>3</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -753,7 +753,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>12</word_id>
+					<word_id>13</word_id>
 					<id>5</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -785,7 +785,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>26</word_id>
+					<word_id>27</word_id>
 					<id>6</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -817,7 +817,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>10</word_id>
+					<word_id>11</word_id>
 					<id>7</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -884,7 +884,7 @@
 			<option></option>
 			<columns>
 				<normal_column>
-					<word_id>20</word_id>
+					<word_id>22</word_id>
 					<id>8</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1143,7 +1143,7 @@
 			<option></option>
 			<columns>
 				<normal_column>
-					<word_id>22</word_id>
+					<word_id>20</word_id>
 					<id>15</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1207,7 +1207,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>2</word_id>
+					<word_id>1</word_id>
 					<id>17</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1335,7 +1335,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>13</word_id>
+					<word_id>14</word_id>
 					<id>21</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1434,7 +1434,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>14</word_id>
+					<word_id>9</word_id>
 					<id>23</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1530,7 +1530,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>11</word_id>
+					<word_id>12</word_id>
 					<id>26</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1597,7 +1597,7 @@
 			<option></option>
 			<columns>
 				<normal_column>
-					<word_id>30</word_id>
+					<word_id>29</word_id>
 					<id>27</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1693,7 +1693,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>27</word_id>
+					<word_id>26</word_id>
 					<id>30</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1725,7 +1725,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>9</word_id>
+					<word_id>10</word_id>
 					<id>31</id>
 					<description></description>
 					<unique_key_name></unique_key_name>

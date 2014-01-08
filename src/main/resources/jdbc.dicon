@@ -36,10 +36,10 @@
 			"com.mysql.jdbc.Driver"
 		</property>
 		<property name="URL">
-			"jdbc:mysql://133.242.205.64:3306/coupon"
+			"jdbc:mysql://localhost:3306/coupon"
 		</property>
 		<property name="user">"root"</property>
-		<property name="password">"hafuka3104"</property>
+		<property name="password">"admin"</property>
 	</component>
 	<component name="connectionPool"
 		class="org.seasar.extension.dbcp.impl.ConnectionPoolImpl">

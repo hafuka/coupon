@@ -16,7 +16,7 @@ DROP TABLE m_shop_coupon;
 CREATE TABLE i_user
 (
 	user_id bigint NOT NULL,
-	mail varchar(128) NOT NULL,
+	email varchar(128) NOT NULL,
 	name varchar(128) NOT NULL,
 	upd_datetime date NOT NULL,
 	ins_datetime datetime NOT NULL,
@@ -27,6 +27,7 @@ CREATE TABLE i_user
 CREATE TABLE i_user_authentication
 (
 	user_id bigint NOT NULL,
+	email varchar(128) NOT NULL,
 	password varchar(128) NOT NULL,
 	upd_datetime datetime NOT NULL,
 	ins_datetime datetime NOT NULL,

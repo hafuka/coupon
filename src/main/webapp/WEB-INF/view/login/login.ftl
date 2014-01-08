@@ -10,9 +10,15 @@
 		<script>FB.init({ appId:'343136175832911', cookie:true, status:true, xfbml:true });</script>
 		<fb:login-button>Login with Facebook</fb:login-button>
 		
+		<#if errorMsg!?has_content>
+			<div>
+				${errorMsg!?html}
+			</div>
+		</#if>
+		
 		<form method="post" action="${urlPath!?html}/login/login" name="frm">
 	        <div>
-	        	<input type="email" name="email" id="email" placeholder="Enter email" value="">
+	        	<input type="email" name="email" id="email" placeholder="Enter email" value="${email!?html}">
 	        </div>
 	        <div>
 	        	<input type="password" name="password" id="password" placeholder="Enter password" value="">

@@ -34,7 +34,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void registUser(String email, String password, String name) throws Exception {
+	public IUser registUser(String email, String password, String name) throws Exception {
 		
 		Timestamp nowDate = CouponDateUtils.getCurrentDate();
 		
@@ -56,6 +56,8 @@ public class UserServiceImpl implements UserService {
 		iUserAuthentication.insDatetime = nowDate;
 		iUserAuthentication.updDatetime = nowDate;
 		iUserAuthenticationDao.insert(iUserAuthentication);
+		
+		return iUser;
 	}
 
 	@Override

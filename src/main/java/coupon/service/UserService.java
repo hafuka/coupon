@@ -25,7 +25,7 @@ public interface UserService {
 	 * @param password
 	 * @param name
 	 */
-	public abstract void registUser(String email, String password, String name) throws Exception;
+	public abstract IUser registUser(String email, String password, String name) throws Exception;
 
 	public abstract IUser getIUser(Long userId);
 

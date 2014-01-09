@@ -12,7 +12,7 @@ import javax.persistence.Id;
  * 
  */
 @Entity
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.EntityModelFactoryImpl"}, date = "2014/01/09 11:13:42")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.EntityModelFactoryImpl"}, date = "2014/01/09 16:45:50")
 public class IUser implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -29,6 +29,22 @@ public class IUser implements Serializable {
     /** nameプロパティ */
     @Column(length = 128, nullable = false, unique = false)
     public String name;
+
+    /** pointプロパティ */
+    @Column(precision = 19, nullable = true, unique = false)
+    public Long point;
+
+    /** loginDatetimeプロパティ */
+    @Column(nullable = true, unique = false)
+    public Timestamp loginDatetime;
+
+    /** loginBonusDatetimeプロパティ */
+    @Column(nullable = true, unique = false)
+    public Timestamp loginBonusDatetime;
+
+    /** consecutiveDaysプロパティ */
+    @Column(precision = 19, nullable = true, unique = false)
+    public Long consecutiveDays;
 
     /** updDatetimeプロパティ */
     @Column(nullable = false, unique = false)

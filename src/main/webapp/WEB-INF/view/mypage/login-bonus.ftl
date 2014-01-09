@@ -11,9 +11,8 @@
         <#include "/common/header.ftl">
 
         <section>
-            申し訳ございません。<br>
-			現在アクセスしづらい状況になっております。<br>
-			再度時間をおいてアクセスして下さい。
+            ログインボーナス<br>
+            ${loginBonus.point!?html}ポイントGETしました
         </section>
 
         <#-- リンクナビ -->

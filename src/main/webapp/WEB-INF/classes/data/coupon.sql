@@ -2,35 +2,41 @@ SET SESSION FOREIGN_KEY_CHECKS=0;
 
 /* Drop Indexes */
 
-DROP INDEX IDX_EMAIL_PASSWORD ON i_user_authentication;
+DROP INDEX IDX_EMAIL_PASSWORD ON I_USER_AUTHENTICATION;
 
 
 
 /* Drop Tables */
 
-DROP TABLE i_user;
-DROP TABLE i_user_authentication;
-DROP TABLE i_user_coupon;
-DROP TABLE m_shop;
-DROP TABLE m_shop_coupon;
+DROP TABLE I_USER;
+DROP TABLE I_USER_AUTHENTICATION;
+DROP TABLE I_USER_COUPON;
+DROP TABLE M_CONFIG;
+DROP TABLE M_LOGIN_BONUS;
+DROP TABLE M_SHOP;
+DROP TABLE M_SHOP_COUPON;
 
 
 
 
 /* Create Tables */
 
-CREATE TABLE i_user
+CREATE TABLE I_USER
 (
 	user_id bigint NOT NULL,
 	email varchar(128) NOT NULL,
 	name varchar(128) NOT NULL,
+	point bigint,
+	login_datetime datetime,
+	login_bonus_datetime datetime,
+	consecutive_days bigint,
 	upd_datetime datetime NOT NULL,
 	ins_datetime datetime NOT NULL,
 	PRIMARY KEY (user_id)
 );
 
 
-CREATE TABLE i_user_authentication
+CREATE TABLE I_USER_AUTHENTICATION
 (
 	user_id bigint NOT NULL,
 	email varchar(128) NOT NULL,
@@ -41,7 +47,7 @@ CREATE TABLE i_user_authentication
 );
 
 
-CREATE TABLE i_user_coupon
+CREATE TABLE I_USER_COUPON
 (
 	user_id bigint NOT NULL,
 	shop_id int NOT NULL,
@@ -55,7 +61,27 @@ CREATE TABLE i_user_coupon
 );
 
 
-CREATE TABLE m_shop
+CREATE TABLE M_CONFIG
+(
+	name varchar(128) NOT NULL,
+	value varchar(255) NOT NULL,
+	start_datetime datetime,
+	end_datetime datetime,
+	PRIMARY KEY (name)
+);
+
+
+CREATE TABLE M_LOGIN_BONUS
+(
+	bonus_id int NOT NULL,
+	bonus_type int NOT NULL,
+	point int NOT NULL,
+	consecutive_days int NOT NULL,
+	PRIMARY KEY (bonus_id)
+);
+
+
+CREATE TABLE M_SHOP
 (
 	shop_id int NOT NULL,
 	shop_category int NOT NULL,
@@ -68,7 +94,7 @@ CREATE TABLE m_shop
 );
 
 
-CREATE TABLE m_shop_coupon
+CREATE TABLE M_SHOP_COUPON
 (
 	shop_id int NOT NULL,
 	coupon_type int NOT NULL,
@@ -84,7 +110,7 @@ CREATE TABLE m_shop_coupon
 
 /* Create Indexes */
 
-CREATE INDEX IDX_EMAIL_PASSWORD USING BTREE ON i_user_authentication (email ASC, password ASC);
+CREATE INDEX IDX_EMAIL_PASSWORD USING BTREE ON I_USER_AUTHENTICATION (email ASC, password ASC);
 
 
 

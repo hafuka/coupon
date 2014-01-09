@@ -24,6 +24,7 @@ public class LoginInterceptor extends AbstractInterceptor {
 		if (loginUserDto == null || loginUserDto.userId == null) {
 			return "/";
 		}
+		
 		return invocation.proceed();
 	}
 }

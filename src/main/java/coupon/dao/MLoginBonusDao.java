@@ -1,28 +1,28 @@
 package coupon.dao;
 
-import coupon.entity.IUser;
+import coupon.entity.MLoginBonus;
 import java.util.List;
 import javax.annotation.Generated;
 
-import static coupon.entity.IUserNames.*;
+import static coupon.entity.MLoginBonusNames.*;
 import static org.seasar.extension.jdbc.operation.Operations.*;
 
 /**
- * {@link IUser}のサービスクラスです。
+ * {@link MLoginBonus}のサービスクラスです。
  * 
  */
 @Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.ServiceModelFactoryImpl"}, date = "2014/01/09 16:45:58")
-public class IUserDao extends AbstractDao<IUser> {
+public class MLoginBonusDao extends AbstractDao<MLoginBonus> {
 
     /**
      * 識別子でエンティティを検索します。
      * 
-     * @param userId
+     * @param bonusId
      *            識別子
      * @return エンティティ
      */
-    public IUser findById(Long userId) {
-        return select().id(userId).getSingleResult();
+    public MLoginBonus findById(Integer bonusId) {
+        return select().id(bonusId).getSingleResult();
     }
 
     /**
@@ -30,7 +30,7 @@ public class IUserDao extends AbstractDao<IUser> {
      * 
      * @return エンティティのリスト
      */
-    public List<IUser> findAllOrderById() {
-        return select().orderBy(asc(userId())).getResultList();
+    public List<MLoginBonus> findAllOrderById() {
+        return select().orderBy(asc(bonusId())).getResultList();
     }
 }

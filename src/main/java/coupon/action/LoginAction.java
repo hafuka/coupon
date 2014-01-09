@@ -20,6 +20,12 @@ public class LoginAction extends BaseAction {
 
 	@Execute(validator = false)
 	public String index() throws Exception {
+		
+		// ログイン済みの場合はmypageへリダイレクト
+		if (loginUserDto != null && loginUserDto.userId != null) {
+			return "/mypage?redirect=true";
+		}
+		
 		return "/login/login.ftl";
 	}
 

@@ -8,7 +8,7 @@ import org.seasar.extension.jdbc.name.PropertyName;
  * {@link IUser}のプロパティ名の集合です。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/01/09 12:45:34")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/01/09 16:45:54")
 public class IUserNames {
 
     /**
@@ -36,6 +36,42 @@ public class IUserNames {
      */
     public static PropertyName<String> name() {
         return new PropertyName<String>("name");
+    }
+
+    /**
+     * pointのプロパティ名を返します。
+     * 
+     * @return pointのプロパティ名
+     */
+    public static PropertyName<Long> point() {
+        return new PropertyName<Long>("point");
+    }
+
+    /**
+     * loginDatetimeのプロパティ名を返します。
+     * 
+     * @return loginDatetimeのプロパティ名
+     */
+    public static PropertyName<Timestamp> loginDatetime() {
+        return new PropertyName<Timestamp>("loginDatetime");
+    }
+
+    /**
+     * loginBonusDatetimeのプロパティ名を返します。
+     * 
+     * @return loginBonusDatetimeのプロパティ名
+     */
+    public static PropertyName<Timestamp> loginBonusDatetime() {
+        return new PropertyName<Timestamp>("loginBonusDatetime");
+    }
+
+    /**
+     * consecutiveDaysのプロパティ名を返します。
+     * 
+     * @return consecutiveDaysのプロパティ名
+     */
+    public static PropertyName<Long> consecutiveDays() {
+        return new PropertyName<Long>("consecutiveDays");
     }
 
     /**
@@ -114,6 +150,42 @@ public class IUserNames {
          */
         public PropertyName<String> name() {
             return new PropertyName<String>(this, "name");
+        }
+
+        /**
+         * pointのプロパティ名を返します。
+         *
+         * @return pointのプロパティ名
+         */
+        public PropertyName<Long> point() {
+            return new PropertyName<Long>(this, "point");
+        }
+
+        /**
+         * loginDatetimeのプロパティ名を返します。
+         *
+         * @return loginDatetimeのプロパティ名
+         */
+        public PropertyName<Timestamp> loginDatetime() {
+            return new PropertyName<Timestamp>(this, "loginDatetime");
+        }
+
+        /**
+         * loginBonusDatetimeのプロパティ名を返します。
+         *
+         * @return loginBonusDatetimeのプロパティ名
+         */
+        public PropertyName<Timestamp> loginBonusDatetime() {
+            return new PropertyName<Timestamp>(this, "loginBonusDatetime");
+        }
+
+        /**
+         * consecutiveDaysのプロパティ名を返します。
+         *
+         * @return consecutiveDaysのプロパティ名
+         */
+        public PropertyName<Long> consecutiveDays() {
+            return new PropertyName<Long>(this, "consecutiveDays");
         }
 
         /**

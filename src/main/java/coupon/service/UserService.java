@@ -30,5 +30,8 @@ public interface UserService {
 	public abstract IUser getIUser(Long userId);
 
 	public abstract IUserAuthentication getIUserAuth(String email, String password) throws Exception;
+	
+	
+	public abstract void updateIUser(IUser iUser);
 
 }

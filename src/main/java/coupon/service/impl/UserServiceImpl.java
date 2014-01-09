@@ -14,8 +14,8 @@ import coupon.entity.IUser;
 import coupon.entity.IUserAuthentication;
 import coupon.entity.IUserAuthenticationNames;
 import coupon.service.UserService;
+import coupon.util.CouponDateUtils;
 import coupon.util.CryptUtils;
-import coupon.util.DateUtils;
 
 public class UserServiceImpl implements UserService {
 	
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void registUser(String email, String password, String name) throws Exception {
 		
-		Timestamp nowDate = DateUtils.getCurrentDate();
+		Timestamp nowDate = CouponDateUtils.getCurrentDate();
 		
 		// IUserの登録
 		Long userId = iUserDao.getCount() + 1;
@@ -76,6 +76,11 @@ public class UserServiceImpl implements UserService {
 			return null;
 		}
 		return iUserAuthList.get(0);
+	}
+
+	@Override
+	public void updateIUser(IUser iUser) {
+		iUserDao.update(iUser);
 	}
 
 }

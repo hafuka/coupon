@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import org.seasar.framework.util.StringUtil;
 import org.seasar.struts.annotation.Execute;
 
+import coupon.entity.IUser;
 import coupon.service.UserService;
 
 public class RegisterAction extends BaseAction {
@@ -42,11 +43,11 @@ public class RegisterAction extends BaseAction {
 		}
 		
 		// ユーザー情報登録
-		userService.registUser(email, password, name);
+		IUser iUser = userService.registUser(email, password, name);
 		
-		loginUserDto.userId = 1L;
+		loginUserDto.userId = iUser.userId;
 		loginUserDto.name = name;
-		loginUserDto.point = 0L;
+		loginUserDto.point = iUser.point;
 		
 		return "/mypage?redirect=true";
 	}

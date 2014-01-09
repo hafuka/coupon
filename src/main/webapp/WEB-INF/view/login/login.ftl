@@ -5,31 +5,34 @@
         <#include "/common/htmlHead.ftl">
     </head>
     
-    <body class="outline topContents">
-		<script src="http://connect.facebook.net/en_US/all.js"></script>
-		<script>FB.init({ appId:'343136175832911', cookie:true, status:true, xfbml:true });</script>
-		<fb:login-button>Login with Facebook</fb:login-button>
-		
-		<#if errorMsg!?has_content>
-			<div>
-				${errorMsg!?html}
-			</div>
-		</#if>
-		
-		<form method="post" action="${urlPath!?html}/login/login" name="frm">
-	        <div>
-	        	<input type="email" name="email" id="email" placeholder="Enter email" value="${email!?html}">
-	        </div>
-	        <div>
-	        	<input type="password" name="password" id="password" placeholder="Enter password" value="">
-	        </div>
-	    </form>
-		
-		
+    <body class="outline">
+        <script src="http://connect.facebook.net/en_US/all.js"></script>
+        <script>FB.init({ appId:'343136175832911', cookie:true, status:true, xfbml:true });</script>
+        <fb:login-button>Login with Facebook</fb:login-button>
+        
+        <#if errorMsg!?has_content>
+            <div>
+                ${errorMsg!?html}
+            </div>
+        </#if>
+        
+        <div class="formArea">
+            <h1>メールアドレスでログイン</h1>
+            <form method="post" action="${urlPath!?html}/login/login" name="frm">
+                <div>
+                    <input type="email" name="email" id="email" placeholder="E-Mailアドレスを入力してね" value="${email!?html}">
+                </div>
+                <div>
+                    <input type="password" name="password" id="password" placeholder="パスワードを入力してね" value="">
+                </div>
+            </form>
+        </div>
+        
+        
         <nav>
             <div class="mv20">
                 <div class="textCenter mv10">
-                    <a href="javascript:void(0)" class="btn btnNormal jsTouchActive autoMargin" onclick="btnLogin();">ログイン</a>
+                    <a id="js_loginBtn" href="javascript:void(0)" class="btn btnNormal jsTouchActive autoMargin">ログイン</a>
                 </div>
 
                 <div class="textCenter mv10">
@@ -37,13 +40,18 @@
                 </div>
             </div>
         </nav>
-		
-		
-		<script type="text/javascript">
-			function btnLogin() {
-				document.frm.submit();
-			}
-		</script>
-		
+        
+        
+        <script type="text/javascript">
+            (function(){
+                
+                var loginBtn = ci.qs('#js_loginBtn');
+                
+                ci.bind(loginBtn, 'click', function(){
+                    document.frm.submit();
+                };
+            })();
+        </script>
+        
     </body>
 </html>

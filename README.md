@@ -1,4 +1,4 @@
-coupon
+COUPON ISLAND
 ======
 
-coupon island
+## クーポンアプリです

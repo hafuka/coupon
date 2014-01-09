@@ -47,6 +47,7 @@ public class LoginAction extends BaseAction {
 		IUser iUser = userService.getIUser(iUserAuthentication.userId);
 		loginUserDto.userId = iUser.userId;
 		loginUserDto.name = iUser.name;
+		loginUserDto.point = iUser.point;
 		
 		return "/mypage?redirect=true";
 	}

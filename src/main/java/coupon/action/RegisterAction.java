@@ -46,6 +46,7 @@ public class RegisterAction extends BaseAction {
 		
 		loginUserDto.userId = 1L;
 		loginUserDto.name = name;
+		loginUserDto.point = 0L;
 		
 		return "/mypage?redirect=true";
 	}

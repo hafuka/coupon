@@ -11,6 +11,7 @@ import org.seasar.framework.beans.util.BeanMap;
 
 import coupon.dao.MConfigDao;
 import coupon.dao.MLoginBonusDao;
+import coupon.dto.LoginUserDto;
 import coupon.entity.IUser;
 import coupon.entity.MConfig;
 import coupon.entity.MLoginBonus;
@@ -29,6 +30,9 @@ public class LoginBonusServiceImpl implements LoginBonusService {
 	protected MConfigDao mConfigDao;
 	@Resource
 	protected MLoginBonusDao mLoginBonusDao;
+	
+	@Resource
+	protected LoginUserDto loginUserDto;
 	
 	
 	@Override
@@ -68,13 +72,20 @@ public class LoginBonusServiceImpl implements LoginBonusService {
 		MLoginBonus mLoginBonus = null;
 		
 		if (!CollectionUtils.isEmpty(loginBonusList)) {
+			
+			Timestamp nowDate = CouponDateUtils.getCurrentDate();
+			
 			mLoginBonus = loginBonusList.get(0);
 			
 			IUser iUser = userService.getIUser(userId);
-			Long userPoint = iUser.point == null ? 0L : iUser.point;
+			Long userPoint = iUser.point;
 			userPoint += mLoginBonus.point;
 			iUser.point = userPoint;
+			iUser.loginBonusDatetime = nowDate;
+			iUser.updDatetime = nowDate;
 			userService.updateIUser(iUser);
+			
+			loginUserDto.point = userPoint;
 		}
 		
 		return mLoginBonus;

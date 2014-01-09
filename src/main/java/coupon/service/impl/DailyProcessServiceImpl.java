@@ -18,6 +18,7 @@ public class DailyProcessServiceImpl implements DailyProcessService {
 	public void doDailyProcess(IUser iUser) {
 		Timestamp nowDate = CouponDateUtils.getCurrentDate();
 		iUser.loginDatetime = nowDate;
+		iUser.updDatetime = nowDate;
 		iUserDao.update(iUser);
 	}
 

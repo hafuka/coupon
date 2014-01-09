@@ -44,6 +44,7 @@ public class UserServiceImpl implements UserService {
 		iUser.userId = userId;
 		iUser.email = email;
 		iUser.name = name;
+		iUser.point = 0L;
 		iUser.insDatetime = nowDate;
 		iUser.updDatetime = nowDate;
 		iUserDao.insert(iUser);

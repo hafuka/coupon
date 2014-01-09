@@ -12,7 +12,8 @@
 
         <section>
             ログインボーナス<br>
-            ${loginBonus.point!?html}ポイントGETしました
+            ${loginBonus.point!?html}ポイントGETしました<br>
+            ${loginUserDto.point - loginBonus.point} → ${loginUserDto.point!?html}
         </section>
 
         <#-- リンクナビ -->

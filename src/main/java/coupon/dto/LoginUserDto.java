@@ -12,4 +12,5 @@ import org.seasar.framework.container.annotation.tiger.InstanceType;
 public class LoginUserDto implements Serializable {
 	public Long userId;
 	public String name;
+	public Long point;
 }

@@ -26,7 +26,7 @@ CREATE TABLE I_USER
 	user_id bigint NOT NULL,
 	email varchar(128) NOT NULL,
 	name varchar(128) NOT NULL,
-	point bigint,
+	point bigint DEFAULT 0,
 	login_datetime datetime,
 	login_bonus_datetime datetime,
 	consecutive_days bigint,

@@ -8,7 +8,7 @@ import org.seasar.extension.jdbc.name.PropertyName;
  * {@link IUserAuthentication}のプロパティ名の集合です。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/01/08 19:31:40")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/01/09 12:45:34")
 public class IUserAuthenticationNames {
 
     /**
@@ -18,6 +18,15 @@ public class IUserAuthenticationNames {
      */
     public static PropertyName<Long> userId() {
         return new PropertyName<Long>("userId");
+    }
+
+    /**
+     * emailのプロパティ名を返します。
+     * 
+     * @return emailのプロパティ名
+     */
+    public static PropertyName<String> email() {
+        return new PropertyName<String>("email");
     }
 
     /**
@@ -87,6 +96,15 @@ public class IUserAuthenticationNames {
          */
         public PropertyName<Long> userId() {
             return new PropertyName<Long>(this, "userId");
+        }
+
+        /**
+         * emailのプロパティ名を返します。
+         *
+         * @return emailのプロパティ名
+         */
+        public PropertyName<String> email() {
+            return new PropertyName<String>(this, "email");
         }
 
         /**

@@ -1,6 +1,5 @@
 package coupon.entity;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 import javax.annotation.Generated;
 import org.seasar.extension.jdbc.name.PropertyName;
@@ -9,7 +8,7 @@ import org.seasar.extension.jdbc.name.PropertyName;
  * {@link IUser}のプロパティ名の集合です。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/01/08 19:31:40")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/01/09 12:45:34")
 public class IUserNames {
 
     /**
@@ -22,12 +21,12 @@ public class IUserNames {
     }
 
     /**
-     * mailのプロパティ名を返します。
+     * emailのプロパティ名を返します。
      * 
-     * @return mailのプロパティ名
+     * @return emailのプロパティ名
      */
-    public static PropertyName<String> mail() {
-        return new PropertyName<String>("mail");
+    public static PropertyName<String> email() {
+        return new PropertyName<String>("email");
     }
 
     /**
@@ -44,8 +43,8 @@ public class IUserNames {
      * 
      * @return updDatetimeのプロパティ名
      */
-    public static PropertyName<Date> updDatetime() {
-        return new PropertyName<Date>("updDatetime");
+    public static PropertyName<Timestamp> updDatetime() {
+        return new PropertyName<Timestamp>("updDatetime");
     }
 
     /**
@@ -100,12 +99,12 @@ public class IUserNames {
         }
 
         /**
-         * mailのプロパティ名を返します。
+         * emailのプロパティ名を返します。
          *
-         * @return mailのプロパティ名
+         * @return emailのプロパティ名
          */
-        public PropertyName<String> mail() {
-            return new PropertyName<String>(this, "mail");
+        public PropertyName<String> email() {
+            return new PropertyName<String>(this, "email");
         }
 
         /**
@@ -122,8 +121,8 @@ public class IUserNames {
          *
          * @return updDatetimeのプロパティ名
          */
-        public PropertyName<Date> updDatetime() {
-            return new PropertyName<Date>(this, "updDatetime");
+        public PropertyName<Timestamp> updDatetime() {
+            return new PropertyName<Timestamp>(this, "updDatetime");
         }
 
         /**

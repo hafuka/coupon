@@ -1,0 +1,15 @@
+package coupon.dto;
+
+import java.io.Serializable;
+
+import org.seasar.framework.container.annotation.tiger.Component;
+import org.seasar.framework.container.annotation.tiger.InstanceType;
+
+/**
+ * ログインユーザー情報
+ */
+@Component(instance = InstanceType.SESSION)
+public class LoginUserDto implements Serializable {
+	public Long userId;
+	public String name;
+}

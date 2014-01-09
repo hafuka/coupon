@@ -1,5 +1,11 @@
 SET SESSION FOREIGN_KEY_CHECKS=0;
 
+/* Drop Indexes */
+
+DROP INDEX IDX_EMAIL_PASSWORD ON i_user_authentication;
+
+
+
 /* Drop Tables */
 
 DROP TABLE i_user;
@@ -18,7 +24,7 @@ CREATE TABLE i_user
 	user_id bigint NOT NULL,
 	email varchar(128) NOT NULL,
 	name varchar(128) NOT NULL,
-	upd_datetime date NOT NULL,
+	upd_datetime datetime NOT NULL,
 	ins_datetime datetime NOT NULL,
 	PRIMARY KEY (user_id)
 );
@@ -73,6 +79,12 @@ CREATE TABLE m_shop_coupon
 	limit_days int,
 	PRIMARY KEY (shop_id, coupon_type, coupon_id)
 );
+
+
+
+/* Create Indexes */
+
+CREATE INDEX IDX_EMAIL_PASSWORD USING BTREE ON i_user_authentication (email ASC, password ASC);
 
 
 

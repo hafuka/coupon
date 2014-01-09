@@ -113,7 +113,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2014-01-08 11:50:41</creation_date>
-			<updated_date>2014-01-08 19:30:44</updated_date>
+			<updated_date>2014-01-09 12:42:01</updated_date>
 			<model_property>
 				<name>プロジェクト名</name>
 				<value></value>
@@ -486,7 +486,7 @@
 			<description></description>
 			<logical_name>更新日時</logical_name>
 			<physical_name>upd_datetime</physical_name>
-			<type>date</type>
+			<type>datetime</type>
 		</word>
 		<word>
 			<id>26</id>
@@ -625,7 +625,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>21</word_id>
+					<word_id>22</word_id>
 					<id>1</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -657,7 +657,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>4</word_id>
+					<word_id>5</word_id>
 					<id>2</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -785,7 +785,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>27</word_id>
+					<word_id>26</word_id>
 					<id>6</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -884,7 +884,7 @@
 			<option></option>
 			<columns>
 				<normal_column>
-					<word_id>22</word_id>
+					<word_id>21</word_id>
 					<id>8</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1175,7 +1175,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>5</word_id>
+					<word_id>4</word_id>
 					<id>16</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1498,13 +1498,13 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>25</word_id>
+					<word_id>27</word_id>
 					<id>25</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
 					<logical_name></logical_name>
 					<physical_name></physical_name>
-					<type>date</type>
+					<type>datetime</type>
 					<constraint></constraint>
 					<default_value></default_value>
 					<auto_increment>false</auto_increment>
@@ -1693,7 +1693,7 @@
 					</sequence>
 				</normal_column>
 				<normal_column>
-					<word_id>26</word_id>
+					<word_id>25</word_id>
 					<id>30</id>
 					<description></description>
 					<unique_key_name></unique_key_name>
@@ -1758,6 +1758,23 @@
 				</normal_column>
 			</columns>
 			<indexes>
+				<inidex>
+					<full_text>false</full_text>
+					<non_unique>true</non_unique>
+					<name>IDX_EMAIL_PASSWORD</name>
+					<type>BTREE</type>
+					<description></description>
+					<columns>
+						<column>
+							<id>28</id>
+							<desc>false</desc>
+						</column>
+						<column>
+							<id>29</id>
+							<desc>false</desc>
+						</column>
+					</columns>
+				</inidex>
 			</indexes>
 			<complex_unique_key_list>
 			</complex_unique_key_list>

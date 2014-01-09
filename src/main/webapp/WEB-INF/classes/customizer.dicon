@@ -61,6 +61,28 @@
         <component class="org.seasar.struts.customizer.ActionCustomizer"/>
       </arg>
     </initMethod>
+    <initMethod name="addCustomizer">
+		<arg>
+			<component
+				class="org.seasar.framework.container.customizer.AspectCustomizer">
+				<property name="interceptorName">"loginInterceptor"</property>
+
+				<!-- 処理の対象外ににしたいAction(これ以外が対象になる) -->
+				<initMethod name="addIgnoreClassPattern">
+					<arg>"coupon.action"</arg>
+					<arg>"IndexAction,LoginAction,RegisterAction"</arg>
+				</initMethod>
+
+				<!-- 対象にしたいクラスの設定はこちら -->
+				<!--
+				<initMethod name="addClassPattern">
+					<arg>"sample.action"</arg>
+					<arg>"OtherAction"</arg>
+				</initMethod>
+				-->
+			</component>
+		</arg>
+    </initMethod>
   </component>
   <component name="serviceCustomizer" class="org.seasar.framework.container.customizer.CustomizerChain">
     <initMethod name="addCustomizer">

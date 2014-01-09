@@ -29,7 +29,7 @@
         <nav>
             <div class="mv20">
                 <div class="textCenter mv10">
-                    <a href="javascript:void(0)" class="btn btnNormal jsTouchActive autoMargin" onclick="btnOk();">ログイン</a>
+                    <a href="javascript:void(0)" class="btn btnNormal jsTouchActive autoMargin" onclick="btnLogin();">ログイン</a>
                 </div>
 
                 <div class="textCenter mv10">
@@ -40,10 +40,10 @@
 		
 		
 		<script type="text/javascript">
-		function btnOk() {
-			document.frm.submit();
-		}
-	</script>
+			function btnLogin() {
+				document.frm.submit();
+			}
+		</script>
 		
     </body>
 </html>

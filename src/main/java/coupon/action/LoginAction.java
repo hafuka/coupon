@@ -1,25 +1,47 @@
 package coupon.action;
 
+import javax.annotation.Resource;
+
 import org.seasar.framework.util.StringUtil;
 import org.seasar.struts.annotation.Execute;
 
-public class LoginAction {
+import coupon.entity.IUser;
+import coupon.entity.IUserAuthentication;
+import coupon.service.UserService;
+
+public class LoginAction extends BaseAction {
+	
+	@Resource
+	protected UserService userService;
 	
 	public String email;
 	public String password;
 	public String errorMsg;
 
 	@Execute(validator = false)
-	public String index() {
+	public String index() throws Exception {
 		return "/login/login.ftl";
 	}
 
 	@Execute(validator = false)
-	public String login() {
+	public String login() throws Exception {
 		
+		// 入力チェック
 		if (!this.checkInput()) {
 			return "/login/login.ftl";
 		}
+		
+		// ログインチェック
+		if (!userService.checkLogin(email, password)) {
+			errorMsg = "emailまたはパスワードが間違っています";
+			return "/login/login.ftl";
+		}
+		
+		IUserAuthentication iUserAuthentication = userService.getIUserAuth(email, password);
+		IUser iUser = userService.getIUser(iUserAuthentication.userId);
+		loginUserDto.userId = iUser.userId;
+		loginUserDto.name = iUser.name;
+		
 		return "/mypage?redirect=true";
 	}
 	

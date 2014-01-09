@@ -12,7 +12,7 @@ import javax.persistence.Id;
  * 
  */
 @Entity
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.EntityModelFactoryImpl"}, date = "2014/01/08 13:38:18")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.EntityModelFactoryImpl"}, date = "2014/01/09 12:44:56")
 public class IUserAuthentication implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -21,6 +21,10 @@ public class IUserAuthentication implements Serializable {
     @Id
     @Column(precision = 19, nullable = false, unique = true)
     public Long userId;
+
+    /** emailプロパティ */
+    @Column(length = 128, nullable = false, unique = false)
+    public String email;
 
     /** passwordプロパティ */
     @Column(length = 128, nullable = false, unique = false)

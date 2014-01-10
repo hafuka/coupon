@@ -11,6 +11,9 @@ DROP INDEX IDX_EMAIL_PASSWORD ON I_USER_AUTHENTICATION;
 DROP TABLE I_USER;
 DROP TABLE I_USER_AUTHENTICATION;
 DROP TABLE I_USER_COUPON;
+DROP TABLE M_AREA;
+DROP TABLE M_AREA_DETAIL;
+DROP TABLE M_BUSINESS;
 DROP TABLE M_CONFIG;
 DROP TABLE M_LOGIN_BONUS;
 DROP TABLE M_SHOP;
@@ -61,6 +64,31 @@ CREATE TABLE I_USER_COUPON
 );
 
 
+CREATE TABLE M_AREA
+(
+	area_id int NOT NULL,
+	area_name varchar(16) NOT NULL,
+	PRIMARY KEY (area_id)
+);
+
+
+CREATE TABLE M_AREA_DETAIL
+(
+	area_id int NOT NULL,
+	area_detail_id int NOT NULL,
+	detail_name varchar(128) NOT NULL,
+	PRIMARY KEY (area_id, area_detail_id)
+);
+
+
+CREATE TABLE M_BUSINESS
+(
+	business_id int NOT NULL,
+	name varchar(128) NOT NULL,
+	PRIMARY KEY (business_id)
+);
+
+
 CREATE TABLE M_CONFIG
 (
 	name varchar(128) NOT NULL,
@@ -73,23 +101,26 @@ CREATE TABLE M_CONFIG
 
 CREATE TABLE M_LOGIN_BONUS
 (
-	bonus_id int NOT NULL,
 	bonus_type int NOT NULL,
 	point int NOT NULL,
 	consecutive_days int NOT NULL,
-	PRIMARY KEY (bonus_id)
+	PRIMARY KEY (bonus_type)
 );
 
 
 CREATE TABLE M_SHOP
 (
 	shop_id int NOT NULL,
-	shop_category int NOT NULL,
+	business_id int NOT NULL,
 	shop_name varchar(255) NOT NULL,
 	description varchar(255),
 	url varchar(255),
 	tell varchar(16),
 	map_url varchar(255),
+	area_id int NOT NULL,
+	area_detail_id int NOT NULL,
+	station varchar(32) NOT NULL,
+	premium_flg boolean,
 	PRIMARY KEY (shop_id)
 );
 

@@ -7,7 +7,7 @@ import org.seasar.extension.jdbc.name.PropertyName;
  * {@link MShopCoupon}のプロパティ名の集合です。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/01/09 18:10:19")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/01/10 13:47:12")
 public class MShopCouponNames {
 
     /**

@@ -11,18 +11,14 @@ import javax.persistence.Id;
  * 
  */
 @Entity
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.EntityModelFactoryImpl"}, date = "2014/01/09 16:45:50")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.EntityModelFactoryImpl"}, date = "2014/01/10 11:43:56")
 public class MLoginBonus implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /** bonusIdプロパティ */
+    /** bonusTypeプロパティ */
     @Id
     @Column(precision = 10, nullable = false, unique = true)
-    public Integer bonusId;
-
-    /** bonusTypeプロパティ */
-    @Column(precision = 10, nullable = false, unique = false)
     public Integer bonusType;
 
     /** pointプロパティ */

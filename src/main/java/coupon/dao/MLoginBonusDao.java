@@ -11,18 +11,18 @@ import static org.seasar.extension.jdbc.operation.Operations.*;
  * {@link MLoginBonus}のサービスクラスです。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.ServiceModelFactoryImpl"}, date = "2014/01/09 16:45:58")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.ServiceModelFactoryImpl"}, date = "2014/01/10 11:44:05")
 public class MLoginBonusDao extends AbstractDao<MLoginBonus> {
 
     /**
      * 識別子でエンティティを検索します。
      * 
-     * @param bonusId
+     * @param bonusType
      *            識別子
      * @return エンティティ
      */
-    public MLoginBonus findById(Integer bonusId) {
-        return select().id(bonusId).getSingleResult();
+    public MLoginBonus findById(Integer bonusType) {
+        return select().id(bonusType).getSingleResult();
     }
 
     /**
@@ -31,6 +31,6 @@ public class MLoginBonusDao extends AbstractDao<MLoginBonus> {
      * @return エンティティのリスト
      */
     public List<MLoginBonus> findAllOrderById() {
-        return select().orderBy(asc(bonusId())).getResultList();
+        return select().orderBy(asc(bonusType())).getResultList();
     }
 }

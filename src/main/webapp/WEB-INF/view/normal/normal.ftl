@@ -33,19 +33,28 @@
                     <div class="pv5">
                         地域：
                         <SELECT name="area" class="selectZone vTop">
-                            <OPTION value="ginza">銀座</OPTION>
-                            <OPTION value="shibuya">渋谷</OPTION>
-                            <OPTION value="shinjyuku">新宿</OPTION>
-                            <OPTION value="yokohama">横浜</OPTION>
+                        	<OPTION value=""><地域を選択してください></OPTION>
+                        	<#list areaList as area>
+                        		<OPTION value="${area.value!?html}">${area.label!?html}</OPTION>
+                        	</#list>
+                        </SELECT>
+                    </div>
+                    <div class="pv5">
+                        エリア：
+                        <SELECT name="areaDetail" class="selectZone vTop">
+                        	<OPTION value=""><エリアを選択してください></OPTION>
+                        	<#list areaDetailList as areaDetail>
+                        		<OPTION value="${areaDetail.value!?html}">${areaDetail.label!?html}</OPTION>
+                        	</#list>
                         </SELECT>
                     </div>
                     <div class="pv5">
                         業種：
                         <SELECT name="business" class="selectZone vTop">
-                            <OPTION value="food">飲食店</OPTION>
-                            <OPTION value="hair">美容院</OPTION>
-                            <OPTION value="club">キャバクラ</OPTION>
-                            <OPTION value="fashion">ファッション系</OPTION>
+                        	<OPTION value=""><業種を選択してください></OPTION>
+                        	<#list businessList as business>
+                        		<OPTION value="${business.value!?html}">${business.label!?html}</OPTION>
+                        	</#list>
                         </SELECT>
                     </div>
                 </div>
@@ -64,6 +73,30 @@
         <#-- クーポンリスト -->
         <section>
             <ul class="couponList borderTopGreen">
+            	
+            	<#if shopList!?has_content>
+            	
+            		<#list shopList as shop>
+            		<li>
+            			<a href="${urlPath}/detail">
+	                        <div class="table">
+	                            <div class="cell pr10">
+	                                <img src="${imagePath}/images/storeThumnail.jpg" width="85" height="85" class="borderGray">
+	                            </div>
+	                            <div class="cell vTop pr20">
+	                                <p class="fcBlue underline">${shop.shopName!?html}</p>
+	                                <p class="fs13">業種：飲食店</p>
+	                                <p class="fs13">${shop.station!?html}</p>
+	                                <p class="bgRound">お会計：50%OFF!!</p>
+	                                <p class="fcRed fs13">有効期限：2014年1月31日</p>
+	                            </div>
+	                        </div>
+	                    </a>
+	                </li>
+            		</#list>
+            	</#if>
+            	
+            	<!--
                 <li>
                     <a href="${urlPath}/detail">
                         <div class="table">
@@ -96,6 +129,8 @@
                         </div>
                     </a>
                 </li>
+                
+                -->
             </ul>
         </section>
 

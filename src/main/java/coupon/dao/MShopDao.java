@@ -11,7 +11,7 @@ import static org.seasar.extension.jdbc.operation.Operations.*;
  * {@link MShop}のサービスクラスです。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.ServiceModelFactoryImpl"}, date = "2014/01/08 13:48:25")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.ServiceModelFactoryImpl"}, date = "2014/01/10 12:58:12")
 public class MShopDao extends AbstractDao<MShop> {
 
     /**

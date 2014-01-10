@@ -36,7 +36,7 @@
             <div class="mypageBtnArea mtMinus70 autoMargin">
                 <div class="table autoMargin mv5">
                     <div class="cell pr20">
-                        <a href="${urlPath}/coupon" class="btnSquere relative zIndex20 pt25">
+                        <a href="${urlPath}/normal" class="btnSquere relative zIndex20 pt25">
                             今日ドコ行く？
                             <#--<img src="${imagePath}/images/mypage/main_btn_doko.png" width="115" height="80" class="vTop"> -->
                         </a>

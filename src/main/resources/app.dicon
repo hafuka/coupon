@@ -7,4 +7,10 @@
   <include path="j2ee.dicon"/>
   <include path="s2jdbc.dicon"/>
   <component name="actionMessagesThrowsInterceptor" class="org.seasar.struts.interceptor.ActionMessagesThrowsInterceptor"/>
+  
+  <!-- tomcat起動後の初期処理 -->
+  <component name="initService" class="coupon.service.impl.InitServiceImpl">
+    <initMethod name="init">
+    </initMethod>
+  </component>
 </components>

@@ -7,7 +7,7 @@ import org.seasar.extension.jdbc.name.PropertyName;
  * {@link MShop}のプロパティ名の集合です。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/01/09 18:10:19")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/01/10 13:47:12")
 public class MShopNames {
 
     /**
@@ -20,12 +20,12 @@ public class MShopNames {
     }
 
     /**
-     * shopCategoryのプロパティ名を返します。
+     * businessIdのプロパティ名を返します。
      * 
-     * @return shopCategoryのプロパティ名
+     * @return businessIdのプロパティ名
      */
-    public static PropertyName<Integer> shopCategory() {
-        return new PropertyName<Integer>("shopCategory");
+    public static PropertyName<Integer> businessId() {
+        return new PropertyName<Integer>("businessId");
     }
 
     /**
@@ -74,6 +74,42 @@ public class MShopNames {
     }
 
     /**
+     * areaIdのプロパティ名を返します。
+     * 
+     * @return areaIdのプロパティ名
+     */
+    public static PropertyName<Integer> areaId() {
+        return new PropertyName<Integer>("areaId");
+    }
+
+    /**
+     * areaDetailIdのプロパティ名を返します。
+     * 
+     * @return areaDetailIdのプロパティ名
+     */
+    public static PropertyName<Integer> areaDetailId() {
+        return new PropertyName<Integer>("areaDetailId");
+    }
+
+    /**
+     * stationのプロパティ名を返します。
+     * 
+     * @return stationのプロパティ名
+     */
+    public static PropertyName<String> station() {
+        return new PropertyName<String>("station");
+    }
+
+    /**
+     * premiumFlgのプロパティ名を返します。
+     * 
+     * @return premiumFlgのプロパティ名
+     */
+    public static PropertyName<Boolean> premiumFlg() {
+        return new PropertyName<Boolean>("premiumFlg");
+    }
+
+    /**
      * @author S2JDBC-Gen
      */
     public static class _MShopNames extends PropertyName<MShop> {
@@ -116,12 +152,12 @@ public class MShopNames {
         }
 
         /**
-         * shopCategoryのプロパティ名を返します。
+         * businessIdのプロパティ名を返します。
          *
-         * @return shopCategoryのプロパティ名
+         * @return businessIdのプロパティ名
          */
-        public PropertyName<Integer> shopCategory() {
-            return new PropertyName<Integer>(this, "shopCategory");
+        public PropertyName<Integer> businessId() {
+            return new PropertyName<Integer>(this, "businessId");
         }
 
         /**
@@ -167,6 +203,42 @@ public class MShopNames {
          */
         public PropertyName<String> mapUrl() {
             return new PropertyName<String>(this, "mapUrl");
+        }
+
+        /**
+         * areaIdのプロパティ名を返します。
+         *
+         * @return areaIdのプロパティ名
+         */
+        public PropertyName<Integer> areaId() {
+            return new PropertyName<Integer>(this, "areaId");
+        }
+
+        /**
+         * areaDetailIdのプロパティ名を返します。
+         *
+         * @return areaDetailIdのプロパティ名
+         */
+        public PropertyName<Integer> areaDetailId() {
+            return new PropertyName<Integer>(this, "areaDetailId");
+        }
+
+        /**
+         * stationのプロパティ名を返します。
+         *
+         * @return stationのプロパティ名
+         */
+        public PropertyName<String> station() {
+            return new PropertyName<String>(this, "station");
+        }
+
+        /**
+         * premiumFlgのプロパティ名を返します。
+         *
+         * @return premiumFlgのプロパティ名
+         */
+        public PropertyName<Boolean> premiumFlg() {
+            return new PropertyName<Boolean>(this, "premiumFlg");
         }
     }
 }

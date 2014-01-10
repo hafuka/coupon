@@ -7,17 +7,8 @@ import org.seasar.extension.jdbc.name.PropertyName;
  * {@link MLoginBonus}のプロパティ名の集合です。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/01/09 18:10:19")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/01/10 13:47:12")
 public class MLoginBonusNames {
-
-    /**
-     * bonusIdのプロパティ名を返します。
-     * 
-     * @return bonusIdのプロパティ名
-     */
-    public static PropertyName<Integer> bonusId() {
-        return new PropertyName<Integer>("bonusId");
-    }
 
     /**
      * bonusTypeのプロパティ名を返します。
@@ -77,15 +68,6 @@ public class MLoginBonusNames {
          */
         public _MLoginBonusNames(final PropertyName<?> parent, final String name) {
             super(parent, name);
-        }
-
-        /**
-         * bonusIdのプロパティ名を返します。
-         *
-         * @return bonusIdのプロパティ名
-         */
-        public PropertyName<Integer> bonusId() {
-            return new PropertyName<Integer>(this, "bonusId");
         }
 
         /**

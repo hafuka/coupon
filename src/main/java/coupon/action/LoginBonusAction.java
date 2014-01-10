@@ -24,7 +24,7 @@ public class LoginBonusAction extends BaseAction {
 		// ログインボーナス付与処理
 		loginBonus = loginBonusService.sendLoginBonus(loginUserDto.userId);
 		if (loginBonus == null) {
-			return "/error.ftl";
+			return "/mypage?redirect=true";
 		}
 		
 		return "/mypage/login-bonus.ftl";

@@ -3,6 +3,9 @@ package coupon.entity;
 import coupon.entity.IUserAuthenticationNames._IUserAuthenticationNames;
 import coupon.entity.IUserCouponNames._IUserCouponNames;
 import coupon.entity.IUserNames._IUserNames;
+import coupon.entity.MAreaDetailNames._MAreaDetailNames;
+import coupon.entity.MAreaNames._MAreaNames;
+import coupon.entity.MBusinessNames._MBusinessNames;
 import coupon.entity.MConfigNames._MConfigNames;
 import coupon.entity.MLoginBonusNames._MLoginBonusNames;
 import coupon.entity.MShopCouponNames._MShopCouponNames;
@@ -13,7 +16,7 @@ import javax.annotation.Generated;
  * 名前クラスの集約です。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesAggregateModelFactoryImpl"}, date = "2014/01/09 18:10:19")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesAggregateModelFactoryImpl"}, date = "2014/01/10 13:47:12")
 public class Names {
 
     /**
@@ -41,6 +44,33 @@ public class Names {
      */
     public static _IUserCouponNames iUserCoupon() {
         return new _IUserCouponNames();
+    }
+
+    /**
+     * {@link MArea}の名前クラスを返します。
+     * 
+     * @return MAreaの名前クラス
+     */
+    public static _MAreaNames mArea() {
+        return new _MAreaNames();
+    }
+
+    /**
+     * {@link MAreaDetail}の名前クラスを返します。
+     * 
+     * @return MAreaDetailの名前クラス
+     */
+    public static _MAreaDetailNames mAreaDetail() {
+        return new _MAreaDetailNames();
+    }
+
+    /**
+     * {@link MBusiness}の名前クラスを返します。
+     * 
+     * @return MBusinessの名前クラス
+     */
+    public static _MBusinessNames mBusiness() {
+        return new _MBusinessNames();
     }
 
     /**

@@ -1,13 +1,10 @@
 package coupon.service.impl;
 
 import java.sql.Timestamp;
-import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
-import org.seasar.framework.beans.util.BeanMap;
 
 import coupon.dao.MConfigDao;
 import coupon.dao.MLoginBonusDao;
@@ -15,7 +12,6 @@ import coupon.dto.LoginUserDto;
 import coupon.entity.IUser;
 import coupon.entity.MConfig;
 import coupon.entity.MLoginBonus;
-import coupon.entity.MLoginBonusNames;
 import coupon.enums.LoginBonusType;
 import coupon.enums.MConfigName;
 import coupon.service.LoginBonusService;
@@ -37,6 +33,11 @@ public class LoginBonusServiceImpl implements LoginBonusService {
 	
 	@Override
 	public boolean isLoginBonus(Long userId) {
+		
+		MLoginBonus mLoginBonus = this.getLoginBonus(LoginBonusType.BASIC);
+		if (mLoginBonus == null) {
+			return false;
+		}
 		
 		IUser iUser = userService.getIUser(userId);
 		
@@ -65,17 +66,12 @@ public class LoginBonusServiceImpl implements LoginBonusService {
 
 	@Override
 	public MLoginBonus sendLoginBonus(Long userId) {
-		BeanMap conditions = new BeanMap();
-		conditions.put(MLoginBonusNames.bonusType().toString(), LoginBonusType.BASIC.getKey());
-		List<MLoginBonus> loginBonusList = mLoginBonusDao.findByCondition(conditions);
 		
-		MLoginBonus mLoginBonus = null;
+		MLoginBonus mLoginBonus = this.getLoginBonus(LoginBonusType.BASIC);
 		
-		if (!CollectionUtils.isEmpty(loginBonusList)) {
+		if (mLoginBonus != null) {
 			
 			Timestamp nowDate = CouponDateUtils.getCurrentDate();
-			
-			mLoginBonus = loginBonusList.get(0);
 			
 			IUser iUser = userService.getIUser(userId);
 			Long userPoint = iUser.point;
@@ -90,5 +86,9 @@ public class LoginBonusServiceImpl implements LoginBonusService {
 		
 		return mLoginBonus;
 	}
-
+	
+	
+	private MLoginBonus getLoginBonus(LoginBonusType type) {
+		return mLoginBonusDao.findById(type.getKey());
+	}
 }

@@ -5,7 +5,7 @@
         <#include "/common/htmlHead.ftl">
     </head>
     
-    <body class="outline">
+    <body class="outline formContents">
         <script src="http://connect.facebook.net/en_US/all.js"></script>
         <script>FB.init({ appId:'343136175832911', cookie:true, status:true, xfbml:true });</script>
         <fb:login-button>Login with Facebook</fb:login-button>
@@ -16,7 +16,7 @@
             </div>
         </#if>
         
-        <div class="formArea">
+        <div class="formArea autoMargin m10">
             <h1>メールアドレスでログイン</h1>
             <form method="post" action="${urlPath!?html}/login/login" name="frm">
                 <div>
@@ -41,15 +41,17 @@
             </div>
         </nav>
         
+        <#-- 共通JavaScriptのインクルード -->
+        <#include "/common/htmlFoot.ftl">
         
-        <script type="text/javascript">
+        <script>
             (function(){
                 
                 var loginBtn = ci.qs('#js_loginBtn');
                 
                 ci.bind(loginBtn, 'click', function(){
                     document.frm.submit();
-                };
+                });
             })();
         </script>
         

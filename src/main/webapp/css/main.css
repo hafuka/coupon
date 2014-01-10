@@ -226,6 +226,10 @@ input[type="text"] {
     background: #ff6;
 }
 
+.outline.formContents {
+    background: #eee;
+}
+
 .outline.secondContents {
     background: #ffff9b;
     padding: 60px 0;
@@ -531,6 +535,19 @@ footer .menuList {
 
 .couponList li:nth-child(2){
     background-color: #ffffcc;
+}
+
+/* ログイン */
+.formArea {
+    background: #fff;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.formArea h1 {
+    font-size: 16px;
+    background: #ccc;
+    padding: 2px;
 }
 
 /* TOP */

@@ -33,6 +33,7 @@ CREATE TABLE I_USER
 	login_datetime datetime,
 	login_bonus_datetime datetime,
 	consecutive_days bigint,
+	normal_roulette_datetime datetime,
 	upd_datetime datetime NOT NULL,
 	ins_datetime datetime NOT NULL,
 	PRIMARY KEY (user_id)
@@ -120,7 +121,7 @@ CREATE TABLE M_SHOP
 	area_id int NOT NULL,
 	area_detail_id int NOT NULL,
 	station varchar(32) NOT NULL,
-	premium_flg boolean,
+	premium_flg int DEFAULT 0 NOT NULL,
 	PRIMARY KEY (shop_id)
 );
 

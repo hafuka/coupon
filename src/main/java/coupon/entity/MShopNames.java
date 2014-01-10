@@ -7,7 +7,7 @@ import org.seasar.extension.jdbc.name.PropertyName;
  * {@link MShop}のプロパティ名の集合です。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/01/10 13:47:12")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/01/10 18:41:12")
 public class MShopNames {
 
     /**
@@ -105,8 +105,8 @@ public class MShopNames {
      * 
      * @return premiumFlgのプロパティ名
      */
-    public static PropertyName<Boolean> premiumFlg() {
-        return new PropertyName<Boolean>("premiumFlg");
+    public static PropertyName<Integer> premiumFlg() {
+        return new PropertyName<Integer>("premiumFlg");
     }
 
     /**
@@ -237,8 +237,8 @@ public class MShopNames {
          *
          * @return premiumFlgのプロパティ名
          */
-        public PropertyName<Boolean> premiumFlg() {
-            return new PropertyName<Boolean>(this, "premiumFlg");
+        public PropertyName<Integer> premiumFlg() {
+            return new PropertyName<Integer>(this, "premiumFlg");
         }
     }
 }

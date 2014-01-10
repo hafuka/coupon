@@ -44,7 +44,16 @@ public class LoginAction extends BaseAction {
 		}
 		
 		IUserAuthentication iUserAuthentication = userService.getIUserAuth(email, password);
+		if (iUserAuthentication == null) {
+			errorMsg = "アカウント情報が存在しません。新規登録してください";
+			return "/login/login.ftl";
+		}
 		IUser iUser = userService.getIUser(iUserAuthentication.userId);
+		if (iUser == null) {
+			errorMsg = "アカウント情報が存在しません。新規登録してください";
+			return "/login/login.ftl";
+		}
+		
 		loginUserDto.userId = iUser.userId;
 		loginUserDto.name = iUser.name;
 		loginUserDto.point = iUser.point;

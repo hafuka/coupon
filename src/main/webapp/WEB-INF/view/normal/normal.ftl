@@ -59,13 +59,17 @@
                     </div>
                 </div>
                 <div class="cell vMiddle pl10">
-                    <a class="btnCircle">検索</a>
+                    <a class="btnCircle" onclick="ajaxTest();">検索</a>
                 </div>
             </div>
 
             <div class="mv20">
                 <div class="textCenter mv10">
-                    <a href="" class="btn btnPrimary jsTouchActive autoMargin">ドコ行く？</a>
+                	
+                	<#if rouletteFlg>
+                		<a href="${urlPath}/rouletteAnimation?token=${token!?html}" class="btn btnPrimary jsTouchActive autoMargin">ドコ行く？</a>
+                	</#if>
+                    
                 </div>
             </div>
         </section>
@@ -151,7 +155,42 @@
 
         <#-- 共通JavaScriptのインクルード -->
         <#include "/common/htmlFoot.ftl">
-
+		
+		<!-- ↓↓↓↓↓↓↓ ajax呼び出し確認用 マサ後でつくりかえて ↓↓↓↓↓↓ -->
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+		<script type="text/javascript">
+			
+			// ajax成功時：個人検索	
+			function searchSuccess(data){
+				if (data != '') {
+		        	console.log(data);
+		        }
+		    }
+		    
+		    
+		    function ajaxTest() {
+		    	var url = "${urlPath}/normal/search";
+		    	var formData = "areaId=" + 14;
+     			ajax(url, formData, searchSuccess);
+		    }
+			
+			
+			function ajax(url, data, onSuccess){
+				$.ajax({
+			        type: "POST",
+			        url: url,
+			        cache: false,
+			        data: data,
+			        dataType: 'json',
+			        success: function (data, status, xhr) {
+			        	onSuccess(data);
+			        },
+			        error: function(msg){
+			        	console.log('通信にエラーが発生しました。しばらくしてから再度お試しください。');
+			        }
+			    });
+			};
+		</script>
     </body>
 
 </html>

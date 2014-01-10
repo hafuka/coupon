@@ -1,6 +1,7 @@
 package coupon.service.impl;
 
 import java.sql.Timestamp;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -9,10 +10,13 @@ import org.apache.commons.collections.CollectionUtils;
 import org.seasar.framework.beans.util.BeanMap;
 
 import coupon.dao.IUserAuthenticationDao;
+import coupon.dao.IUserCouponDao;
 import coupon.dao.IUserDao;
 import coupon.entity.IUser;
 import coupon.entity.IUserAuthentication;
 import coupon.entity.IUserAuthenticationNames;
+import coupon.entity.IUserCoupon;
+import coupon.entity.MShopCoupon;
 import coupon.service.UserService;
 import coupon.util.CouponDateUtils;
 import coupon.util.CryptUtils;
@@ -23,6 +27,8 @@ public class UserServiceImpl implements UserService {
 	protected IUserDao iUserDao;
 	@Resource
 	protected IUserAuthenticationDao iUserAuthenticationDao;
+	@Resource
+	protected IUserCouponDao iUserCouponDao;
 	
 	@Override
 	public boolean checkLogin(String email, String password) throws Exception {
@@ -86,4 +92,32 @@ public class UserServiceImpl implements UserService {
 		iUserDao.update(iUser);
 	}
 
+	@Override
+	public IUserCoupon getIUserCoupon(Long userId, MShopCoupon mShopCoupon) {
+		return iUserCouponDao.findById(userId, mShopCoupon.shopId, mShopCoupon.couponId, mShopCoupon.couponType);
+	}
+
+	@Override
+	public void insertIUserCoupon(Long userId, MShopCoupon mShopCoupon) {
+		
+		Timestamp nowDate = CouponDateUtils.getCurrentDate();
+		
+		IUserCoupon record = new IUserCoupon();
+		record.userId = userId;
+		record.shopId = mShopCoupon.shopId;
+		record.couponId = mShopCoupon.couponId;
+		record.couponType = mShopCoupon.couponType;
+		record.couponCount = 1;
+		record.limitDatetime = CouponDateUtils.add(nowDate, mShopCoupon.limitDays, Calendar.DATE);
+		
+		record.updDatetime = nowDate;
+		record.insDatetime = nowDate;
+		
+		iUserCouponDao.insert(record);
+	}
+
+	@Override
+	public void updateIUserCoupon(IUserCoupon iUserCoupon) {
+		iUserCouponDao.update(iUserCoupon);
+	}
 }

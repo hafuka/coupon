@@ -11,7 +11,7 @@ import static org.seasar.extension.jdbc.operation.Operations.*;
  * {@link IUser}のサービスクラスです。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.ServiceModelFactoryImpl"}, date = "2014/01/09 17:20:04")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.ServiceModelFactoryImpl"}, date = "2014/01/10 16:03:44")
 public class IUserDao extends AbstractDao<IUser> {
 
     /**

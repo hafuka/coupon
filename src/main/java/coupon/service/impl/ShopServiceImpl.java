@@ -6,28 +6,21 @@ import javax.annotation.Resource;
 
 import org.seasar.framework.beans.util.BeanMap;
 
+import coupon.dao.MShopCouponDao;
 import coupon.dao.MShopDao;
 import coupon.entity.MShop;
+import coupon.entity.MShopCoupon;
+import coupon.entity.MShopCouponNames;
 import coupon.entity.MShopNames;
+import coupon.enums.CouponType;
 import coupon.service.ShopService;
 
 public class ShopServiceImpl implements ShopService {
 
 	@Resource
 	protected MShopDao mShopDao;
-	
-	@Override
-	public List<MShop> getMShops(boolean premiumFlg) {
-		if (premiumFlg) {
-			BeanMap conditions = new BeanMap();
-			conditions.put(MShopNames.premiumFlg().toString(), true);
-			return mShopDao.findByCondition(conditions);
-		} else {
-			BeanMap conditions = new BeanMap();
-			conditions.put(MShopNames.premiumFlg().toString(), null);
-			return mShopDao.findByCondition(conditions);
-		}
-	}
+	@Resource
+	protected MShopCouponDao mShopCouponDao;
 
 	@Override
 	public List<MShop> getMShops(Integer areaId, Integer areaDetailId, boolean premiumFlg) {
@@ -35,15 +28,29 @@ public class ShopServiceImpl implements ShopService {
 			BeanMap conditions = new BeanMap();
 			conditions.put(MShopNames.areaId().toString(), areaId);
 			conditions.put(MShopNames.areaDetailId().toString(), areaDetailId);
-			conditions.put(MShopNames.premiumFlg().toString(), true);
+			conditions.put(MShopNames.premiumFlg().toString(), CouponType.PREMIUM.getKey());
 			return mShopDao.findByCondition(conditions);
 		} else {
 			BeanMap conditions = new BeanMap();
 			conditions.put(MShopNames.areaId().toString(), areaId);
 			conditions.put(MShopNames.areaDetailId().toString(), areaDetailId);
-			conditions.put(MShopNames.premiumFlg().toString(), null);
+//			conditions.put(MShopNames.premiumFlg().toString(), CouponType.NORMAL.getKey());
 			return mShopDao.findByCondition(conditions);
 		}
+	}
+
+	@Override
+	public List<MShopCoupon> getMShopCoupons(Integer shopId, boolean premiumFlg) {
+		
+		CouponType couponType = CouponType.NORMAL;
+		if (premiumFlg) {
+			couponType = CouponType.PREMIUM;
+		}
+		
+		BeanMap conditions = new BeanMap();
+		conditions.put(MShopCouponNames.shopId().toString(), shopId);
+		conditions.put(MShopCouponNames.couponType().toString(), couponType.getKey());
+		return mShopCouponDao.findByCondition(conditions);
 	}
 
 }

@@ -1,8 +1,8 @@
 package coupon.action;
 
-import java.util.HashMap;
+import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -11,14 +11,17 @@ import org.seasar.struts.annotation.Execute;
 
 import coupon.entity.MShop;
 import coupon.service.PullDownService;
+import coupon.service.RouletteService;
 import coupon.service.ShopService;
 
 public class NormalAction extends BaseAction {
 	
 	@Resource
 	protected PullDownService pullDownService;
+	@Resource
+	protected RouletteService rouletteService;
 	
-	public Integer area;
+	public Integer areaId;
 	public Integer areaDetailId;
 	
 	public List<MShop> shopList;
@@ -26,6 +29,7 @@ public class NormalAction extends BaseAction {
 	public List<LabelValueBean> areaList;
 	public List<LabelValueBean> areaDetailList;
 	public List<LabelValueBean> businessList;
+	public boolean rouletteFlg;
 
 	/**
 	 * 初期表示
@@ -35,18 +39,28 @@ public class NormalAction extends BaseAction {
 	
 	@Execute(validator = false)
 	public String index() {
-		shopList = shopService.getMShops(false);
+		shopList = shopService.getMShops(null, null, false);
+		Collections.shuffle(shopList);
 		areaList = pullDownService.getAreaList();
 		areaDetailList = pullDownService.getAreaDetailList(14);
 		businessList = pullDownService.getBusinessList();
+		
+		rouletteFlg = rouletteService.checkDailyRoulette(loginUserDto.userId);
+		
+		super.getFormToken();
+		
         return "/normal/normal.ftl";
 	}
 	
-	
-	@Execute(validator=false)
-	public Map<String, Object> search() {
-		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("test", "test");
-		return map;
+	/**
+	 * 検索処理(ajax)
+	 * @return
+	 * @throws IOException
+	 */
+	@Execute(validator = false)
+	public String search() throws IOException {
+		shopList = shopService.getMShops(areaId, areaDetailId, false);
+        super.setJsonData(shopList);
+		return null;
 	}
 }

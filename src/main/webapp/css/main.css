@@ -232,12 +232,12 @@ input[type="text"] {
 
 .outline.secondContents {
     background: #ffff9b;
-    padding: 60px 0;
+    padding: 0 0 40px 0;
 }
 
 .outline.mypageContents {
     background: #ffff9b;
-    padding: 60px 0 60px 0;
+    padding: 0 0 40px 0;
 }
 
 .headline {
@@ -439,8 +439,7 @@ input[type="text"] {
 
 /* ヘッダー */
 header {
-    position: fixed;
-    top: 0;
+    position: relative;
     width: 100%;
     z-index: 100;
 }
@@ -600,6 +599,11 @@ footer .menuList {
     position: absolute;
     top: 5px;
     right: 5px;
+}
+
+.mypageBtnArea {
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
 }
 
 /* detail */

@@ -22,7 +22,7 @@
                 <div class="autoMargin w320">
                     <div class="underballoon mh10">
                         <p>1回プレミアムクーポンがひけるよ♪</p>
-                        <p class="pointArea">現在のポイント：13pt</p>
+                        <p class="pointArea">現在のポイント：${loginUserDto.point!?html}pt</p>
                     </div>
                 </div>
                 <div class="mtMinus30">

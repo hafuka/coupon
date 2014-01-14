@@ -8,7 +8,6 @@
     <body class="outline formContents">
         <script src="http://connect.facebook.net/en_US/all.js"></script>
         <script>FB.init({ appId:'343136175832911', cookie:true, status:true, xfbml:true });</script>
-        <fb:login-button>Login with Facebook</fb:login-button>
         
         <#if errorMsg!?has_content>
             <div>
@@ -18,12 +17,21 @@
         
         <section>
             <div class="formArea autoMargin m10">
+                <h1>Facebookでかんたんログイン</h1>
+                <div class="mt5 autoMargin">
+                    <fb:login-button>Login with Facebook</fb:login-button>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <div class="formArea autoMargin m10">
                 <h1>メールアドレスでログイン</h1>
                 <form method="post" action="${urlPath!?html}/login/login" name="frm">
-                    <div>
-                        <input type="email" name="email" id="email" placeholder="E-Mailアドレスを入力してね" value="${email!?html}">
+                    <div class="mt5">
+                        <input type="email" name="email" id="email" placeholder="メールアドレスを入力してね" value="${email!?html}">
                     </div>
-                    <div>
+                    <div class="mt5">
                         <input type="password" name="password" id="password" placeholder="パスワードを入力してね" value="">
                     </div>
                 </form>

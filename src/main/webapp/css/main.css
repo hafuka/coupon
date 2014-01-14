@@ -47,12 +47,15 @@ tr, th, td {
     padding: 2px;
 }
 
-input[type="text"] {
-    font-size: 20px;
-    line-height: 22px;
-    border-radius: 10px;
+input[type="text"], input[type="email"], input[type="password"] {
+    font-size: 16px;
+    line-height: 20px;
+    border-radius: 5px;
     padding:5px;
-    border: solid 2px #333;
+    border: solid 1px #bbb;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 /* その他汎用スタイル */
@@ -228,6 +231,7 @@ input[type="text"] {
 
 .outline.formContents {
     background: #eee;
+    padding-top: 10px;
 }
 
 .outline.secondContents {
@@ -364,6 +368,51 @@ input[type="text"] {
     -webkit-box-shadow: 2px 2px 1px #fff inset, -2px -2px 1px #fff inset, 2px -2px 1px #fff inset, -2px 2px 1px #fff inset;
     box-shadow: 2px 2px 1px #fff inset, -2px -2px 1px #fff inset, 2px -2px 1px #fff inset, -2px 2px 1px #fff inset;
     text-shadow: 1px 1px 1px #ccc;
+}
+
+.blinking {
+ border-color: #00d07f;
+}
+
+.mypagePremierbtn {
+  display: inline-block;
+  width: 120px;
+  height: 66px; 
+  font-size: 15px;
+  color: #fff;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  text-shadow: 0px -1px 1px rgba(0,0,0,0.2);
+  text-align: center;
+  border-radius: 33px;
+  background: -webkit-gradient(linear,0 0, 0 100%,from(#fdd082),to(#fcb232));
+  background: -webkit-linear-gradient(to bottom, #fdd082, #fcb232);
+  background: linear-gradient(to bottom, #fdd082, #fcb232);
+  box-shadow:       0px 0px 2px #fcbe53,
+                    5px 5px 10px #f5d8a6,
+                    -5px 5px 10px #f5d8a6,
+                    -10px -10px 10px rgba(252,239,215,0.4),
+                    10px -10px 10px rgba(252,239,215,0.4),
+                    inset 0px 2px 0px #fdf6ea;
+  -webkit-transition: box-shadow 0.3s ease-in-out, 
+                      background 0.3s ease-in-out,
+                      text-shadow 0.5s linear,
+                      color 0.5s linear;
+}
+  
+.mypagePremierbtn.btnActive {
+    color: #f2e9da;
+    background: -webkit-gradient(linear,0 0, 0 100%,from(#fcb232),to(#fdd082));
+    background: -webkit-linear-gradient(to bottom, #fcb232, #fdd082);
+    background: linear-gradient(to bottom, #fcb232, #fdd082);
+    box-shadow:     0px 0px 3px #fcbe53,
+                    5px 5px 10px rgba(252,239,215,0.4),
+                   -5px 5px 10px rgba(252,239,215,0.4),
+                   -5px -5px 10px #f5d8a6,
+                    5px -5px 10px #f5d8a6,
+               inset 0px -2px 0px #f2ebdf,
+               inset 0px 1px 0px #f2ebdf;
+  }
 }
 
 /* 吹き出し */
@@ -545,8 +594,9 @@ footer .menuList {
 
 .formArea h1 {
     font-size: 16px;
-    background: #ccc;
-    padding: 2px;
+    background: #eee;
+    padding: 3px;
+    color: #666;
 }
 
 /* TOP */
@@ -604,7 +654,7 @@ footer .menuList {
 .mypageBtnArea {
     position: relative;
     z-index: 50;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.7);
     border-radius: 10px;
     padding: 5px;
 }

@@ -36,13 +36,13 @@
             <div class="mypageBtnArea mtMinus70 mh10">
                 <div class="table autoMargin mv5">
                     <div class="cell pr20">
-                        <a href="${urlPath}/normal" class="btnSquere relative zIndex20 pt25">
+                        <a href="${urlPath}/coupon" class="mypagePremierbtn relative zIndex20 pt25 mv5">
                             今日ドコ行く？
                             <#--<img src="${imagePath}/images/mypage/main_btn_doko.png" width="115" height="80" class="vTop"> -->
                         </a>
                     </div>
                     <div class="cell vTop">
-                        <a href="${urlPath}/premium" class="btnSquere relative zIndex20 pt15">
+                        <a href="${urlPath}/premium" class="mypagePremierbtn relative zIndex20 pt15 mv5">
                             プレミアム<br>今日ドコ行く？
                             <#-- <img src="${imagePath}/images/mypage/main_btn_premium.png" width="115" height="80" class="vTop"> -->
                         </a>
@@ -64,6 +64,24 @@
 
         <#-- 共通JavaScriptのインクルード -->
         <#include "/common/htmlFoot.ftl">
+        
+        <script>
+            (function(){
+                var buttons = ci.qsa('.mypagePremierbtn');
+                ci.bind(buttons, 'click', function(){
+                    ci.addClass(this, 'btnActive');
+                });
+                
+                var i = 0;
+                var interval = setInterval(function(){
+                    if(i >= 7){
+                        clearInterval(interval); 
+                    }else{
+                        i++;
+                    }
+                  }, 250);
+            })();
+        </script>
 
     </body>
 

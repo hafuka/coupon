@@ -17,13 +17,13 @@
             <div class="formArea autoMargin m10">
                 <h1>カンタン新規登録♪</h1>
                 <form method="post" action="${urlPath!?html}/register/regist" name="frm">
-                    <div>
-                        <input type="email" name="email" id="email" placeholder="E-Mailアドレスを入力してね" value="${email!?html}">
+                    <div class="mt5">
+                        <input type="email" name="email" id="email" placeholder="メールアドレスを入力してね" value="${email!?html}">
                     </div>
-                    <div>
+                    <div class="mt5">
                         <input type="password" name="password" id="password" placeholder="パスワードを入力してね" value="">
                     </div>
-                    <div>
+                    <div class="mt5">
                         <input type="text" name="name" id="name" placeholder="ニックネームを入力してね" value="${name!?html}">
                     </div>
                 </form>
@@ -36,7 +36,7 @@
         
         <nav>
             <div class="textCenter mv20">
-                <a href="${urlPath}/register" class="btn btnNormal jsTouchActive autoMargin">TOPへ</a>
+                <a href="${urlPath}/" class="btn btnNormal jsTouchActive autoMargin">TOPへ</a>
             </div>
         </nav>
         

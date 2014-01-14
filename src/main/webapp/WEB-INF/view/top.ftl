@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="textCenter mv10">
-                    <a href="${urlPath}/register" class="btn btnPrimary jsTouchActive autoMargin">新規会員登録</a>
+                    <a href="${urlPath}/register" class="btn btnPrimary jsTouchActive autoMargin">かんたん新規会員登録>></a>
                 </div>
             </div>
         </nav>

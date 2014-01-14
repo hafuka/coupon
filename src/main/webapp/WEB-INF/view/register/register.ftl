@@ -5,39 +5,55 @@
         <#include "/common/htmlHead.ftl">
     </head>
     
-    <body class="outline topContents">
-		
-		<#if errorMsg!?has_content>
-			<div>
-				${errorMsg!?html}
-			</div>
-		</#if>
-		
-		<form method="post" action="${urlPath!?html}/register/regist" name="frm">
-	        <div>
-	        	<input type="email" name="email" id="email" placeholder="Enter email" value="${email!?html}">
-	        </div>
-	        <div>
-	        	<input type="password" name="password" id="password" placeholder="Enter password" value="">
-	        </div>
-	        <div>
-	        	<input type="text" name="name" id="name" placeholder="Enter name" value="${name!?html}">
-	        </div>
-	    </form>
-		
-        <nav>
-            <div class="mv20">
+    <body class="outline formContents">
+        
+        <#if errorMsg!?has_content>
+            <div>
+                ${errorMsg!?html}
+            </div>
+        </#if>
+        
+        <section>
+            <div class="formArea autoMargin m10">
+                <h1>カンタン新規登録♪</h1>
+                <form method="post" action="${urlPath!?html}/register/regist" name="frm">
+                    <div>
+                        <input type="email" name="email" id="email" placeholder="E-Mailアドレスを入力してね" value="${email!?html}">
+                    </div>
+                    <div>
+                        <input type="password" name="password" id="password" placeholder="パスワードを入力してね" value="">
+                    </div>
+                    <div>
+                        <input type="text" name="name" id="name" placeholder="ニックネームを入力してね" value="${name!?html}">
+                    </div>
+                </form>
+        
                 <div class="textCenter mv10">
-                    <a href="javascript:void(0)" class="btn btnPrimary jsTouchActive autoMargin" onclick="btnRegist();">登録</a>
+                    <a id="js_registBtn" href="javascript:void(0)" class="btn btnPrimary jsTouchActive autoMargin">登録</a>
                 </div>
             </div>
+        </section>
+        
+        <nav>
+            <div class="textCenter mv20">
+                <a href="${urlPath}/register" class="btn btnNormal jsTouchActive autoMargin">TOPへ</a>
+            </div>
         </nav>
-		
-		
-		<script type="text/javascript">
-			function btnRegist() {
-				document.frm.submit();
-			}
-		</script>
+        
+        <#-- 共通JavaScriptのインクルード -->
+        <#include "/common/htmlFoot.ftl">
+        
+        <#-- JS - 新規登録 - -->
+        <script>
+            (function(){
+                
+                var registBtn = ci.qs('#js_registBtn');
+                
+                ci.bind(registBtn, 'click', function(){
+                    document.frm.submit();
+                });
+            })();
+        </script>
+        
     </body>
 </html>

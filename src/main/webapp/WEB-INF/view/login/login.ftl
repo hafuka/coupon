@@ -16,34 +16,35 @@
             </div>
         </#if>
         
-        <div class="formArea autoMargin m10">
-            <h1>メールアドレスでログイン</h1>
-            <form method="post" action="${urlPath!?html}/login/login" name="frm">
-                <div>
-                    <input type="email" name="email" id="email" placeholder="E-Mailアドレスを入力してね" value="${email!?html}">
-                </div>
-                <div>
-                    <input type="password" name="password" id="password" placeholder="パスワードを入力してね" value="">
-                </div>
-            </form>
-        </div>
-        
-        
-        <nav>
-            <div class="mv20">
+        <section>
+            <div class="formArea autoMargin m10">
+                <h1>メールアドレスでログイン</h1>
+                <form method="post" action="${urlPath!?html}/login/login" name="frm">
+                    <div>
+                        <input type="email" name="email" id="email" placeholder="E-Mailアドレスを入力してね" value="${email!?html}">
+                    </div>
+                    <div>
+                        <input type="password" name="password" id="password" placeholder="パスワードを入力してね" value="">
+                    </div>
+                </form>
+                
                 <div class="textCenter mv10">
                     <a id="js_loginBtn" href="javascript:void(0)" class="btn btnNormal jsTouchActive autoMargin">ログイン</a>
                 </div>
-
-                <div class="textCenter mv10">
-                    <a href="${urlPath}/mypage" class="btn btnPrimary jsTouchActive autoMargin">新規会員登録</a>
-                </div>
+            </div>
+        </section>
+        
+        
+        <nav>
+            <div class="textCenter mv20">
+                <a href="${urlPath}/register" class="btn btnPrimary jsTouchActive autoMargin">新規会員登録はこちら>></a>
             </div>
         </nav>
         
         <#-- 共通JavaScriptのインクルード -->
         <#include "/common/htmlFoot.ftl">
         
+        <#-- JS - ログイン - -->
         <script>
             (function(){
                 

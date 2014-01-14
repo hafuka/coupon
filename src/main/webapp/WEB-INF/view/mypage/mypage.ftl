@@ -33,7 +33,7 @@
                 </div>
             </div>
 
-            <div class="mypageBtnArea mtMinus70 autoMargin">
+            <div class="mypageBtnArea mtMinus70 mh10">
                 <div class="table autoMargin mv5">
                     <div class="cell pr20">
                         <a href="${urlPath}/normal" class="btnSquere relative zIndex20 pt25">
@@ -41,7 +41,7 @@
                             <#--<img src="${imagePath}/images/mypage/main_btn_doko.png" width="115" height="80" class="vTop"> -->
                         </a>
                     </div>
-                    <div class="cell">
+                    <div class="cell vTop">
                         <a href="${urlPath}/premium" class="btnSquere relative zIndex20 pt15">
                             プレミアム<br>今日ドコ行く？
                             <#-- <img src="${imagePath}/images/mypage/main_btn_premium.png" width="115" height="80" class="vTop"> -->

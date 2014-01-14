@@ -1,7 +1,6 @@
 package coupon.entity;
 
 import java.io.Serializable;
-
 import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +11,7 @@ import javax.persistence.Id;
  * 
  */
 @Entity
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.EntityModelFactoryImpl"}, date = "2014/01/10 12:58:03")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.EntityModelFactoryImpl"}, date = "2014/01/10 15:41:38")
 public class MShop implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -59,6 +58,6 @@ public class MShop implements Serializable {
     public String station;
 
     /** premiumFlgプロパティ */
-    @Column(nullable = true, unique = false)
-    public Boolean premiumFlg;
+    @Column(precision = 10, nullable = false, unique = false)
+    public Integer premiumFlg;
 }

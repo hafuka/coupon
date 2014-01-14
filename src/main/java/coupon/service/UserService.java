@@ -2,6 +2,8 @@ package coupon.service;
 
 import coupon.entity.IUser;
 import coupon.entity.IUserAuthentication;
+import coupon.entity.IUserCoupon;
+import coupon.entity.MShopCoupon;
 
 
 /**
@@ -33,5 +35,12 @@ public interface UserService {
 	
 	
 	public abstract void updateIUser(IUser iUser);
+	
+	
+	public abstract IUserCoupon getIUserCoupon(Long userId, MShopCoupon mShopCoupon);
+	
+	public abstract void insertIUserCoupon(Long userId, MShopCoupon mShopCoupon);
+	
+	public abstract void updateIUserCoupon(IUserCoupon iUserCoupon);
 
 }

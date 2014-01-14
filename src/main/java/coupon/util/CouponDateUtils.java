@@ -3,6 +3,7 @@ package coupon.util;
 import java.sql.Timestamp;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 import org.apache.commons.lang.time.DateUtils;
 
@@ -54,4 +55,48 @@ public class CouponDateUtils {
         Date date = DateUtils.addDays(getCurrentDate(), -day);
         return new Timestamp(DateUtils.truncate(date, Calendar.DATE).getTime());
     }
+    
+    /**
+     * 日付差を取得
+     * @param source 元の日時
+     * @param target 比較対象の日時
+     * @return 日付の差
+     */
+    public static int diffDays(Date source, Date target) {
+    	Calendar targetCal = Calendar.getInstance();
+    	targetCal.setTime(target);
+
+    	convertZeroHourDate(source);
+    	long sourceDays = convertZeroHourDate(source).getTime() / 1000 / 60 / 60 / 24;
+    	long targetDays = convertZeroHourDate(target).getTime() / 1000 / 60 / 60 / 24;
+    	return (int) (targetDays - sourceDays);
+    }
+    
+    /**
+     * 与えられた日時の 00:00:00.000 Dateを返す
+     * @param source
+     */
+    public static Date convertZeroHourDate(Date source) {
+    	Calendar cal = Calendar.getInstance();
+    	cal.setTime(source);
+    	cal.set(Calendar.HOUR_OF_DAY, 0);
+    	cal.set(Calendar.MINUTE, 0);
+    	cal.set(Calendar.SECOND, 0);
+    	cal.set(Calendar.MILLISECOND, 0);
+    	return cal.getTime();
+	}
+    
+    /**
+	 * 日付の加減算を行います。
+	 * @param target 対象日付
+	 * @param addNum 加減日数
+	 * @param addKind 年、月、日、等々（Calendarのフィールド）
+	 * @return 加減算の結果
+	 */
+	public static Timestamp add(Timestamp target , int addNum ,int addKind){
+		GregorianCalendar cal = new GregorianCalendar();
+		cal.setTime(target);
+		cal.add(addKind, addNum);
+		return new Timestamp(new Date(cal.getTimeInMillis()).getTime());
+	}
 }

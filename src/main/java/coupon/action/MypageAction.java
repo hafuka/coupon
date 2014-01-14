@@ -29,7 +29,6 @@ public class MypageAction extends BaseAction {
 		if (loginBonusService.isLoginBonus(loginUserDto.userId)) {
 			return "/loginBonus?redirect=true";
 		}
-		
         return "/mypage/mypage.ftl";
 	}
 	

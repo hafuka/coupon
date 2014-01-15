@@ -30,7 +30,7 @@ public class RouletteServiceImpl implements RouletteService {
 	public boolean checkDailyRoulette(Long userId) {
 		IUser iUser = userService.getIUser(userId);
 		int diffDays = iUser.normalRouletteDatetime == null ? 1 : CouponDateUtils.diffDays(iUser.normalRouletteDatetime, CouponDateUtils.getCurrentDate());
-		if (diffDays != 1) {
+		if (diffDays < 1) {
 			return false;
 		}
 		return true;

@@ -8,7 +8,10 @@ import java.util.GregorianCalendar;
 import org.apache.commons.lang.time.DateUtils;
 
 public class CouponDateUtils {
-
+	
+	
+	public static final String HIFUN_YYYYMMDDHHMMSS = "yyyy-MM-dd HH:mm:ss";
+	
 	/**
 	 * 現在日時取得
 	 * @return
@@ -62,14 +65,18 @@ public class CouponDateUtils {
      * @param target 比較対象の日時
      * @return 日付の差
      */
-    public static int diffDays(Date source, Date target) {
-    	Calendar targetCal = Calendar.getInstance();
-    	targetCal.setTime(target);
-
-    	convertZeroHourDate(source);
-    	long sourceDays = convertZeroHourDate(source).getTime() / 1000 / 60 / 60 / 24;
-    	long targetDays = convertZeroHourDate(target).getTime() / 1000 / 60 / 60 / 24;
-    	return (int) (targetDays - sourceDays);
+    public static int diffDays(Timestamp source, Timestamp target) {
+    	
+    	Date from = convertZeroHourDate(CouponDateUtils.toDate(source));
+    	Date to = convertZeroHourDate(CouponDateUtils.toDate(target));
+    	
+    	// 日付をlong値に変換します。
+        long dateTimeTo = to.getTime();
+        long dateTimeFrom = from.getTime();
+    	
+        // 差分の日数を算出します。
+        long dayDiff = ( dateTimeTo - dateTimeFrom  ) / (1000 * 60 * 60 * 24 );
+    	return (int) (dayDiff);
     }
     
     /**
@@ -98,5 +105,17 @@ public class CouponDateUtils {
 		cal.setTime(target);
 		cal.add(addKind, addNum);
 		return new Timestamp(new Date(cal.getTimeInMillis()).getTime());
+	}
+	
+	/**
+	 * TimestampからDateに変換する
+	 * @param ts
+	 * @return
+	 */
+	public static Date toDate (Timestamp ts) {
+		if(ts == null){
+			return null;
+		}
+		return new Date(ts.getTime());
 	}
 }

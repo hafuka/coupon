@@ -36,7 +36,7 @@
             <div class="mypageBtnArea mtMinus70 mh10">
                 <div class="table autoMargin mv5">
                     <div class="cell pr20">
-                        <a href="${urlPath}/coupon" class="mypagePremierbtn relative zIndex20 pt25 mv5">
+                        <a href="${urlPath}/normal" class="mypagePremierbtn relative zIndex20 pt25 mv5">
                             今日ドコ行く？
                             <#--<img src="${imagePath}/images/mypage/main_btn_doko.png" width="115" height="80" class="vTop"> -->
                         </a>

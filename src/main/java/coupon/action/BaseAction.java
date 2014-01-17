@@ -27,6 +27,15 @@ public abstract class BaseAction {
 	
 	public String token;
 	
+	
+	protected String getAccountConfirmToken() {
+		String token = RandomStringUtils.randomAlphanumeric(20);
+        if (token == null) {
+        	throw new IllegalArgumentException("Token発行エラー");
+        }
+        return token;
+	}
+	
 	/**
 	 * トークン発行
 	 * @return

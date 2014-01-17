@@ -27,7 +27,7 @@ public interface UserService {
 	 * @param password
 	 * @param name
 	 */
-	public abstract IUser registUser(String email, String password, String name) throws Exception;
+	public abstract IUser registUser(String email, String password, String name, String confToken) throws Exception;
 
 	public abstract IUser getIUser(Long userId);
 
@@ -42,5 +42,8 @@ public interface UserService {
 	public abstract void insertIUserCoupon(Long userId, MShopCoupon mShopCoupon);
 	
 	public abstract void updateIUserCoupon(IUserCoupon iUserCoupon);
+	
+	
+	public abstract boolean checkExistsEmail(String email);
 
 }

@@ -16,6 +16,7 @@ import coupon.entity.IUser;
 import coupon.entity.IUserAuthentication;
 import coupon.entity.IUserAuthenticationNames;
 import coupon.entity.IUserCoupon;
+import coupon.entity.IUserNames;
 import coupon.entity.MShopCoupon;
 import coupon.service.UserService;
 import coupon.util.CouponDateUtils;
@@ -40,7 +41,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public IUser registUser(String email, String password, String name) throws Exception {
+	public IUser registUser(String email, String password, String name, String confToken) throws Exception {
 		
 		Timestamp nowDate = CouponDateUtils.getCurrentDate();
 		
@@ -119,5 +120,17 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void updateIUserCoupon(IUserCoupon iUserCoupon) {
 		iUserCouponDao.update(iUserCoupon);
+	}
+
+	@Override
+	public boolean checkExistsEmail(String email) {
+		BeanMap conditions = new BeanMap();
+		conditions.put(IUserNames.email().toString(), email);
+		List<IUser> userList = iUserDao.findByCondition(conditions);
+		
+		if (CollectionUtils.isEmpty(userList)) {
+			return false;
+		}
+		return true;
 	}
 }

@@ -6,6 +6,7 @@ import org.seasar.framework.util.StringUtil;
 import org.seasar.struts.annotation.Execute;
 
 import coupon.entity.IUser;
+import coupon.mai.MailMai;
 import coupon.service.UserService;
 
 public class RegisterAction extends BaseAction {
@@ -19,6 +20,9 @@ public class RegisterAction extends BaseAction {
 	public String name;
 	
 	public String errorMsg;
+	
+	@Resource
+    protected MailMai mailMai;
 	
 	/**
 	 * 初期表示
@@ -42,13 +46,27 @@ public class RegisterAction extends BaseAction {
 			return "/register/register.ftl";
 		}
 		
+		// ユーザー存在チェック
+		if (userService.checkExistsEmail(email)) {
+			errorMsg = "このメールアドレスは既に登録されています。";
+			return "/register/register.ftl";
+		}
+		
+		String accountConfirmToken = super.getAccountConfirmToken();
+		
 		// ユーザー情報登録
-		IUser iUser = userService.registUser(email, password, name);
+		IUser iUser = userService.registUser(email, password, name, accountConfirmToken);
 		
 		loginUserDto.userId = iUser.userId;
 		loginUserDto.name = name;
 		loginUserDto.point = iUser.point;
 		
+//		MailAccountConfirmDto mailDto = new MailAccountConfirmDto();
+//        mailDto.to = new MailAddress[]{new MailAddress(email)};
+//        mailDto.name = name;
+//        mailDto.accountConfirmUrl = "http://www.google.co.jp/";
+//        mailMai.sendRegistAccountMail(mailDto);
+        
 		return "/mypage?redirect=true";
 	}
 	

@@ -135,6 +135,8 @@
     <gen-ddl
       classpathdir="${classpathdir}"
       rootpackagename="${rootpackagename}"
+      autoGenerateForeignKey="false"
+      applyJavaCommentToDdl="true"
       entitypackagename="${entitypackagename}"
       env="${env}"
       jdbcmanagername="${jdbcmanagername}"

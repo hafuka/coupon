@@ -60,6 +60,7 @@ public class UserServiceImpl implements UserService {
 		iUserAuthentication.userId = userId;
 		iUserAuthentication.email = email;
 		iUserAuthentication.password = CryptUtils.encrypt(password);
+		iUserAuthentication.registToken = confToken;
 		iUserAuthentication.insDatetime = nowDate;
 		iUserAuthentication.updDatetime = nowDate;
 		iUserAuthenticationDao.insert(iUserAuthentication);
@@ -132,5 +133,21 @@ public class UserServiceImpl implements UserService {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public IUserAuthentication getIUserAuth(String registToken) {
+		BeanMap conditions = new BeanMap();
+		conditions.put(IUserAuthenticationNames.registToken().toString(), registToken);
+		List<IUserAuthentication> list = iUserAuthenticationDao.findByCondition(conditions);
+		if (CollectionUtils.isEmpty(list)) {
+			return null;
+		}
+		return list.get(0);
+	}
+
+	@Override
+	public void updateIUserAuthentication(IUserAuthentication iUserAuthentication) {
+		iUserAuthenticationDao.update(iUserAuthentication);
 	}
 }

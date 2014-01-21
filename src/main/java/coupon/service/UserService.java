@@ -33,6 +33,8 @@ public interface UserService {
 
 	public abstract IUserAuthentication getIUserAuth(String email, String password) throws Exception;
 	
+	public abstract IUserAuthentication getIUserAuth(String registToken);
+	
 	
 	public abstract void updateIUser(IUser iUser);
 	
@@ -45,5 +47,9 @@ public interface UserService {
 	
 	
 	public abstract boolean checkExistsEmail(String email);
+	
+	
+	
+	public abstract void updateIUserAuthentication(IUserAuthentication iUserAuthentication);
 
 }

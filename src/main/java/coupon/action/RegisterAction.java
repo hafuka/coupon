@@ -67,6 +67,8 @@ public class RegisterAction extends BaseAction {
 //        mailDto.accountConfirmUrl = "http://www.google.co.jp/";
 //        mailMai.sendRegistAccountMail(mailDto);
         
+//		return "/register/regist-result.ftl";
+		
 		return "/mypage?redirect=true";
 	}
 	

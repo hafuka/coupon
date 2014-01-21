@@ -17,7 +17,7 @@ import coupon.util.CryptUtils;
  * {@link IUserAuthentication}のサービスクラスです。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.ServiceModelFactoryImpl"}, date = "2014/01/09 12:45:38")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.ServiceModelFactoryImpl"}, date = "2014/01/17 18:28:11")
 public class IUserAuthenticationDao extends AbstractDao<IUserAuthentication> {
 
     /**
@@ -39,10 +39,9 @@ public class IUserAuthenticationDao extends AbstractDao<IUserAuthentication> {
     public List<IUserAuthentication> findAllOrderById() {
         return select().orderBy(asc(userId())).getResultList();
     }
-    
-    public Long countByEmailAndPassword(String email, String password) throws Exception {
-    	String encPassword = CryptUtils.encrypt(password);
-    	return jdbcManager.from(IUserAuthentication.class).where(new SimpleWhere().eq(IUserAuthenticationNames.email(), email).eq(IUserAuthenticationNames.password(), encPassword)).getCount();
-    	
-    }
+
+	public Long countByEmailAndPassword(String email, String password) throws Exception {
+		String encPassword = CryptUtils.encrypt(password);
+		return jdbcManager.from(IUserAuthentication.class).where(new SimpleWhere().eq(IUserAuthenticationNames.email(), email).eq(IUserAuthenticationNames.password(), encPassword)).getCount();
+	}
 }

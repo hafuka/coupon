@@ -29,7 +29,7 @@ public class RouletteAnimationAction extends BaseAction {
 		setTransactionData(coupon, TransactionType.NORMAL_ROULETTE);
 		super.getFormToken();
 		
-		return "/roulette/normal-animation.ftl";
+		return "/roulette/coupon-animation.ftl";
 	}
 	
 }

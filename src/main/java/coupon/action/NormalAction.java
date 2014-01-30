@@ -21,11 +21,12 @@ public class NormalAction extends BaseAction {
 	@Resource
 	protected RouletteService rouletteService;
 	
+	////////// IN項目 /////////
 	public Integer areaId;
 	public Integer areaDetailId;
 	
+	///////// OUT項目 ////////
 	public List<MShop> shopList;
-	
 	public List<LabelValueBean> areaList;
 	public List<LabelValueBean> areaDetailList;
 	public List<LabelValueBean> businessList;

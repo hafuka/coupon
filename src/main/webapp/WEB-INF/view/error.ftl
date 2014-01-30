@@ -12,8 +12,27 @@
 
         <section>
             申し訳ございません。<br>
-			現在アクセスしづらい状況になっております。<br>
-			再度時間をおいてアクセスして下さい。
+            現在アクセスしづらい状況になっております。<br>
+            再度時間をおいてアクセスして下さい。
+        </section>
+        
+        <#-- ふきだしナビ -->
+        <section>
+            <div class="autoMargin mv20 table">
+                <div class="cell">
+                    <img src="${imagePath}/images/saboten_normal.png" width="37" height="37" class="vBottom">
+                </div>
+
+                <div class="cell vMiddle relative pl10">
+                    <div class="balloon">
+                        <p>
+                            申し訳ございません。<br>
+                            現在アクセスしづらい状況になっております。<br>
+                            再度時間をおいてアクセスして下さい。
+                        </p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <#-- リンクナビ -->

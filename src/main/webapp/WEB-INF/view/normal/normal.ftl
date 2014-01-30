@@ -33,7 +33,7 @@
                     <div class="pv5">
                         地域：
                         <SELECT name="area" class="selectZone vTop">
-                        	<OPTION value=""><地域を選択してください></OPTION>
+                        	<OPTION value="">地域を選択してください</OPTION>
                         	<#list areaList as area>
                         		<OPTION value="${area.value!?html}">${area.label!?html}</OPTION>
                         	</#list>
@@ -42,7 +42,7 @@
                     <div class="pv5">
                         エリア：
                         <SELECT name="areaDetail" class="selectZone vTop">
-                        	<OPTION value=""><エリアを選択してください></OPTION>
+                        	<OPTION value="">エリアを選択してください</OPTION>
                         	<#list areaDetailList as areaDetail>
                         		<OPTION value="${areaDetail.value!?html}">${areaDetail.label!?html}</OPTION>
                         	</#list>
@@ -51,7 +51,7 @@
                     <div class="pv5">
                         業種：
                         <SELECT name="business" class="selectZone vTop">
-                        	<OPTION value=""><業種を選択してください></OPTION>
+                        	<OPTION value="">業種を選択してください</OPTION>
                         	<#list businessList as business>
                         		<OPTION value="${business.value!?html}">${business.label!?html}</OPTION>
                         	</#list>

@@ -20,16 +20,16 @@ public class RouletteAnimationAction extends BaseAction {
 		if (!isValidToken(token)) {
 			throw new IllegalArgumentException("Tokenエラー");
 		}
-		if (!rouletteService.checkDailyRoulette(loginUserDto.userId)) {
-			throw new IllegalArgumentException("日毎ルーレット回数エラー");
-		}
+//		if (!rouletteService.checkDailyRoulette(loginUserDto.userId)) {
+//			throw new IllegalArgumentException("日毎ルーレット回数エラー");
+//		}
 		
 		// ルーレット実行処理
 		coupon = rouletteService.execRoulette(loginUserDto.userId, false);
 		setTransactionData(coupon, TransactionType.NORMAL_ROULETTE);
 		super.getFormToken();
 		
-		return "/roulette/coupon-animation.ftl";
+		return "/roulette/roulette-animation.ftl";
 	}
 	
 }

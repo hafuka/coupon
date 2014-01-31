@@ -46,7 +46,7 @@ public class NormalAction extends BaseAction {
 		areaDetailList = pullDownService.getAreaDetailList(14);
 		businessList = pullDownService.getBusinessList();
 		
-		rouletteFlg = rouletteService.checkDailyRoulette(loginUserDto.userId);
+		//rouletteFlg = rouletteService.checkDailyRoulette(loginUserDto.userId);
 		
 		super.getFormToken();
 		

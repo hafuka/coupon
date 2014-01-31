@@ -19,7 +19,7 @@
         <#-- リンクナビ -->
         <nav>
             <div class="textCenter mv20">
-                <a href="${urlPath}/" class="btn btnNormal jsTouchActive autoMargin">TOPへ</a>
+                <a href="${urlPath}/mypage" class="btn btnNormal jsTouchActive autoMargin">マイページへ</a>
             </div>
         </nav>
 

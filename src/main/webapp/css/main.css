@@ -69,12 +69,6 @@ input[type="text"], input[type="email"], input[type="password"] {
     box-shadow: 0 2px 2px rgba(0,0,0,0.3);
 }
 
-.selectZone {
-    width: 150px;
-    height: 20px;
-    font-size: 15px;
-}
-
 /* text 設定 */
 .textCenter { text-align: center; }
 .textRight { text-align: right; }
@@ -95,6 +89,14 @@ input[type="text"], input[type="email"], input[type="password"] {
 .lheight0 { line-height: 0; }
 .lheight15 { line-height: 1.5; }
 .lheight20 { line-height: 2.0; }
+.textShadow {text-shadow: 1px 1px 2px #666;}
+.callText {
+    background: #fff;
+    padding: 2px 10px;
+    border-radius: 10px;
+    width: 250px;
+    margin: 5px auto;
+}
 
 /* 段落 設定 */
 .w140 { width: 140px !important; }
@@ -105,6 +107,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 .none { display: none; }
 .table { display: table; }
 .cell { display: table-cell; }
+.inlineBlock { display: inline-block;}
 .vTop { vertical-align: top; }
 .vMiddle { vertical-align: middle; }
 .vBottom { vertical-align: bottom; }
@@ -123,6 +126,9 @@ input[type="text"], input[type="email"], input[type="password"] {
     content:"";
 }
 
+/* width */
+.w60 { width: 60px;}
+
 /* margin , padding */
 .m0auto { margin: 0 auto; }
 .autoMargin { margin-right: auto; margin-left: auto; }
@@ -135,6 +141,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 .pt15 { padding-top: 15px !important; }
 .pt20 { padding-top: 20px !important; }
 .pt25 { padding-top: 25px !important; }
+.pt30 { padding-top: 30px !important; }
 .pb5 { padding-bottom: 5px !important; }
 .pb10 { padding-bottom: 10px !important; }
 .pb15 { padding-bottom: 15px !important; }
@@ -163,7 +170,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 .mt20 { margin-top: 20px !important; }
 .mtMinus30 { margin-top: -30px !important; }
 .mtMinus50 { margin-top: -50px !important; }
-.mtMinus70 { margin-top: -70px !important; }
+.mtMinus65 { margin-top: -65px !important; }
 .mb5 { margin-bottom: 5px !important; }
 .mb10 { margin-bottom: 10px !important; }
 .mb15 { margin-bottom: 15px !important; }
@@ -266,7 +273,6 @@ input[type="text"], input[type="email"], input[type="password"] {
 }
 
 /* ボタン */
-
 .btn {
     position: relative;
     display: block;
@@ -298,6 +304,20 @@ input[type="text"], input[type="email"], input[type="password"] {
     box-shadow: 1px 1px 1px #f9e3d4 inset, -1px -1px 1px #f9e3d4 inset, 0 5px 0 #cc3300, 0 7px 3px #d5c0b3;
 }
 
+.btnNoActive {
+    border: 2px solid #666666;
+    background: #999999;
+    -webkit-box-shadow: 1px 1px 1px #cccccc inset, -1px -1px 1px #cccccc inset, 0 5px 0 #777777, 0 7px 3px #cacaca;
+    box-shadow: 1px 1px 1px #cccccc inset, -1px -1px 1px #cccccc inset, 0 5px 0 #666666, 0 7px 3px #cacaca;
+}
+
+.btnSpecial {
+    border: 2px solid #fd6bea;
+    background: #fe85ee;
+    -webkit-box-shadow: 1px 1px 1px #fed8f9 inset, -1px -1px 1px #fed8f9 inset, 0 5px 0 #d76ac4, 0 7px 3px #d9c0db;
+    box-shadow: 1px 1px 1px #fed8f9 inset, -1px -1px 1px #fed8f9 inset, 0 5px 0 #d76ac4, 0 7px 3px #d9c0db;
+}
+
 .btnPrimary.touchActive {
     top: 3px;
     -webkit-box-shadow: 1px 1px 1px #eee inset, -1px -1px 1px #eee inset, 0 2px 0 #304e12, 0 5px 3px #ced8c4;
@@ -308,6 +328,27 @@ input[type="text"], input[type="email"], input[type="password"] {
     top: 3px;
     -webkit-box-shadow: 1px 1px 1px #eee inset, -1px -1px 1px #eee inset, 0 2px 0 #cc3300, 0 5px 3px #d5c0b3;
     box-shadow: 1px 1px 1px #eee inset, -1px -1px 1px #eee inset, 0 2px 0 #cc3300, 0 5px 3px #d5c0b3;
+}
+
+.btnSpecial.getActive {
+    -webkit-box-shadow: 1px 1px 1px #fed8f9 inset, -1px -1px 1px #fed8f9 inset, 0 5px 0 #d76ac4, 0 7px 3px #d9c0db,
+                        -2px -2px 5px #fff, 2px -2px 5px #fff;
+    box-shadow: 1px 1px 1px #fed8f9 inset, -1px -1px 1px #fed8f9 inset, 0 5px 0 #d76ac4, 0 7px 3px #d9c0db,
+                -2px -2px 5px #fff, 2px -2px 5px #fff;
+    -webkit-animation: lightActive 0.5s ease 0 infinite alternate;
+    animation: lightActive 0.5s ease 0 infinite alternate;
+}
+
+@-webkit-keyframes lightActive {
+    0% {
+        opacity:1;
+    }
+    20% {
+        opacity:1;
+    }
+    99.9%, to {
+        opacity:0.7;
+    }
 }
 
 .btnSquere {
@@ -345,8 +386,10 @@ input[type="text"], input[type="email"], input[type="password"] {
     line-height: 50px;
     font-size: 18px;
     color: #fff;
-    -webkit-box-shadow: 2px 2px 1px #fff inset, -2px -2px 1px #fff inset, 2px -2px 1px #fff inset, -2px 2px 1px #fff inset;
-    box-shadow: 2px 2px 1px #fff inset, -2px -2px 1px #fff inset, 2px -2px 1px #fff inset, -2px 2px 1px #fff inset;
+    -webkit-box-shadow: 2px 2px 1px #fff inset, -2px -2px 1px #fff inset, 2px -2px 1px #fff inset, -2px 2px 1px #fff inset,
+                        1px 1px 1px #fff, -1px -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff;
+    box-shadow: 2px 2px 1px #fff inset, -2px -2px 1px #fff inset, 2px -2px 1px #fff inset, -2px 2px 1px #fff inset,
+                1px 1px 1px #fff, -1px -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff;
     text-shadow: 1px 1px 1px #ccc;
 }
 
@@ -375,43 +418,34 @@ input[type="text"], input[type="email"], input[type="password"] {
 }
 
 .mypagePremierbtn {
-  display: inline-block;
-  width: 120px;
-  height: 66px; 
-  font-size: 15px;
-  color: #fff;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  text-shadow: 0px -1px 1px rgba(0,0,0,0.2);
-  text-align: center;
-  border-radius: 33px;
-  background: -webkit-gradient(linear,0 0, 0 100%,from(#fdd082),to(#fcb232));
-  background: -webkit-linear-gradient(to bottom, #fdd082, #fcb232);
-  background: linear-gradient(to bottom, #fdd082, #fcb232);
-  box-shadow:       0px 0px 2px #fcbe53,
-                    5px 5px 10px #f5d8a6,
-                    -5px 5px 10px #f5d8a6,
-                    -10px -10px 10px rgba(252,239,215,0.4),
-                    10px -10px 10px rgba(252,239,215,0.4),
-                    inset 0px 2px 0px #fdf6ea;
-  -webkit-transition: box-shadow 0.3s ease-in-out, 
-                      background 0.3s ease-in-out,
-                      text-shadow 0.5s linear,
-                      color 0.5s linear;
+    display: inline-block;
+    width: 120px;
+    height: 80px;
+    color: #fff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-shadow: 0px -1px 1px rgba(0,0,0,0.2);
+    text-align: center;
+    border-radius: 40px;
+    background: #fea247;
+    box-shadow: 0px 0px 2px #fcbe53,
+                3px 3px 6px #f5d8a6,
+                -3px 3px 6px #f5d8a6,
+                inset 0px 2px 0px #fdf6ea;
+    -webkit-transition: box-shadow 0.1s ease-in-out, 
+                        background 0.1s ease-in-out,
+                        text-shadow 0.3s linear,
+                        color 0.3s linear;
 }
-  
+
 .mypagePremierbtn.btnActive {
     color: #f2e9da;
-    background: -webkit-gradient(linear,0 0, 0 100%,from(#fcb232),to(#fdd082));
-    background: -webkit-linear-gradient(to bottom, #fcb232, #fdd082);
-    background: linear-gradient(to bottom, #fcb232, #fdd082);
-    box-shadow:     0px 0px 3px #fcbe53,
-                    5px 5px 10px rgba(252,239,215,0.4),
-                   -5px 5px 10px rgba(252,239,215,0.4),
-                   -5px -5px 10px #f5d8a6,
-                    5px -5px 10px #f5d8a6,
-               inset 0px -2px 0px #f2ebdf,
-               inset 0px 1px 0px #f2ebdf;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fea247), color-stop(0.5, #f4c06f), to(#fea247));
+    box-shadow: 0px 0px 2px #fcbe53,
+                -2px -2px 4px #f5d8a6,
+                2px -2px 4px #f5d8a6,
+                inset 0px -2px 0px #f2ebdf,
+                inset 0px 2px 0px #f2ebdf;
 }
 
 /* 吹き出し */
@@ -572,10 +606,45 @@ footer .menuList {
     color: #fff;
 }
 
+/* 検索エリア */
+.selectArea {
+    background: #c7905a;
+    width: 92%;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.selectBox {
+    position: relative;
+}
+
+.selectBox select {
+    width: 160px;
+    height: 25px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(0.49, #fff), color-stop(0.5, #eee), to(#eee));
+    border-radius: 5px;
+    border: 1px solid #ff6633;
+    -webkit-appearance: none;
+    font-size: 12px;
+    padding: 0 0 0 5px;
+    color: #ff6633;
+    font-weight: bold;
+}
+
+.selectBox:after {
+    position: absolute;
+    top: 10px;
+    right: 5px;
+    content: "";
+    border-top: 6px solid #ea6a03;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+}
+
 /* リスト表示 */
 .couponList li {
     border-bottom: 2px solid #99cc66;
-    background: url('/coupon/images/link_btn.png') 100% 50% no-repeat #fff;
+    background: url('/coupon/images/link_btn.png') 100% 45% no-repeat #fff;
     background-size: 30px 30px;
     padding: 8px;
 }

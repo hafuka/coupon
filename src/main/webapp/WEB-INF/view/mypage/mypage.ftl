@@ -33,31 +33,22 @@
                 </div>
             </div>
 
-            <div class="mypageBtnArea mtMinus70 mh10">
-                <div class="table autoMargin mv5">
+            <div class="mypageBtnArea mtMinus65 mh10">
+                <div class="table autoMargin">
                     <div class="cell pr20">
-                        <a href="${urlPath}/normal" class="mypagePremierbtn relative zIndex20 pt25 mv5">
-                            今日ドコ行く？
-                            <#--<img src="${imagePath}/images/mypage/main_btn_doko.png" width="115" height="80" class="vTop"> -->
+                        <a href="${urlPath}/normal" class="mypagePremierbtn fs16 relative zIndex20 pt20 mv5">
+                            今日<br>ドコ行く？
                         </a>
                     </div>
                     <div class="cell vTop">
-                        <a href="${urlPath}/premium" class="mypagePremierbtn relative zIndex20 pt15 mv5">
+                        <a href="${urlPath}/premium" class="mypagePremierbtn fs15 relative zIndex20 pt20 mv5">
                             プレミアム<br>今日ドコ行く？
-                            <#-- <img src="${imagePath}/images/mypage/main_btn_premium.png" width="115" height="80" class="vTop"> -->
                         </a>
                     </div>
                 </div>
             </div>
 
         </section>
-
-        <#-- リンクナビ -->
-        <nav>
-            <div class="textCenter mv20">
-                <a href="${urlPath}/" class="btn btnNormal jsTouchActive autoMargin">TOPへ</a>
-            </div>
-        </nav>
 
         <#-- フッターメニューのインクルード -->
         <#include "/common/footer.ftl">

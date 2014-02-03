@@ -36,12 +36,12 @@
             <div class="mypageBtnArea mtMinus65 mh10">
                 <div class="table autoMargin">
                     <div class="cell pr20">
-                        <a href="${urlPath}/normal" class="mypagePremierbtn fs16 relative zIndex20 pt20 mv5">
+                        <a href="${urlPath}/normal" class="mypagePremierbtn jsTouchActive fs16 relative zIndex20 pt20 mv5">
                             今日<br>ドコ行く？
                         </a>
                     </div>
                     <div class="cell vTop">
-                        <a href="${urlPath}/premium" class="mypagePremierbtn fs15 relative zIndex20 pt20 mv5">
+                        <a href="${urlPath}/premium" class="mypagePremierbtn jsTouchActive fs15 relative zIndex20 pt20 mv5">
                             プレミアム<br>今日ドコ行く？
                         </a>
                     </div>
@@ -49,30 +49,21 @@
             </div>
 
         </section>
+        
+        <#-- リンクナビ -->
+        <nav>
+            <div class="mb20">
+                <div class="textCenter mv10">
+                    <a href="${urlPath}/mypage" class="btn btnPrimary jsTouchActive autoMargin">遊び方♪</a>
+                </div>
+            </div>
+        </nav>
 
         <#-- フッターメニューのインクルード -->
         <#include "/common/footer.ftl">
 
         <#-- 共通JavaScriptのインクルード -->
         <#include "/common/htmlFoot.ftl">
-        
-        <script>
-            (function(){
-                var buttons = ci.qsa('.mypagePremierbtn');
-                ci.bind(buttons, 'click', function(){
-                    ci.addClass(this, 'btnActive');
-                });
-                
-                var i = 0;
-                var interval = setInterval(function(){
-                    if(i >= 7){
-                        clearInterval(interval); 
-                    }else{
-                        i++;
-                    }
-                  }, 250);
-            })();
-        </script>
 
     </body>
 

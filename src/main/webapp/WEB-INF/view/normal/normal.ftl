@@ -12,7 +12,7 @@
 
         <#-- ふきだしナビ -->
         <section>
-            <h1 class="headline headlineNormal mt20">ドコ行く？ - 無料クーポン -</h1>
+            <h1 class="headline headlineNormal mt15">ドコ行く？ - 無料クーポン -</h1>
             <div class="autoMargin mv10 table">
                 <div class="cell">
                     <img src="${imagePath}/images/saboten_normal.png" width="37" height="37" class="vBottom">
@@ -20,7 +20,7 @@
 
                 <div class="cell vMiddle relative pl10">
                     <div class="balloon">
-                        <p><span class="fcOrange">業種と地域を選んでね。<br>今日は何が当たるかな？</span></p>
+                        <p><span class="fcOrange">地域と業種を選んでね。<br>今日は何が当たるかな？</span></p>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                 </div>
             </div>
 
-            <div class="mb20">
+            <div class="mb15">
                 <div class="textCenter mv10">
                     <p class="callText fcRed fs14">1日1回無料でクーポンGETできるよ♪</p>
                     <#if rouletteFlg>
@@ -83,7 +83,11 @@
 
         <#-- クーポンリスト -->
         <section>
-            <ul class="couponList borderTopGreen">
+            <h1 class="underballoonLight fs13 fcRed textCenter m0auto">
+                下のリストのどれか１つが当たるよ♪<br>
+                <span class="fs12 fcBlack">※クーポンは1店舗あたり3種類あるよ</span>
+            </h1>
+            <ul class="couponList borderTopGreen mt10">
                 
                 <#if shopList!?has_content>
                 
@@ -97,9 +101,9 @@
                                     <div class="cell vTop pr20">
                                         <p class="fcBlue underline">${shop.shopName!?html}</p>
                                         <p class="fs13">業種：飲食店</p>
-                                        <p class="fs13">${shop.station!?html}</p>
+                                        <p class="fs13">地域：${shop.station!?html}</p>
+                                        <p class="fcRed textCenter fs13">↓目玉クーポン↓</p>
                                         <p class="bgRound">お会計：50%OFF!!</p>
-                                        <p class="fcRed fs13">有効期限：2014年1月31日</p>
                                     </div>
                                 </div>
                             </a>
@@ -138,7 +142,6 @@
         <#include "/common/htmlFoot.ftl">
         
         <!-- ↓↓↓↓↓↓↓ ajax呼び出し確認用 マサ後でつくりかえて ↓↓↓↓↓↓ -->
-        <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
         <script type="text/javascript">
             
             // ajax成功時：個人検索    

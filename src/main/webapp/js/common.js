@@ -297,123 +297,6 @@ var sliderImages = function (elm, options) {
     }
 };
 
-/**
- * ajax通信
- * @param options ajax通信のオプション
- * @param callback コールバック関数
- */
-var ajaxJsonGlobal = function(options, callback) {
-    var default_options = {
-        async: 'true',
-        type: 'POST',
-        url: '',
-        data: {},
-        dataType: 'json',
-        timeout: 0,
-        loading: true,
-        beforeSend: function(x) { gf.log('_____beforesend_____'); },
-        success: function(data) {
-            gf.log('_____success_____');
-            gf.log(data);
-            if(data && data.resultStatus) {
-                if(data.resultStatus === 'success') {
-                    callback(data, status, xhr);
-                } else if(data.resultStatus === 'user_alert') {
-                    options.success_user_alert(data);
-                } else if(data.resultStatus === 'token_error') {
-                    options.tokenError(data);
-                } else {
-                    alert('通信にエラーが発生しました。ブラウザの更新をしてください。');
-                }
-            }
-        },
-        success_user_alert: function(json) { gf.log('_____success alert_____'); },
-        tokenError: function(json) { gf.log('_____token error_____'); },
-        error: function(res, status, err) { alert(err); gf.log('_____error_____');gf.log(res);gf.log(status);gf.log(err);gf.log('____________________');alert('通信にエラーが発生しました。ブラウザの更新をしてください。');}
-    };
-    var xhr = new XMLHttpRequest(), data, timerId;
-
-    for(var i in default_options){
-        if(options[i] === undefined) options[i] = default_options[i];
-    }
-
-    options.loading && gf.util.loadingPanel.show();
-
-    if(options.beforeSend && options.beforeSend instanceof Function) {
-        options.beforeSend.apply(xhr, [xhr, 'setting is not supported']);
-    }
-
-    if(options.timeout > 0) {
-        timerId = setTimeout(function () {
-            xhr.abort();
-            if(options.error && options.error instanceof Function) {
-                options.error.apply(xhr, [xhr, 'timeout', new Error('Ajax timeout: ' + options.timeout)]);
-            }
-        }, options.timeout);
-    }
-
-    // iOS6対応でajaxのurlにタイムスタンプを付与
-    if(options.url) {
-        var _separator = '';
-        if(options.url.indexOf('?') > -1) {
-            if(options.url.slice(-1) === '?' || options.url.slice(-1) === '&') {
-                _separator = '';
-            } else {
-                _separator = '&';
-            }
-        } else {
-            _separator = '?';
-        }
-        options.url = options.url + _separator + '__r=' + (new Date().getTime().toString());
-    }
-    gf.log('ajax URL:' + options.url);
-
-    xhr.open(options.type || 'GET', options.url, true);
-
-    xhr.onreadystatechange = function(){
-        if(xhr.readyState === 4){
-            if(xhr.status === 200 || xhr.status === 0) {
-                gf.log(xhr);
-                if(options.dataType.toLowerCase() === 'json') {
-                    data = JSON.parse(xhr.responseText);
-                }
-                // 成功処理
-                options.success.apply(xhr, [data, xhr.statusText, xhr]);
-                options.loading && gf.util.loadingPanel.hide(); // 最後にローディングを消す
-            } else {
-                throw new Error('Ajax failed: ' + xhr.status);
-                if(options.error && options.error instanceof Function) {
-                    xhr.abort();
-                    options.error.apply(xhr, [xhr, xhr.statusText, err]);
-                }
-            }
-        }
-    };
-
-    xhr.onload = function() {
-        if(timerId) {
-            clearTimeout(timerId);
-        }
-    };
-    // POSTで送信するデータを成形
-    if(options.data) {
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        var params = [];
-
-        for(var name in options.data) {
-            var value = options.data[name];
-            if(value === undefined) {
-                value = '';
-            }
-            var param = encodeURIComponent(name).replace(/%20/g, '+') + '=' + encodeURIComponent(value).replace(/%20/g, '+');
-            params.push(param);
-        }
-
-        postdata = params.join( '&' );
-    }
-    setTimeout(function(){xhr.send(postdata)}, 100);
-};
-
 (function(){
     ci.ready(function(){
         var currentUrl = location.href;
@@ -421,13 +304,13 @@ var ajaxJsonGlobal = function(options, callback) {
         var menuList = ci.qsa('.menuList');
         
         //ページによって、メニューにactiveをつける
-        if( splitUrlList[5] == 'mypage' ){
+        if( splitUrlList[4] == 'mypage' ){
             ci.addClass(menuList[0], 'active');
-        }else if( splitUrlList[5] == 'coupon' ){
+        }else if( splitUrlList[4] == 'normal' ){
             ci.addClass(menuList[1], 'active');
-        }else if( splitUrlList[5] == 'premium' ){
+        }else if( splitUrlList[4] == 'premium' ){
             ci.addClass(menuList[2], 'active');
-        }else if( splitUrlList[5] == 'box' ){
+        }else if( splitUrlList[4] == 'box' ){
             ci.addClass(menuList[3], 'active');
         }
         
@@ -439,5 +322,6 @@ var ajaxJsonGlobal = function(options, callback) {
         ci.bind(touchActiveList, 'touchend', function() {
             ci.removeClass(this, 'touchActive');
         });
+
     });
 })();

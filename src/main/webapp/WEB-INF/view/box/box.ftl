@@ -9,10 +9,11 @@
 
         <#-- ヘッダーメニューのインクルード -->
         <#include "/common/header.ftl">
-
+        
         <#-- ふきだしナビ -->
         <section>
-            <div class="autoMargin mv20 table">
+            <h1 class="headline headlineNormal mt15">クーポンBOX</h1>
+            <div class="autoMargin mv10 table">
                 <div class="cell">
                     <img src="${imagePath}/images/saboten_normal.png" width="37" height="37" class="vBottom">
                 </div>

@@ -63,6 +63,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 .borderGray { border: 2px solid #ccc; }
 .borderTopGreen { border-top: 2px solid #99cc66; }
 .borderBottomGreen { border-bottom: 2px solid #99cc66; }
+.borderBottomOrange { border-bottom: 2px solid #ff6633; }
 
 .dropShadow {
     -webkit-box-shadow: 0 2px 2px rgba(0,0,0,0.3);
@@ -77,6 +78,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 .fcRed { color: #ff0000; }
 .fcOrange { color: #ff6633; }
 .fcWhite { color: #fff; }
+.fcBlack { color: #333; }
 .fs22 { font-size: 22px; }
 .fs20 { font-size: 20px; }
 .fs18 { font-size: 18px; }
@@ -103,6 +105,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 .w300 { width: 300px !important; }
 .w320 { width: 320px !important; }
 .relative { position: relative; }
+.absolute { position: absolute; }
 .block { display: block; }
 .none { display: none; }
 .table { display: table; }
@@ -117,6 +120,11 @@ input[type="text"], input[type="email"], input[type="password"] {
 .zIndex20 {z-index: 20; }
 .zIndex50 {z-index: 50; }
 .zIndex100 {z-index: 100; }
+
+.link1{
+    color: #fe016d;
+    text-decoration: underline;
+}
 
 .clear:after {
     display:block;
@@ -206,7 +214,6 @@ input[type="text"], input[type="email"], input[type="password"] {
     color: #fff;
     text-align: center;
     padding: 3px 5px;
-    margin: 5px 0;
     width: 180px;
 }
 
@@ -217,8 +224,8 @@ input[type="text"], input[type="email"], input[type="password"] {
     color: #fff;
     text-align: center;
     padding: 3px 5px;
-    margin: 5px 0;
-    width: 167px;
+    margin: 5px auto;
+    width: 180px;
 }
 
 /* outline */
@@ -267,6 +274,12 @@ input[type="text"], input[type="email"], input[type="password"] {
 }
 
 .headlineNormal {
+    border-bottom: 2px solid #538610;
+    border-top: 2px solid #538610;
+    background: #339a03;
+}
+
+.resultHeadline {
     border-bottom: 2px solid #538610;
     border-top: 2px solid #538610;
     background: #339a03;
@@ -438,7 +451,7 @@ input[type="text"], input[type="email"], input[type="password"] {
                         color 0.3s linear;
 }
 
-.mypagePremierbtn.btnActive {
+.mypagePremierbtn.touchActive  {
     color: #f2e9da;
     background: -webkit-gradient(linear, left top, left bottom, from(#fea247), color-stop(0.5, #f4c06f), to(#fea247));
     box-shadow: 0px 0px 2px #fcbe53,
@@ -511,6 +524,41 @@ input[type="text"], input[type="email"], input[type="password"] {
     position: absolute;
     content: '';
     left: 40px;
+    bottom: -10px;
+    width: 0;
+    height: 0;
+    border-top: 12px solid #fff;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+}
+
+.underballoonLight {
+    position: relative;
+    width: 260px;
+    background: #fff;
+    padding: 3px;
+    border: 2px solid #fd73f8;
+    border-radius: 5px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.underballoonLight:before {
+    position: absolute;
+    content: '';
+    left: 120px;
+    bottom: -12px;
+    width: 0;
+    height: 0;
+    border-top: 12px solid #fd73f8;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+}
+
+.underballoonLight:after {
+    position: absolute;
+    content: '';
+    left: 120px;
     bottom: -10px;
     width: 0;
     height: 0;
@@ -623,7 +671,7 @@ footer .menuList {
     height: 25px;
     background: -webkit-gradient(linear, left top, left bottom, from(#fff), color-stop(0.49, #fff), color-stop(0.5, #eee), to(#eee));
     border-radius: 5px;
-    border: 1px solid #ff6633;
+    border: 2px solid #538610;
     -webkit-appearance: none;
     font-size: 12px;
     padding: 0 0 0 5px;
@@ -644,13 +692,22 @@ footer .menuList {
 /* リスト表示 */
 .couponList li {
     border-bottom: 2px solid #99cc66;
-    background: url('/coupon/images/link_btn.png') 100% 45% no-repeat #fff;
+    background: url('/coupon/images/link_btn.png') 100% 50% no-repeat #fff;
     background-size: 30px 30px;
     padding: 8px;
 }
 
-.couponList li:nth-child(2){
+.couponList li:nth-child(even){
     background-color: #ffffcc;
+}
+
+/* プレミアム */
+.coinArea {
+    width: 280px;
+    border-top: 2px dotted #ff6600;
+    border-bottom: 2px dotted #ff6600;
+    background: #fbf0d1;
+    padding: 5px;
 }
 
 /* ログイン */

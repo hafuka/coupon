@@ -28,6 +28,9 @@
                 </div>
             </div>
         </nav>
+        
+        <#-- 共通JavaScriptのインクルード -->
+        <#include "/common/htmlFoot.ftl">
 
     </body>
 </html>

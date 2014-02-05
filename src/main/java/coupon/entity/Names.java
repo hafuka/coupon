@@ -1,6 +1,7 @@
 package coupon.entity;
 
 import coupon.entity.IUserAuthenticationNames._IUserAuthenticationNames;
+import coupon.entity.IUserCoinNames._IUserCoinNames;
 import coupon.entity.IUserCouponNames._IUserCouponNames;
 import coupon.entity.IUserNames._IUserNames;
 import coupon.entity.MAreaDetailNames._MAreaDetailNames;
@@ -16,7 +17,7 @@ import javax.annotation.Generated;
  * 名前クラスの集約です。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesAggregateModelFactoryImpl"}, date = "2014/01/27 14:51:51")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesAggregateModelFactoryImpl"}, date = "2014/02/04 19:48:57")
 public class Names {
 
     /**
@@ -35,6 +36,15 @@ public class Names {
      */
     public static _IUserAuthenticationNames iUserAuthentication() {
         return new _IUserAuthenticationNames();
+    }
+
+    /**
+     * {@link IUserCoin}の名前クラスを返します。
+     * 
+     * @return IUserCoinの名前クラス
+     */
+    public static _IUserCoinNames iUserCoin() {
+        return new _IUserCoinNames();
     }
 
     /**

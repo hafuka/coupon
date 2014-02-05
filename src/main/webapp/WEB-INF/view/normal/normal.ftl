@@ -144,18 +144,23 @@
         <!-- ↓↓↓↓↓↓↓ ajax呼び出し確認用 マサ後でつくりかえて ↓↓↓↓↓↓ -->
         <script type="text/javascript">
             
-            // ajax成功時：個人検索    
+            // ajax成功
             function searchSuccess(data){
                 if (data != '') {
-                    console.log(data);
+                    // 
+                } else {
+                	// 検索結果0件の場合
                 }
             }
             
-            
             function ajaxTest() {
+            	var areaId = document.getElementsByName("area")[0].value;
+            	var areaDetailId = document.getElementsByName("areaDetail")[0].value;
+            	var businessId = document.getElementsByName("business")[0].value;
+            
                 var url = "${urlPath}/normal/search";
-                var formData = "areaId=" + 14;
-                 ajax(url, formData, searchSuccess);
+                var formData = "areaId=" + areaId + "&areaDetailId=" + areaDetailId + "&businessId=" + businessId;
+                ajax(url, formData, searchSuccess);
             }
             
             

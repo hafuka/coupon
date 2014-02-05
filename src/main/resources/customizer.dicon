@@ -94,7 +94,7 @@
       </arg>
     </initMethod>
   </component>
-  
+  <!-- 
   <component name="maiCustomizer" class="org.seasar.framework.container.customizer.CustomizerChain">
     <initMethod name="addCustomizer">
       <arg>maiAspectCustomizer</arg>
@@ -104,4 +104,5 @@
   <component name="maiAspectCustomizer" class="org.seasar.framework.container.customizer.AspectCustomizer">
       <property name="interceptorName">"s2mai.s2MaiInterceptor"</property>
   </component>
+   -->
 </components>

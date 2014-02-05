@@ -6,7 +6,6 @@ import org.seasar.framework.util.StringUtil;
 import org.seasar.struts.annotation.Execute;
 
 import coupon.entity.IUser;
-import coupon.mai.MailMai;
 import coupon.service.UserService;
 
 public class RegisterAction extends BaseAction {
@@ -21,8 +20,8 @@ public class RegisterAction extends BaseAction {
 	
 	public String errorMsg;
 	
-	@Resource
-    protected MailMai mailMai;
+	//@Resource
+    //protected MailMai mailMai;
 	
 	/**
 	 * 初期表示

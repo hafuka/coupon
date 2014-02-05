@@ -8,7 +8,7 @@ import org.seasar.extension.jdbc.name.PropertyName;
  * {@link IUserAuthentication}のプロパティ名の集合です。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/01/27 14:51:51")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/02/04 19:48:57")
 public class IUserAuthenticationNames {
 
     /**

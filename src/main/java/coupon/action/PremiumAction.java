@@ -24,6 +24,7 @@ public class PremiumAction extends BaseAction {
 	//////////IN項目 /////////
 	public Integer areaId;
 	public Integer areaDetailId;
+	public Integer businessId;
 	
 	///////// OUT項目 ////////
 	public List<MShop> shopList;
@@ -40,7 +41,7 @@ public class PremiumAction extends BaseAction {
 	
 	@Execute(validator = false)
 	public String index() {
-		shopList = shopService.getMShops(null, null, true);
+		shopList = shopService.getMShops(null, null, null, true);
 		Collections.shuffle(shopList);
 		areaList = pullDownService.getAreaList();
 		areaDetailList = pullDownService.getAreaDetailList(14);
@@ -55,7 +56,7 @@ public class PremiumAction extends BaseAction {
 	 */
 	@Execute(validator = false)
 	public String search() throws IOException {
-		shopList = shopService.getMShops(areaId, areaDetailId, true);
+		shopList = shopService.getMShops(areaId, areaDetailId, businessId, true);
         super.setJsonData(shopList);
 		return null;
 	}

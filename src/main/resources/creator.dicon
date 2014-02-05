@@ -10,5 +10,5 @@
 	<component class="org.seasar.framework.container.creator.DtoCreator"/>
 	<component class="org.seasar.framework.container.creator.InterceptorCreator"/>
 	<component class="org.seasar.framework.container.creator.DaoCreator"/>
-	<component class="org.seasar.mai.creator.MaiCreator" />
+	<!-- <component class="org.seasar.mai.creator.MaiCreator" /> -->
 </components>

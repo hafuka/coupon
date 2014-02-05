@@ -24,6 +24,7 @@ public class NormalAction extends BaseAction {
 	////////// IN項目 /////////
 	public Integer areaId;
 	public Integer areaDetailId;
+	public Integer businessId;
 	
 	///////// OUT項目 ////////
 	public List<MShop> shopList;
@@ -40,13 +41,15 @@ public class NormalAction extends BaseAction {
 	
 	@Execute(validator = false)
 	public String index() {
-		shopList = shopService.getMShops(null, null, false);
+		shopList = shopService.getMShops(null, null, null, false);
 		Collections.shuffle(shopList);
 		areaList = pullDownService.getAreaList();
 		areaDetailList = pullDownService.getAreaDetailList(14);
 		businessList = pullDownService.getBusinessList();
 		
 		//rouletteFlg = rouletteService.checkDailyRoulette(loginUserDto.userId);
+		
+		rouletteFlg = true;
 		
 		super.getFormToken();
 		
@@ -60,7 +63,7 @@ public class NormalAction extends BaseAction {
 	 */
 	@Execute(validator = false)
 	public String search() throws IOException {
-		shopList = shopService.getMShops(areaId, areaDetailId, false);
+		shopList = shopService.getMShops(areaId, areaDetailId, businessId, false);
         super.setJsonData(shopList);
 		return null;
 	}

@@ -12,6 +12,7 @@ DROP INDEX IDX_REGIST_TOKEN ON I_USER_AUTHENTICATION;
 
 DROP TABLE I_USER;
 DROP TABLE I_USER_AUTHENTICATION;
+DROP TABLE I_USER_COIN;
 DROP TABLE I_USER_COUPON;
 DROP TABLE M_AREA;
 DROP TABLE M_AREA_DETAIL;
@@ -48,6 +49,16 @@ CREATE TABLE I_USER_AUTHENTICATION
 	email varchar(128) NOT NULL,
 	password varchar(128) NOT NULL,
 	regist_token varchar(32),
+	upd_datetime datetime NOT NULL,
+	ins_datetime datetime NOT NULL,
+	PRIMARY KEY (user_id)
+);
+
+
+CREATE TABLE I_USER_COIN
+(
+	user_id bigint NOT NULL,
+	coin bigint,
 	upd_datetime datetime NOT NULL,
 	ins_datetime datetime NOT NULL,
 	PRIMARY KEY (user_id)
@@ -138,6 +149,7 @@ CREATE TABLE M_SHOP_COUPON
 	description varchar(255),
 	probability int NOT NULL,
 	limit_days int,
+	rarity int NOT NULL,
 	PRIMARY KEY (shop_id, coupon_type, coupon_id)
 );
 

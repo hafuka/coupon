@@ -1,6 +1,7 @@
 package coupon.entity;
 
 import java.io.Serializable;
+
 import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -46,4 +47,8 @@ public class MShopCoupon implements Serializable {
     /** limitDaysプロパティ */
     @Column(precision = 10, nullable = true, unique = false)
     public Integer limitDays;
+    
+    /** rarityプロパティ */
+    @Column(precision = 10, nullable = false, unique = false)
+    public Integer rarity;
 }

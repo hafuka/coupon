@@ -1,17 +1,21 @@
 package coupon.service.impl;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.Resource;
 
+import coupon.dao.IUserCoinDao;
 import coupon.dto.CouponDto;
 import coupon.entity.IUser;
+import coupon.entity.IUserCoin;
 import coupon.entity.IUserCoupon;
 import coupon.entity.MShop;
 import coupon.entity.MShopCoupon;
+import coupon.enums.RarityType;
 import coupon.service.RouletteService;
 import coupon.service.ShopService;
 import coupon.service.UserService;
@@ -24,6 +28,8 @@ public class RouletteServiceImpl implements RouletteService {
 	protected UserService userService;
 	@Resource
 	protected ShopService shopService;
+	@Resource
+	protected IUserCoinDao iUserCoinDao;
 	
 	
 	@Override
@@ -42,7 +48,7 @@ public class RouletteServiceImpl implements RouletteService {
 		Timestamp nowDate = CouponDateUtils.getCurrentDate();
 		
 		// お店リスト取得
-		List<MShop> shopList = shopService.getMShops(null, null, premiumFlg);
+		List<MShop> shopList = shopService.getMShops(null, null, null, premiumFlg);
 		Collections.shuffle(shopList);
 		MShop mShop = shopList.get(0);
 		
@@ -71,8 +77,15 @@ public class RouletteServiceImpl implements RouletteService {
 		couponDto.mShop = mShop;
 		couponDto.mShopCoupon = shopCoupon;
 		
-		return couponDto;
+		// スロットの止まる位置情報取得
+		couponDto.positionList = this.getStopPositionList(shopCoupon);
 		
+		int chance = MathUtils.getRandomRange(1, 100);
+		if (chance > 50) {
+			couponDto.chanceFlg = true;
+		}
+		
+		return couponDto;
 	}
 	
     private MShopCoupon getRandomCoupon(MShop mShop, boolean premiumFlg) {
@@ -104,6 +117,39 @@ public class RouletteServiceImpl implements RouletteService {
 			sumPercent += mShopCoupon.probability;
 		}
 		return sumPercent;
+	}
+	
+	
+	private List<String> getStopPositionList(MShopCoupon mShopCoupon) {
+		List<String> positionList = new ArrayList<String>(3);
+		positionList.add("LEFT");
+		positionList.add("CENTER");
+		positionList.add("RIGHT");
+		Collections.shuffle(positionList);
+		
+		List<String> positionResultList = new ArrayList<String>();
+		
+		RarityType rarityType = RarityType.getEnum(mShopCoupon.rarity);
+		switch (rarityType) {
+		case R:
+			positionResultList.add(positionList.get(0));
+			break;
+		case HR:
+			positionResultList.add(positionList.get(0));
+			positionResultList.add(positionList.get(1));
+			break;
+		case SR:
+
+			break;
+		default:
+			break;
+		}
+		return positionResultList;
+	}
+
+	@Override
+	public IUserCoin getIUserTicket(Long userId) {
+		return iUserCoinDao.findById(userId);
 	}
 
 }

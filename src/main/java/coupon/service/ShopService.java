@@ -14,7 +14,7 @@ public interface ShopService {
 	 * @param premiumFlg
 	 * @return
 	 */
-	public abstract List<MShop> getMShops(Integer areaId, Integer areaDetailId, boolean premiumFlg);
+	public abstract List<MShop> getMShops(Integer areaId, Integer areaDetailId, Integer businessId, boolean premiumFlg);
 	
 	
 	

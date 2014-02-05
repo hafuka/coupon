@@ -35,7 +35,6 @@ h1 {
 table {
     border-spacing: 0px;
     border-collapse: collapse;
-    width: 100%;
 }
 
 th {
@@ -64,6 +63,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 .borderTopGreen { border-top: 2px solid #99cc66; }
 .borderBottomGreen { border-bottom: 2px solid #99cc66; }
 .borderBottomOrange { border-bottom: 2px solid #ff6633; }
+.borderBottomGray { border-bottom: 2px solid #b3b3b3; }
 
 .dropShadow {
     -webkit-box-shadow: 0 2px 2px rgba(0,0,0,0.3);
@@ -104,6 +104,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 .w140 { width: 140px !important; }
 .w300 { width: 300px !important; }
 .w320 { width: 320px !important; }
+.w95per { width: 95% !important; }
 .relative { position: relative; }
 .absolute { position: absolute; }
 .block { display: block; }
@@ -120,6 +121,11 @@ input[type="text"], input[type="email"], input[type="password"] {
 .zIndex20 {z-index: 20; }
 .zIndex50 {z-index: 50; }
 .zIndex100 {z-index: 100; }
+
+.borderBox {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
 .link1{
     color: #fe016d;
@@ -205,6 +211,10 @@ input[type="text"], input[type="email"], input[type="password"] {
 
 .bgWhite {
     background: #ffffff;
+}
+
+.bgGray {
+    background: #eeeeee;
 }
 
 .bgRound {
@@ -698,7 +708,7 @@ footer .menuList {
 }
 
 .couponList li:nth-child(even){
-    background-color: #ffffcc;
+    background-color: #e6f4e6;
 }
 
 /* プレミアム */
@@ -792,6 +802,28 @@ footer .menuList {
 }
 
 .storeDetailText {
-    background: #eee;
     border: 2px solid #b3b3b3;
+}
+
+.couponDetailList {
+    border-top: 2px solid #ff6600;
+    padding: 5px;
+}
+
+.couponDetailList:last-child {
+    border-top: 2px solid #ff6600;
+    border-bottom: 2px solid #ff6600;
+    padding: 5px;
+}
+
+.srCouponBg {
+    background: #fee4c7;
+}
+
+.rCouponBg {
+    background: #e0ebcf;
+}
+
+.nCouponBg {
+    background: #f6f6f6;
 }

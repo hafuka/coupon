@@ -41,7 +41,7 @@ public class NormalAction extends BaseAction {
 	
 	@Execute(validator = false)
 	public String index() {
-		shopList = shopService.getMShops(null, null, null, false);
+		shopList = shopService.getMShops(null, null, null);
 		Collections.shuffle(shopList);
 		areaList = pullDownService.getAreaList();
 		areaDetailList = pullDownService.getAreaDetailList(14);
@@ -63,7 +63,7 @@ public class NormalAction extends BaseAction {
 	 */
 	@Execute(validator = false)
 	public String search() throws IOException {
-		shopList = shopService.getMShops(areaId, areaDetailId, businessId, false);
+		shopList = shopService.getMShops(areaId, areaDetailId, businessId);
         super.setJsonData(shopList);
 		return null;
 	}

@@ -41,7 +41,7 @@ public class PremiumAction extends BaseAction {
 	
 	@Execute(validator = false)
 	public String index() {
-		shopList = shopService.getMShops(null, null, null, true);
+		shopList = shopService.getMShops(null, null, null);
 		Collections.shuffle(shopList);
 		areaList = pullDownService.getAreaList();
 		areaDetailList = pullDownService.getAreaDetailList(14);
@@ -56,7 +56,7 @@ public class PremiumAction extends BaseAction {
 	 */
 	@Execute(validator = false)
 	public String search() throws IOException {
-		shopList = shopService.getMShops(areaId, areaDetailId, businessId, true);
+		shopList = shopService.getMShops(areaId, areaDetailId, businessId);
         super.setJsonData(shopList);
 		return null;
 	}

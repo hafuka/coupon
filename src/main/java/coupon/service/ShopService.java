@@ -6,7 +6,15 @@ import coupon.entity.MShop;
 import coupon.entity.MShopCoupon;
 
 public interface ShopService {
-
+	
+	/**
+	 * ショップ取得
+	 * @param shopId
+	 * @return
+	 */
+	public abstract MShop getMShop(Integer shopId);
+	
+	
 	/**
 	 * ショップ検索
 	 * @param areaId
@@ -14,7 +22,7 @@ public interface ShopService {
 	 * @param premiumFlg
 	 * @return
 	 */
-	public abstract List<MShop> getMShops(Integer areaId, Integer areaDetailId, Integer businessId, boolean premiumFlg);
+	public abstract List<MShop> getMShops(Integer areaId, Integer areaDetailId, Integer businessId);
 	
 	
 	

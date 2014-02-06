@@ -23,22 +23,12 @@ public class ShopServiceImpl implements ShopService {
 	protected MShopCouponDao mShopCouponDao;
 
 	@Override
-	public List<MShop> getMShops(Integer areaId, Integer areaDetailId, Integer businessId, boolean premiumFlg) {
-		if (premiumFlg) {
-			BeanMap conditions = new BeanMap();
-			conditions.put(MShopNames.areaId().toString(), areaId);
-			conditions.put(MShopNames.areaDetailId().toString(), areaDetailId);
-			conditions.put(MShopNames.businessId().toString(), businessId);
-			conditions.put(MShopNames.premiumFlg().toString(), CouponType.PREMIUM.getKey());
-			return mShopDao.findByCondition(conditions);
-		} else {
-			BeanMap conditions = new BeanMap();
-			conditions.put(MShopNames.areaId().toString(), areaId);
-			conditions.put(MShopNames.areaDetailId().toString(), areaDetailId);
-			conditions.put(MShopNames.businessId().toString(), businessId);
-//			conditions.put(MShopNames.premiumFlg().toString(), CouponType.NORMAL.getKey());
-			return mShopDao.findByCondition(conditions);
-		}
+	public List<MShop> getMShops(Integer areaId, Integer areaDetailId, Integer businessId) {
+		BeanMap conditions = new BeanMap();
+		conditions.put(MShopNames.areaId().toString(), areaId);
+		conditions.put(MShopNames.areaDetailId().toString(), areaDetailId);
+		conditions.put(MShopNames.businessId().toString(), businessId);
+		return mShopDao.findByCondition(conditions);
 	}
 
 	@Override
@@ -53,6 +43,11 @@ public class ShopServiceImpl implements ShopService {
 		conditions.put(MShopCouponNames.shopId().toString(), shopId);
 		conditions.put(MShopCouponNames.couponType().toString(), couponType.getKey());
 		return mShopCouponDao.findByCondition(conditions);
+	}
+
+	@Override
+	public MShop getMShop(Integer shopId) {
+		return mShopDao.findById(shopId);
 	}
 
 }

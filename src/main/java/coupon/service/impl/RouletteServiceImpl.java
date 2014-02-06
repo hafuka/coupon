@@ -43,17 +43,64 @@ public class RouletteServiceImpl implements RouletteService {
 	}
 
 	@Override
-	public CouponDto execRoulette(Long userId, boolean premiumFlg) {
+	public CouponDto execRoulette(Long userId, boolean premiumFlg, Integer areaId, Integer areaDetailId, Integer businessId) {
 		
 		Timestamp nowDate = CouponDateUtils.getCurrentDate();
 		
 		// お店リスト取得
-		List<MShop> shopList = shopService.getMShops(null, null, null, premiumFlg);
+		List<MShop> shopList = shopService.getMShops(areaId, areaDetailId, businessId);
 		Collections.shuffle(shopList);
 		MShop mShop = shopList.get(0);
 		
 		// ショップクーポンを抽出する
 		MShopCoupon shopCoupon = this.getRandomCoupon(mShop, premiumFlg);
+		
+		IUserCoupon userCoupon = userService.getIUserCoupon(userId, shopCoupon);
+		if (userCoupon == null) {
+			// 登録
+			userService.insertIUserCoupon(userId, shopCoupon);
+			
+		} else {
+			// 更新
+			userCoupon.couponCount += 1;
+			userCoupon.limitDatetime = CouponDateUtils.add(nowDate, shopCoupon.limitDays, Calendar.DATE);
+			userCoupon.updDatetime = nowDate;
+			userService.updateIUserCoupon(userCoupon);
+		}
+		
+		IUser iUser = userService.getIUser(userId);
+		iUser.normalRouletteDatetime = nowDate;
+		iUser.updDatetime = nowDate;
+		userService.updateIUser(iUser);
+		
+		CouponDto couponDto = new CouponDto();
+		couponDto.mShop = mShop;
+		couponDto.mShopCoupon = shopCoupon;
+		
+		// スロットの止まる位置情報取得
+		couponDto.positionList = this.getStopPositionList(shopCoupon);
+		
+		int chance = MathUtils.getRandomRange(1, 100);
+		if (chance > 50) {
+			couponDto.chanceFlg = true;
+		}
+		
+		return couponDto;
+	}
+	
+	@Override
+	public CouponDto execPremiumRoulette(Long userId, Integer shopId) {
+		
+		Timestamp nowDate = CouponDateUtils.getCurrentDate();
+		
+		// お店リスト取得
+		MShop mShop = shopService.getMShop(shopId);
+		if (mShop == null) {
+			throw new IllegalArgumentException("お店情報取得エラー。shopId=" + shopId);
+		}
+		
+		// ショップクーポンを抽出する
+		MShopCoupon shopCoupon = this.getRandomCoupon(mShop, true);
 		
 		IUserCoupon userCoupon = userService.getIUserCoupon(userId, shopCoupon);
 		if (userCoupon == null) {
@@ -148,8 +195,10 @@ public class RouletteServiceImpl implements RouletteService {
 	}
 
 	@Override
-	public IUserCoin getIUserTicket(Long userId) {
+	public IUserCoin getIUserCoin(Long userId) {
 		return iUserCoinDao.findById(userId);
 	}
+
+
 
 }

@@ -4,8 +4,8 @@ import javax.annotation.Resource;
 
 import org.seasar.struts.annotation.Execute;
 
+import coupon.bean.ShopBaen;
 import coupon.entity.IUserCoin;
-import coupon.entity.MShop;
 import coupon.service.RouletteService;
 import coupon.service.ShopService;
 
@@ -20,7 +20,7 @@ public class DetailAction extends BaseAction {
 	public Integer shopId;
 	
 	/***** OUT 項目 *****/
-	public MShop shop;
+	public ShopBaen shop;
 	public Long coin;
 	
 	

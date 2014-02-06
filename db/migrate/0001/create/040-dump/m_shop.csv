@@ -1,1 +1,5 @@
-"SHOP_ID","MAP_URL","TELL","URL","DESCRIPTION","SHOP_NAME","SHOP_CATEGORY"
+"SHOP_ID","PREMIUM_FLG","STATION","AREA_DETAIL_ID","AREA_ID","MAP_URL","TELL","URL","DESCRIPTION","SHOP_NAME","BUSINESS_ID"
+"1","0","渋谷","1","14",,,,"日比谷bar説明","日比谷bar","1"
+"2","0","渋谷","1","14",,,,"とりしょう説明","とりしょう","1"
+"3","0","渋谷","1","14",,,,"鳥竹説明","鳥竹","1"
+"4","0","渋谷","1","14",,,,"cona説明","cona","1"

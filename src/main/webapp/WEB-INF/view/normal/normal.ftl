@@ -93,7 +93,7 @@
                 
                     <#list shopList as shop>
                         <li>
-                            <a href="${urlPath}/detail">
+                            <a href="${urlPath}/detail?shopId=${shop.shopId}">
                                 <div class="table">
                                     <div class="cell pr10">
                                         <img src="${imagePath}/images/storeThumnail.jpg" width="85" height="85" class="borderGray">

@@ -1,11 +1,13 @@
 package coupon.dao;
 
-import coupon.entity.MShop;
-import java.util.List;
-import javax.annotation.Generated;
-
 import static coupon.entity.MShopNames.*;
 import static org.seasar.extension.jdbc.operation.Operations.*;
+
+import java.util.List;
+
+import javax.annotation.Generated;
+
+import coupon.entity.MShop;
 
 /**
  * {@link MShop}のサービスクラスです。

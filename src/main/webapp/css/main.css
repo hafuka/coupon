@@ -79,14 +79,14 @@ input[type="text"], input[type="email"], input[type="password"] {
 .fcOrange { color: #ff6633; }
 .fcWhite { color: #fff; }
 .fcBlack { color: #333; }
-.fs22 { font-size: 22px; }
-.fs20 { font-size: 20px; }
-.fs18 { font-size: 18px; }
-.fs16 { font-size: 16px; }
-.fs15 { font-size: 15px; }
-.fs14 { font-size: 14px; }
-.fs13 { font-size: 13px; }
-.fs12 { font-size: 12px; }
+.fs22 { font-size: 22px !important; }
+.fs20 { font-size: 20px !important; }
+.fs18 { font-size: 18px !important; }
+.fs16 { font-size: 16px !important; }
+.fs15 { font-size: 15px !important; }
+.fs14 { font-size: 14px !important; }
+.fs13 { font-size: 13px !important; }
+.fs12 { font-size: 12px !important; }
 .fcBold { font-weight: bold; }
 .lheight0 { line-height: 0; }
 .lheight15 { line-height: 1.5; }
@@ -307,10 +307,9 @@ input[type="text"], input[type="email"], input[type="password"] {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 17px;
     color: #fff;
     line-height: 1.2;
-    text-shadow: 1px 1px 1px #ccc;
 }
 
 .btnPrimary {
@@ -544,11 +543,11 @@ input[type="text"], input[type="email"], input[type="password"] {
 
 .underballoonLight {
     position: relative;
-    width: 260px;
+    width: 295px;
     background: #fff;
-    padding: 3px;
-    border: 2px solid #fd73f8;
-    border-radius: 5px;
+    padding: 5px 0;
+    border: 2px solid #538610;
+    border-radius: 10px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
 }
@@ -556,11 +555,11 @@ input[type="text"], input[type="email"], input[type="password"] {
 .underballoonLight:before {
     position: absolute;
     content: '';
-    left: 120px;
+    left: 135px;
     bottom: -12px;
     width: 0;
     height: 0;
-    border-top: 12px solid #fd73f8;
+    border-top: 12px solid #538610;
     border-right: 8px solid transparent;
     border-left: 8px solid transparent;
 }
@@ -568,7 +567,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 .underballoonLight:after {
     position: absolute;
     content: '';
-    left: 120px;
+    left: 135px;
     bottom: -10px;
     width: 0;
     height: 0;
@@ -704,6 +703,13 @@ footer .menuList {
     border-bottom: 2px solid #99cc66;
     background: url('/coupon/images/link_btn.png') 100% 50% no-repeat #fff;
     background-size: 30px 30px;
+    padding: 8px;
+}
+
+.couponList li.noList {
+    border-bottom: 2px solid #99cc66;
+    background: #fff;
+    text-align: center;
     padding: 8px;
 }
 

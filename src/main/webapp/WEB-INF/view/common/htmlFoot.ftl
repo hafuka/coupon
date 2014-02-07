@@ -5,4 +5,5 @@
     //グローバルで使う変数を定義
     var urlPath = '${urlPath}';
     var imagePath = '${imagePath}';
+    var token = '${token}';
 </script>

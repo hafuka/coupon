@@ -15,7 +15,7 @@ var canvas, stage, exportRoot;
 
 var storeName = '${coupon.mShop.shopName!?html}';
 var storeCouponName = '${coupon.mShopCoupon.couponName!?html}';
-var nextUrl = '/coupon/rouletteResult?token=${token!?html}';
+var nextUrl = '/coupon/rouletteResult?token=${token}';
 
 window.addEventListener('DOMContentLoaded', function() {
     canvas = document.getElementById("canvas");
@@ -70,7 +70,7 @@ function handleComplete() {
             #canvas {
                 position: absolute;
                 background-color: #000;
-                background-image: url("${imageContextPath}/images/common/loading.gif");
+                background-image: url("${imagePath}/images/common/loading.gif");
                 background-repeat: no-repeat;
                 background-position: center;
                 background-size: 70px 72px;

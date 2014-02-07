@@ -16,8 +16,22 @@
             <div class="bgWhite borderBottomGreen">
                 <div>
                     <div class="bgWhite relative">
-                        <div>
-                            <img src="${imagePath}/images/storeThumnail.jpg" width="100%" height="150px;" class="vBottom">
+                        <div class="table m0auto">
+                            <div class="cell p10">
+                                <img src="${imagePath}/images/storeThumnail.jpg" width="150" height="150" class="vBottom">
+                            </div>
+                            <div class="cell vMiddle">
+                                <div class="pv10 pr10">
+                                    <a href="" class="btn btnPrimary autoMargin w140">
+                                        <img src="${imagePath}/images/btn_txt_tel.png" width="100" height="22">
+                                    </a>
+                                </div>
+                                <div class="pv20 pr10">
+                                    <a href="" class="btn btnPrimary autoMargin w140">
+                                        <img src="${imagePath}/images/btn_txt_map.png" width="100" height="22">
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <ul class="mb10">
                             <li class="couponDetailList srCouponBg">
@@ -52,22 +66,21 @@
                             </li>
                         </ul>
                     </div>
-
-                    <div class="mt10 mb15 table autoMargin">
-                        <div class="cell textCenter pr20">
-                            <a href="" class="btn btnPrimary autoMargin w140">
-                                <img src="${imagePath}/images/btn_txt_tel.png" width="100" height="22" class="pt5">
-                            </a>
-                        </div>
-                        <div class="cell textCenter">
-                            <a href="" class="btn btnPrimary autoMargin w140">
-                                <img src="${imagePath}/images/btn_txt_map.png" width="100" height="22" class="pt5">
-                            </a>
-                        </div>
+                    
+                    <#-- プレミアムボタン -->
+                    <p class="underballoonLight fs12 fcOrange textCenter m0auto">
+                        このお店のクーポンのどれか１つがGETできるよ♪
+                    </p>
+                    <div class="textCenter mv10">
+                        <a href="${urlPath}/premiumRouletteAnimation?token=${token!?html}&shopId=${shopId}" class="btn btnSpecial getActive jsTouchActive autoMargin">プレミアム♪ドコ行く？</a>
+                    </div>
+                    <div class="coinArea fs13 textCenter mv10 m0auto">
+                        1回：<span class="fcOrange">100コイン</span><br>
+                        所持コイン：<span class="fcOrange">0コイン</span>
                     </div>
 
                     <div class="storeDetailText borderBox w95per m10 autoMargin">
-                        <h2 class="bgGray borderBottomGray fs15 p5">こだわり</h2>
+                        <h2 class="bgGray borderBottomGray fs15 p5">お店のこだわり</h2>
                         <p class="fs13 p5">なんて日だ！なんて日だ！なんて日だ！なんて日だ！なんて日だ！なんて日だ！なんて日だ！なんて日だ！なんて日だ！</p>
                     </div>
 
@@ -78,17 +91,22 @@
                         </tr>
                         <tr>
                             <th>ホームページ：</th>
-                            <td>google.co.jp</td>
+                            <td><a href="google.co.jp" class="fcBlue underline" target="_blank">google.co.jp</a></td>
                         </tr>
                     </table>
 
-                    <div class="textCenter mv10">
-                        <a href="${urlPath}/premiumRouletteAnimation?shopId=${shopId!?html}&token=${token}" class="btn btnNormal jsTouchActive autoMargin">使っちゃお♪</a>
-                    </div>
-
-                    <p class="textRight fcOrange fs13">
-                        有効期限：2014年1月31日
+                    <#-- プレミアムボタン -->
+                    <p class="underballoonLight fs12 fcOrange textCenter m0auto">
+                        このお店のクーポンのどれか１つがGETできるよ♪
                     </p>
+                    <div class="textCenter mv10">
+                        <a href="${urlPath}/premiumRouletteAnimation?token=${token!?html}&shopId=${shopId}" class="btn btnSpecial getActive jsTouchActive autoMargin">プレミアム♪ドコ行く？</a>
+                    </div>
+                    <div class="coinArea fs13 textCenter mv10 m0auto">
+                        1回：<span class="fcOrange">100コイン</span><br>
+                        所持コイン：<span class="fcOrange">0コイン</span>
+                    </div>
+                    
                 </div>
             </div>
         </section>
@@ -97,7 +115,7 @@
         <nav>
             <div class="mv20">
                 <div class="textCenter mv10">
-                    <a href="${urlPath}/coupon" class="btn btnPrimary jsTouchActive autoMargin">今日ドコ行く？</a>
+                    <a href="${urlPath}/search" class="btn btnPrimary jsTouchActive autoMargin">ドコ行く？TOPへ</a>
                 </div>
                 <div class="textCenter mv10">
                     <a href="${urlPath}/mypage" class="btn btnNormal jsTouchActive autoMargin">マイページへ</a>

@@ -34,7 +34,7 @@
                         <p class="fcWhite fs14 textShadow inlineBlock w60">地域：</p>
                         <p class="selectBox inlineBlock vMiddle">
                             <select name="area">
-                                <option value="0">地域を選択してください</option>
+                                <option value="">地域を選択してください</option>
                                 <#list areaList as area>
                                     <option value="${area.value!?html}">${area.label!?html}</option>
                                 </#list>
@@ -45,7 +45,7 @@
                         <p class="fcWhite fs14 textShadow inlineBlock w60">エリア：</p>
                         <p class="selectBox inlineBlock vMiddle">
                             <select name="areaDetail">
-                                <option value="0">ｴﾘｱを選択してください</option>
+                                <option value="">ｴﾘｱを選択してください</option>
                                 <#list areaDetailList as areaDetail>
                                     <option value="${areaDetail.value!?html}">${areaDetail.label!?html}</option>
                                 </#list>
@@ -56,7 +56,7 @@
                         <p class="fcWhite fs14 textShadow inlineBlock w60">業種：</p>
                         <p class="selectBox inlineBlock vMiddle">
                             <select name="business">
-                                <option value="0">業種を選択してください</option>
+                                <option value="">業種を選択してください</option>
                                 <#list businessList as business>
                                 <option value="${business.value!?html}">${business.label!?html}</option>
                                 </#list>
@@ -73,7 +73,9 @@
                 <div class="textCenter mv10">
                     <p class="callText fcRed fs14">1日1回無料でクーポンGETできるよ♪</p>
                     <#if rouletteFlg>
-                        <a href="${urlPath}/rouletteAnimation?token=${token!?html}" class="btn btnSpecial getActive jsTouchActive autoMargin">ドコ行く？</a>
+                        <div class="js_activeRouletteBtn">
+                            <p class="btn btnSpecial autoMargin">地域と業種を選んでね♪</p>
+                        </div>
                     <#else>
                         <p class="btn btnNoActive autoMargin">また明日きてね♪</p>
                     </#if>
@@ -97,14 +99,14 @@
                             <a href="${urlPath}/detail?shopId=${shop.shopId}">
                                 <div class="table">
                                     <div class="cell pr10">
-                                        <img src="${imagePath}/images/storeThumnail.jpg" width="85" height="85" class="borderGray">
+                                        <img src="${imagePath}/images/${shop.imgPath!?html}" width="85" height="85" class="borderGray">
                                     </div>
                                     <div class="cell vTop pr20">
                                         <p class="fcBlue underline">${shop.shopName!?html}</p>
-                                        <p class="fs13">業種：飲食店</p>
-                                        <p class="fs13">地域：${shop.station!?html}</p>
+                                        <p class="fs13">業種：${shop.businessName!?html}</p>
+                                        <p class="fs13">最寄駅：${shop.station!?html}</p>
                                         <p class="fcRed textCenter fs13">↓目玉クーポン↓</p>
-                                        <p class="bgRound">お会計：50%OFF!!</p>
+                                        <p class="bgRound">${shop.featuredCoupon!?html}</p>
                                     </div>
                                 </div>
                             </a>
@@ -121,7 +123,9 @@
             <div class="textCenter mv10">
                 <p class="callText fcRed fs14">1日1回無料でクーポンGETできるよ♪</p>
                 <#if rouletteFlg>
-                    <a href="${urlPath}/rouletteAnimation?token=${token!?html}" class="btn btnSpecial getActive jsTouchActive autoMargin">ドコ行く？</a>
+                    <div class="js_activeRouletteBtn">
+                        <p class="btn btnSpecial autoMargin">地域と業種を選んでね♪</p>
+                    </div>
                 <#else>
                     <p class="btn btnNoActive autoMargin">また明日きてね♪</p>
                 </#if>
@@ -142,7 +146,7 @@
 
         <#-- 共通JavaScriptのインクルード -->
         <#include "/common/htmlFoot.ftl">
-        <script src="/coupon/js/normal.js"></script>
+        <script src="/coupon/js/search.js"></script>
         
         <#-- JsRenderテンプレート：検索リスト用 -->
         <script id="searchlist_template" type="text/x-jsrender">
@@ -150,14 +154,14 @@
                 <a href="${urlPath}/detail?shopId={{:shopId}}">
                     <div class="table">
                         <div class="cell pr10">
-                            <img src="${imagePath}/images/storeThumnail.jpg" width="85" height="85" class="borderGray">
+                            <img src="${imagePath}/images/{{:imgPath}}" width="85" height="85" class="borderGray">
                         </div>
                         <div class="cell vTop pr20">
                             <p class="fcBlue underline">{{:shopName}}</p>
-                            <p class="fs13">業種：飲食店</p>
-                            <p class="fs13">地域：{{:station}}</p>
+                            <p class="fs13">業種：{{:businessName}}</p>
+                            <p class="fs13">最寄駅：{{:station}}</p>
                             <p class="fcRed textCenter fs13">↓目玉クーポン↓</p>
-                            <p class="bgRound">お会計：50%OFF!!</p>
+                            <p class="bgRound">{{:featuredCoupon}}</p>
                         </div>
                     </div>
                 </a>

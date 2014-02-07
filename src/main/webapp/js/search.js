@@ -7,6 +7,8 @@ $(function(){
     var areaId,
         areaDetailId,
         businessId;
+    // ルーレットボタン
+    var activeRouletteBtn = $('.js_activeRouletteBtn');
     
     // 検索ボタンを押したらajax通信を開始
     searchBtn.on('click', function(){
@@ -21,7 +23,7 @@ $(function(){
         businessId = $('select[name="business"]').val();
         
         console.log(areaId);
-        var url = urlPath + "/normal/search";
+        var url = urlPath + "/search/search";
         var formData = "areaId=" + areaId + "&areaDetailId=" + areaDetailId + "&businessId=" + businessId;
         console.log(formData);
         ajaxJsonGlobal(url, formData, searchSuccess);
@@ -34,8 +36,14 @@ $(function(){
             searchList.html(
                 $("#searchlist_template").render(returnSearchList(data))
             );
+            activeRouletteBtn.html(
+                '<a href="' + urlPath + '/rouletteAnimation?token=' + token + '&areaId=' + areaId + '&areaDetailId=' + areaDetailId + '&businessId=' + businessId + '" class="btn btnSpecial getActive jsTouchActive autoMargin">ドコ行く？</a>'
+            );
         } else {
-            searchList.html('<p>あいうえお</p>');
+            searchList.html('<li class="noList">対象のお店がありませんm(_ _)m</li>');
+            activeRouletteBtn.html(
+                '<p class="btn btnNoActive autoMargin">対象のお店がないみたい</p>'
+            );
         }
     }
     
@@ -49,7 +57,10 @@ $(function(){
             targetList = {
                 "shopId": dataList.shopId,
                 "shopName": dataList.shopName,
-                "station": dataList.station
+                "businessName": dataList.businessName,
+                "imgPath": dataList.imgPath,
+                "station": dataList.station,
+                "featuredCoupon": dataList.featuredCoupon
             };
             storeList.push(targetList);
         }

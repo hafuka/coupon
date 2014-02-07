@@ -36,7 +36,7 @@
             <div class="mypageBtnArea mtMinus65 mh10">
                 <div class="table autoMargin">
                     <div class="cell pr20">
-                        <a href="${urlPath}/normal" class="mypagePremierbtn jsTouchActive fs16 relative zIndex20 pt20 mv5">
+                        <a href="${urlPath}/search" class="mypagePremierbtn jsTouchActive fs16 relative zIndex20 pt20 mv5">
                             今日<br>ドコ行く？
                         </a>
                     </div>

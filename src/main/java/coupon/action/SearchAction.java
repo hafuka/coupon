@@ -14,14 +14,14 @@ import coupon.service.PullDownService;
 import coupon.service.RouletteService;
 import coupon.service.ShopService;
 
-public class PremiumAction extends BaseAction {
-
+public class SearchAction extends BaseAction {
+	
 	@Resource
 	protected PullDownService pullDownService;
 	@Resource
 	protected RouletteService rouletteService;
 	
-	//////////IN項目 /////////
+	////////// IN項目 /////////
 	public Integer areaId;
 	public Integer areaDetailId;
 	public Integer businessId;
@@ -46,7 +46,14 @@ public class PremiumAction extends BaseAction {
 		areaList = pullDownService.getAreaList();
 		areaDetailList = pullDownService.getAreaDetailList(14);
 		businessList = pullDownService.getBusinessList();
-        return "/premium/premium.ftl";
+		
+		//rouletteFlg = rouletteService.checkDailyRoulette(loginUserDto.userId);
+		
+		rouletteFlg = true;
+		
+		super.getFormToken();
+		
+        return "/normal/normal.ftl";
 	}
 	
 	/**

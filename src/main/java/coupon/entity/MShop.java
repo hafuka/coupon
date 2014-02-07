@@ -1,6 +1,7 @@
 package coupon.entity;
 
 import java.io.Serializable;
+
 import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -60,4 +61,5 @@ public class MShop implements Serializable {
     /** premiumFlgプロパティ */
     @Column(precision = 10, nullable = false, unique = false)
     public Integer premiumFlg;
+
 }

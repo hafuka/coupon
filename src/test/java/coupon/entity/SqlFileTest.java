@@ -25,7 +25,7 @@ import org.seasar.framework.util.StatementUtil;
  * </p>
  *
  */
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.SqlFileTestModelFactoryImpl"}, date = "2014/02/04 19:49:08")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.SqlFileTestModelFactoryImpl"}, date = "2014/02/06 17:41:58")
 public class SqlFileTest extends S2TestCase {
 
     private JdbcManager jdbcManager;

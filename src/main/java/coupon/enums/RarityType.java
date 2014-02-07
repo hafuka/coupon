@@ -1,8 +1,8 @@
 package coupon.enums;
 
 public enum RarityType {
-	R(1),
-	HR(2),
+	N(1),
+	R(2),
 	SR(3),
 	;
 	public Integer value;
@@ -18,5 +18,12 @@ public enum RarityType {
 			}
 		}
 		return null;
+	}
+	
+	public static boolean isSR(Integer value) {
+		if (SR.value.equals(value)) {
+			return true;
+		}
+		return false;
 	}
 }

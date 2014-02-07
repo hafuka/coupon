@@ -83,7 +83,7 @@
                     </table>
 
                     <div class="textCenter mv10">
-                        <a href="" class="btn btnNormal jsTouchActive autoMargin">使っちゃお♪</a>
+                        <a href="${urlPath}/premiumRouletteAnimation?shopId=${shopId!?html}&token=${token}" class="btn btnNormal jsTouchActive autoMargin">使っちゃお♪</a>
                     </div>
 
                     <p class="textRight fcOrange fs13">

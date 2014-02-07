@@ -8,12 +8,12 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import coupon.bean.ShopBaen;
 import coupon.dao.IUserCoinDao;
 import coupon.dto.CouponDto;
 import coupon.entity.IUser;
 import coupon.entity.IUserCoin;
 import coupon.entity.IUserCoupon;
-import coupon.entity.MShop;
 import coupon.entity.MShopCoupon;
 import coupon.enums.RarityType;
 import coupon.service.RouletteService;
@@ -48,12 +48,12 @@ public class RouletteServiceImpl implements RouletteService {
 		Timestamp nowDate = CouponDateUtils.getCurrentDate();
 		
 		// お店リスト取得
-		List<MShop> shopList = shopService.getMShops(areaId, areaDetailId, businessId);
+		List<ShopBaen> shopList = shopService.getMShops(areaId, areaDetailId, businessId);
 		Collections.shuffle(shopList);
-		MShop mShop = shopList.get(0);
+		ShopBaen shopBean = shopList.get(0);
 		
 		// ショップクーポンを抽出する
-		MShopCoupon shopCoupon = this.getRandomCoupon(mShop, premiumFlg);
+		MShopCoupon shopCoupon = this.getRandomCoupon(shopBean.shopId);
 		
 		IUserCoupon userCoupon = userService.getIUserCoupon(userId, shopCoupon);
 		if (userCoupon == null) {
@@ -74,7 +74,7 @@ public class RouletteServiceImpl implements RouletteService {
 		userService.updateIUser(iUser);
 		
 		CouponDto couponDto = new CouponDto();
-		couponDto.mShop = mShop;
+		couponDto.mShop = shopBean;
 		couponDto.mShopCoupon = shopCoupon;
 		
 		// スロットの止まる位置情報取得
@@ -94,13 +94,13 @@ public class RouletteServiceImpl implements RouletteService {
 		Timestamp nowDate = CouponDateUtils.getCurrentDate();
 		
 		// お店リスト取得
-		MShop mShop = shopService.getMShop(shopId);
-		if (mShop == null) {
+		ShopBaen shopBean = shopService.getMShop(shopId);
+		if (shopBean == null) {
 			throw new IllegalArgumentException("お店情報取得エラー。shopId=" + shopId);
 		}
 		
 		// ショップクーポンを抽出する
-		MShopCoupon shopCoupon = this.getRandomCoupon(mShop, true);
+		MShopCoupon shopCoupon = this.getRandomCoupon(shopBean.shopId);
 		
 		IUserCoupon userCoupon = userService.getIUserCoupon(userId, shopCoupon);
 		if (userCoupon == null) {
@@ -121,7 +121,7 @@ public class RouletteServiceImpl implements RouletteService {
 		userService.updateIUser(iUser);
 		
 		CouponDto couponDto = new CouponDto();
-		couponDto.mShop = mShop;
+		couponDto.mShop = shopBean;
 		couponDto.mShopCoupon = shopCoupon;
 		
 		// スロットの止まる位置情報取得
@@ -135,10 +135,10 @@ public class RouletteServiceImpl implements RouletteService {
 		return couponDto;
 	}
 	
-    private MShopCoupon getRandomCoupon(MShop mShop, boolean premiumFlg) {
+    private MShopCoupon getRandomCoupon(Integer shopId) {
     	
     	// お店のクーポンリスト取得
-		List<MShopCoupon> shopCouponList = shopService.getMShopCoupons(mShop.shopId, premiumFlg);
+		List<MShopCoupon> shopCouponList = shopService.getMShopCoupons(shopId);
 	
         int sumProbability = getSumProbability(shopCouponList);
         int random = MathUtils.getRandomRange(1, sumProbability);
@@ -178,10 +178,10 @@ public class RouletteServiceImpl implements RouletteService {
 		
 		RarityType rarityType = RarityType.getEnum(mShopCoupon.rarity);
 		switch (rarityType) {
-		case R:
+		case N:
 			positionResultList.add(positionList.get(0));
 			break;
-		case HR:
+		case R:
 			positionResultList.add(positionList.get(0));
 			positionResultList.add(positionList.get(1));
 			break;

@@ -236,6 +236,26 @@ ci.cumulativeOffset = function(element) {
 };
 
 /**
+ * ajax通信
+ */
+function ajaxJsonGlobal(url, data, onSuccess){
+    $.ajax({
+        type: "POST",
+        url: url,
+        cache: false,
+        data: data,
+        dataType: 'json',
+        success: function (data, status, xhr) {
+            onSuccess(data);
+            console.log(data);
+        },
+        error: function(msg){
+            console.log('通信にエラーが発生しました。しばらくしてから再度お試しください。');
+        }
+    });
+};
+
+/**
  * 画像のスライド表示
  * @param elm 対象のエレメント名
  * @param options delay:待機時間, speed:フェードアウト速度

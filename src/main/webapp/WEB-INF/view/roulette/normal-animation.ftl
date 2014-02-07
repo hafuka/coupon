@@ -8,7 +8,7 @@
 <script src="http://code.createjs.com/tweenjs-0.5.0.min.js"></script>
 <script src="http://code.createjs.com/movieclip-0.7.0.min.js"></script>
 <script src="http://code.createjs.com/preloadjs-0.4.0.min.js"></script>
-<script src="coupon_animation_kai.js"></script>
+<script src="/coupon/js/coupon_animation.js"></script>
 
 <script>
 var canvas, stage, exportRoot;

@@ -34,7 +34,7 @@
                         <p class="fcWhite fs14 textShadow inlineBlock w60">地域：</p>
                         <p class="selectBox inlineBlock vMiddle">
                             <select name="area">
-                                <option value="">地域を選択してください</option>
+                                <option value="0">地域を選択してください</option>
                                 <#list areaList as area>
                                     <option value="${area.value!?html}">${area.label!?html}</option>
                                 </#list>
@@ -45,7 +45,7 @@
                         <p class="fcWhite fs14 textShadow inlineBlock w60">エリア：</p>
                         <p class="selectBox inlineBlock vMiddle">
                             <select name="areaDetail">
-                                <option value="">ｴﾘｱを選択してください</option>
+                                <option value="0">ｴﾘｱを選択してください</option>
                                 <#list areaDetailList as areaDetail>
                                     <option value="${areaDetail.value!?html}">${areaDetail.label!?html}</option>
                                 </#list>
@@ -56,7 +56,7 @@
                         <p class="fcWhite fs14 textShadow inlineBlock w60">業種：</p>
                         <p class="selectBox inlineBlock vMiddle">
                             <select name="business">
-                                <option value="">業種を選択してください</option>
+                                <option value="0">業種を選択してください</option>
                                 <#list businessList as business>
                                 <option value="${business.value!?html}">${business.label!?html}</option>
                                 </#list>
@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <div class="cell vMiddle">
-                    <a class="btnCircle" onclick="ajaxTest();">検索</a>
+                    <a id="js_searchBtn" class="btnCircle">検索</a>
                 </div>
             </div>
 
@@ -87,7 +87,8 @@
                 下のリストのどれか１つが当たるよ♪<br>
                 <span class="fs12 fcBlack">※クーポンは1店舗あたり3種類あるよ</span>
             </h1>
-            <ul class="couponList borderTopGreen mt10">
+            
+            <ul id="js_searchList" class="couponList borderTopGreen mt10">
                 
                 <#if shopList!?has_content>
                 
@@ -113,6 +114,7 @@
                 </#if>
                 
             </ul>
+            
         </section>
         
         <div class="mb20">
@@ -140,46 +142,28 @@
 
         <#-- 共通JavaScriptのインクルード -->
         <#include "/common/htmlFoot.ftl">
+        <script src="/coupon/js/normal.js"></script>
         
-        <!-- ↓↓↓↓↓↓↓ ajax呼び出し確認用 マサ後でつくりかえて ↓↓↓↓↓↓ -->
-        <script type="text/javascript">
-            
-            // ajax成功
-            function searchSuccess(data){
-                if (data != '') {
-                    // 
-                } else {
-                	// 検索結果0件の場合
-                }
-            }
-            
-            function ajaxTest() {
-            	var areaId = document.getElementsByName("area")[0].value;
-            	var areaDetailId = document.getElementsByName("areaDetail")[0].value;
-            	var businessId = document.getElementsByName("business")[0].value;
-            
-                var url = "${urlPath}/normal/search";
-                var formData = "areaId=" + areaId + "&areaDetailId=" + areaDetailId + "&businessId=" + businessId;
-                ajax(url, formData, searchSuccess);
-            }
-            
-            
-            function ajax(url, data, onSuccess){
-                $.ajax({
-                    type: "POST",
-                    url: url,
-                    cache: false,
-                    data: data,
-                    dataType: 'json',
-                    success: function (data, status, xhr) {
-                        onSuccess(data);
-                    },
-                    error: function(msg){
-                        console.log('通信にエラーが発生しました。しばらくしてから再度お試しください。');
-                    }
-                });
-            };
+        <#-- JsRenderテンプレート：検索リスト用 -->
+        <script id="searchlist_template" type="text/x-jsrender">
+            <li>
+                <a href="${urlPath}/detail?shopId={{:shopId}}">
+                    <div class="table">
+                        <div class="cell pr10">
+                            <img src="${imagePath}/images/storeThumnail.jpg" width="85" height="85" class="borderGray">
+                        </div>
+                        <div class="cell vTop pr20">
+                            <p class="fcBlue underline">{{:shopName}}</p>
+                            <p class="fs13">業種：飲食店</p>
+                            <p class="fs13">地域：{{:station}}</p>
+                            <p class="fcRed textCenter fs13">↓目玉クーポン↓</p>
+                            <p class="bgRound">お会計：50%OFF!!</p>
+                        </div>
+                    </div>
+                </a>
+            </li>
         </script>
+        
     </body>
 
 </html>

@@ -3,11 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <title>coupon_animation_kai</title>
-
+<#-- 共通headのインクルード -->
+<#include "/common/htmlHead.ftl">
 <script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
 <script src="http://code.createjs.com/tweenjs-0.5.0.min.js"></script>
 <script src="http://code.createjs.com/movieclip-0.7.0.min.js"></script>
 <script src="http://code.createjs.com/preloadjs-0.4.0.min.js"></script>
+<#-- 共通JavaScriptのインクルード -->
+<#include "/common/htmlFoot.ftl">
 <script src="/coupon/js/coupon_animation.js"></script>
 
 <script>
@@ -24,22 +27,22 @@ window.addEventListener('DOMContentLoaded', function() {
     images = images||{};
 
     var manifest = [
-        {src:"images/bg.jpg", id:"bg"},
-        {src:"images/big.png", id:"big"},
-        {src:"images/changeImg.png", id:"changeImg"},
-        {src:"images/changeImgShade.png", id:"changeImgShade"},
-        {src:"images/coupon_sr.png", id:"coupon_sr"},
-        {src:"images/jackpot.png", id:"jackpot"},
-        {src:"images/light.png", id:"light"},
-        {src:"images/onepx.png", id:"onepx"},
-        {src:"images/reachImg.png", id:"reachImg"},
-        {src:"images/reachImgShade.png", id:"reachImgShade"},
-        {src:"images/ribbon.png", id:"ribbon"},
-        {src:"images/star_1.png", id:"star_1"},
-        {src:"images/star_2.png", id:"star_2"},
-        {src:"images/star_large.png", id:"star_large"},
-        {src:"images/star_small.png", id:"star_small"},
-        {src:"images/white_bg.png", id:"white_bg"}
+        {src:"/coupon/images/animation/roulette/bg.jpg", id:"bg"},
+        {src:"/coupon/images/animation/roulette/big.png", id:"big"},
+        {src:"/coupon/images/animation/roulette/changeImg.png", id:"changeImg"},
+        {src:"/coupon/images/animation/roulette/changeImgShade.png", id:"changeImgShade"},
+        {src:"/coupon/images/animation/roulette/coupon_sr.png", id:"coupon_sr"},
+        {src:"/coupon/images/animation/roulette/jackpot.png", id:"jackpot"},
+        {src:"/coupon/images/animation/roulette/light.png", id:"light"},
+        {src:"/coupon/images/animation/roulette/onepx.png", id:"onepx"},
+        {src:"/coupon/images/animation/roulette/reachImg.png", id:"reachImg"},
+        {src:"/coupon/images/animation/roulette/reachImgShade.png", id:"reachImgShade"},
+        {src:"/coupon/images/animation/roulette/ribbon.png", id:"ribbon"},
+        {src:"/coupon/images/animation/roulette/star_1.png", id:"star_1"},
+        {src:"/coupon/images/animation/roulette/star_2.png", id:"star_2"},
+        {src:"/coupon/images/animation/roulette/star_large.png", id:"star_large"},
+        {src:"/coupon/images/animation/roulette/star_small.png", id:"star_small"},
+        {src:"/coupon/images/animation/roulette/white_bg.png", id:"white_bg"}
     ];
 
     var loader = new createjs.LoadQueue(false);
@@ -69,11 +72,11 @@ function handleComplete() {
             }
             #canvas {
                 position: absolute;
-                background-color: #000;
-                background-image: url("${imagePath}/images/common/loading.gif");
-                background-repeat: no-repeat;
-                background-position: center;
-                background-size: 70px 72px;
+                //background-color: #000;
+                //background-image: url("${imagePath}/images/common/loading.gif");
+                //background-repeat: no-repeat;
+                //background-position: center;
+                //background-size: 70px 72px;
             }
         </style>
 </head>

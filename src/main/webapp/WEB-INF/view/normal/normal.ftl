@@ -147,7 +147,12 @@
         <#-- 共通JavaScriptのインクルード -->
         <#include "/common/htmlFoot.ftl">
         <script src="/coupon/js/search.js"></script>
-        
+        <script>
+            //グローバルで使う変数を定義
+            var urlPath = '${urlPath}';
+            var imagePath = '${imagePath}';
+            var token = '${token}';
+        </script>
         <#-- JsRenderテンプレート：検索リスト用 -->
         <script id="searchlist_template" type="text/x-jsrender">
             <li>

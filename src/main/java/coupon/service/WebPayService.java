@@ -2,6 +2,15 @@ package coupon.service;
 
 public interface WebPayService {
 
-	
-	void chargeToken(String token, Integer price);
+	/**
+	 * 課金処理
+	 * @param cardName 名義
+	 * @param cardNo カード番号
+	 * @param month 月
+	 * @param year 年
+	 * @param cvc セキュリティーコード
+	 * @param amount 金額
+	 * @param saveCard カード情報保存フラグ
+	 */
+	void doPayment(String cardName, String cardNo, Integer month, Integer year, Integer cvc, Integer amount, boolean saveCard);
 }

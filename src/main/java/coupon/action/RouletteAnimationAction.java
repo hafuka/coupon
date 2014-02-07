@@ -5,7 +5,6 @@ import javax.annotation.Resource;
 import org.seasar.struts.annotation.Execute;
 
 import coupon.dto.CouponDto;
-import coupon.entity.IUserCoin;
 import coupon.enums.TransactionType;
 import coupon.service.RouletteService;
 
@@ -30,11 +29,7 @@ public class RouletteAnimationAction extends BaseAction {
 //		if (!premiumFlg && !rouletteService.checkDailyRoulette(loginUserDto.userId)) {
 //			throw new IllegalArgumentException("日毎ルーレット回数エラー");
 //		}
-		IUserCoin iUserCoin = rouletteService.getIUserCoin(loginUserDto.userId);
-		if (iUserCoin == null || iUserCoin.coin == null || iUserCoin.coin <= 0) {
-			throw new IllegalArgumentException("チケット枚数エラー");
-		}
-		
+
 		// ルーレット実行処理
 		coupon = rouletteService.execRoulette(loginUserDto.userId, false, areaId, areaDetailId, businessId);
 		setTransactionData(coupon, TransactionType.NORMAL_ROULETTE);

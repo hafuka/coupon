@@ -11,7 +11,7 @@
                     </a>
                 </li>
                 <li class="menuList floatLeft textCenter">
-                    <a href="${urlPath}/normal">
+                    <a href="${urlPath}/search">
                         <div class="textCenter">
                             <img src="${imagePath}/images/nav/menu_doko.png" width="67" height="36" class="vTop">
                         </div>

@@ -326,7 +326,7 @@ var sliderImages = function (elm, options) {
         //ページによって、メニューにactiveをつける
         if( splitUrlList[4] == 'mypage' ){
             ci.addClass(menuList[0], 'active');
-        }else if( splitUrlList[4] == 'normal' ){
+        }else if( splitUrlList[4] == 'search' ){
             ci.addClass(menuList[1], 'active');
         }else if( splitUrlList[4] == 'premium' ){
             ci.addClass(menuList[2], 'active');

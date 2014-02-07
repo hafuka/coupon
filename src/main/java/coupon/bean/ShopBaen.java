@@ -8,6 +8,8 @@ public class ShopBaen implements Serializable {
 	
 	public Integer shopId;
 	
+	public String shopName;
+	
     public String description;
 
     public String url;

@@ -21,7 +21,7 @@ public class DetailAction extends BaseAction {
 	
 	/***** OUT 項目 *****/
 	public ShopBaen shop;
-	public Long coin;
+	public Integer coin;
 	
 	
 	@Execute(validator=false)
@@ -37,7 +37,7 @@ public class DetailAction extends BaseAction {
 		
 		IUserCoin userCoin = rouletteService.getIUserCoin(loginUserDto.userId);
 		if (userCoin == null || userCoin.coin == null) {
-			this.coin = 0L;
+			this.coin = 0;
 		} else {
 			this.coin = userCoin.coin;
 		}

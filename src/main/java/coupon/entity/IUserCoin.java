@@ -23,8 +23,8 @@ public class IUserCoin implements Serializable {
     @Column(precision = 19, nullable = false, unique = true)
     public Long userId;
     
-    @Column(precision = 19, nullable = true, unique = true)
-    public Long coin;
+    @Column(precision = 10, nullable = false, unique = false)
+    public Integer coin;
 
     /** updDatetimeプロパティ */
     @Column(nullable = false, unique = false)

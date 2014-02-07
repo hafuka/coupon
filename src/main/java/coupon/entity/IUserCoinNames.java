@@ -8,7 +8,7 @@ import org.seasar.extension.jdbc.name.PropertyName;
  * {@link IUserCoin}のプロパティ名の集合です。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/02/06 17:41:48")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/02/07 15:22:59")
 public class IUserCoinNames {
 
     /**
@@ -25,8 +25,8 @@ public class IUserCoinNames {
      * 
      * @return coinのプロパティ名
      */
-    public static PropertyName<Long> coin() {
-        return new PropertyName<Long>("coin");
+    public static PropertyName<Integer> coin() {
+        return new PropertyName<Integer>("coin");
     }
 
     /**
@@ -94,8 +94,8 @@ public class IUserCoinNames {
          *
          * @return coinのプロパティ名
          */
-        public PropertyName<Long> coin() {
-            return new PropertyName<Long>(this, "coin");
+        public PropertyName<Integer> coin() {
+            return new PropertyName<Integer>(this, "coin");
         }
 
         /**

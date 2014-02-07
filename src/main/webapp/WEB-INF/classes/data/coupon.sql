@@ -58,7 +58,7 @@ CREATE TABLE I_USER_AUTHENTICATION
 CREATE TABLE I_USER_COIN
 (
 	user_id bigint NOT NULL,
-	coin bigint,
+	coin int NOT NULL,
 	upd_datetime datetime NOT NULL,
 	ins_datetime datetime NOT NULL,
 	PRIMARY KEY (user_id)

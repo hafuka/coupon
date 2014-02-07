@@ -2,32 +2,6 @@
 
 var p; // shortcut to reference prototypes
 
-// library properties:
-lib.properties = {
-	width: 320,
-	height: 480,
-	fps: 24,
-	color: "#FFFFFF",
-	manifest: [
-		{src:"images/bg.jpg", id:"bg"},
-		{src:"images/big.png", id:"big"},
-		{src:"images/changeImg.png", id:"changeImg"},
-		{src:"images/changeImgShade.png", id:"changeImgShade"},
-		{src:"images/coupon_sr.png", id:"coupon_sr"},
-		{src:"images/jackpot.png", id:"jackpot"},
-		{src:"images/light.png", id:"light"},
-		{src:"images/onepx.png", id:"onepx"},
-		{src:"images/reachImg.png", id:"reachImg"},
-		{src:"images/reachImgShade.png", id:"reachImgShade"},
-		{src:"images/ribbon.png", id:"ribbon"},
-		{src:"images/star_1.png", id:"star_1"},
-		{src:"images/star_2.png", id:"star_2"},
-		{src:"images/star_large.png", id:"star_large"},
-		{src:"images/star_small.png", id:"star_small"},
-		{src:"images/white_bg.png", id:"white_bg"}
-	]
-};
-
 // stage content:
 (lib.coupon_animation_kai = function(mode,startPosition,loop) {
 	this.initialize(mode,startPosition,loop,{});

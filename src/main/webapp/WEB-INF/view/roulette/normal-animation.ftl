@@ -48,7 +48,7 @@ window.addEventListener('DOMContentLoaded', function() {
     var loader = new createjs.LoadQueue(false);
     loader.addEventListener("fileload", handleFileLoad);
     loader.addEventListener("complete", handleComplete);
-    loader.loadManifest(lib.properties.manifest);
+    loader.loadManifest(manifest);
 });
 
 function handleFileLoad(evt) {
@@ -62,7 +62,7 @@ function handleComplete() {
     stage.addChild(exportRoot);
     stage.update();
 
-    createjs.Ticker.setFPS(lib.properties.fps);
+    createjs.Ticker.setFPS(24);
     createjs.Ticker.addEventListener("tick", stage);
 }
 </script>

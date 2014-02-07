@@ -53,7 +53,7 @@ public class SearchAction extends BaseAction {
 		
 		super.getFormToken();
 		
-        return "/normal/normal.ftl";
+        return "/search/search.ftl";
 	}
 	
 	/**

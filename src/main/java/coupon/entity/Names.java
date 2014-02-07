@@ -7,6 +7,7 @@ import coupon.entity.IUserNames._IUserNames;
 import coupon.entity.MAreaDetailNames._MAreaDetailNames;
 import coupon.entity.MAreaNames._MAreaNames;
 import coupon.entity.MBusinessNames._MBusinessNames;
+import coupon.entity.MCoinNames._MCoinNames;
 import coupon.entity.MConfigNames._MConfigNames;
 import coupon.entity.MLoginBonusNames._MLoginBonusNames;
 import coupon.entity.MShopCouponNames._MShopCouponNames;
@@ -17,7 +18,7 @@ import javax.annotation.Generated;
  * 名前クラスの集約です。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesAggregateModelFactoryImpl"}, date = "2014/02/07 15:22:59")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesAggregateModelFactoryImpl"}, date = "2014/02/07 16:01:51")
 public class Names {
 
     /**
@@ -81,6 +82,15 @@ public class Names {
      */
     public static _MBusinessNames mBusiness() {
         return new _MBusinessNames();
+    }
+
+    /**
+     * {@link MCoin}の名前クラスを返します。
+     * 
+     * @return MCoinの名前クラス
+     */
+    public static _MCoinNames mCoin() {
+        return new _MCoinNames();
     }
 
     /**

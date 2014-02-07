@@ -17,6 +17,7 @@ DROP TABLE I_USER_COUPON;
 DROP TABLE M_AREA;
 DROP TABLE M_AREA_DETAIL;
 DROP TABLE M_BUSINESS;
+DROP TABLE M_COIN;
 DROP TABLE M_CONFIG;
 DROP TABLE M_LOGIN_BONUS;
 DROP TABLE M_SHOP;
@@ -101,6 +102,17 @@ CREATE TABLE M_BUSINESS
 	business_id int NOT NULL,
 	name varchar(128) NOT NULL,
 	PRIMARY KEY (business_id)
+);
+
+
+CREATE TABLE M_COIN
+(
+	id int NOT NULL,
+	coin int NOT NULL,
+	yen int NOT NULL,
+	start_datetime datetime,
+	end_datetime datetime,
+	PRIMARY KEY (id)
 );
 
 

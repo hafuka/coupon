@@ -21,30 +21,11 @@
 					利用可能コイン ${userCoin!?html}コイン
 				</div>
             	<form method="post" action="${urlPath!?html}/payment/confirm" name="frm">
-            		<div class="mt5">
-            			<input type="radio" name="coin" value="100" checked="checked">100コイン(105円)
-            		</div>
-            		<div class="mt5">
-            			<input type="radio" name="coin" value="300" >330コイン(315円)
-            		</div>
-            		<div class="mt5">
-            			<input type="radio" name="coin" value="500" >550コイン(525円)
-            		</div>
-            		<div class="mt5">
-            			<input type="radio" name="coin" value="1000" >1100コイン(1050円)
-            		</div>
-            		<div class="mt5">
-            			<input type="radio" name="coin" value="2000" >2200コイン(2100円)
-            		</div>
-            		<div class="mt5">
-            			<input type="radio" name="coin" value="3000" >3300コイン(3150円)
-            		</div>
-            		<div class="mt5">
-            			<input type="radio" name="coin" value="4000" >4400コイン(4200円)
-            		</div>
-            		<div class="mt5">
-            			<input type="radio" name="coin" value="5000" >5500コイン(5250円)
-            		</div>
+            		<#list coinList as coin>
+            			<div class="mt5">
+            				<input type="radio" name="coinId" value="${coin.id!?html}" <#if coin_index == 0>checked="checked"</#if>>${coin.coin!?html}コイン(${coin.yen!?html}円)
+            			</div>
+            		</#list>
             		<div class="textCenter mv10">
                			<a id="js_confirmBtn" href="javascript:void(0)" class="btn btnPrimary jsTouchActive autoMargin">内容を確認する</a>
             		</div>
@@ -63,9 +44,9 @@
         <script>
             (function(){
                 
-                var registBtn = ci.qs('#js_confirmBtn');
+                var confirmBtn = ci.qs('#js_confirmBtn');
                 
-                ci.bind(registBtn, 'click', function(){
+                ci.bind(confirmBtn, 'click', function(){
                     document.frm.submit();
                 });
             })();

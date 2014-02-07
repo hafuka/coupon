@@ -94,22 +94,28 @@ insert into M_BUSINESS values(3,'キャバクラ');
 insert into M_BUSINESS values(4,'アパレル');
 
 
-insert into M_SHOP_COUPON values(1,1,1,'10%OFF', '10%OFF', 40, 3, 1);
 insert into M_SHOP_COUPON values(1,1,2,'20%OFF', '20%OFF', 30, 3, 1);
 insert into M_SHOP_COUPON values(1,1,3,'30%OFF', '30%OFF', 20, 3, 2);
 insert into M_SHOP_COUPON values(1,1,4,'50%OFF', '50%OFF', 10, 3, 3);
 
-insert into M_SHOP_COUPON values(2,1,1,'10%OFF', '10%OFF', 40, 3, 1);
 insert into M_SHOP_COUPON values(2,1,2,'20%OFF', '20%OFF', 30, 3, 1);
 insert into M_SHOP_COUPON values(2,1,3,'30%OFF', '30%OFF', 20, 3, 2);
 insert into M_SHOP_COUPON values(2,1,4,'50%OFF', '50%OFF', 10, 3, 3);
 
-insert into M_SHOP_COUPON values(3,1,1,'10%OFF', '10%OFF', 40, 3, 1);
 insert into M_SHOP_COUPON values(3,1,2,'20%OFF', '20%OFF', 30, 3, 1);
 insert into M_SHOP_COUPON values(3,1,3,'30%OFF', '30%OFF', 20, 3, 2);
 insert into M_SHOP_COUPON values(3,1,4,'50%OFF', '50%OFF', 10, 3, 3);
 
-insert into M_SHOP_COUPON values(4,1,1,'10%OFF', '10%OFF', 40, 3, 1);
 insert into M_SHOP_COUPON values(4,1,2,'20%OFF', '20%OFF', 30, 3, 1);
 insert into M_SHOP_COUPON values(4,1,3,'30%OFF', '30%OFF', 20, 3, 2);
-insert into M_SHOP_COUPON values(4,1,4,'50%OFF', '50%OFF', 10, 3, 2);
+insert into M_SHOP_COUPON values(4,1,4,'50%OFF', '50%OFF', 10, 3, 3);
+
+
+
+insert into M_COIN values(1,110,105,null,null);
+insert into M_COIN values(2,330,315,null,null);
+insert into M_COIN values(3,550,525,null,null);
+insert into M_COIN values(4,1200,1050,null,null);
+
+
+

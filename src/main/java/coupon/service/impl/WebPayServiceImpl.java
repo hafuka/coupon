@@ -8,6 +8,7 @@ import jp.webpay.request.CardRequest;
 import jp.webpay.request.ChargeRequest;
 import jp.webpay.request.CustomerRequest;
 
+import org.seasar.framework.util.ResourceUtil;
 import org.seasar.framework.util.StringUtil;
 
 import coupon.entity.IUser;
@@ -25,6 +26,9 @@ public class WebPayServiceImpl implements WebPayService {
 
 	@Override
 	public void doPayment(Long userId, String cardName, String cardNo, Integer month, Integer year, Integer cvc, Integer amount, boolean saveCard) {
+
+		privateKey = ResourceUtil.getProperties("webpay.properties").getProperty("privateKey");
+
 		WebPayClient client = new WebPayClient(privateKey);
 		CardRequest cardRequest = new CardRequest()
 		        .number(cardNo)

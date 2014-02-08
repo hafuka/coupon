@@ -21,7 +21,7 @@ public class PaymentServiceImpl implements PaymentService {
 	protected MCoinDao mCoinDao;
 	@Resource
 	protected WebPayService webPayService;
-	
+
 	@Override
 	public int getIUserCoin(Long userId) {
 		IUserCoin userCoin = iUserCoinDao.findById(userId);
@@ -43,12 +43,12 @@ public class PaymentServiceImpl implements PaymentService {
 
 	@Override
 	public void execPayment(Long userId, Integer coinId, String cardName, String cardNo, Integer month, Integer year, Integer cvc, Integer amount, boolean saveCard) {
-		
+
 		MCoin mCoin = getCoin(coinId);
-		
+
 		// カード決済処理
-		webPayService.doPayment(cardName, cardNo, month, year, cvc, amount, saveCard);
-		
+		webPayService.doPayment(userId, cardName, cardNo, month, year, cvc, amount, saveCard);
+
 		// ユーザーのコインを増やす
 		Timestamp nowDate = CouponDateUtils.getCurrentDate();
 		IUserCoin userCoin = iUserCoinDao.findById(userId);

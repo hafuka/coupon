@@ -8,11 +8,12 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.seasar.framework.beans.util.BeanUtil;
+
 import coupon.bean.ShopBaen;
 import coupon.dao.IUserCoinDao;
 import coupon.dto.CouponDto;
 import coupon.entity.IUser;
-import coupon.entity.IUserCoin;
 import coupon.entity.IUserCoupon;
 import coupon.entity.MShopCoupon;
 import coupon.enums.RarityType;
@@ -23,15 +24,15 @@ import coupon.util.CouponDateUtils;
 import coupon.util.MathUtils;
 
 public class RouletteServiceImpl implements RouletteService {
-	
+
 	@Resource
 	protected UserService userService;
 	@Resource
 	protected ShopService shopService;
 	@Resource
 	protected IUserCoinDao iUserCoinDao;
-	
-	
+
+
 	@Override
 	public boolean checkDailyRoulette(Long userId) {
 		IUser iUser = userService.getIUser(userId);
@@ -44,22 +45,22 @@ public class RouletteServiceImpl implements RouletteService {
 
 	@Override
 	public CouponDto execRoulette(Long userId, boolean premiumFlg, Integer areaId, Integer areaDetailId, Integer businessId) {
-		
+
 		Timestamp nowDate = CouponDateUtils.getCurrentDate();
-		
+
 		// お店リスト取得
 		List<ShopBaen> shopList = shopService.getMShops(areaId, areaDetailId, businessId);
 		Collections.shuffle(shopList);
 		ShopBaen shopBean = shopList.get(0);
-		
+
 		// ショップクーポンを抽出する
-		MShopCoupon shopCoupon = this.getRandomCoupon(shopBean.shopId);
-		
+		MShopCoupon shopCoupon = this.getRandomCoupon(shopBean.shopId, false);
+
 		IUserCoupon userCoupon = userService.getIUserCoupon(userId, shopCoupon);
 		if (userCoupon == null) {
 			// 登録
 			userService.insertIUserCoupon(userId, shopCoupon);
-			
+
 		} else {
 			// 更新
 			userCoupon.couponCount += 1;
@@ -67,80 +68,80 @@ public class RouletteServiceImpl implements RouletteService {
 			userCoupon.updDatetime = nowDate;
 			userService.updateIUserCoupon(userCoupon);
 		}
-		
+
 		IUser iUser = userService.getIUser(userId);
 		iUser.normalRouletteDatetime = nowDate;
 		iUser.updDatetime = nowDate;
 		userService.updateIUser(iUser);
-		
+
 		CouponDto couponDto = new CouponDto();
 		couponDto.mShop = shopBean;
 		couponDto.mShopCoupon = shopCoupon;
-		
+
 		// スロットの止まる位置情報取得
 		couponDto.positionList = this.getStopPositionList(shopCoupon);
-		
+
 		int chance = MathUtils.getRandomRange(1, 100);
 		if (chance > 50) {
 			couponDto.chanceFlg = true;
 		}
-		
+
 		return couponDto;
 	}
-	
+
 	@Override
 	public CouponDto execPremiumRoulette(Long userId, Integer shopId) {
-		
-		Timestamp nowDate = CouponDateUtils.getCurrentDate();
-		
+
 		// お店リスト取得
 		ShopBaen shopBean = shopService.getMShop(shopId);
 		if (shopBean == null) {
 			throw new IllegalArgumentException("お店情報取得エラー。shopId=" + shopId);
 		}
-		
+
 		// ショップクーポンを抽出する
-		MShopCoupon shopCoupon = this.getRandomCoupon(shopBean.shopId);
-		
-		IUserCoupon userCoupon = userService.getIUserCoupon(userId, shopCoupon);
-		if (userCoupon == null) {
-			// 登録
-			userService.insertIUserCoupon(userId, shopCoupon);
-			
-		} else {
-			// 更新
-			userCoupon.couponCount += 1;
-			userCoupon.limitDatetime = CouponDateUtils.add(nowDate, shopCoupon.limitDays, Calendar.DATE);
-			userCoupon.updDatetime = nowDate;
-			userService.updateIUserCoupon(userCoupon);
-		}
-		
-		IUser iUser = userService.getIUser(userId);
-		iUser.normalRouletteDatetime = nowDate;
-		iUser.updDatetime = nowDate;
-		userService.updateIUser(iUser);
-		
+		MShopCoupon shopCoupon = this.getRandomCoupon(shopBean.shopId, true);
+		// クーポン付与
+		this.addCoupon(userId, shopCoupon);
+		// コイン消費
+		userService.useCoin(userId, 100); //TODO 固定で良いか？
+
 		CouponDto couponDto = new CouponDto();
 		couponDto.mShop = shopBean;
 		couponDto.mShopCoupon = shopCoupon;
-		
+
 		// スロットの止まる位置情報取得
 		couponDto.positionList = this.getStopPositionList(shopCoupon);
-		
+
 		int chance = MathUtils.getRandomRange(1, 100);
 		if (chance > 50) {
 			couponDto.chanceFlg = true;
 		}
-		
+
 		return couponDto;
 	}
-	
-    private MShopCoupon getRandomCoupon(Integer shopId) {
-    	
+
+    private MShopCoupon getRandomCoupon(Integer shopId, boolean premiumFlg) {
+
     	// お店のクーポンリスト取得
 		List<MShopCoupon> shopCouponList = shopService.getMShopCoupons(shopId);
-	
-        int sumProbability = getSumProbability(shopCouponList);
+
+		if (premiumFlg) {
+
+		}
+		List<MShopCoupon> tempShopCouponList = new ArrayList<MShopCoupon>(shopCouponList.size());
+		for (MShopCoupon mShopCoupon : shopCouponList) {
+			MShopCoupon tempCoupon = new MShopCoupon();
+			BeanUtil.copyProperties(mShopCoupon, tempCoupon);
+
+			// プレミアムでかつ、SRの場合確率アップ
+			if (premiumFlg && RarityType.getEnum(mShopCoupon.rarity).equals(RarityType.SR)) {
+				// SR発生確率5%アップ
+				tempCoupon.probability = tempCoupon.probability + 5;
+			}
+			tempShopCouponList.add(tempCoupon);
+		}
+
+        int sumProbability = getSumProbability(tempShopCouponList);
         int random = MathUtils.getRandomRange(1, sumProbability);
         int lowPercent = 0;
         int highPercent = 0;
@@ -157,7 +158,7 @@ public class RouletteServiceImpl implements RouletteService {
         }
         return shopCoupon;
     }
-	
+
 	private int getSumProbability(List<MShopCoupon> shopCouponList) {
 		int sumPercent = 0;
 		for (MShopCoupon mShopCoupon : shopCouponList) {
@@ -165,17 +166,17 @@ public class RouletteServiceImpl implements RouletteService {
 		}
 		return sumPercent;
 	}
-	
-	
+
+
 	private List<String> getStopPositionList(MShopCoupon mShopCoupon) {
 		List<String> positionList = new ArrayList<String>(3);
 		positionList.add("LEFT");
 		positionList.add("CENTER");
 		positionList.add("RIGHT");
 		Collections.shuffle(positionList);
-		
+
 		List<String> positionResultList = new ArrayList<String>();
-		
+
 		RarityType rarityType = RarityType.getEnum(mShopCoupon.rarity);
 		switch (rarityType) {
 		case N:
@@ -194,9 +195,22 @@ public class RouletteServiceImpl implements RouletteService {
 		return positionResultList;
 	}
 
-	@Override
-	public IUserCoin getIUserCoin(Long userId) {
-		return iUserCoinDao.findById(userId);
+	private void addCoupon(Long userId, MShopCoupon shopCoupon) {
+
+		Timestamp nowDate = CouponDateUtils.getCurrentDate();
+
+		IUserCoupon userCoupon = userService.getIUserCoupon(userId, shopCoupon);
+		if (userCoupon == null) {
+			// 登録
+			userService.insertIUserCoupon(userId, shopCoupon);
+
+		} else {
+			// 更新
+			userCoupon.couponCount += 1;
+			userCoupon.limitDatetime = CouponDateUtils.add(nowDate, shopCoupon.limitDays, Calendar.DATE);
+			userCoupon.updDatetime = nowDate;
+			userService.updateIUserCoupon(userCoupon);
+		}
 	}
 
 

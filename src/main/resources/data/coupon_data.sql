@@ -1,5 +1,7 @@
 insert into M_LOGIN_BONUS values(1,100,1);
 insert into M_CONFIG values('LOGIN_BONUS_TIME', '00:00', null,null);
+insert into M_CONFIG values('ONE_TIME_COIN', '100', null,null);
+insert into M_CONFIG values('ONE_TIME_POINT', '3000', null,null);
 
 insert into M_AREA values(1,'北海道');
 insert into M_AREA values(2,'青森県');
@@ -94,21 +96,21 @@ insert into M_BUSINESS values(3,'キャバクラ');
 insert into M_BUSINESS values(4,'アパレル');
 
 
-insert into M_SHOP_COUPON values(1,1,2,'20%OFF', '20%OFF', 30, 3, 1);
-insert into M_SHOP_COUPON values(1,1,3,'30%OFF', '30%OFF', 20, 3, 2);
-insert into M_SHOP_COUPON values(1,1,4,'50%OFF', '50%OFF', 10, 3, 3);
+insert into M_SHOP_COUPON values(1,1,'20%OFF', '20%OFF', 60, 3, 1);
+insert into M_SHOP_COUPON values(1,2,'30%OFF', '30%OFF', 30, 3, 2);
+insert into M_SHOP_COUPON values(1,3,'50%OFF', '50%OFF', 10, 3, 3);
 
-insert into M_SHOP_COUPON values(2,1,2,'20%OFF', '20%OFF', 30, 3, 1);
-insert into M_SHOP_COUPON values(2,1,3,'30%OFF', '30%OFF', 20, 3, 2);
-insert into M_SHOP_COUPON values(2,1,4,'50%OFF', '50%OFF', 10, 3, 3);
+insert into M_SHOP_COUPON values(2,1,'20%OFF', '20%OFF', 60, 3, 1);
+insert into M_SHOP_COUPON values(2,2,'30%OFF', '30%OFF', 30, 3, 2);
+insert into M_SHOP_COUPON values(2,3,'50%OFF', '50%OFF', 10, 3, 3);
 
-insert into M_SHOP_COUPON values(3,1,2,'20%OFF', '20%OFF', 30, 3, 1);
-insert into M_SHOP_COUPON values(3,1,3,'30%OFF', '30%OFF', 20, 3, 2);
-insert into M_SHOP_COUPON values(3,1,4,'50%OFF', '50%OFF', 10, 3, 3);
+insert into M_SHOP_COUPON values(3,1,'20%OFF', '20%OFF', 60, 3, 1);
+insert into M_SHOP_COUPON values(3,2,'30%OFF', '30%OFF', 30, 3, 2);
+insert into M_SHOP_COUPON values(3,3,'50%OFF', '50%OFF', 10, 3, 3);
 
-insert into M_SHOP_COUPON values(4,1,2,'20%OFF', '20%OFF', 30, 3, 1);
-insert into M_SHOP_COUPON values(4,1,3,'30%OFF', '30%OFF', 20, 3, 2);
-insert into M_SHOP_COUPON values(4,1,4,'50%OFF', '50%OFF', 10, 3, 3);
+insert into M_SHOP_COUPON values(4,1,'20%OFF', '20%OFF', 60, 3, 1);
+insert into M_SHOP_COUPON values(4,2,'30%OFF', '30%OFF', 30, 3, 2);
+insert into M_SHOP_COUPON values(4,3,'50%OFF', '50%OFF', 10, 3, 3);
 
 
 

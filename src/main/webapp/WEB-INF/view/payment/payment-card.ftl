@@ -9,23 +9,24 @@
 
         <#-- ヘッダーメニューのインクルード -->
         <#include "/common/header.ftl">
-		
-		
+
+
 		<section>
             <div class="formArea autoMargin m10">
             	<h1>クレジットでのお支払</h1>
 				<div>
 					利用可能なクレジットカード<br>
-					<img src="${imagePath}/images/payment/cards.png" width="300"><br>
+					<img src="${imagePath}/images/payment/cards.png" width="200"><br>
 					VISA, MasterCard, JCB, American Express, Diners
 				</div>
             	<form method="post" action="${urlPath!?html}/payment/cardConfirm" name="frm">
-            		
+					<input type="hidden" name="coinId" id="coinId" value="${coinId!?html}">
+
             		<div class="mt5">
-                        名義<input type="text" name="cardName" id="cardNo" placeholder="名義">
+                        名義<input type="text" name="cardName" id="cardNo" value="TEST TARO">
                     </div>
             		<div class="mt5">
-                        カード番号<input type="text" name="cardNo" id="cardNo" placeholder="カード番号">
+                        カード番号<input type="text" name="cardNo" id="cardNo" value="4242424242424242">
                     </div>
                     <div class="mt5">
                     	有効期限
@@ -63,30 +64,36 @@
                         年
                     </div>
                     <div class="mt5">
-                        セキュリティコード<input type="text" name="cvc" id="cvc">
+                    	カード番号はハイフンなしで入力してください。
                     </div>
-            		
-            		
+                    <div class="mt5">
+                        セキュリティコード<input type="text" name="cvc" id="cvc" value="123">
+                    </div>
+                    <div class="mt5">
+                        お支払い情報を記録する<input type="checkbox" name="saveCard" id="saveCard">
+                    </div>
+
+
             		<div class="textCenter mv10">
                			<a id="js_nextBtn" href="javascript:void(0)" class="btn btnPrimary jsTouchActive autoMargin">次へ</a>
             		</div>
             	</form>
             </div>
         </section>
-		
+
         <#-- フッターメニューのインクルード -->
         <#include "/common/footer.ftl">
 
         <#-- 共通JavaScriptのインクルード -->
         <#include "/common/htmlFoot.ftl">
-        
-        
+
+
         <#-- JS - 新規登録 - -->
         <script>
             (function(){
-                
+
                 var nextBtn = ci.qs('#js_nextBtn');
-                
+
                 ci.bind(nextBtn, 'click', function(){
                     document.frm.submit();
                 });

@@ -10,23 +10,66 @@ DROP INDEX IDX_REGIST_TOKEN ON I_USER_AUTHENTICATION;
 
 /* Drop Tables */
 
+DROP TABLE M_AREA_DETAIL;
+DROP TABLE M_LOGIN_BONUS;
+DROP TABLE M_BUSINESS;
+DROP TABLE M_SHOP;
 DROP TABLE I_USER;
 DROP TABLE I_USER_AUTHENTICATION;
+DROP TABLE M_SHOP_COUPON;
 DROP TABLE I_USER_COIN;
-DROP TABLE I_USER_COUPON;
 DROP TABLE M_AREA;
-DROP TABLE M_AREA_DETAIL;
-DROP TABLE M_BUSINESS;
 DROP TABLE M_COIN;
 DROP TABLE M_CONFIG;
-DROP TABLE M_LOGIN_BONUS;
-DROP TABLE M_SHOP;
-DROP TABLE M_SHOP_COUPON;
+DROP TABLE I_USER_COUPON;
 
 
 
 
 /* Create Tables */
+
+CREATE TABLE M_AREA_DETAIL
+(
+	area_id int NOT NULL,
+	area_detail_id int NOT NULL,
+	detail_name varchar(128) NOT NULL,
+	PRIMARY KEY (area_id, area_detail_id)
+);
+
+
+CREATE TABLE M_LOGIN_BONUS
+(
+	bonus_type int NOT NULL,
+	point int NOT NULL,
+	consecutive_days int NOT NULL,
+	PRIMARY KEY (bonus_type)
+);
+
+
+CREATE TABLE M_BUSINESS
+(
+	business_id int NOT NULL,
+	name varchar(128) NOT NULL,
+	PRIMARY KEY (business_id)
+);
+
+
+CREATE TABLE M_SHOP
+(
+	shop_id int NOT NULL,
+	business_id int NOT NULL,
+	shop_name varchar(255) NOT NULL,
+	description varchar(255),
+	url varchar(255),
+	tell varchar(16),
+	map_url varchar(255),
+	area_id int NOT NULL,
+	area_detail_id int NOT NULL,
+	station varchar(32) NOT NULL,
+	premium_flg int DEFAULT 0 NOT NULL,
+	PRIMARY KEY (shop_id)
+);
+
 
 CREATE TABLE I_USER
 (
@@ -38,6 +81,7 @@ CREATE TABLE I_USER
 	login_bonus_datetime datetime,
 	consecutive_days bigint,
 	normal_roulette_datetime datetime,
+	customer_id varchar(32),
 	upd_datetime datetime NOT NULL,
 	ins_datetime datetime NOT NULL,
 	PRIMARY KEY (user_id)
@@ -56,6 +100,19 @@ CREATE TABLE I_USER_AUTHENTICATION
 );
 
 
+CREATE TABLE M_SHOP_COUPON
+(
+	shop_id int NOT NULL,
+	coupon_id int NOT NULL,
+	coupon_name varchar(128) NOT NULL,
+	description varchar(255),
+	probability int NOT NULL,
+	limit_days int,
+	rarity int NOT NULL,
+	PRIMARY KEY (shop_id, coupon_id)
+);
+
+
 CREATE TABLE I_USER_COIN
 (
 	user_id bigint NOT NULL,
@@ -66,42 +123,11 @@ CREATE TABLE I_USER_COIN
 );
 
 
-CREATE TABLE I_USER_COUPON
-(
-	user_id bigint NOT NULL,
-	shop_id int NOT NULL,
-	coupon_type int NOT NULL,
-	coupon_id int NOT NULL,
-	coupon_count int NOT NULL,
-	limit_datetime datetime,
-	upd_datetime datetime NOT NULL,
-	ins_datetime datetime NOT NULL,
-	PRIMARY KEY (user_id, shop_id, coupon_type, coupon_id)
-);
-
-
 CREATE TABLE M_AREA
 (
 	area_id int NOT NULL,
 	area_name varchar(16) NOT NULL,
 	PRIMARY KEY (area_id)
-);
-
-
-CREATE TABLE M_AREA_DETAIL
-(
-	area_id int NOT NULL,
-	area_detail_id int NOT NULL,
-	detail_name varchar(128) NOT NULL,
-	PRIMARY KEY (area_id, area_detail_id)
-);
-
-
-CREATE TABLE M_BUSINESS
-(
-	business_id int NOT NULL,
-	name varchar(128) NOT NULL,
-	PRIMARY KEY (business_id)
 );
 
 
@@ -126,50 +152,23 @@ CREATE TABLE M_CONFIG
 );
 
 
-CREATE TABLE M_LOGIN_BONUS
+CREATE TABLE I_USER_COUPON
 (
-	bonus_type int NOT NULL,
-	point int NOT NULL,
-	consecutive_days int NOT NULL,
-	PRIMARY KEY (bonus_type)
-);
-
-
-CREATE TABLE M_SHOP
-(
+	user_id bigint NOT NULL,
 	shop_id int NOT NULL,
-	business_id int NOT NULL,
-	shop_name varchar(255) NOT NULL,
-	description varchar(255),
-	url varchar(255),
-	tell varchar(16),
-	map_url varchar(255),
-	area_id int NOT NULL,
-	area_detail_id int NOT NULL,
-	station varchar(32) NOT NULL,
-	premium_flg int DEFAULT 0 NOT NULL,
-	PRIMARY KEY (shop_id)
-);
-
-
-CREATE TABLE M_SHOP_COUPON
-(
-	shop_id int NOT NULL,
-	coupon_type int NOT NULL,
 	coupon_id int NOT NULL,
-	coupon_name varchar(128) NOT NULL,
-	description varchar(255),
-	probability int NOT NULL,
-	limit_days int,
-	rarity int NOT NULL,
-	PRIMARY KEY (shop_id, coupon_type, coupon_id)
+	coupon_count int NOT NULL,
+	limit_datetime datetime,
+	upd_datetime datetime NOT NULL,
+	ins_datetime datetime NOT NULL,
+	PRIMARY KEY (user_id, shop_id, coupon_id)
 );
 
 
 
 /* Create Indexes */
 
-CREATE INDEX IDX_EMAIL USING BTREE ON I_USER (email ASC);
+CREATE INDEX IDX_EMAIL USING BTREE ON I_USER (email ASC, email ASC);
 CREATE INDEX IDX_EMAIL_PASSWORD USING BTREE ON I_USER_AUTHENTICATION (email ASC, password ASC);
 CREATE INDEX IDX_REGIST_TOKEN USING BTREE ON I_USER_AUTHENTICATION (regist_token ASC);
 

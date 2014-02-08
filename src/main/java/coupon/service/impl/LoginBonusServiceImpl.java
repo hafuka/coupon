@@ -6,15 +6,14 @@ import javax.annotation.Resource;
 
 import org.apache.commons.lang.StringUtils;
 
-import coupon.dao.MConfigDao;
 import coupon.dao.MLoginBonusDao;
 import coupon.dto.LoginUserDto;
 import coupon.entity.IUser;
-import coupon.entity.MConfig;
 import coupon.entity.MLoginBonus;
 import coupon.enums.LoginBonusType;
-import coupon.enums.MConfigName;
+import coupon.enums.MConfigKey;
 import coupon.service.LoginBonusService;
+import coupon.service.MConfigService;
 import coupon.service.UserService;
 import coupon.util.CouponDateUtils;
 
@@ -23,24 +22,24 @@ public class LoginBonusServiceImpl implements LoginBonusService {
 	@Resource
 	protected UserService userService;
 	@Resource
-	protected MConfigDao mConfigDao;
-	@Resource
 	protected MLoginBonusDao mLoginBonusDao;
-	
+	@Resource
+	protected MConfigService mConfigService;
+
 	@Resource
 	protected LoginUserDto loginUserDto;
-	
-	
+
+
 	@Override
 	public boolean isLoginBonus(Long userId) {
-		
+
 		MLoginBonus mLoginBonus = this.getLoginBonus(LoginBonusType.BASIC);
 		if (mLoginBonus == null) {
 			return false;
 		}
-		
+
 		IUser iUser = userService.getIUser(userId);
-		
+
 		Timestamp sendLoginBonusTime = iUser.loginBonusDatetime;
 
         // ログインボーナス付与日時に値が入っていない
@@ -50,8 +49,7 @@ public class LoginBonusServiceImpl implements LoginBonusService {
         }
 
         Timestamp now = CouponDateUtils.getCurrentDate();
-        MConfig mConfig = mConfigDao.findById(MConfigName.LOGIN_BONUS_TIME.getKey());
-        String hhmm = mConfig.value;
+        String hhmm = mConfigService.getConfigValue(MConfigKey.LOGIN_BONUS_TIME.key);
         String zerosuppressHH = StringUtils.removeStart(StringUtils.substringBefore(hhmm, ":"), "0");
         String zerosuppressMm = StringUtils.removeStart(StringUtils.substringAfterLast(hhmm, ":"), "0");
         Timestamp todayLoginBonusDate = CouponDateUtils.getDateWithSpecifiedHourAndMinute(now, Integer.valueOf(zerosuppressHH), Integer.valueOf(zerosuppressMm));
@@ -66,13 +64,13 @@ public class LoginBonusServiceImpl implements LoginBonusService {
 
 	@Override
 	public MLoginBonus sendLoginBonus(Long userId) {
-		
+
 		MLoginBonus mLoginBonus = this.getLoginBonus(LoginBonusType.BASIC);
-		
+
 		if (mLoginBonus != null) {
-			
+
 			Timestamp nowDate = CouponDateUtils.getCurrentDate();
-			
+
 			IUser iUser = userService.getIUser(userId);
 			Long userPoint = iUser.point;
 			userPoint += mLoginBonus.point;
@@ -80,14 +78,14 @@ public class LoginBonusServiceImpl implements LoginBonusService {
 			iUser.loginBonusDatetime = nowDate;
 			iUser.updDatetime = nowDate;
 			userService.updateIUser(iUser);
-			
+
 			loginUserDto.point = userPoint;
 		}
-		
+
 		return mLoginBonus;
 	}
-	
-	
+
+
 	private MLoginBonus getLoginBonus(LoginBonusType type) {
 		return mLoginBonusDao.findById(type.getKey());
 	}

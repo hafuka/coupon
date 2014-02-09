@@ -11,7 +11,6 @@ import javax.annotation.Resource;
 import org.seasar.framework.beans.util.BeanUtil;
 
 import coupon.bean.ShopBaen;
-import coupon.dao.IUserCoinDao;
 import coupon.dto.CouponDto;
 import coupon.entity.IUser;
 import coupon.entity.IUserCoupon;
@@ -29,9 +28,6 @@ public class RouletteServiceImpl implements RouletteService {
 	protected UserService userService;
 	@Resource
 	protected ShopService shopService;
-	@Resource
-	protected IUserCoinDao iUserCoinDao;
-
 
 	@Override
 	public boolean checkDailyRoulette(Long userId) {
@@ -212,7 +208,5 @@ public class RouletteServiceImpl implements RouletteService {
 			userService.updateIUserCoupon(userCoupon);
 		}
 	}
-
-
 
 }

@@ -2,6 +2,7 @@ package coupon.entity;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+
 import javax.annotation.Generated;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +10,7 @@ import javax.persistence.Id;
 
 /**
  * IUserエンティティクラス
- * 
+ *
  */
 @Entity
 @Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.EntityModelFactoryImpl"}, date = "2014/01/10 16:03:36")
@@ -49,6 +50,10 @@ public class IUser implements Serializable {
     /** normalRouletteDatetimeプロパティ */
     @Column(nullable = true, unique = false)
     public Timestamp normalRouletteDatetime;
+
+    /** customerIdプロパティ */
+    @Column(length = 32, nullable = false, unique = false)
+    public String customerId;
 
     /** updDatetimeプロパティ */
     @Column(nullable = false, unique = false)

@@ -7,7 +7,7 @@ import org.seasar.extension.jdbc.name.PropertyName;
  * {@link MShopCoupon}のプロパティ名の集合です。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/02/07 16:01:51")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/02/09 9:03:04")
 public class MShopCouponNames {
 
     /**
@@ -17,15 +17,6 @@ public class MShopCouponNames {
      */
     public static PropertyName<Integer> shopId() {
         return new PropertyName<Integer>("shopId");
-    }
-
-    /**
-     * couponTypeのプロパティ名を返します。
-     * 
-     * @return couponTypeのプロパティ名
-     */
-    public static PropertyName<Integer> couponType() {
-        return new PropertyName<Integer>("couponType");
     }
 
     /**
@@ -122,15 +113,6 @@ public class MShopCouponNames {
          */
         public PropertyName<Integer> shopId() {
             return new PropertyName<Integer>(this, "shopId");
-        }
-
-        /**
-         * couponTypeのプロパティ名を返します。
-         *
-         * @return couponTypeのプロパティ名
-         */
-        public PropertyName<Integer> couponType() {
-            return new PropertyName<Integer>(this, "couponType");
         }
 
         /**

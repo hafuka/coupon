@@ -58,12 +58,12 @@ public class PremiumRouletteAnimationAction extends BaseAction {
 		coupon = rouletteService.execPremiumRoulette(loginUserDto.userId, shopId);
 		setTransactionData(loginUserDto.userId, coupon, TransactionType.NORMAL_ROULETTE);
 		super.getFormToken();
-		return "/roulette/premium-animation.ftl";
+		return "/roulette/normal-animation.ftl";
 	}
 
 
 	private boolean checkRoulette() {
-		String needCoin = mConfigService.getConfigValue(MConfigKey.ONE_TIME_COIN.key);
+		String needCoin = mConfigService.getConfigValue(MConfigKey.ONE_TIME_COIN);
 		IUserCoin iUserCoin = userService.getIUserCoin(loginUserDto.userId);
 		if (iUserCoin == null || iUserCoin.coin == null || iUserCoin.coin < Integer.parseInt(needCoin)) {
 			return false;

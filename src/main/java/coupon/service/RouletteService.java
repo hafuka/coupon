@@ -12,4 +12,5 @@ public interface RouletteService {
 
 	public abstract CouponDto execPremiumRoulette(Long userId, Integer shopId);
 
+
 }

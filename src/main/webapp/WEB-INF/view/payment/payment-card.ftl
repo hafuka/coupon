@@ -14,6 +14,11 @@
 		<section>
             <div class="formArea autoMargin m10">
             	<h1>クレジットでのお支払</h1>
+
+            	<div style="color:red">
+            		${cardError!?html}
+            	</div>
+
 				<div>
 					利用可能なクレジットカード<br>
 					<img src="${imagePath}/images/payment/cards.png" width="200"><br>

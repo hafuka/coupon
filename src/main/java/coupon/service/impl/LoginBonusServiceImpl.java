@@ -49,7 +49,7 @@ public class LoginBonusServiceImpl implements LoginBonusService {
         }
 
         Timestamp now = CouponDateUtils.getCurrentDate();
-        String hhmm = mConfigService.getConfigValue(MConfigKey.LOGIN_BONUS_TIME.key);
+        String hhmm = mConfigService.getConfigValue(MConfigKey.LOGIN_BONUS_TIME);
         String zerosuppressHH = StringUtils.removeStart(StringUtils.substringBefore(hhmm, ":"), "0");
         String zerosuppressMm = StringUtils.removeStart(StringUtils.substringAfterLast(hhmm, ":"), "0");
         Timestamp todayLoginBonusDate = CouponDateUtils.getDateWithSpecifiedHourAndMinute(now, Integer.valueOf(zerosuppressHH), Integer.valueOf(zerosuppressMm));

@@ -136,7 +136,7 @@
       classpathdir="${classpathdir}"
       rootpackagename="${rootpackagename}"
       autoGenerateForeignKey="false"
-      applyJavaCommentToDdl="true"
+      applyJavaCommentToDdl="false"
       entitypackagename="${entitypackagename}"
       env="${env}"
       jdbcmanagername="${jdbcmanagername}"

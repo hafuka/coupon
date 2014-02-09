@@ -17,11 +17,14 @@
                     ${loginUserDto.name!?html}アイランド
                 </p>
             </h1>
-            
+
             <div class="relative mt10">
                 <div class="autoMargin w320">
                     <div class="underballoon mh10">
-                        <p>1回プレミアムクーポンがひけるよ♪</p>
+                        <#if (count > 0)>
+                        	<p>${count!?html}回プレミアムクーポンがひけるよ♪</p>
+                        </#if>
+                        <p class="pointArea">所持コイン：${coin!html}コイン</p>
                         <p class="pointArea">現在のポイント：${loginUserDto.point!?html}pt</p>
                     </div>
                 </div>
@@ -49,7 +52,7 @@
             </div>
 
         </section>
-        
+
         <#-- リンクナビ -->
         <nav>
             <div class="mb20">

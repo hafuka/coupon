@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import jp.webpay.exception.CardException;
+
 import org.seasar.struts.annotation.Execute;
 
 import coupon.entity.MCoin;
@@ -37,6 +39,9 @@ public class PaymentAction extends BaseAction {
 	public Integer year;
 	public Integer cvc;
 	public boolean saveCard;
+
+
+	public String cardError;
 
 	@Execute(validator=false)
 	public String index() {
@@ -76,7 +81,14 @@ public class PaymentAction extends BaseAction {
 		int amount = mCoin.yen;
 
 		// 課金処理
-		paymentService.execPayment(loginUserDto.userId, coinId, cardName, cardNo, month, year, cvc, amount, saveCard);
+		try {
+			paymentService.execPayment(loginUserDto.userId, coinId, cardName, cardNo, month, year, cvc, amount, saveCard);
+		} catch (CardException e) {
+
+			cardError = "カード情報エラーです(仮)";
+
+			return "/payment/payment-card.ftl";
+		}
 
 		Integer shopId = (Integer)super.getTransactionData(loginUserDto.userId, TransactionType.TO_PAYMENT);
 		if (shopId != null) {

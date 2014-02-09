@@ -174,4 +174,15 @@ public class UserServiceImpl implements UserService {
 
 		iUserCoinDao.update(userCoin);
 	}
+
+	@Override
+	public List<IUserCoupon> getIUserCoupons(Long userId) {
+		BeanMap conditions = new BeanMap();
+		conditions.put(IUserNames.userId().toString(), userId);
+		List<IUserCoupon> userCoupons = iUserCouponDao.findByCondition(conditions);
+		if (CollectionUtils.isEmpty(userCoupons)) {
+			return null;
+		}
+		return userCoupons;
+	}
 }

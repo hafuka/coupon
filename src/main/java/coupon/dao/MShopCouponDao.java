@@ -21,14 +21,12 @@ public class MShopCouponDao extends AbstractDao<MShopCoupon> {
      *
      * @param shopId
      *            識別子
-     * @param couponType
-     *            識別子
      * @param couponId
      *            識別子
      * @return エンティティ
      */
-    public MShopCoupon findById(Integer shopId, Integer couponType, Integer couponId) {
-        return select().id(shopId, couponType, couponId).getSingleResult();
+    public MShopCoupon findById(Integer shopId, Integer couponId) {
+        return select().id(shopId, couponId).getSingleResult();
     }
 
     /**

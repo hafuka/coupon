@@ -28,6 +28,7 @@
 
         <#-- クーポンリスト -->
         <section>
+        	<#--
             <h1 class="headline headlinePriority">プレミアムクーポン</h1>
             <ul class="couponList">
                 <li>
@@ -47,40 +48,29 @@
                     </a>
                 </li>
             </ul>
+            -->
             <h1 class="headline headlineNormal">クーポン</h1>
             <ul class="couponList">
-                <li>
-                    <a href="${urlPath}/detail">
-                        <div class="table">
-                            <div class="cell pr10">
-                                <img src="${imagePath}/images/storeThumnail.jpg" width="85" height="85" class="borderGray">
-                            </div>
-                            <div class="cell vTop pr20">
-                                <p class="fcBlue underline">日比谷Bar 有楽町店</p>
-                                <p class="fs13">業種：飲食店</p>
-                                <p class="fs13">最寄駅：銀座線銀座駅(東京)</p>
-                                <p class="bgRound">お会計：50%OFF!!</p>
-                                <p class="fcRed fs13">有効期限：2014年1月31日</p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="${urlPath}/detail">
-                        <div class="table">
-                            <div class="cell pr10">
-                                <img src="${imagePath}/images/storeThumnail.jpg" width="85" height="85" class="borderGray">
-                            </div>
-                            <div class="cell vTop pr20">
-                                <p class="fcBlue underline">日比谷Bar 有楽町店</p>
-                                <p class="fs13">業種：飲食店</p>
-                                <p class="fs13">最寄駅：銀座線銀座駅(東京)</p>
-                                <p class="bgRound">お会計：50%OFF!!</p>
-                                <p class="fcRed fs13">有効期限：2014年1月31日</p>
-                            </div>
-                        </div>
-                    </a>
-                </li>
+            	<#if couponList?has_content>
+	            	<#list couponList as coupon>
+		            	<li>
+		                    <a href="${urlPath}/detail">
+		                        <div class="table">
+		                            <div class="cell pr10">
+		                                <img src="${imagePath}/images/storeThumnail.jpg" width="85" height="85" class="borderGray">
+		                            </div>
+		                            <div class="cell vTop pr20">
+		                                <p class="fcBlue underline">${coupon.shopBean.shopName!?html}</p>
+		                                <p class="fs13">業種：${coupon.shopBean.businessName!?html}</p>
+		                                <p class="fs13">最寄駅：${coupon.shopBean.station!?html}</p>
+		                                <p class="bgRound">${coupon.mShopCoupon.couponName!?html}</p>
+		                                <p class="fcRed fs13">有効期限：${coupon.userCoupon.limitDatetime!?html}</p>
+		                            </div>
+		                        </div>
+		                    </a>
+		                </li>
+	            	</#list>
+            	</#if>
             </ul>
         </section>
 

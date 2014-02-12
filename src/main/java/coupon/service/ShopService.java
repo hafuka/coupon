@@ -27,4 +27,7 @@ public interface ShopService {
 	
 	
 	public abstract List<MShopCoupon> getMShopCoupons(Integer shopId);
+	
+	
+	public abstract MShopCoupon getMShopCoupon(Integer shopId, Integer couponId);
 }

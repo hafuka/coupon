@@ -107,4 +107,9 @@ public class ShopServiceImpl implements ShopService {
 		return bean;
 	}
 
+	@Override
+	public MShopCoupon getMShopCoupon(Integer shopId, Integer couponId) {
+		return mShopCouponDao.findById(shopId, couponId);
+	}
+
 }

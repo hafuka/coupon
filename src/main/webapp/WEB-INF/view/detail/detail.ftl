@@ -76,7 +76,7 @@
                     </div>
                     <div class="coinArea fs13 textCenter mv10 m0auto">
                         1回：<span class="fcOrange">100コイン</span><br>
-                        所持コイン：<span class="fcOrange">0コイン</span>
+                        所持コイン：<span class="fcOrange">${coin!?html}コイン</span>
                     </div>
 
                     <div class="storeDetailText borderBox w95per m10 autoMargin">

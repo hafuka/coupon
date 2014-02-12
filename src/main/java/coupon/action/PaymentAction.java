@@ -67,12 +67,17 @@ public class PaymentAction extends BaseAction {
 
 	@Execute(validator=false, reset="saveCardReset")
 	public String cardConfirm() {
+		super.getFormToken();
 		return "/payment/payment-card-confirm.ftl";
 	}
 
 	@Execute(validator=false)
 	public String payment() {
-
+		
+		if (!isValidToken(token)) {
+			throw new IllegalArgumentException("Tokenエラー");
+		}
+		
 		MCoin mCoin = paymentService.getCoin(coinId);
 		if (mCoin == null) {
 			throw new IllegalArgumentException("コイン情報取得エラー。selectCoinId="+coinId);

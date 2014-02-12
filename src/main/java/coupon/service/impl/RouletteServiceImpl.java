@@ -71,7 +71,7 @@ public class RouletteServiceImpl implements RouletteService {
 		userService.updateIUser(iUser);
 
 		CouponDto couponDto = new CouponDto();
-		couponDto.mShop = shopBean;
+		couponDto.shopBean = shopBean;
 		couponDto.mShopCoupon = shopCoupon;
 
 		// スロットの止まる位置情報取得
@@ -102,7 +102,7 @@ public class RouletteServiceImpl implements RouletteService {
 		userService.useCoin(userId, 100); //TODO 固定で良いか？
 
 		CouponDto couponDto = new CouponDto();
-		couponDto.mShop = shopBean;
+		couponDto.shopBean = shopBean;
 		couponDto.mShopCoupon = shopCoupon;
 
 		// スロットの止まる位置情報取得

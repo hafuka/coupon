@@ -52,10 +52,11 @@ public class PremiumRouletteAnimationAction extends BaseAction {
 			super.setTransactionData(loginUserDto.userId, shopId, TransactionType.TO_PAYMENT);
 			return "/payment?redirect=true";
 		}
-
+		
+		
 
 		// ルーレット実行処理
-		coupon = rouletteService.execPremiumRoulette(loginUserDto.userId, shopId);
+		coupon = rouletteService.execPremiumRoulette(loginUserDto.userId, shopId, loginUserDto.point);
 		setTransactionData(loginUserDto.userId, coupon, TransactionType.NORMAL_ROULETTE);
 		super.getFormToken();
 		return "/roulette/normal-animation.ftl";
@@ -65,7 +66,11 @@ public class PremiumRouletteAnimationAction extends BaseAction {
 	private boolean checkRoulette() {
 		String needCoin = mConfigService.getConfigValue(MConfigKey.ONE_TIME_COIN);
 		IUserCoin iUserCoin = userService.getIUserCoin(loginUserDto.userId);
-		if (iUserCoin == null || iUserCoin.coin == null || iUserCoin.coin < Integer.parseInt(needCoin)) {
+		
+		String pointStr = mConfigService.getConfigValue(MConfigKey.ONE_TIME_POINT);
+		
+		
+		if (iUserCoin == null || iUserCoin.coin == null || iUserCoin.coin < Integer.parseInt(needCoin) || loginUserDto.point < Integer.parseInt(pointStr)) {
 			return false;
 		}
 		return true;

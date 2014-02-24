@@ -55,6 +55,8 @@ public interface UserService {
 	public abstract IUserCoin getIUserCoin(Long userId);
 
 	public abstract void useCoin(Long userId, Integer useCoin);
+	
+	public abstract void usePoint(Long userId, Integer usePoint);
 
 
 

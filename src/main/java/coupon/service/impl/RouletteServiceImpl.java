@@ -15,7 +15,9 @@ import coupon.dto.CouponDto;
 import coupon.entity.IUser;
 import coupon.entity.IUserCoupon;
 import coupon.entity.MShopCoupon;
+import coupon.enums.MConfigKey;
 import coupon.enums.RarityType;
+import coupon.service.MConfigService;
 import coupon.service.RouletteService;
 import coupon.service.ShopService;
 import coupon.service.UserService;
@@ -28,6 +30,8 @@ public class RouletteServiceImpl implements RouletteService {
 	protected UserService userService;
 	@Resource
 	protected ShopService shopService;
+	@Resource
+	protected MConfigService mConfigService;
 
 	@Override
 	public boolean checkDailyRoulette(Long userId) {
@@ -86,7 +90,7 @@ public class RouletteServiceImpl implements RouletteService {
 	}
 
 	@Override
-	public CouponDto execPremiumRoulette(Long userId, Integer shopId) {
+	public CouponDto execPremiumRoulette(Long userId, Integer shopId, Long userPoint) {
 
 		// お店リスト取得
 		ShopBaen shopBean = shopService.getMShop(shopId);
@@ -98,8 +102,17 @@ public class RouletteServiceImpl implements RouletteService {
 		MShopCoupon shopCoupon = this.getRandomCoupon(shopBean.shopId, true);
 		// クーポン付与
 		this.addCoupon(userId, shopCoupon);
-		// コイン消費
-		userService.useCoin(userId, 100); //TODO 固定で良いか？
+		
+		
+		int oneTimeCoin = Integer.parseInt(mConfigService.getConfigValue(MConfigKey.ONE_TIME_COIN));
+		int oneTimePoint = Integer.parseInt(mConfigService.getConfigValue(MConfigKey.ONE_TIME_POINT));
+		
+		if (userPoint >= oneTimePoint) {
+			userService.usePoint(userId, oneTimePoint);
+		} else {
+			// コイン消費
+			userService.useCoin(userId, oneTimeCoin);
+		}
 
 		CouponDto couponDto = new CouponDto();
 		couponDto.shopBean = shopBean;

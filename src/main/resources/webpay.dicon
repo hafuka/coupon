@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE components PUBLIC "-//SEASAR//DTD S2Container 2.4//EN"
-	"http://www.seasar.org/dtd/components24.dtd">
-<components>
-	<component instance="prototype" name="WebPayService" class="coupon.service.impl.WebPayServiceImpl">
-		<property name="publicKey">"test_public_bCs0yM11j6sJdrO5XAeIt4xP"</property>
-		<property name="privateKey">"test_secret_9zubZwf7ybBxdu9aCffXFee0"</property>
-	</component>
-</components>

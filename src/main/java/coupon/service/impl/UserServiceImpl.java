@@ -185,4 +185,10 @@ public class UserServiceImpl implements UserService {
 		}
 		return userCoupons;
 	}
+
+	@Override
+	public void usePoint(Long userId, Integer usePoint) {
+		// TODO 自動生成されたメソッド・スタブ
+		
+	}
 }

@@ -51,7 +51,7 @@ public class MypageAction extends BaseAction {
 		int needCoin = Integer.parseInt(mConfigService.getConfigValue(MConfigKey.ONE_TIME_COIN));
 		count = coin / needCoin;
 
-        return "/mypage/mypage.ftl";
+        return "mypage.ftl";
 	}
 
 

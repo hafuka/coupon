@@ -5,6 +5,7 @@ import javax.annotation.Resource;
 import coupon.dao.IUserLoginDao;
 import coupon.entity.IUserLogin;
 import coupon.service.LoginService;
+import coupon.util.CouponDateUtils;
 import coupon.util.CryptUtils;
 
 public class LoginServiceImpl implements LoginService {
@@ -23,6 +24,7 @@ public class LoginServiceImpl implements LoginService {
 		IUserLogin record = new IUserLogin();
 		record.cookieValue = cookieValue;
 		record.userId = userId;
+		record.insDatetime = CouponDateUtils.getCurrentDate();
 		iUserLoginDao.insert(record);
 		return cookieValue;
 	}

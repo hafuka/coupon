@@ -27,9 +27,9 @@ public class MypageAction extends BaseAction {
 	@Resource
 	protected MConfigService mConfigService;
 
-	public Integer coin;
-	public Integer count;
-	public Long point;
+	public int coin;
+	public int count;
+	public long point;
 
 	@Execute(validator = false)
 	public String index() {
@@ -46,18 +46,13 @@ public class MypageAction extends BaseAction {
 		point = iUser.point;
 		
 		IUserCoin iUserCoin = userService.getIUserCoin(loginUserDto.userId);
-		if (iUserCoin == null) {
-			coin = 0;
-		} else {
+		if (iUserCoin != null) {
 			coin = iUserCoin.coin;
 		}
 
 		int needCoin = Integer.parseInt(mConfigService.getConfigValue(MConfigKey.ONE_TIME_COIN));
 		count = coin / needCoin;
 
-		
-		String cookieValue = super.getCookie();
-		
         return "mypage.ftl";
 	}
 

@@ -195,4 +195,9 @@ public class UserServiceImpl implements UserService {
 	public String generateUserCouponId(long userId) {
         return Long.toString(userId) + "_" + Long.toString(System.nanoTime()) + "_" + Math.random();
     }
+	
+	@Override
+	public String generateCookieValue(Long userId) throws Exception {
+		return CryptUtils.encrypt(userId.toString()) + "_" + Long.toString(System.nanoTime()) + "_" + Math.random();
+	}
 }

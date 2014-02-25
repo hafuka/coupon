@@ -60,4 +60,6 @@ public interface UserService {
 
 	public abstract String generateUserCouponId(long userId);
 
+	public abstract String generateCookieValue(Long userId) throws Exception;
+
 }

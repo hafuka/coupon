@@ -5,11 +5,20 @@ import javax.annotation.Generated;
 import org.seasar.extension.jdbc.name.PropertyName;
 
 /**
- * {@link IUserFavorite}のプロパティ名の集合です。
+ * {@link IUserLogin}のプロパティ名の集合です。
  * 
  */
 @Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/02/25 18:19:11")
-public class IUserFavoriteNames {
+public class IUserLoginNames {
+
+    /**
+     * cookieValueのプロパティ名を返します。
+     * 
+     * @return cookieValueのプロパティ名
+     */
+    public static PropertyName<String> cookieValue() {
+        return new PropertyName<String>("cookieValue");
+    }
 
     /**
      * userIdのプロパティ名を返します。
@@ -18,15 +27,6 @@ public class IUserFavoriteNames {
      */
     public static PropertyName<Long> userId() {
         return new PropertyName<Long>("userId");
-    }
-
-    /**
-     * shopIdのプロパティ名を返します。
-     * 
-     * @return shopIdのプロパティ名
-     */
-    public static PropertyName<Integer> shopId() {
-        return new PropertyName<Integer>("shopId");
     }
 
     /**
@@ -41,12 +41,12 @@ public class IUserFavoriteNames {
     /**
      * @author S2JDBC-Gen
      */
-    public static class _IUserFavoriteNames extends PropertyName<IUserFavorite> {
+    public static class _IUserLoginNames extends PropertyName<IUserLogin> {
 
         /**
          * インスタンスを構築します。
          */
-        public _IUserFavoriteNames() {
+        public _IUserLoginNames() {
         }
 
         /**
@@ -55,7 +55,7 @@ public class IUserFavoriteNames {
          * @param name
          *            名前
          */
-        public _IUserFavoriteNames(final String name) {
+        public _IUserLoginNames(final String name) {
             super(name);
         }
 
@@ -67,8 +67,17 @@ public class IUserFavoriteNames {
          * @param name
          *            名前
          */
-        public _IUserFavoriteNames(final PropertyName<?> parent, final String name) {
+        public _IUserLoginNames(final PropertyName<?> parent, final String name) {
             super(parent, name);
+        }
+
+        /**
+         * cookieValueのプロパティ名を返します。
+         *
+         * @return cookieValueのプロパティ名
+         */
+        public PropertyName<String> cookieValue() {
+            return new PropertyName<String>(this, "cookieValue");
         }
 
         /**
@@ -78,15 +87,6 @@ public class IUserFavoriteNames {
          */
         public PropertyName<Long> userId() {
             return new PropertyName<Long>(this, "userId");
-        }
-
-        /**
-         * shopIdのプロパティ名を返します。
-         *
-         * @return shopIdのプロパティ名
-         */
-        public PropertyName<Integer> shopId() {
-            return new PropertyName<Integer>(this, "shopId");
         }
 
         /**

@@ -78,8 +78,6 @@ public class LoginBonusServiceImpl implements LoginBonusService {
 			iUser.loginBonusDatetime = nowDate;
 			iUser.updDatetime = nowDate;
 			userService.updateIUser(iUser);
-
-			loginUserDto.point = userPoint;
 		}
 
 		return mLoginBonus;

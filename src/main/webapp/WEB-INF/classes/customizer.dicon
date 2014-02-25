@@ -70,9 +70,10 @@
 				<!-- 処理の対象外ににしたいAction(これ以外が対象になる) -->
 				<initMethod name="addIgnoreClassPattern">
 					<arg>"coupon.action"</arg>
-					<arg>"IndexAction,LoginAction,RegisterAction"</arg>
+					<arg>"IndexAction,LoginAction"</arg>
 				</initMethod>
-
+				
+				
 				<!-- 対象にしたいクラスの設定はこちら -->
 				<!--
 				<initMethod name="addClassPattern">

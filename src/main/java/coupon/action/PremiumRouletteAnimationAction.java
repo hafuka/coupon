@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import org.seasar.struts.annotation.Execute;
 
 import coupon.dto.CouponDto;
+import coupon.entity.IUser;
 import coupon.entity.IUserCoin;
 import coupon.enums.MConfigKey;
 import coupon.enums.TransactionType;
@@ -54,9 +55,10 @@ public class PremiumRouletteAnimationAction extends BaseAction {
 		}
 		
 		
+		IUser iUser = userService.getIUser(loginUserDto.userId);
 
 		// ルーレット実行処理
-		coupon = rouletteService.execPremiumRoulette(loginUserDto.userId, shopId, loginUserDto.point);
+		coupon = rouletteService.execPremiumRoulette(loginUserDto.userId, shopId, iUser.point);
 		setTransactionData(loginUserDto.userId, coupon, TransactionType.NORMAL_ROULETTE);
 		super.getFormToken();
 		return "/roulette/normal-animation.ftl";
@@ -68,9 +70,9 @@ public class PremiumRouletteAnimationAction extends BaseAction {
 		IUserCoin iUserCoin = userService.getIUserCoin(loginUserDto.userId);
 		
 		String pointStr = mConfigService.getConfigValue(MConfigKey.ONE_TIME_POINT);
+		IUser iUser = userService.getIUser(loginUserDto.userId);
 		
-		
-		if (iUserCoin == null || iUserCoin.coin == null || iUserCoin.coin < Integer.parseInt(needCoin) || loginUserDto.point < Integer.parseInt(pointStr)) {
+		if (iUserCoin == null || iUserCoin.coin == null || iUserCoin.coin < Integer.parseInt(needCoin) || iUser.point < Integer.parseInt(pointStr)) {
 			return false;
 		}
 		return true;

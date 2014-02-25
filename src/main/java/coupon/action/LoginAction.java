@@ -7,12 +7,15 @@ import org.seasar.struts.annotation.Execute;
 
 import coupon.entity.IUser;
 import coupon.entity.IUserAuthentication;
+import coupon.service.LoginService;
 import coupon.service.UserService;
 
 public class LoginAction extends BaseAction {
 	
 	@Resource
 	protected UserService userService;
+	@Resource
+	protected LoginService loginService;
 	
 	public String email;
 	public String password;
@@ -55,8 +58,9 @@ public class LoginAction extends BaseAction {
 		}
 		
 		loginUserDto.userId = iUser.userId;
-		loginUserDto.name = iUser.name;
-		loginUserDto.point = iUser.point;
+		
+		String cookieValue = loginService.insertIUserLogin(iUser.userId);
+		super.setCookie(cookieValue);
 		
 		return "/mypage?redirect=true";
 	}

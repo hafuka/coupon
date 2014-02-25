@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -95,5 +96,24 @@ public abstract class BaseAction {
     	Object data = request.getSession().getAttribute(key);
     	request.getSession().removeAttribute(key);
     	return data;
+    }
+    
+    protected void setCookie(String cookieValue) {
+    	Cookie c = new Cookie("_coupon_island_login_", cookieValue);
+    	c.setMaxAge(60*60*24*7);  // cookieの生存期間 1週間
+    	c.setPath(this.request.getContextPath());
+    	this.response.addCookie(c);
+    }
+    
+    protected String getCookie() {
+    	Cookie cookie[] = this.request.getCookies();
+    	if(cookie != null){
+    	    for(int i = 0; i < cookie.length; i++){
+    	        if(cookie[i].getName().equals("_coupon_island_login_")){
+    	            return cookie[i].getValue();
+    	        }
+    	    }
+    	}
+    	return null;
     }
 }

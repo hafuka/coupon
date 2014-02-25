@@ -6,12 +6,15 @@ import org.seasar.framework.util.StringUtil;
 import org.seasar.struts.annotation.Execute;
 
 import coupon.entity.IUser;
+import coupon.service.LoginService;
 import coupon.service.UserService;
 
 public class RegisterAction extends BaseAction {
 	
 	@Resource
 	protected UserService userService;
+	@Resource
+	protected LoginService loginService;
 	
 	
 	public String email;
@@ -57,8 +60,6 @@ public class RegisterAction extends BaseAction {
 		IUser iUser = userService.registUser(email, password, name, accountConfirmToken);
 		
 		loginUserDto.userId = iUser.userId;
-		loginUserDto.name = name;
-		loginUserDto.point = iUser.point;
 		
 //		MailAccountConfirmDto mailDto = new MailAccountConfirmDto();
 //        mailDto.to = new MailAddress[]{new MailAddress(email)};
@@ -67,6 +68,10 @@ public class RegisterAction extends BaseAction {
 //        mailMai.sendRegistAccountMail(mailDto);
         
 //		return "/register/regist-result.ftl";
+		
+		
+		String cookieValue = loginService.insertIUserLogin(iUser.userId);
+		super.setCookie(cookieValue);
 		
 		return "/mypage?redirect=true";
 	}

@@ -44,7 +44,7 @@ public class SearchAction extends BaseAction {
 		shopList = shopService.getShopBaens(null, null, null);
 		Collections.shuffle(shopList);
 		areaList = pullDownService.getAreaList();
-		areaDetailList = pullDownService.getAreaDetailList(14);
+		areaDetailList = pullDownService.getAreaDetailList();
 		businessList = pullDownService.getBusinessList();
 		
 		//rouletteFlg = rouletteService.checkDailyRoulette(loginUserDto.userId);
@@ -68,4 +68,17 @@ public class SearchAction extends BaseAction {
         super.setJsonData(shopList);
 		return null;
 	}
+	
+	/**
+	 * 
+	 * @return
+	 * @throws IOException
+	 */
+	@Execute(validator = false)
+	public String changeArea() throws IOException {
+		areaDetailList = pullDownService.getAreaDetailList(areaId);
+        super.setJsonData(areaDetailList);
+		return null;
+	}
+
 }

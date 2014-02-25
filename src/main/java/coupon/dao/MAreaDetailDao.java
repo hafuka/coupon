@@ -1,11 +1,15 @@
 package coupon.dao;
 
-import coupon.entity.MAreaDetail;
-import java.util.List;
-import javax.annotation.Generated;
-
 import static coupon.entity.MAreaDetailNames.*;
 import static org.seasar.extension.jdbc.operation.Operations.*;
+
+import java.util.List;
+
+import javax.annotation.Generated;
+
+import org.seasar.extension.jdbc.where.SimpleWhere;
+
+import coupon.entity.MAreaDetail;
 
 /**
  * {@link MAreaDetail}のサービスクラスです。
@@ -34,5 +38,13 @@ public class MAreaDetailDao extends AbstractDao<MAreaDetail> {
      */
     public List<MAreaDetail> findAllOrderById() {
         return select().orderBy(asc(areaId()), asc(areaDetailId())).getResultList();
+    }
+    
+    
+    public List<MAreaDetail> findByAreaId(Integer areaId) {
+    	return jdbcManager
+				.from(MAreaDetail.class)
+				.where(new SimpleWhere().eq(areaId(), areaId)).orderBy(asc(areaDetailId()))
+				.getResultList();
     }
 }

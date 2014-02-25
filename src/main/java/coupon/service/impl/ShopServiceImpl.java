@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 import org.seasar.framework.beans.util.BeanMap;
 import org.seasar.framework.beans.util.BeanUtil;
 
-import coupon.bean.ShopBaen;
+import coupon.bean.ShopBean;
 import coupon.dao.MAreaDao;
 import coupon.dao.MAreaDetailDao;
 import coupon.dao.MBusinessDao;
@@ -19,7 +19,6 @@ import coupon.entity.MAreaDetail;
 import coupon.entity.MBusiness;
 import coupon.entity.MShop;
 import coupon.entity.MShopCoupon;
-import coupon.entity.MShopCouponNames;
 import coupon.entity.MShopNames;
 import coupon.enums.RarityType;
 import coupon.service.ShopService;
@@ -39,9 +38,9 @@ public class ShopServiceImpl implements ShopService {
 	
 
 	@Override
-	public List<ShopBaen> getMShops(Integer areaId, Integer areaDetailId, Integer businessId) {
+	public List<ShopBean> getShopBaens(Integer areaId, Integer areaDetailId, Integer businessId) {
 		
-		List<ShopBaen> shopBeans = new ArrayList<>();
+		List<ShopBean> shopBeans = new ArrayList<>();
 		
 		BeanMap conditions = new BeanMap();
 		conditions.put(MShopNames.areaId().toString(), areaId);
@@ -55,7 +54,7 @@ public class ShopServiceImpl implements ShopService {
 			MAreaDetail areaDetail = mAreaDetailDao.findById(mShop.areaId, mShop.areaDetailId);
 			MBusiness business = mBusinessDao.findById(mShop.businessId);
 			
-			ShopBaen bean = new ShopBaen();
+			ShopBean bean = new ShopBean();
 			BeanUtil.copyProperties(mShop, bean);
 			bean.areaName = area.areaName;
 			bean.areaDetailName = areaDetail.detailName;
@@ -68,7 +67,6 @@ public class ShopServiceImpl implements ShopService {
 					break;
 				}
 			}
-			
 			shopBeans.add(bean);
 		}
 		
@@ -77,20 +75,18 @@ public class ShopServiceImpl implements ShopService {
 
 	@Override
 	public List<MShopCoupon> getMShopCoupons(Integer shopId) {
-		BeanMap conditions = new BeanMap();
-		conditions.put(MShopCouponNames.shopId().toString(), shopId);
-		return mShopCouponDao.findByCondition(conditions);
+		return mShopCouponDao.findByShopIdOrderByRarity(shopId);
 	}
 
 	@Override
-	public ShopBaen getMShop(Integer shopId) {
+	public ShopBean getShopBean(Integer shopId) {
 		
 		MShop mShop = mShopDao.findById(shopId);
 		MArea area = mAreaDao.findById(mShop.areaId);
 		MAreaDetail areaDetail = mAreaDetailDao.findById(mShop.areaId, mShop.areaDetailId);
 		MBusiness business = mBusinessDao.findById(mShop.businessId);
 		
-		ShopBaen bean = new ShopBaen();
+		ShopBean bean = new ShopBean();
 		BeanUtil.copyProperties(mShop, bean);
 		bean.areaName = area.areaName;
 		bean.areaDetailName = areaDetail.detailName;
@@ -103,7 +99,6 @@ public class ShopServiceImpl implements ShopService {
 				break;
 			}
 		}
-		
 		return bean;
 	}
 

@@ -9,7 +9,7 @@ import javax.annotation.Resource;
 import org.apache.struts.util.LabelValueBean;
 import org.seasar.struts.annotation.Execute;
 
-import coupon.bean.ShopBaen;
+import coupon.bean.ShopBean;
 import coupon.service.PullDownService;
 import coupon.service.RouletteService;
 import coupon.service.ShopService;
@@ -27,7 +27,7 @@ public class PremiumAction extends BaseAction {
 	public Integer businessId;
 	
 	///////// OUT項目 ////////
-	public List<ShopBaen> shopList;
+	public List<ShopBean> shopList;
 	public List<LabelValueBean> areaList;
 	public List<LabelValueBean> areaDetailList;
 	public List<LabelValueBean> businessList;
@@ -41,7 +41,7 @@ public class PremiumAction extends BaseAction {
 	
 	@Execute(validator = false)
 	public String index() {
-		shopList = shopService.getMShops(null, null, null);
+		shopList = shopService.getShopBaens(null, null, null);
 		Collections.shuffle(shopList);
 		areaList = pullDownService.getAreaList();
 		areaDetailList = pullDownService.getAreaDetailList(14);
@@ -56,7 +56,7 @@ public class PremiumAction extends BaseAction {
 	 */
 	@Execute(validator = false)
 	public String search() throws IOException {
-		shopList = shopService.getMShops(areaId, areaDetailId, businessId);
+		shopList = shopService.getShopBaens(areaId, areaDetailId, businessId);
         super.setJsonData(shopList);
 		return null;
 	}

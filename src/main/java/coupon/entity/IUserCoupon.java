@@ -17,29 +17,35 @@ import javax.persistence.Id;
 public class IUserCoupon implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-    /** userIdプロパティ */
+    
+    /** userCouponIdプロパティ */
     @Id
+    @Column(precision = 255, nullable = false, unique = false)
+    public String userCouponId;
+    
+    /** userIdプロパティ */
     @Column(precision = 19, nullable = false, unique = false)
     public Long userId;
 
     /** shopIdプロパティ */
-    @Id
     @Column(precision = 10, nullable = false, unique = false)
     public Integer shopId;
 
     /** couponIdプロパティ */
-    @Id
     @Column(precision = 10, nullable = false, unique = false)
     public Integer couponId;
-
-    /** couponCountプロパティ */
-    @Column(precision = 10, nullable = false, unique = false)
-    public Integer couponCount;
 
     /** limitDatetimeプロパティ */
     @Column(nullable = true, unique = false)
     public Timestamp limitDatetime;
+    
+    /** nameプロパティ */
+    @Column(precision = 128, nullable = false, unique = false)
+    public String name;
+    
+    /** descriptionプロパティ */
+    @Column(length = 255, nullable = true, unique = false)
+    public String description;
 
     /** updDatetimeプロパティ */
     @Column(nullable = false, unique = false)

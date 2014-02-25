@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.annotation.Generated;
 
+import org.seasar.extension.jdbc.where.SimpleWhere;
+
 import coupon.entity.MShopCoupon;
 
 /**
@@ -36,5 +38,14 @@ public class MShopCouponDao extends AbstractDao<MShopCoupon> {
      */
     public List<MShopCoupon> findAllOrderById() {
         return select().orderBy(asc(shopId()), asc(couponId())).getResultList();
+    }
+    
+    
+    public List<MShopCoupon> findByShopIdOrderByRarity(Integer shopId) {
+    	return jdbcManager
+				.from(MShopCoupon.class)
+				.where(new SimpleWhere().eq(shopId(), shopId)).orderBy(desc(rarity()))
+				.getResultList();
+    	
     }
 }

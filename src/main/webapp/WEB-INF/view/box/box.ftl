@@ -20,7 +20,11 @@
 
                 <div class="cell vMiddle relative pl10">
                     <div class="balloon">
-                        <p><span class="fcOrange">10枚</span>のクーポン券があるよ♪</p>
+                    	<#if couponList?has_content>
+                    		<p><span class="fcOrange">${couponList?size}枚</span>のクーポン券があるよ♪</p>
+                    	<#else>
+                    		<p>クーポン券をゲットしよう♪</p>
+                    	</#if>
                     </div>
                 </div>
             </div>

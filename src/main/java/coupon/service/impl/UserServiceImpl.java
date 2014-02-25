@@ -98,10 +98,10 @@ public class UserServiceImpl implements UserService {
 		iUserDao.update(iUser);
 	}
 
-	@Override
-	public IUserCoupon getIUserCoupon(Long userId, MShopCoupon mShopCoupon) {
-		return iUserCouponDao.findById(userId, mShopCoupon.shopId, mShopCoupon.couponId);
-	}
+//	@Override
+//	public IUserCoupon getIUserCoupon(Long userId, MShopCoupon mShopCoupon) {
+//		return iUserCouponDao.findById(userId, mShopCoupon.shopId, mShopCoupon.couponId);
+//	}
 
 	@Override
 	public void insertIUserCoupon(Long userId, MShopCoupon mShopCoupon) {
@@ -109,12 +109,13 @@ public class UserServiceImpl implements UserService {
 		Timestamp nowDate = CouponDateUtils.getCurrentDate();
 
 		IUserCoupon record = new IUserCoupon();
+		record.userCouponId = generateUserCouponId(userId);
 		record.userId = userId;
 		record.shopId = mShopCoupon.shopId;
 		record.couponId = mShopCoupon.couponId;
-		record.couponCount = 1;
 		record.limitDatetime = CouponDateUtils.add(nowDate, mShopCoupon.limitDays, Calendar.DATE);
-
+		record.name = mShopCoupon.couponName;
+		record.description = mShopCoupon.description;
 		record.updDatetime = nowDate;
 		record.insDatetime = nowDate;
 
@@ -177,9 +178,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<IUserCoupon> getIUserCoupons(Long userId) {
-		BeanMap conditions = new BeanMap();
-		conditions.put(IUserNames.userId().toString(), userId);
-		List<IUserCoupon> userCoupons = iUserCouponDao.findByCondition(conditions);
+		List<IUserCoupon> userCoupons = iUserCouponDao.findByUserIdOrderByLimitDate(userId);
 		if (CollectionUtils.isEmpty(userCoupons)) {
 			return null;
 		}
@@ -191,4 +190,9 @@ public class UserServiceImpl implements UserService {
 		// TODO 自動生成されたメソッド・スタブ
 		
 	}
+	
+	@Override
+	public String generateUserCouponId(long userId) {
+        return Long.toString(userId) + "_" + Long.toString(System.nanoTime()) + "_" + Math.random();
+    }
 }

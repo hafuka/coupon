@@ -12,7 +12,7 @@
 
         <#-- 店舗詳細 -->
         <section>
-            <h1 class="headline headlineNormal mt20">日比谷Bar 有楽町店</h1>
+            <h1 class="headline headlineNormal mt20">${shop.shopName!?html}</h1>
             <div class="bgWhite borderBottomGreen">
                 <div>
                     <div class="bgWhite relative">
@@ -23,47 +23,55 @@
                             <div class="cell vMiddle">
                                 <div class="pv10 pr10">
                                     <a href="" class="btn btnPrimary autoMargin w140">
-                                        <img src="${imagePath}/images/btn_txt_tel.png" width="100" height="22">
+                                        <img src="${imagePath}/images/btn_txt_tel.png" width="100" height="22" alt="${shop.tell!?html}">
                                     </a>
                                 </div>
                                 <div class="pv20 pr10">
                                     <a href="" class="btn btnPrimary autoMargin w140">
-                                        <img src="${imagePath}/images/btn_txt_map.png" width="100" height="22">
+                                        <img src="${imagePath}/images/btn_txt_map.png" width="100" height="22" alt="${shop.mapUrl!?html}">
                                     </a>
+                                </div>
+                                <div class="pv20 pr10">
+                                	<#if shop.isFavorite>
+                                		<a href="" class="btn btnPrimary autoMargin w140">
+	                                        お気に削除(url=/favorite/delete shopId=${shop.shopId!?html})
+	                                    </a>
+                                	<#else>
+	                                	<a href="" class="btn btnPrimary autoMargin w140">
+	                                        お気に登録(url=/favorite/regist shopId=${shop.shopId!?html})
+	                                    </a>
+                                	</#if>
                                 </div>
                             </div>
                         </div>
                         <ul class="mb10">
-                            <li class="couponDetailList srCouponBg">
-                                <div class="table">
-                                    <div class="cell pl5 pr10">
-                                        <img src="${imagePath}/images/coupon/srCouponImg.png" width="45" height="50" class="vMiddle">
-                                    </div>
-                                    <div class="cell vMiddle fcRed">
-                                        50%OFF!!!
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="couponDetailList rCouponBg">
-                                <div class="table">
-                                    <div class="cell pl5 pr10">
-                                        <img src="${imagePath}/images/coupon/srCouponImg.png" width="45" height="50">
-                                    </div>
-                                    <div class="cell vMiddle fcOrange">
-                                        ドリンク1杯無料
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="couponDetailList nCouponBg">
-                                <div class="table">
-                                    <div class="cell pl5 pr10">
-                                        <img src="${imagePath}/images/coupon/srCouponImg.png" width="45" height="50">
-                                    </div>
-                                    <div class="cell vMiddle">
-                                        おつまみ1品無料
-                                    </div>
-                                </div>
-                            </li>
+                        	<#list couponList as coupon>
+                        		<li class="couponDetailList srCouponBg">
+	                                <div class="table">
+	                                    <div class="cell pl5 pr10">
+											<#switch coupon.rarity>
+											<#case 1>
+												<#-- N -->
+												<img src="${imagePath}/images/coupon/srCouponImg.png" width="45" height="50" class="vMiddle">
+												<#break>
+											<#case 2>
+												<#-- R -->
+												<img src="${imagePath}/images/coupon/srCouponImg.png" width="45" height="50" class="vMiddle">
+												<#break>
+											<#case 3>
+												<#-- SR -->
+												<img src="${imagePath}/images/coupon/srCouponImg.png" width="45" height="50" class="vMiddle">
+												<#break>
+											<#default>
+												<#break>
+											</#switch> 
+	                                    </div>
+	                                    <div class="cell vMiddle fcRed">
+	                                        ${coupon.couponName!?html}
+	                                    </div>
+	                                </div>
+	                            </li>
+                        	</#list>
                         </ul>
                     </div>
                     
@@ -81,17 +89,17 @@
 
                     <div class="storeDetailText borderBox w95per m10 autoMargin">
                         <h2 class="bgGray borderBottomGray fs15 p5">お店のこだわり</h2>
-                        <p class="fs13 p5">なんて日だ！なんて日だ！なんて日だ！なんて日だ！なんて日だ！なんて日だ！なんて日だ！なんて日だ！なんて日だ！</p>
+                        <p class="fs13 p5">${shop.description!?html}</p>
                     </div>
 
                     <table class="fs12 textLeft borderBox w95per m10 autoMargin">
                         <tr>
                             <th>住所：</th>
-                            <td>東京都中央区銀座１丁目XXX</td>
+                            <td>${shop.address!?html}</td>
                         </tr>
                         <tr>
                             <th>ホームページ：</th>
-                            <td><a href="google.co.jp" class="fcBlue underline" target="_blank">google.co.jp</a></td>
+                            <td><a href="${shop.url!?html}" class="fcBlue underline" target="_blank">${shop.url!?html}</a></td>
                         </tr>
                     </table>
 
@@ -104,7 +112,7 @@
                     </div>
                     <div class="coinArea fs13 textCenter mv10 m0auto">
                         1回：<span class="fcOrange">100コイン</span><br>
-                        所持コイン：<span class="fcOrange">0コイン</span>
+                        所持コイン：<span class="fcOrange">${coin!?html}コイン</span>
                     </div>
                     
                 </div>

@@ -2,7 +2,7 @@ package coupon.bean;
 
 import java.io.Serializable;
 
-public class ShopBaen implements Serializable {
+public class ShopBean implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -35,5 +35,7 @@ public class ShopBaen implements Serializable {
 	public String areaName;
 	
 	public String areaDetailName;
+	
+	public boolean isFavorite;
 	
 }

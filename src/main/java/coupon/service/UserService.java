@@ -42,7 +42,7 @@ public interface UserService {
 
 	public abstract List<IUserCoupon> getIUserCoupons(Long userId);
 
-	public abstract IUserCoupon getIUserCoupon(Long userId, MShopCoupon mShopCoupon);
+//	public abstract IUserCoupon getIUserCoupon(Long userId, MShopCoupon mShopCoupon);
 
 	public abstract void insertIUserCoupon(Long userId, MShopCoupon mShopCoupon);
 
@@ -58,6 +58,6 @@ public interface UserService {
 	
 	public abstract void usePoint(Long userId, Integer usePoint);
 
-
+	public abstract String generateUserCouponId(long userId);
 
 }

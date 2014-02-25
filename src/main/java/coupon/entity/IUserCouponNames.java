@@ -8,8 +8,17 @@ import org.seasar.extension.jdbc.name.PropertyName;
  * {@link IUserCoupon}のプロパティ名の集合です。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/02/10 11:04:12")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/02/25 11:38:42")
 public class IUserCouponNames {
+
+    /**
+     * userCouponIdのプロパティ名を返します。
+     * 
+     * @return userCouponIdのプロパティ名
+     */
+    public static PropertyName<String> userCouponId() {
+        return new PropertyName<String>("userCouponId");
+    }
 
     /**
      * userIdのプロパティ名を返します。
@@ -39,21 +48,30 @@ public class IUserCouponNames {
     }
 
     /**
-     * couponCountのプロパティ名を返します。
-     * 
-     * @return couponCountのプロパティ名
-     */
-    public static PropertyName<Integer> couponCount() {
-        return new PropertyName<Integer>("couponCount");
-    }
-
-    /**
      * limitDatetimeのプロパティ名を返します。
      * 
      * @return limitDatetimeのプロパティ名
      */
     public static PropertyName<Timestamp> limitDatetime() {
         return new PropertyName<Timestamp>("limitDatetime");
+    }
+
+    /**
+     * nameのプロパティ名を返します。
+     * 
+     * @return nameのプロパティ名
+     */
+    public static PropertyName<String> name() {
+        return new PropertyName<String>("name");
+    }
+
+    /**
+     * descriptionのプロパティ名を返します。
+     * 
+     * @return descriptionのプロパティ名
+     */
+    public static PropertyName<String> description() {
+        return new PropertyName<String>("description");
     }
 
     /**
@@ -108,6 +126,15 @@ public class IUserCouponNames {
         }
 
         /**
+         * userCouponIdのプロパティ名を返します。
+         *
+         * @return userCouponIdのプロパティ名
+         */
+        public PropertyName<String> userCouponId() {
+            return new PropertyName<String>(this, "userCouponId");
+        }
+
+        /**
          * userIdのプロパティ名を返します。
          *
          * @return userIdのプロパティ名
@@ -135,21 +162,30 @@ public class IUserCouponNames {
         }
 
         /**
-         * couponCountのプロパティ名を返します。
-         *
-         * @return couponCountのプロパティ名
-         */
-        public PropertyName<Integer> couponCount() {
-            return new PropertyName<Integer>(this, "couponCount");
-        }
-
-        /**
          * limitDatetimeのプロパティ名を返します。
          *
          * @return limitDatetimeのプロパティ名
          */
         public PropertyName<Timestamp> limitDatetime() {
             return new PropertyName<Timestamp>(this, "limitDatetime");
+        }
+
+        /**
+         * nameのプロパティ名を返します。
+         *
+         * @return nameのプロパティ名
+         */
+        public PropertyName<String> name() {
+            return new PropertyName<String>(this, "name");
+        }
+
+        /**
+         * descriptionのプロパティ名を返します。
+         *
+         * @return descriptionのプロパティ名
+         */
+        public PropertyName<String> description() {
+            return new PropertyName<String>(this, "description");
         }
 
         /**

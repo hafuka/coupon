@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.annotation.Generated;
 
+import org.seasar.extension.jdbc.where.SimpleWhere;
+
 import coupon.entity.IUserCoupon;
 
 /**
@@ -19,18 +21,11 @@ public class IUserCouponDao extends AbstractDao<IUserCoupon> {
     /**
      * 識別子でエンティティを検索します。
      *
-     * @param userId
-     *            識別子
-     * @param shopId
-     *            識別子
-     * @param couponType
-     *            識別子
-     * @param couponId
-     *            識別子
+     * @param userCouponId ユーザークーポンID
      * @return エンティティ
      */
-    public IUserCoupon findById(Long userId, Integer shopId, Integer couponId) {
-        return select().id(userId, shopId, couponId).getSingleResult();
+    public IUserCoupon findById(String userCouponId) {
+        return select().id(userCouponId).getSingleResult();
     }
 
     /**
@@ -39,6 +34,18 @@ public class IUserCouponDao extends AbstractDao<IUserCoupon> {
      * @return エンティティのリスト
      */
     public List<IUserCoupon> findAllOrderById() {
-        return select().orderBy(asc(userId()), asc(shopId()), asc(couponId())).getResultList();
+        return select().orderBy(asc(userCouponId())).getResultList();
+    }
+    
+    /**
+     * ユーサーのクーポン情報を使用期限の昇順で取得する
+     * @param userId
+     * @return
+     */
+    public List<IUserCoupon> findByUserIdOrderByLimitDate(Long userId) {
+    	return jdbcManager
+				.from(IUserCoupon.class)
+				.where(new SimpleWhere().eq(userId(), userId)).orderBy(asc(limitDatetime()))
+				.getResultList();
     }
 }

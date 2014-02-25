@@ -2,7 +2,7 @@ package coupon.service;
 
 import java.util.List;
 
-import coupon.bean.ShopBaen;
+import coupon.bean.ShopBean;
 import coupon.entity.MShopCoupon;
 
 public interface ShopService {
@@ -12,7 +12,7 @@ public interface ShopService {
 	 * @param shopId
 	 * @return
 	 */
-	public abstract ShopBaen getMShop(Integer shopId);
+	public abstract ShopBean getShopBean(Integer shopId);
 	
 	
 	/**
@@ -22,7 +22,7 @@ public interface ShopService {
 	 * @param premiumFlg
 	 * @return
 	 */
-	public abstract List<ShopBaen> getMShops(Integer areaId, Integer areaDetailId, Integer businessId);
+	public abstract List<ShopBean> getShopBaens(Integer areaId, Integer areaDetailId, Integer businessId);
 	
 	
 	

@@ -2,7 +2,6 @@ package coupon.service.impl;
 
 import java.sql.Timestamp;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 
@@ -10,10 +9,9 @@ import javax.annotation.Resource;
 
 import org.seasar.framework.beans.util.BeanUtil;
 
-import coupon.bean.ShopBaen;
+import coupon.bean.ShopBean;
 import coupon.dto.CouponDto;
 import coupon.entity.IUser;
-import coupon.entity.IUserCoupon;
 import coupon.entity.MShopCoupon;
 import coupon.enums.MConfigKey;
 import coupon.enums.RarityType;
@@ -49,25 +47,15 @@ public class RouletteServiceImpl implements RouletteService {
 		Timestamp nowDate = CouponDateUtils.getCurrentDate();
 
 		// お店リスト取得
-		List<ShopBaen> shopList = shopService.getMShops(areaId, areaDetailId, businessId);
+		List<ShopBean> shopList = shopService.getShopBaens(areaId, areaDetailId, businessId);
 		Collections.shuffle(shopList);
-		ShopBaen shopBean = shopList.get(0);
+		ShopBean shopBean = shopList.get(0);
 
 		// ショップクーポンを抽出する
 		MShopCoupon shopCoupon = this.getRandomCoupon(shopBean.shopId, false);
 
-		IUserCoupon userCoupon = userService.getIUserCoupon(userId, shopCoupon);
-		if (userCoupon == null) {
-			// 登録
-			userService.insertIUserCoupon(userId, shopCoupon);
-
-		} else {
-			// 更新
-			userCoupon.couponCount += 1;
-			userCoupon.limitDatetime = CouponDateUtils.add(nowDate, shopCoupon.limitDays, Calendar.DATE);
-			userCoupon.updDatetime = nowDate;
-			userService.updateIUserCoupon(userCoupon);
-		}
+		// 登録
+		userService.insertIUserCoupon(userId, shopCoupon);
 
 		IUser iUser = userService.getIUser(userId);
 		iUser.normalRouletteDatetime = nowDate;
@@ -93,7 +81,7 @@ public class RouletteServiceImpl implements RouletteService {
 	public CouponDto execPremiumRoulette(Long userId, Integer shopId, Long userPoint) {
 
 		// お店リスト取得
-		ShopBaen shopBean = shopService.getMShop(shopId);
+		ShopBean shopBean = shopService.getShopBean(shopId);
 		if (shopBean == null) {
 			throw new IllegalArgumentException("お店情報取得エラー。shopId=" + shopId);
 		}
@@ -101,8 +89,7 @@ public class RouletteServiceImpl implements RouletteService {
 		// ショップクーポンを抽出する
 		MShopCoupon shopCoupon = this.getRandomCoupon(shopBean.shopId, true);
 		// クーポン付与
-		this.addCoupon(userId, shopCoupon);
-		
+		userService.insertIUserCoupon(userId, shopCoupon);
 		
 		int oneTimeCoin = Integer.parseInt(mConfigService.getConfigValue(MConfigKey.ONE_TIME_COIN));
 		int oneTimePoint = Integer.parseInt(mConfigService.getConfigValue(MConfigKey.ONE_TIME_POINT));
@@ -202,24 +189,6 @@ public class RouletteServiceImpl implements RouletteService {
 			break;
 		}
 		return positionResultList;
-	}
-
-	private void addCoupon(Long userId, MShopCoupon shopCoupon) {
-
-		Timestamp nowDate = CouponDateUtils.getCurrentDate();
-
-		IUserCoupon userCoupon = userService.getIUserCoupon(userId, shopCoupon);
-		if (userCoupon == null) {
-			// 登録
-			userService.insertIUserCoupon(userId, shopCoupon);
-
-		} else {
-			// 更新
-			userCoupon.couponCount += 1;
-			userCoupon.limitDatetime = CouponDateUtils.add(nowDate, shopCoupon.limitDays, Calendar.DATE);
-			userCoupon.updDatetime = nowDate;
-			userService.updateIUserCoupon(userCoupon);
-		}
 	}
 
 }

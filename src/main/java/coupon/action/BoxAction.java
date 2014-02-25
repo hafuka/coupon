@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 import org.apache.commons.collections.CollectionUtils;
 import org.seasar.struts.annotation.Execute;
 
-import coupon.bean.ShopBaen;
+import coupon.bean.ShopBean;
 import coupon.dto.CouponDto;
 import coupon.entity.IUserCoupon;
 import coupon.entity.MShopCoupon;
@@ -34,7 +34,7 @@ public class BoxAction extends BaseAction {
 			couponList = new ArrayList<CouponDto>(userCouponList.size());
 			for (IUserCoupon userCoupon : userCouponList) {
 				
-				ShopBaen shopBean = shopService.getMShop(userCoupon.shopId);
+				ShopBean shopBean = shopService.getShopBean(userCoupon.shopId);
 				MShopCoupon mShopCoupon = shopService.getMShopCoupon(userCoupon.shopId, userCoupon.couponId);
 				CouponDto couponDto = new CouponDto();
 				couponDto.shopBean = shopBean;

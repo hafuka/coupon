@@ -29,7 +29,7 @@
         <section>
         
             <div class="couponResult">
-                <h1 class="headline headlinePriority">${coupon.mShop.shopName!?html}</h1>
+                <h1 class="headline headlinePriority">${coupon.shopBean.shopName!?html}</h1>
                 <div class="bgWhite borderBottomOrange relative">
                         <div>
                             <img src="${imagePath}/images/storeThumnail.jpg" width="320" height="150">

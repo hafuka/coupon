@@ -27,6 +27,7 @@
 					<input type="hidden" name="year" id="year" value="${year?string.computer}">
 					<input type="hidden" name="cvc" id="cvc" value="${cvc!?html}">
 					<input type="hidden" name="saveCard" id="saveCard" value="${saveCard?string}">
+					<input type="hidden" name="token" id="token" value="${token?string}">
 
             		<div class="mt5">
                         名義：${cardName!?html}

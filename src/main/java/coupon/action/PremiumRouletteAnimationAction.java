@@ -72,7 +72,11 @@ public class PremiumRouletteAnimationAction extends BaseAction {
 		String pointStr = mConfigService.getConfigValue(MConfigKey.ONE_TIME_POINT);
 		IUser iUser = userService.getIUser(loginUserDto.userId);
 		
-		if (iUserCoin == null || iUserCoin.coin == null || iUserCoin.coin < Integer.parseInt(needCoin) || iUser.point < Integer.parseInt(pointStr)) {
+		if (Integer.parseInt(pointStr) < iUser.point) {
+			return true;
+		}
+		
+		if (iUserCoin == null || iUserCoin.coin == null || iUserCoin.coin < Integer.parseInt(needCoin)) {
 			return false;
 		}
 		return true;

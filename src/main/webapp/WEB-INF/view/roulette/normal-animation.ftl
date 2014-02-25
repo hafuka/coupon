@@ -16,7 +16,7 @@
 <script>
 var canvas, stage, exportRoot;
 
-var storeName = '${coupon.mShop.shopName!?html}';
+var storeName = '${coupon.shopBean.shopName!?html}';
 var storeCouponName = '${coupon.mShopCoupon.couponName!?html}';
 var nextUrl = '/coupon/rouletteResult?token=${token}';
 

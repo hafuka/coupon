@@ -14,7 +14,7 @@
             <h1 class="textCenter relative">
                 <img src="${imagePath}/images/mypage/mypage_title.png" width="100%" height="62" class="vTop">
                 <p class="islandName">
-                    ${loginUserDto.name!?html}アイランド
+                    ${name!?html}アイランド
                 </p>
             </h1>
 

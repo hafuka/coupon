@@ -30,6 +30,7 @@ public class MypageAction extends BaseAction {
 	public int coin;
 	public int count;
 	public long point;
+	public String name;
 
 	@Execute(validator = false)
 	public String index() {
@@ -44,6 +45,7 @@ public class MypageAction extends BaseAction {
 		
 		IUser iUser = userService.getIUser(loginUserDto.userId);
 		point = iUser.point;
+		name = iUser.name;
 		
 		IUserCoin iUserCoin = userService.getIUserCoin(loginUserDto.userId);
 		if (iUserCoin != null) {

@@ -17,7 +17,8 @@ public class LoginBonusAction extends BaseAction {
 	protected UserService userService;
 	
 	public MLoginBonus loginBonus;
-	public long point;
+	public long beforePoint;
+	public long afterPoint;
 	
 	@Execute(validator=false)
 	public String index() {
@@ -27,7 +28,7 @@ public class LoginBonusAction extends BaseAction {
 			throw new IllegalArgumentException("IUser is null.");
 		}
 		if (iUser.point != null) {
-			point = iUser.point;
+			beforePoint = iUser.point;
 		}
 		
 		if (!loginBonusService.isLoginBonus(loginUserDto.userId)) {
@@ -40,7 +41,7 @@ public class LoginBonusAction extends BaseAction {
 			return "/mypage?redirect=true";
 		}
 		
-		
+		afterPoint = beforePoint + loginBonus.point;
 		
 		return "/mypage/login-bonus.ftl";
 	}

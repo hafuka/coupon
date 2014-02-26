@@ -42,6 +42,7 @@ CREATE TABLE I_USER
 	consecutive_days bigint,
 	normal_roulette_datetime datetime,
 	customer_id varchar(32),
+	save_card_flg int DEFAULT 0 NOT NULL,
 	upd_datetime datetime NOT NULL,
 	ins_datetime datetime NOT NULL,
 	PRIMARY KEY (user_id)
@@ -192,7 +193,7 @@ CREATE TABLE M_SHOP_COUPON
 
 /* Create Indexes */
 
-CREATE INDEX IDX_EMAIL USING BTREE ON I_USER (email ASC, email ASC);
+CREATE INDEX IDX_EMAIL USING BTREE ON I_USER (email ASC);
 CREATE INDEX IDX_EMAIL_PASSWORD USING BTREE ON I_USER_AUTHENTICATION (email ASC, password ASC);
 CREATE INDEX IDX_REGIST_TOKEN USING BTREE ON I_USER_AUTHENTICATION (regist_token ASC);
 CREATE INDEX IDX_USER_ID USING BTREE ON I_USER_COUPON (user_id ASC);

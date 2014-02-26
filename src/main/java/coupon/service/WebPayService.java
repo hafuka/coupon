@@ -1,5 +1,8 @@
 package coupon.service;
 
+import jp.webpay.model.Card;
+import coupon.entity.IUser;
+
 public interface WebPayService {
 
 	/**
@@ -20,4 +23,11 @@ public interface WebPayService {
 	 * @param amount
 	 */
 	void doPaymentByCustomerId(Long userId, Integer amount);
+	
+	/**
+	 * 顧客情報所得
+	 * @param userId
+	 * @return
+	 */
+	Card getCardInfo(IUser iUser);
 }

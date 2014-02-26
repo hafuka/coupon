@@ -50,11 +50,11 @@
 											<#switch coupon.rarity>
 											<#case 1>
 												<#-- N -->
-												<img src="${imagePath}/images/coupon/srCouponImg.png" width="45" height="50" class="vMiddle">
+												<img src="${imagePath}/images/coupon/nCouponImg.png" width="45" height="50" class="vMiddle">
 												<#break>
 											<#case 2>
-												<#-- HR -->
-												<img src="${imagePath}/images/coupon/srCouponImg.png" width="45" height="50" class="vMiddle">
+												<#-- R -->
+												<img src="${imagePath}/images/coupon/rCouponImg.png" width="45" height="50" class="vMiddle">
 												<#break>
 											<#case 3>
 												<#-- SR -->

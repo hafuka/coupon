@@ -54,6 +54,10 @@ public class IUser implements Serializable {
     /** customerIdプロパティ */
     @Column(length = 32, nullable = false, unique = false)
     public String customerId;
+    
+    /** saveCardFlgプロパティ */
+    @Column(precision = 10, nullable = false, unique = false)
+    public Integer saveCardFlg;
 
     /** updDatetimeプロパティ */
     @Column(nullable = false, unique = false)

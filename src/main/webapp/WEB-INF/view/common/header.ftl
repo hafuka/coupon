@@ -21,7 +21,7 @@
                     </a>
                 </li>
                 <li class="menuList floatLeft textCenter">
-                    <a href="${urlPath}/premium">
+                    <a href="${urlPath}/favorite">
                         <div class="textCenter">
                             <img src="${imagePath}/images/nav/menu_premium.png" width="67" height="36" class="vTop">
                         </div>

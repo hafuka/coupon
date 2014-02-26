@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.lang.StringUtils;
+
 import coupon.dao.IUserCoinDao;
 import coupon.dao.MCoinDao;
 import coupon.entity.IUserCoin;
@@ -46,8 +48,13 @@ public class PaymentServiceImpl implements PaymentService {
 
 		MCoin mCoin = getCoin(coinId);
 
-		// カード決済処理
-		webPayService.doPayment(userId, cardName, cardNo, month, year, cvc, amount, saveCard);
+		if (StringUtils.startsWith(cardNo, "*") && saveCard) {
+			// カード決済処理
+			webPayService.doPaymentByCustomerId(userId, amount);
+		} else {
+			// カード決済処理
+			webPayService.doPayment(userId, cardName, cardNo, month, year, cvc, amount, saveCard);
+		}
 
 		// ユーザーのコインを増やす
 		Timestamp nowDate = CouponDateUtils.getCurrentDate();

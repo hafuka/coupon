@@ -334,10 +334,11 @@ input[type="text"], input[type="email"], input[type="password"] {
 }
 
 .btnSpecial {
-    border: 2px solid #fd6bea;
-    background: #fe85ee;
-    -webkit-box-shadow: 1px 1px 1px #fed8f9 inset, -1px -1px 1px #fed8f9 inset, 0 5px 0 #d76ac4, 0 7px 3px #d9c0db;
-    box-shadow: 1px 1px 1px #fed8f9 inset, -1px -1px 1px #fed8f9 inset, 0 5px 0 #d76ac4, 0 7px 3px #d9c0db;
+    position: relative;
+    border: 2px solid #f864a3;
+    background: #fe73ae;
+    -webkit-box-shadow: 1px 1px 1px #fde1ed inset, -1px -1px 1px #fde1ed inset, 0 5px 0 #f864a3, 0 7px 3px #e5c0d0;
+    box-shadow: 1px 1px 1px #fde1ed inset, -1px -1px 1px #fde1ed inset, 0 5px 0 #f864a3, 0 7px 3px #e5c0d0;
 }
 
 .btnPrimary.touchActive {
@@ -352,14 +353,22 @@ input[type="text"], input[type="email"], input[type="password"] {
     box-shadow: 1px 1px 1px #eee inset, -1px -1px 1px #eee inset, 0 2px 0 #cc3300, 0 5px 3px #d5c0b3;
 }
 
+.btnSpecial.touchActive {
+    top: 3px;
+    -webkit-box-shadow: 1px 1px 1px #eee inset, -1px -1px 1px #eee inset, 0 2px 0 #da3d71, 0 5px 3px #d5b3c0;
+    box-shadow: 1px 1px 1px #eee inset, -1px -1px 1px #eee inset, 0 2px 0 #da3d71, 0 5px 3px #d5b3c0;
+}
+
+/*
 .btnSpecial.getActive {
-    -webkit-box-shadow: 1px 1px 1px #fed8f9 inset, -1px -1px 1px #fed8f9 inset, 0 5px 0 #d76ac4, 0 7px 3px #d9c0db,
+    -webkit-box-shadow: 1px 1px 1px #fde1ed inset, -1px -1px 1px #fde1ed inset, 0 5px 0 #f864a3, 0 7px 3px #e5c0d0,
                         -2px -2px 5px #fff, 2px -2px 5px #fff;
-    box-shadow: 1px 1px 1px #fed8f9 inset, -1px -1px 1px #fed8f9 inset, 0 5px 0 #d76ac4, 0 7px 3px #d9c0db,
+    box-shadow: 1px 1px 1px #fde1ed inset, -1px -1px 1px #fde1ed inset, 0 5px 0 #f864a3, 0 7px 3px #e5c0d0,
                 -2px -2px 5px #fff, 2px -2px 5px #fff;
     -webkit-animation: lightActive 0.5s ease 0 infinite alternate;
     animation: lightActive 0.5s ease 0 infinite alternate;
 }
+*/
 
 @-webkit-keyframes lightActive {
     0% {
@@ -369,7 +378,7 @@ input[type="text"], input[type="email"], input[type="password"] {
         opacity:1;
     }
     99.9%, to {
-        opacity:0.7;
+        opacity:0.8;
     }
 }
 
@@ -433,6 +442,24 @@ input[type="text"], input[type="email"], input[type="password"] {
     -webkit-box-shadow: 2px 2px 1px #fff inset, -2px -2px 1px #fff inset, 2px -2px 1px #fff inset, -2px 2px 1px #fff inset;
     box-shadow: 2px 2px 1px #fff inset, -2px -2px 1px #fff inset, 2px -2px 1px #fff inset, -2px 2px 1px #fff inset;
     text-shadow: 1px 1px 1px #ccc;
+}
+
+.btnSpecial.getActive:before {
+    content: url("/coupon/images/get_active_icon_left.png");
+    position: absolute;
+    top: -10px;
+    left: -45px;
+    width: 50px;
+    height: 32px;
+}
+
+.btnSpecial.getActive:after {
+    content: url("/coupon/images/get_active_icon_right.png");
+    position: absolute;
+    top: -10px;
+    right: -45px;
+    width: 50px;
+    height: 32px;
 }
 
 .blinking {

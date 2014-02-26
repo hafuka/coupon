@@ -62,7 +62,7 @@ public class MypageAction extends BaseAction {
 	/**
 	 * 日毎処理チェック
 	 */
-	private String dailyProcessCheck() {
+	private void dailyProcessCheck() {
 
 		IUser iUser = userService.getIUser(loginUserDto.userId);
 
@@ -70,8 +70,6 @@ public class MypageAction extends BaseAction {
 		if (iUser.loginDatetime == null || !CouponDateUtils.isToday(iUser.loginDatetime)) {
 			// 日毎ログイン処理
 			dailyProcessService.doDailyProcess(iUser);
-			return "LOGIN";
 		}
-		return null;
 	}
 }

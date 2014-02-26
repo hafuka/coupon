@@ -15,6 +15,8 @@ public class ShopBean implements Serializable {
     public String url;
 
     public String tell;
+    
+    public String address;
 
     public String mapUrl;
 

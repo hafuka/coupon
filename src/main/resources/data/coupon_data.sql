@@ -91,43 +91,32 @@ insert into M_AREA_DETAIL values(13,5,'成田・八千代・鎌ヶ谷');
 insert into M_AREA_DETAIL values(13,6,'市原・銚子・南房総');
 
 /* 東京 */
-insert into M_AREA_DETAIL values(14,1,'銀座・新橋・有楽町');
-insert into M_AREA_DETAIL values(14,2,'東京・日本橋');
-insert into M_AREA_DETAIL values(14,3,'渋谷・恵比寿・代官山');
-insert into M_AREA_DETAIL values(14,4,'新宿・代々木・大久保');
-insert into M_AREA_DETAIL values(14,5,'池袋～高田馬場・早稲田');
-insert into M_AREA_DETAIL values(14,6,'原宿・表参道・青山');
-insert into M_AREA_DETAIL values(14,7,'六本木・麻布・広尾');
-insert into M_AREA_DETAIL values(14,8,'赤坂・永田町・溜池');
-insert into M_AREA_DETAIL values(14,9,'四ツ谷・市ヶ谷・飯田橋');
-insert into M_AREA_DETAIL values(14,10,'秋葉原・神田・水道橋');
-insert into M_AREA_DETAIL values(14,11,'上野・浅草・日暮里');
-insert into M_AREA_DETAIL values(14,12,'両国・錦糸町・小岩');
-insert into M_AREA_DETAIL values(14,13,'築地・湾岸・お台場');
-insert into M_AREA_DETAIL values(14,14,'浜松町・田町・品川');
-insert into M_AREA_DETAIL values(14,15,'大井・蒲田');
-insert into M_AREA_DETAIL values(14,16,'目黒・白金・五反田');
-insert into M_AREA_DETAIL values(14,17,'東急沿線');
-insert into M_AREA_DETAIL values(14,18,'京王・小田急沿線');
-insert into M_AREA_DETAIL values(14,19,'中野～西荻窪');
-insert into M_AREA_DETAIL values(14,20,'吉祥寺・三鷹・武蔵境');
-insert into M_AREA_DETAIL values(14,21,'西武沿線');
-insert into M_AREA_DETAIL values(14,22,'板橋・東武沿線');
-insert into M_AREA_DETAIL values(14,23,'大塚・巣鴨・駒込・赤羽');
-insert into M_AREA_DETAIL values(14,24,'千住・綾瀬・葛飾');
-insert into M_AREA_DETAIL values(14,25,'小金井・国分寺・国立');
-insert into M_AREA_DETAIL values(14,26,'調布・府中・狛江');
-insert into M_AREA_DETAIL values(14,27,'町田・稲城・多摩');
-insert into M_AREA_DETAIL values(14,28,'西東京市周辺');
-insert into M_AREA_DETAIL values(14,29,'立川市・八王子市周辺');
-insert into M_AREA_DETAIL values(14,30,'福生・青梅周辺');
-insert into M_AREA_DETAIL values(14,31,'伊豆諸島・小笠原');
+insert into M_AREA_DETAIL values(14,1,'新宿');
+insert into M_AREA_DETAIL values(14,2,'銀座・有楽町');
+insert into M_AREA_DETAIL values(14,3,'渋谷');
+insert into M_AREA_DETAIL values(14,4,'池袋');
+insert into M_AREA_DETAIL values(14,5,'上野・浅草');
+insert into M_AREA_DETAIL values(14,6,'新橋・浜松町・田町');
+insert into M_AREA_DETAIL values(14,7,'東京駅・丸の内・日本橋');
+insert into M_AREA_DETAIL values(14,8,'神田・秋葉原');
+insert into M_AREA_DETAIL values(14,9,'恵比寿・中目黒・目黒');
+insert into M_AREA_DETAIL values(14,10,'飯田橋・神楽坂');
+insert into M_AREA_DETAIL values(14,11,'赤坂・六本木');
+insert into M_AREA_DETAIL values(14,12,'錦糸町・新小岩');
+insert into M_AREA_DETAIL values(14,13,'品川・五反田');
+insert into M_AREA_DETAIL values(14,14,'立川・八王子');
+insert into M_AREA_DETAIL values(14,15,'人形町・門前仲町');
+insert into M_AREA_DETAIL values(14,16,'北千住・綾瀬・亀有');
+insert into M_AREA_DETAIL values(14,17,'板橋・成増・赤羽');
+insert into M_AREA_DETAIL values(14,18,'小金井・国分寺・国立');
+insert into M_AREA_DETAIL values(14,19,'練馬・江古田・田無');
+insert into M_AREA_DETAIL values(14,20,'下北沢・明大前・成城学園前');
+insert into M_AREA_DETAIL values(14,21,'お台場・豊洲・湾岸');
 
 
-insert into M_SHOP values(1,1,'日比谷bar','日比谷bar説明',null,null,null,14,1,'渋谷',0);
-insert into M_SHOP values(2,1,'とりしょう','とりしょう説明',null,null,null,14,1,'渋谷',0);
-insert into M_SHOP values(3,1,'鳥竹','鳥竹説明',null,null,null,14,1,'渋谷',0);
-insert into M_SHOP values(4,1,'cona','cona説明',null,null,null,14,1,'渋谷',0);
+insert into M_SHOP values(1,1,'新宿ダイニング しおん','2～40名様まで個室完備、85名様まで、隠れ家居酒屋','http://r.gnavi.co.jp/d1wy8f180000/?back_id=gdhh000','080-8878-7752','東京都新宿区歌舞伎町1-6-5 新宿ゴールド第一ビルB1','https://maps.google.co.jp/maps?q=%E3%81%8B%E3%81%BE%E3%81%8F%E3%82%89%E5%BE%A1%E6%AE%BF%20%E6%B8%8B%E8%B0%B7%E5%BA%97&ie=UTF-8&ei=llYNU9OuPILOkwWur4CgAg&ved=0CAkQ_AUoAQ',14,1,'新宿',0);
+insert into M_SHOP values(2,1,'裏NO庭 銀座店','銀座での宴会、記念日、女子会、合コン、貸切パーティに','http://r.gnavi.co.jp/g725415/','050-5798-4137','東京都中央区銀座3-4-17 銀座オプティカビル4F','https://maps.google.co.jp/maps?q=%E8%A3%8FNO%E5%BA%AD+%E9%8A%80%E5%BA%A7%E5%BA%97&ie=UTF-8&ei=llYNU9OuPILOkwWur4CgAg&ved=0CAkQ_AUoAQ',14,2,'銀座',0);
+insert into M_SHOP values(3,1,'かまくら御殿 渋谷店','全席完全個室・渋谷隠れ家居酒屋','http://r.gnavi.co.jp/e113164/?back_id=e113164','03-3476-4047','東京都渋谷区宇田川町13-8 ちとせ会館4F','https://maps.google.co.jp/maps?q=%E3%81%8B%E3%81%BE%E3%81%8F%E3%82%89%E5%BE%A1%E6%AE%BF%20%E6%B8%8B%E8%B0%B7%E5%BA%97&ie=UTF-8&ei=llYNU9OuPILOkwWur4CgAg&ved=0CAkQ_AUoAQ',14,3,'渋谷',0);
 
 insert into M_BUSINESS values(1,'飲食店');
 insert into M_BUSINESS values(2,'美容院');
@@ -146,11 +135,6 @@ insert into M_SHOP_COUPON values(2,3,'50%OFF', '50%OFF', 10, 3, 3);
 insert into M_SHOP_COUPON values(3,1,'20%OFF', '20%OFF', 60, 3, 1);
 insert into M_SHOP_COUPON values(3,2,'30%OFF', '30%OFF', 30, 3, 2);
 insert into M_SHOP_COUPON values(3,3,'50%OFF', '50%OFF', 10, 3, 3);
-
-insert into M_SHOP_COUPON values(4,1,'20%OFF', '20%OFF', 60, 3, 1);
-insert into M_SHOP_COUPON values(4,2,'30%OFF', '30%OFF', 30, 3, 2);
-insert into M_SHOP_COUPON values(4,3,'50%OFF', '50%OFF', 10, 3, 3);
-
 
 
 insert into M_COIN values(1,110,105,null,null);

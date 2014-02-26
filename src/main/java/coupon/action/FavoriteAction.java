@@ -1,7 +1,9 @@
 package coupon.action;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -45,16 +47,20 @@ public class FavoriteAction extends BaseAction {
 	 */
 	@Execute(validator=false)
 	public String regist() throws IOException {
-
+		
+		Map<String, Object> result = new HashMap<String, Object>();
+		
 		IUserFavorite userFavorite = favoriteService.getIUserFavorite(loginUserDto.userId, shopId);
 		if (userFavorite != null) {
-			super.setJsonData(false);
+			result.put("result", false);
+			super.setJsonData(result);
 			return null;
 		}
 		
 		// 登録処理
 		favoriteService.insertFavorite(loginUserDto.userId, shopId);
-		super.setJsonData(true);
+		result.put("result", true);
+		super.setJsonData(result);
 		return null;
 	}
 	
@@ -63,9 +69,14 @@ public class FavoriteAction extends BaseAction {
 	 * @return
 	 */
 	@Execute(validator=false)
-	public String delete() {
+	public String delete() throws IOException {
+		
+		Map<String, Object> result = new HashMap<String, Object>();
+		result.put("result", true);
+		
 		favoriteService.deleteFavorite(loginUserDto.userId, shopId);
-		return "favorite.ftl";
+		super.setJsonData(result);
+		return null;
 	}
 	
 }

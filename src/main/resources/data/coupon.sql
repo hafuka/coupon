@@ -166,6 +166,7 @@ CREATE TABLE M_SHOP
 	description varchar(255),
 	url varchar(255),
 	tell varchar(16),
+	address varchar(255),
 	map_url varchar(255),
 	area_id int NOT NULL,
 	area_detail_id int NOT NULL,

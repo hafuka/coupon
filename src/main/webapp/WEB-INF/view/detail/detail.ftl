@@ -6,7 +6,8 @@
     </head>
 
     <body class="outline secondContents">
-
+		<input type="hidden" id="hdn_shopId" value="${shop.shopId}">
+		
         <#-- ヘッダーメニューのインクルード -->
         <#include "/common/header.ftl">
 
@@ -32,15 +33,12 @@
                                     </a>
                                 </div>
                                 <div class="pv20 pr10">
-                                	<#if shop.isFavorite>
-                                		<a href="" class="btn btnPrimary autoMargin w140">
-	                                        お気に削除(url=/favorite/delete shopId=${shop.shopId!?html})
-	                                    </a>
-                                	<#else>
-	                                	<a href="" class="btn btnPrimary autoMargin w140">
-	                                        お気に登録(url=/favorite/regist shopId=${shop.shopId!?html})
-	                                    </a>
-                                	</#if>
+                            		<a id="js_deleteFavoriteBtn" class="btn btnPrimary autoMargin w140">
+                                        お気に削除
+                                    </a>
+                                	<a id="js_addFavoriteBtn" class="btn btnPrimary autoMargin w140">
+                                        お気に登録
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -55,7 +53,7 @@
 												<img src="${imagePath}/images/coupon/srCouponImg.png" width="45" height="50" class="vMiddle">
 												<#break>
 											<#case 2>
-												<#-- R -->
+												<#-- HR -->
 												<img src="${imagePath}/images/coupon/srCouponImg.png" width="45" height="50" class="vMiddle">
 												<#break>
 											<#case 3>
@@ -136,7 +134,19 @@
 
         <#-- 共通JavaScriptのインクルード -->
         <#include "/common/htmlFoot.ftl">
-
+        <script src="/coupon/js/detail.js"></script>
+		<script>
+            //グローバルで使う変数を定義
+            var urlPath = '${urlPath}';
+            var imagePath = '${imagePath}';
+            var token = '${token}';
+        </script>
+        <script type="text/javascript" charset="utf-8">
+        	var isFavorite = ${shop.isFavorite!?string};
+            if (isFavorite == "true") {
+            } else {
+            }
+        </script
     </body>
 
 </html>

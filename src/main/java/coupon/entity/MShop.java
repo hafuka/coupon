@@ -41,6 +41,10 @@ public class MShop implements Serializable {
     /** tellプロパティ */
     @Column(length = 16, nullable = true, unique = false)
     public String tell;
+    
+    /** addressプロパティ */
+    @Column(length = 255, nullable = true, unique = false)
+    public String address;
 
     /** mapUrlプロパティ */
     @Column(length = 255, nullable = true, unique = false)

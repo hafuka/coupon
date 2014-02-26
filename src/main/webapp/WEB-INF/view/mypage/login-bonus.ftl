@@ -25,20 +25,20 @@ window.addEventListener('DOMContentLoaded', function() {
     images = images||{};
 
     var manifest = [
-        {src:"/coupon/images/bakudan.png", id:"bakudan"},
-        {src:"/coupon/images/comment.png", id:"comment"},
-        {src:"/coupon/images/light_l.png", id:"light_l"},
-        {src:"/coupon/images/light_r.png", id:"light_r"},
-        {src:"/coupon/images/star.png", id:"star"},
-        {src:"/coupon/images/title_txt_01.png", id:"title_txt_01"},
-        {src:"/coupon/images/title_txt_02.png", id:"title_txt_02"},
-        {src:"/coupon/images/title_txt_03.png", id:"title_txt_03"},
-        {src:"/coupon/images/title_txt_04.png", id:"title_txt_04"},
-        {src:"/coupon/images/title_txt_05.png", id:"title_txt_05"},
-        {src:"/coupon/images/title_txt_06.png", id:"title_txt_06"},
-        {src:"/coupon/images/title_txt_07.png", id:"title_txt_07"},
-        {src:"/coupon/images/title_txt_08.png", id:"title_txt_08"},
-        {src:"/coupon/images/transparent.png", id:"transparent"}
+        {src:"/coupon/images/animation/loginbonus/bakudan.png", id:"bakudan"},
+        {src:"/coupon/images/animation/loginbonus/comment.png", id:"comment"},
+        {src:"/coupon/images/animation/loginbonus/light_l.png", id:"light_l"},
+        {src:"/coupon/images/animation/loginbonus/light_r.png", id:"light_r"},
+        {src:"/coupon/images/animation/loginbonus/star.png", id:"star"},
+        {src:"/coupon/images/animation/loginbonus/title_txt_01.png", id:"title_txt_01"},
+        {src:"/coupon/images/animation/loginbonus/title_txt_02.png", id:"title_txt_02"},
+        {src:"/coupon/images/animation/loginbonus/title_txt_03.png", id:"title_txt_03"},
+        {src:"/coupon/images/animation/loginbonus/title_txt_04.png", id:"title_txt_04"},
+        {src:"/coupon/images/animation/loginbonus/title_txt_05.png", id:"title_txt_05"},
+        {src:"/coupon/images/animation/loginbonus/title_txt_06.png", id:"title_txt_06"},
+        {src:"/coupon/images/animation/loginbonus/title_txt_07.png", id:"title_txt_07"},
+        {src:"/coupon/images/animation/loginbonus/title_txt_08.png", id:"title_txt_08"},
+        {src:"/coupon/images/animation/loginbonus/transparent.png", id:"transparent"}
     ];
 
     var loader = new createjs.LoadQueue(false);

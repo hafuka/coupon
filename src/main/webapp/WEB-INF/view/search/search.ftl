@@ -33,8 +33,8 @@
                     <div class="pv5">
                         <p class="fcWhite fs14 textShadow inlineBlock w60">地域：</p>
                         <p class="selectBox inlineBlock vMiddle">
-                            <select name="area">
-                                <option value="">地域を選択してください</option>
+                            <select name="area" id="js_areaChange">
+                                <option value="0">地域を選択してください</option>
                                 <#list areaList as area>
                                     <option value="${area.value!?html}">${area.label!?html}</option>
                                 </#list>
@@ -44,11 +44,13 @@
                     <div class="pv5">
                         <p class="fcWhite fs14 textShadow inlineBlock w60">エリア：</p>
                         <p class="selectBox inlineBlock vMiddle">
-                            <select name="areaDetail">
-                                <option value="">ｴﾘｱを選択してください</option>
+                            <select id="js_searchAreaDetailList" name="areaDetail">
+                                <option value="0">ｴﾘｱを選択してください</option>
+                                <#--
                                 <#list areaDetailList as areaDetail>
                                     <option value="${areaDetail.value!?html}">${areaDetail.label!?html}</option>
                                 </#list>
+                                -->
                             </select>
                         </p>
                     </div>
@@ -56,7 +58,7 @@
                         <p class="fcWhite fs14 textShadow inlineBlock w60">業種：</p>
                         <p class="selectBox inlineBlock vMiddle">
                             <select name="business">
-                                <option value="">業種を選択してください</option>
+                                <option value="0">業種を選択してください</option>
                                 <#list businessList as business>
                                 <option value="${business.value!?html}">${business.label!?html}</option>
                                 </#list>
@@ -171,6 +173,11 @@
                     </div>
                 </a>
             </li>
+        </script>
+        
+        <#-- JsRenderテンプレート：エリア検索リスト用 -->
+        <script id="searchAreaDetailList_template" type="text/x-jsrender">
+            <option value="{{:areaValue}}">{{:areaName}}</option>
         </script>
         
     </body>

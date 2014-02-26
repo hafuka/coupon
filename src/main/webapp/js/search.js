@@ -67,4 +67,73 @@ $(function(){
         return storeList;
     }
     
+    // 地域セレクト
+    var areaSelect = $('#js_areaChange');
+    var areaSearchList = $('#js_searchAreaDetailList');
+    
+    
+    // 地域が変更されたらajax通信を開始
+    areaSelect.on('change', function(){
+    	ajaxGetAreaDetailList();
+    });
+    
+    // ajax通信
+    function ajaxGetAreaDetailList() {
+        areaId = $('select[name=area]').val();
+        var url = urlPath + "/search/changeArea";
+        var formData = "areaId=" + areaId;
+        console.log(formData);
+        ajaxJsonGlobal(url, formData, searchAreaDetailSuccess);
+    }
+    
+    // ajax成功
+    function searchAreaDetailSuccess(data){
+        if (data != '') {
+            // リストをJS-RENDERのテンプレートでDOMに追加
+        	areaSearchList.html(
+                $("#searchAreaDetailList_template").render(returnSearchAreaDetailList(data))
+            );
+        } else {
+        	// リストをJS-RENDERのテンプレートでDOMに追加
+        	areaSearchList.html(
+                $("#searchAreaDetailList_template").render(returnSearchAreaDefault())
+            );
+        }
+    }
+    
+    // ajax成功時にリストを取得
+    function returnSearchAreaDetailList(data){
+        var areaDetailList = [];
+        targetList = {
+            "areaValue": 0,
+            "areaName": "ｴﾘｱを選択してください",
+        };
+        areaDetailList.push(targetList);
+        
+        var targetList;
+        var len = data.length;
+        alert(len);
+        
+        for( var i = 0; i < len; i++ ){
+            var dataList = data[i];
+            targetList = {
+                "areaValue": dataList.value,
+                "areaName": dataList.label,
+            };
+            areaDetailList.push(targetList);
+        }
+        return areaDetailList;
+    }
+    
+    // ajax成功時にリストを取得
+    function returnSearchAreaDefault(){
+        var areaDetailList = [];
+        targetList = {
+            "areaValue": 0,
+            "areaName": "ｴﾘｱを選択してください",
+        };
+        areaDetailList.push(targetList);
+        return areaDetailList;
+    }
+    
 });

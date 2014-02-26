@@ -3,6 +3,7 @@ insert into M_CONFIG values('LOGIN_BONUS_TIME', '00:00', null,null);
 insert into M_CONFIG values('ONE_TIME_COIN', '100', null,null);
 insert into M_CONFIG values('ONE_TIME_POINT', '3000', null,null);
 
+/*
 insert into M_AREA values(1,'北海道');
 insert into M_AREA values(2,'青森県');
 insert into M_AREA values(3,'秋田県');
@@ -13,10 +14,12 @@ insert into M_AREA values(7,'福島県');
 insert into M_AREA values(8,'茨城県');
 insert into M_AREA values(9,'栃木県');
 insert into M_AREA values(10,'群馬県');
+*/
 insert into M_AREA values(11,'埼玉県');
 insert into M_AREA values(12,'神奈川県');
 insert into M_AREA values(13,'千葉県');
 insert into M_AREA values(14,'東京都');
+/*
 insert into M_AREA values(15,'山梨県');
 insert into M_AREA values(16,'長野県');
 insert into M_AREA values(17,'新潟県');
@@ -50,8 +53,44 @@ insert into M_AREA values(44,'大分県');
 insert into M_AREA values(45,'宮崎県');
 insert into M_AREA values(46,'鹿児島県');
 insert into M_AREA values(47,'沖縄県');
+*/
 
+/* 埼玉 */
+insert into M_AREA_DETAIL values(11,1,'大宮・さいたま新都心');
+insert into M_AREA_DETAIL values(11,2,'志木・川越・坂戸');
+insert into M_AREA_DETAIL values(11,3,'上尾・熊谷・久喜');
+insert into M_AREA_DETAIL values(11,4,'川口・蕨・戸田');
+insert into M_AREA_DETAIL values(11,5,'越谷・草加・春日部');
+insert into M_AREA_DETAIL values(11,6,'秩父・長瀞・飯能');
+insert into M_AREA_DETAIL values(11,7,'所沢・入間・狭山');
+insert into M_AREA_DETAIL values(11,8,'浦和');
 
+/* 神奈川 */
+insert into M_AREA_DETAIL values(12,1,'横浜・みなとみらい・関内');
+insert into M_AREA_DETAIL values(12,2,'川崎・鶴見');
+insert into M_AREA_DETAIL values(12,3,'藤沢・茅ヶ崎・平塚');
+insert into M_AREA_DETAIL values(12,4,'厚木・海老名・大和');
+insert into M_AREA_DETAIL values(12,5,'新横浜・センター南・鴨居');
+insert into M_AREA_DETAIL values(12,6,'日吉・武蔵小杉・東横線');
+insert into M_AREA_DETAIL values(12,7,'橋本・相模原・相模大野');
+insert into M_AREA_DETAIL values(12,8,'溝の口・たまプラーザ・青葉台');
+insert into M_AREA_DETAIL values(12,9,'上大岡・港南台・金沢八景');
+insert into M_AREA_DETAIL values(12,10,'小田原・箱根・湯河原');
+insert into M_AREA_DETAIL values(12,11,'横須賀・久里浜・三浦半島');
+insert into M_AREA_DETAIL values(12,12,'鎌倉・大船・逗子');
+insert into M_AREA_DETAIL values(12,13,'戸塚・保土ヶ谷・二俣川');
+insert into M_AREA_DETAIL values(12,14,'登戸・向ヶ丘遊園・新百合ヶ丘');
+insert into M_AREA_DETAIL values(12,15,'伊勢原・秦野・県央エリア');
+
+/* 千葉 */
+insert into M_AREA_DETAIL values(13,1,'千葉・幕張');
+insert into M_AREA_DETAIL values(13,2,'市川・船橋・津田沼');
+insert into M_AREA_DETAIL values(13,3,'柏・松戸・我');
+insert into M_AREA_DETAIL values(13,4,'舞浜・浦安・行徳');
+insert into M_AREA_DETAIL values(13,5,'成田・八千代・鎌ヶ谷');
+insert into M_AREA_DETAIL values(13,6,'市原・銚子・南房総');
+
+/* 東京 */
 insert into M_AREA_DETAIL values(14,1,'銀座・新橋・有楽町');
 insert into M_AREA_DETAIL values(14,2,'東京・日本橋');
 insert into M_AREA_DETAIL values(14,3,'渋谷・恵比寿・代官山');

@@ -1,6 +1,7 @@
 package coupon.action;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -64,6 +65,7 @@ public class SearchAction extends BaseAction {
 	 */
 	@Execute(validator = false)
 	public String search() throws IOException {
+		this.checkParam();
 		shopList = shopService.getShopBaens(areaId, areaDetailId, businessId);
         super.setJsonData(shopList);
 		return null;
@@ -76,9 +78,25 @@ public class SearchAction extends BaseAction {
 	 */
 	@Execute(validator = false)
 	public String changeArea() throws IOException {
-		areaDetailList = pullDownService.getAreaDetailList(areaId);
+		areaDetailList = new ArrayList<LabelValueBean>();
+		if (this.areaId != 0) {
+			areaDetailList = pullDownService.getAreaDetailList(areaId);
+		}
         super.setJsonData(areaDetailList);
 		return null;
+	}
+	
+	
+	private void checkParam() {
+		if (this.areaId == 0) {
+			this.areaId = null;
+		}
+		if (this.areaDetailId == 0) {
+			this.areaDetailId = null;
+		}
+		if (this.businessId == 0) {
+			this.businessId = null;
+		}
 	}
 
 }

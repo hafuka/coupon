@@ -116,4 +116,9 @@ public abstract class BaseAction {
     	}
     	return null;
     }
+    
+    protected void updateCookieLimit() {
+    	String cookieValue = this.getCookie();
+    	this.setCookie(cookieValue);
+    }
 }

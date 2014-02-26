@@ -9,6 +9,7 @@ import coupon.entity.IUserCoin;
 import coupon.enums.MConfigKey;
 import coupon.service.DailyProcessService;
 import coupon.service.LoginBonusService;
+import coupon.service.LoginService;
 import coupon.service.MConfigService;
 import coupon.service.RouletteService;
 import coupon.service.UserService;
@@ -26,6 +27,8 @@ public class MypageAction extends BaseAction {
 	protected RouletteService rouletteService;
 	@Resource
 	protected MConfigService mConfigService;
+	@Resource
+	protected LoginService loginService;
 
 	public int coin;
 	public int count;
@@ -70,6 +73,8 @@ public class MypageAction extends BaseAction {
 		if (iUser.loginDatetime == null || !CouponDateUtils.isToday(iUser.loginDatetime)) {
 			// 日毎ログイン処理
 			dailyProcessService.doDailyProcess(iUser);
+			// クッキーの有効期限を更新
+			super.updateCookieLimit();
 		}
 	}
 }

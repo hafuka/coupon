@@ -11,12 +11,12 @@
 <script src="http://code.createjs.com/preloadjs-0.4.0.min.js"></script>
 <#-- 共通JavaScriptのインクルード -->
 <#include "/common/htmlFoot.ftl">
-<script src="/coupon/js/login_animation.js"></script>
+<script src="/coupon/js/login_bonus_animation.js"></script>
 
 <script>
 var canvas, stage, exportRoot;
 
-var bonusPoint = '${loginBonus.point!?html}';
+var bonusPoint = '${loginBonus.point!?html}pt';
 var nextUrl = '/coupon/mypage';
 
 window.addEventListener('DOMContentLoaded', function() {
@@ -59,7 +59,7 @@ function handleComplete() {
     stage.addChild(exportRoot);
     stage.update();
 
-    createjs.Ticker.setFPS(lib.properties.fps);
+    createjs.Ticker.setFPS(24);
     createjs.Ticker.addEventListener("tick", stage);
 }
 </script>

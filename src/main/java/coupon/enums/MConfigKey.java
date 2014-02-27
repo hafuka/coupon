@@ -9,7 +9,7 @@ public enum MConfigKey {
 	/** プレミアムルーレット1回に必要なポイント数 */
 	ONE_TIME_POINT("ONE_TIME_POINT"),
 	/** クーポン使用時の有効時間 */
-	USE_COUPON_LIMIT_TIME("USE_TICKET_LIMIT_TIME"),
+	USE_COUPON_LIMIT_TIME("USE_COUPON_LIMIT_TIME"),
 	;
 
 	/** DB上の区分 */

@@ -17,31 +17,26 @@ public class LoginBonusAction extends BaseAction {
 	protected UserService userService;
 	
 	public MLoginBonus loginBonus;
-	public long beforePoint;
-	public long afterPoint;
 	
 	@Execute(validator=false)
 	public String index() {
-		
+		if (!isValidToken(token)) {
+			throw new IllegalArgumentException("Tokenエラー");
+		}
 		IUser iUser = userService.getIUser(loginUserDto.userId);
 		if (iUser == null) {
 			throw new IllegalArgumentException("IUser is null.");
 		}
-		if (iUser.point != null) {
-			beforePoint = iUser.point;
-		}
 		
-//		if (!loginBonusService.isLoginBonus(loginUserDto.userId)) {
-//			return "/mypage?redirect=true";
-//		}
+		if (!loginBonusService.isLoginBonus(loginUserDto.userId)) {
+			return "/mypage?redirect=true";
+		}
 		
 		// ログインボーナス付与処理
 		loginBonus = loginBonusService.sendLoginBonus(loginUserDto.userId);
 		if (loginBonus == null) {
 			return "/mypage?redirect=true";
 		}
-		
-		afterPoint = beforePoint + loginBonus.point;
 		
 		return "/mypage/login-bonus.ftl";
 	}

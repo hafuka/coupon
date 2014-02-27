@@ -1,5 +1,6 @@
 package coupon.service;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 import coupon.entity.IUserCoupon;
@@ -16,5 +17,7 @@ public interface CouponService {
 	public abstract String generateUserCouponId(long userId);
 	
 	public abstract IUserCoupon getIUserCoupon(String userCouponId);
+	
+	public abstract Timestamp useCoupon(IUserCoupon iUserCoupon);
 	
 }

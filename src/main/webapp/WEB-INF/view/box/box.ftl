@@ -58,7 +58,7 @@
             	<#if couponList?has_content>
 	            	<#list couponList as coupon>
 		            	<li>
-		                    <a href="${urlPath}/detail?shopId=${coupon.shopBean.shopId!?html}">
+		                    <a href="${urlPath}/coupon?userCouponId=${coupon.userCoupon.userCouponId!?html}">
 		                        <div class="table">
 		                            <div class="cell pr10">
 		                                <img src="${imagePath}/images/storeThumnail.jpg" width="85" height="85" class="borderGray">
@@ -69,6 +69,9 @@
 		                                <p class="fs13">最寄駅：${coupon.shopBean.station!?html}</p>
 		                                <p class="bgRound">${coupon.mShopCoupon.couponName!?html}</p>
 		                                <p class="fcRed fs13">有効期限：${coupon.userCoupon.limitDatetime!?html}</p>
+		                                <#if coupon.userCoupon.status == 1>
+		                                	<p class="fcRed fs13">使用中</p>
+		                                </#if>
 		                            </div>
 		                        </div>
 		                    </a>

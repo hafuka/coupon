@@ -46,6 +46,10 @@ public class IUserCoupon implements Serializable {
     /** descriptionプロパティ */
     @Column(length = 255, nullable = true, unique = false)
     public String description;
+    
+    /** statusプロパティ */
+    @Column(precision = 10, nullable = false, unique = false)
+    public Integer status;
 
     /** updDatetimeプロパティ */
     @Column(nullable = false, unique = false)

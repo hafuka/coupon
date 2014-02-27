@@ -118,4 +118,115 @@ public class CouponDateUtils {
 		}
 		return new Date(ts.getTime());
 	}
+	
+	/**
+     * targetDateまでの残り日にちを返す
+     *
+     * @param targetDate 終了時間
+     * @return Long
+     */
+    public static Long getRemainDays(Date targetDate) {
+    	if (targetDate == null) {
+    		return null;
+    	}
+        long diffTime = targetDate.getTime() - System.currentTimeMillis();
+        if (diffTime > 0) {
+            // 秒/分/時/日
+            long second = diffTime / 1000;
+            long minute = second / 60;
+            long hour = minute / 60;
+            long day = hour / 24;
+            return day;
+        }
+        return null;
+    }
+	
+    /**
+     * targetDateまでの残り時間を返す(24時間を超える部分は除く)
+     *
+     * @param targetDate 終了時間
+     * @return Long
+     */
+    public static Long getRemainHours(Date targetDate) {
+        long diffTime = targetDate.getTime() - System.currentTimeMillis();
+        if (diffTime > 0) {
+            // 秒/分/時/日
+            long second = diffTime / 1000;
+            long minute = second / 60;
+            long hour = minute / 60;
+            long day = hour / 24;
+            if ((hour - (24 * day)) > 0 && ((hour % 24) > 0)) {
+                return hour - (24 * day);
+            } else {
+            	return 0L;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * targetDateまでの残り秒を返す(60秒を超える部分は除く)
+     *
+     * @param targetDate 終了時間
+     * @return Long
+     */
+    public static Long getRemainSeconds(Date targetDate) {
+        long diffTime = targetDate.getTime() - System.currentTimeMillis();
+        if (diffTime > 0) {
+            // 秒/分/時/日
+            long second = diffTime / 1000;
+            long minute = second / 60;
+            if ((second - (60 * minute)) > 0 && ((second % 60) > 0)) {
+                return second - (60 * minute);
+            } else {
+            	return 0L;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * targetDateまでの残り分を返す(60分を超える部分は除く)
+     *
+     * @param targetDate 終了時間
+     * @return Long
+     */
+    public static Long getRemainMinutes(Date targetDate) {
+        long diffTime = targetDate.getTime() - System.currentTimeMillis();
+        if (diffTime > 0) {
+            // 秒/分/時/日
+            long second = diffTime / 1000;
+            long minute = second / 60;
+            long hour = minute / 60;
+            if ((minute - (60 * hour)) > 0 && ((minute % 60) > 0)) {
+                return minute - (60 * hour);
+            } else {
+            	return 0L;
+            }
+        }
+        return null;
+    }
+    
+    /**
+     * 指定された日付より現在が過去なのか判定
+     * @param targetDate 対象日時
+     * @return 判定結果. 対象日時と現在日時が同じ場合true.
+     */
+    public static boolean isBefore(Date targetDate) {
+        long target = targetDate != null ? targetDate.getTime() / 1000L : Long.MIN_VALUE;
+        long now = getCurrentDate().getTime() / 1000L;
+        return target >= now;
+    }
+    
+    /**
+     * 対象日時が基準日時以降か判定する。
+     * @param baseDate 基準時間
+     * @param targetDate 対象日付
+     * @return 判定結果
+     */
+    public static boolean isAfter(Date baseDate ,Date targetDate) {
+        long target = targetDate != null ? targetDate.getTime() / 1000L : Long.MIN_VALUE;
+        long base = baseDate.getTime() / 1000L;
+        return target >= base;
+    }
 }

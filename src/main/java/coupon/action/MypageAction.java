@@ -40,6 +40,7 @@ public class MypageAction extends BaseAction {
 
 		// ログインボーナスチェック
 		if (loginBonusService.isLoginBonus(loginUserDto.userId)) {
+			super.getFormToken();
 			return "/loginBonus?redirect=true";
 		}
 		

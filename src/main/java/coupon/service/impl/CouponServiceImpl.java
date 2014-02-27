@@ -11,11 +11,16 @@ import org.apache.commons.collections.CollectionUtils;
 import coupon.dao.IUserCouponDao;
 import coupon.entity.IUserCoupon;
 import coupon.entity.MShopCoupon;
+import coupon.enums.MConfigKey;
+import coupon.enums.UserCouponStatus;
 import coupon.service.CouponService;
+import coupon.service.MConfigService;
 import coupon.util.CouponDateUtils;
 
 public class CouponServiceImpl implements CouponService {
 
+	@Resource
+	protected MConfigService mConfigService;
 	@Resource
 	protected IUserCouponDao iUserCouponDao;
 	
@@ -41,6 +46,7 @@ public class CouponServiceImpl implements CouponService {
 		record.limitDatetime = CouponDateUtils.add(nowDate, mShopCoupon.limitDays, Calendar.DATE);
 		record.name = mShopCoupon.couponName;
 		record.description = mShopCoupon.description;
+		record.status = UserCouponStatus.INIT.key;
 		record.updDatetime = nowDate;
 		record.insDatetime = nowDate;
 
@@ -60,6 +66,23 @@ public class CouponServiceImpl implements CouponService {
 	@Override
 	public IUserCoupon getIUserCoupon(String userCouponId) {
 		return iUserCouponDao.findById(userCouponId);
+	}
+
+	@Override
+	public Timestamp useCoupon(IUserCoupon iUserCoupon) {
+		
+		Timestamp nowDate = CouponDateUtils.getCurrentDate();
+		
+		// チケット残り時間を取得
+		String limitTime = mConfigService.getConfigValue(MConfigKey.USE_COUPON_LIMIT_TIME);
+		Timestamp limitDatetime = CouponDateUtils.add(nowDate, Integer.parseInt(limitTime), Calendar.HOUR);
+		
+		iUserCoupon.status = UserCouponStatus.USED.key;
+		iUserCoupon.limitDatetime = limitDatetime;
+		iUserCoupon.updDatetime = nowDate;
+		iUserCouponDao.update(iUserCoupon);
+		
+		return limitDatetime;
 	}
 
 }

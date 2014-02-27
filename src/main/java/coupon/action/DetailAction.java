@@ -10,16 +10,16 @@ import coupon.bean.ShopBean;
 import coupon.entity.IUserCoin;
 import coupon.entity.IUserFavorite;
 import coupon.entity.MShopCoupon;
+import coupon.service.CoinService;
 import coupon.service.FavoriteService;
 import coupon.service.ShopService;
-import coupon.service.UserService;
 
 public class DetailAction extends BaseAction {
 
 	@Resource
 	protected ShopService shopService;
 	@Resource
-	protected UserService userService;
+	protected CoinService coinService;
 	@Resource
 	protected FavoriteService favoriteService;
 
@@ -50,7 +50,7 @@ public class DetailAction extends BaseAction {
 			throw new IllegalArgumentException("shopが存在しません。shopId=" + shopId);
 		}
 
-		IUserCoin userCoin = userService.getIUserCoin(loginUserDto.userId);
+		IUserCoin userCoin = coinService.getIUserCoin(loginUserDto.userId);
 		if (userCoin == null || userCoin.coin == null) {
 			this.coin = 0;
 		} else {

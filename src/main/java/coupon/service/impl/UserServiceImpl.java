@@ -1,7 +1,6 @@
 package coupon.service.impl;
 
 import java.sql.Timestamp;
-import java.util.Calendar;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -16,10 +15,7 @@ import coupon.dao.IUserDao;
 import coupon.entity.IUser;
 import coupon.entity.IUserAuthentication;
 import coupon.entity.IUserAuthenticationNames;
-import coupon.entity.IUserCoin;
-import coupon.entity.IUserCoupon;
 import coupon.entity.IUserNames;
-import coupon.entity.MShopCoupon;
 import coupon.service.UserService;
 import coupon.util.CouponDateUtils;
 import coupon.util.CryptUtils;
@@ -99,35 +95,6 @@ public class UserServiceImpl implements UserService {
 		iUserDao.update(iUser);
 	}
 
-//	@Override
-//	public IUserCoupon getIUserCoupon(Long userId, MShopCoupon mShopCoupon) {
-//		return iUserCouponDao.findById(userId, mShopCoupon.shopId, mShopCoupon.couponId);
-//	}
-
-	@Override
-	public void insertIUserCoupon(Long userId, MShopCoupon mShopCoupon) {
-
-		Timestamp nowDate = CouponDateUtils.getCurrentDate();
-
-		IUserCoupon record = new IUserCoupon();
-		record.userCouponId = generateUserCouponId(userId);
-		record.userId = userId;
-		record.shopId = mShopCoupon.shopId;
-		record.couponId = mShopCoupon.couponId;
-		record.limitDatetime = CouponDateUtils.add(nowDate, mShopCoupon.limitDays, Calendar.DATE);
-		record.name = mShopCoupon.couponName;
-		record.description = mShopCoupon.description;
-		record.updDatetime = nowDate;
-		record.insDatetime = nowDate;
-
-		iUserCouponDao.insert(record);
-	}
-
-	@Override
-	public void updateIUserCoupon(IUserCoupon iUserCoupon) {
-		iUserCouponDao.update(iUserCoupon);
-	}
-
 	@Override
 	public boolean checkExistsEmail(String email) {
 		BeanMap conditions = new BeanMap();
@@ -157,45 +124,14 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public IUserCoin getIUserCoin(Long userId) {
-		return iUserCoinDao.findById(userId);
-	}
-
-	@Override
-	public void useCoin(Long userId, Integer useCoin) {
-
-		Timestamp nowDate = CouponDateUtils.getCurrentDate();
-
-		IUserCoin userCoin = this.getIUserCoin(userId);
-		int updCoin = userCoin.coin - useCoin;
-		if (updCoin < 0) {
-			updCoin = 0;
-		}
-		userCoin.coin = updCoin;
-		userCoin.updDatetime = nowDate;
-
-		iUserCoinDao.update(userCoin);
-	}
-
-	@Override
-	public List<IUserCoupon> getIUserCoupons(Long userId) {
-		List<IUserCoupon> userCoupons = iUserCouponDao.findByUserIdOrderByLimitDate(userId);
-		if (CollectionUtils.isEmpty(userCoupons)) {
-			return null;
-		}
-		return userCoupons;
-	}
-
-	@Override
 	public void usePoint(Long userId, Integer usePoint) {
-		// TODO 自動生成されたメソッド・スタブ
-		
+		IUser iUser = this.getIUser(userId);
+		IUser record = new IUser();
+		record.userId = userId;
+		record.point = iUser.point - usePoint;
+		record.updDatetime = CouponDateUtils.getCurrentDate();
+		iUserDao.update(record);
 	}
-	
-	@Override
-	public String generateUserCouponId(long userId) {
-        return Long.toString(userId) + "_" + Long.toString(System.nanoTime()) + "_" + Math.random();
-    }
 	
 	@Override
 	public String generateCookieValue(Long userId) throws Exception {

@@ -15,6 +15,8 @@ import coupon.entity.IUser;
 import coupon.entity.MShopCoupon;
 import coupon.enums.MConfigKey;
 import coupon.enums.RarityType;
+import coupon.service.CoinService;
+import coupon.service.CouponService;
 import coupon.service.MConfigService;
 import coupon.service.RouletteService;
 import coupon.service.ShopService;
@@ -30,6 +32,10 @@ public class RouletteServiceImpl implements RouletteService {
 	protected ShopService shopService;
 	@Resource
 	protected MConfigService mConfigService;
+	@Resource
+	protected CouponService couponService;
+	@Resource
+	protected CoinService coinService;
 
 	@Override
 	public boolean checkDailyRoulette(Long userId) {
@@ -55,7 +61,7 @@ public class RouletteServiceImpl implements RouletteService {
 		MShopCoupon shopCoupon = this.getRandomCoupon(shopBean.shopId, false);
 
 		// 登録
-		userService.insertIUserCoupon(userId, shopCoupon);
+		couponService.insertIUserCoupon(userId, shopCoupon);
 
 		IUser iUser = userService.getIUser(userId);
 		iUser.normalRouletteDatetime = nowDate;
@@ -89,7 +95,7 @@ public class RouletteServiceImpl implements RouletteService {
 		// ショップクーポンを抽出する
 		MShopCoupon shopCoupon = this.getRandomCoupon(shopBean.shopId, true);
 		// クーポン付与
-		userService.insertIUserCoupon(userId, shopCoupon);
+		couponService.insertIUserCoupon(userId, shopCoupon);
 		
 		int oneTimeCoin = Integer.parseInt(mConfigService.getConfigValue(MConfigKey.ONE_TIME_COIN));
 		int oneTimePoint = Integer.parseInt(mConfigService.getConfigValue(MConfigKey.ONE_TIME_POINT));
@@ -98,7 +104,7 @@ public class RouletteServiceImpl implements RouletteService {
 			userService.usePoint(userId, oneTimePoint);
 		} else {
 			// コイン消費
-			userService.useCoin(userId, oneTimeCoin);
+			coinService.useCoin(userId, oneTimeCoin);
 		}
 
 		CouponDto couponDto = new CouponDto();

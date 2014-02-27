@@ -12,12 +12,12 @@ import coupon.bean.ShopBean;
 import coupon.dto.CouponDto;
 import coupon.entity.IUserCoupon;
 import coupon.entity.MShopCoupon;
+import coupon.service.CouponService;
 import coupon.service.ShopService;
-import coupon.service.UserService;
 
 public class BoxAction extends BaseAction {
 	@Resource
-	protected UserService userService;
+	protected CouponService couponService;
 	@Resource
 	protected ShopService shopService;
 	
@@ -28,7 +28,7 @@ public class BoxAction extends BaseAction {
 		
 		couponList = new ArrayList<>();
 		
-		List<IUserCoupon> userCouponList = userService.getIUserCoupons(loginUserDto.userId);
+		List<IUserCoupon> userCouponList = couponService.getIUserCoupons(loginUserDto.userId);
 		if (!CollectionUtils.isEmpty(userCouponList)) {
 			
 			couponList = new ArrayList<CouponDto>(userCouponList.size());

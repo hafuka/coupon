@@ -7,11 +7,10 @@ import org.seasar.struts.annotation.Execute;
 import coupon.entity.IUser;
 import coupon.entity.IUserCoin;
 import coupon.enums.MConfigKey;
+import coupon.service.CoinService;
 import coupon.service.DailyProcessService;
 import coupon.service.LoginBonusService;
-import coupon.service.LoginService;
 import coupon.service.MConfigService;
-import coupon.service.RouletteService;
 import coupon.service.UserService;
 import coupon.util.CouponDateUtils;
 
@@ -24,11 +23,9 @@ public class MypageAction extends BaseAction {
 	@Resource
 	protected LoginBonusService loginBonusService;
 	@Resource
-	protected RouletteService rouletteService;
-	@Resource
 	protected MConfigService mConfigService;
 	@Resource
-	protected LoginService loginService;
+	protected CoinService coinService;
 
 	public int coin;
 	public int count;
@@ -50,7 +47,7 @@ public class MypageAction extends BaseAction {
 		point = iUser.point;
 		name = iUser.name;
 		
-		IUserCoin iUserCoin = userService.getIUserCoin(loginUserDto.userId);
+		IUserCoin iUserCoin = coinService.getIUserCoin(loginUserDto.userId);
 		if (iUserCoin != null) {
 			coin = iUserCoin.coin;
 		}

@@ -31,9 +31,9 @@ public class LoginBonusAction extends BaseAction {
 			beforePoint = iUser.point;
 		}
 		
-		if (!loginBonusService.isLoginBonus(loginUserDto.userId)) {
-			return "/mypage?redirect=true";
-		}
+//		if (!loginBonusService.isLoginBonus(loginUserDto.userId)) {
+//			return "/mypage?redirect=true";
+//		}
 		
 		// ログインボーナス付与処理
 		loginBonus = loginBonusService.sendLoginBonus(loginUserDto.userId);

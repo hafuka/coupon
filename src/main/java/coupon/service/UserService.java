@@ -1,20 +1,13 @@
 package coupon.service;
 
-import java.util.List;
-
 import coupon.entity.IUser;
 import coupon.entity.IUserAuthentication;
-import coupon.entity.IUserCoin;
-import coupon.entity.IUserCoupon;
-import coupon.entity.MShopCoupon;
-
 
 /**
  * ユーザーサービス
  *
  */
 public interface UserService {
-
 
 	/**
 	 * ログイン判定
@@ -40,25 +33,11 @@ public interface UserService {
 
 	public abstract void updateIUser(IUser iUser);
 
-	public abstract List<IUserCoupon> getIUserCoupons(Long userId);
-
-//	public abstract IUserCoupon getIUserCoupon(Long userId, MShopCoupon mShopCoupon);
-
-	public abstract void insertIUserCoupon(Long userId, MShopCoupon mShopCoupon);
-
-	public abstract void updateIUserCoupon(IUserCoupon iUserCoupon);
-
 	public abstract boolean checkExistsEmail(String email);
 
 	public abstract void updateIUserAuthentication(IUserAuthentication iUserAuthentication);
 
-	public abstract IUserCoin getIUserCoin(Long userId);
-
-	public abstract void useCoin(Long userId, Integer useCoin);
-	
 	public abstract void usePoint(Long userId, Integer usePoint);
-
-	public abstract String generateUserCouponId(long userId);
 
 	public abstract String generateCookieValue(Long userId) throws Exception;
 

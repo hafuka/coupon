@@ -12,6 +12,7 @@ import coupon.entity.IUser;
 import coupon.entity.IUserCoin;
 import coupon.enums.MConfigKey;
 import coupon.enums.TransactionType;
+import coupon.service.CoinService;
 import coupon.service.MConfigService;
 import coupon.service.RouletteService;
 import coupon.service.UserService;
@@ -24,6 +25,8 @@ public class PremiumRouletteAnimationAction extends BaseAction {
 	protected UserService userService;
 	@Resource
 	protected MConfigService mConfigService;
+	@Resource
+	protected CoinService coinService;
 
 	/***** IN項目 *****/
 	public Integer shopId;
@@ -67,7 +70,7 @@ public class PremiumRouletteAnimationAction extends BaseAction {
 
 	private boolean checkRoulette() {
 		String needCoin = mConfigService.getConfigValue(MConfigKey.ONE_TIME_COIN);
-		IUserCoin iUserCoin = userService.getIUserCoin(loginUserDto.userId);
+		IUserCoin iUserCoin = coinService.getIUserCoin(loginUserDto.userId);
 		
 		String pointStr = mConfigService.getConfigValue(MConfigKey.ONE_TIME_POINT);
 		IUser iUser = userService.getIUser(loginUserDto.userId);

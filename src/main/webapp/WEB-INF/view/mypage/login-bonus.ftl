@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>login_animation</title>
-
+<#-- 共通headのインクルード -->
+<#include "/common/htmlHead.ftl">
 <script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
 <script src="http://code.createjs.com/tweenjs-0.5.0.min.js"></script>
 <script src="http://code.createjs.com/movieclip-0.7.0.min.js"></script>

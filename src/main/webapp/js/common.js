@@ -318,7 +318,7 @@ var sliderImages = function (elm, options) {
 };
 
 (function(){
-    ci.ready(function(){
+    $(function(){
         var currentUrl = location.href;
         var splitUrlList = currentUrl.split('/', 6);
         var menuList = ci.qsa('.menuList');
@@ -326,12 +326,14 @@ var sliderImages = function (elm, options) {
         //ページによって、メニューにactiveをつける
         if( splitUrlList[4] == 'mypage' ){
             ci.addClass(menuList[0], 'active');
-        }else if( splitUrlList[4] == 'search' ){
+        }else if( splitUrlList[4] == 'favorite' ){
             ci.addClass(menuList[1], 'active');
-        }else if( splitUrlList[4] == 'premium' ){
+        }else if( splitUrlList[4] == 'search' ){
             ci.addClass(menuList[2], 'active');
-        }else if( splitUrlList[4] == 'box' ){
+        }else if( splitUrlList[4] == 'shop_search' ){
             ci.addClass(menuList[3], 'active');
+        }else if( splitUrlList[4] == 'box' ){
+            ci.addClass(menuList[4], 'active');
         }
         
         //ボタン押下時の挙動

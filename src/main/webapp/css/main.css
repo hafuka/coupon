@@ -617,10 +617,10 @@ header .menuList {
     border-bottom-right-radius: 10px;
     -webkit-border-bottom-left-radius: 10px;
     border-bottom-left-radius: 10px;
-    padding: 5px;
+    padding: 5px 5px 2px 5px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    width: 25%;
+    width: 20%;
 }
 
 .active:after {
@@ -632,7 +632,7 @@ header .menuList {
     border-top: 12px solid #80511d;
     border-right: 8px solid transparent;
     border-left: 8px solid transparent;
-    margin-left: -10px;
+    margin-left: -9px;
 }
 
 .menuList .touchActive {

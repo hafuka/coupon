@@ -3,40 +3,35 @@
                 <li class="menuList floatLeft textCenter">
                     <a href="${urlPath}/mypage">
                         <div class="textCenter">
-                            <img src="${imagePath}/images/nav/menu_mypage.png" width="67" height="36" class="vTop">
-                        </div>
-                        <div class="textCenter lheight0">
-                            <img src="${imagePath}/images/nav/menu_mypage_title.png" width="67" height="15" class="vTop">
-                        </div>
-                    </a>
-                </li>
-                <li class="menuList floatLeft textCenter">
-                    <a href="${urlPath}/search">
-                        <div class="textCenter">
-                            <img src="${imagePath}/images/nav/menu_doko.png" width="67" height="36" class="vTop">
-                        </div>
-                        <div class="textCenter lheight0">
-                            <img src="${imagePath}/images/nav/menu_doko_title.png" width="67" height="15" class="vTop">
+                            <img src="${imagePath}/images/nav/menu_mypage.png" width="46" height="46">
                         </div>
                     </a>
                 </li>
                 <li class="menuList floatLeft textCenter">
                     <a href="${urlPath}/favorite">
                         <div class="textCenter">
-                            <img src="${imagePath}/images/nav/menu_premium.png" width="67" height="36" class="vTop">
+                            <img src="${imagePath}/images/nav/menu_favorite.png" width="46" height="46">
                         </div>
-                        <div class="textCenter lheight0">
-                            <img src="${imagePath}/images/nav/menu_premium_title.png" width="67" height="15" class="vTop">
+                    </a>
+                </li>
+                <li class="menuList floatLeft textCenter">
+                    <a href="${urlPath}/search">
+                        <div class="textCenter">
+                            <img src="${imagePath}/images/nav/menu_doko.png" width="46" height="46">
+                        </div>
+                    </a>
+                </li>
+                <li class="menuList floatLeft textCenter">
+                    <a href="${urlPath}/shop_search">
+                        <div class="textCenter">
+                            <img src="${imagePath}/images/nav/menu_search.png" width="46" height="46">
                         </div>
                     </a>
                 </li>
                 <li class="menuList floatLeft textCenter">
                     <a href="${urlPath}/box">
                         <div class="textCenter">
-                            <img src="${imagePath}/images/nav/menu_box.png" width="67" height="36" class="vTop">
-                        </div>
-                        <div class="textCenter lheight0">
-                            <img src="${imagePath}/images/nav/menu_box_title.png" width="67" height="15" class="vTop">
+                            <img src="${imagePath}/images/nav/menu_box.png" width="46" height="46">
                         </div>
                     </a>
                 </li>

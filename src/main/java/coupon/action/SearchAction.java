@@ -11,9 +11,13 @@ import org.apache.struts.util.LabelValueBean;
 import org.seasar.struts.annotation.Execute;
 
 import coupon.bean.ShopBean;
+import coupon.entity.IUser;
+import coupon.enums.MConfigKey;
+import coupon.service.MConfigService;
 import coupon.service.PullDownService;
 import coupon.service.RouletteService;
 import coupon.service.ShopService;
+import coupon.service.UserService;
 
 public class SearchAction extends BaseAction {
 	
@@ -21,6 +25,10 @@ public class SearchAction extends BaseAction {
 	protected PullDownService pullDownService;
 	@Resource
 	protected RouletteService rouletteService;
+	@Resource
+	protected UserService userService;
+	@Resource
+	protected MConfigService mConfigService;
 	
 	////////// IN項目 /////////
 	public Integer areaId;
@@ -42,19 +50,24 @@ public class SearchAction extends BaseAction {
 	
 	@Execute(validator = false)
 	public String index() {
+		
 		shopList = shopService.getShopBaens(null, null, null);
 		Collections.shuffle(shopList);
 		areaList = pullDownService.getAreaList();
 		areaDetailList = pullDownService.getAreaDetailList();
 		businessList = pullDownService.getBusinessList();
-		
-		//rouletteFlg = rouletteService.checkDailyRoulette(loginUserDto.userId);
-		
-		//TODO テストの為常に弾けるように
-		rouletteFlg = true;
-		
+
+		IUser iUser = userService.getIUser(loginUserDto.userId);
+		rouletteFlg = rouletteService.checkDailyRoulette(iUser);
+		if (!rouletteFlg) {
+			String needPointStr = mConfigService.getConfigValue(MConfigKey.ONE_TIME_POINT_NORMAL);
+			if (iUser.point < Integer.parseInt(needPointStr)) {
+				rouletteFlg = false;
+			} else {
+				rouletteFlg = true;
+			}
+		}
 		super.getFormToken();
-		
         return "/search/search.ftl";
 	}
 	

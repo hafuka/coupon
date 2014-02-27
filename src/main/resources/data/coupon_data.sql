@@ -1,7 +1,8 @@
-insert into M_LOGIN_BONUS values(1,100,1);
+insert into M_LOGIN_BONUS values(1,5,1);
 insert into M_CONFIG values('LOGIN_BONUS_TIME', '00:00', null,null);
 insert into M_CONFIG values('ONE_TIME_COIN', '100', null,null);
-insert into M_CONFIG values('ONE_TIME_POINT', '3000', null,null);
+insert into M_CONFIG values('ONE_TIME_POINT_NORMAL', '20', null,null);
+insert into M_CONFIG values('ONE_TIME_POINT_PREMIUM', '1000', null,null);
 insert into M_CONFIG values('USE_COUPON_LIMIT_TIME', '24', null,null);
 
 #insert into M_AREA values(1,'北海道');

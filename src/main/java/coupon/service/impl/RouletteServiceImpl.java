@@ -38,8 +38,7 @@ public class RouletteServiceImpl implements RouletteService {
 	protected CoinService coinService;
 
 	@Override
-	public boolean checkDailyRoulette(Long userId) {
-		IUser iUser = userService.getIUser(userId);
+	public boolean checkDailyRoulette(IUser iUser) {
 		int diffDays = iUser.normalRouletteDatetime == null ? 1 : CouponDateUtils.diffDays(iUser.normalRouletteDatetime, CouponDateUtils.getCurrentDate());
 		if (diffDays < 1) {
 			return false;
@@ -48,7 +47,7 @@ public class RouletteServiceImpl implements RouletteService {
 	}
 
 	@Override
-	public CouponDto execRoulette(Long userId, boolean premiumFlg, Integer areaId, Integer areaDetailId, Integer businessId) {
+	public CouponDto execRoulette(IUser iUser, Integer areaId, Integer areaDetailId, Integer businessId) {
 
 		Timestamp nowDate = CouponDateUtils.getCurrentDate();
 
@@ -61,9 +60,8 @@ public class RouletteServiceImpl implements RouletteService {
 		MShopCoupon shopCoupon = this.getRandomCoupon(shopBean.shopId, false);
 
 		// 登録
-		couponService.insertIUserCoupon(userId, shopCoupon);
+		couponService.insertIUserCoupon(iUser.userId, shopCoupon);
 
-		IUser iUser = userService.getIUser(userId);
 		iUser.normalRouletteDatetime = nowDate;
 		iUser.updDatetime = nowDate;
 		userService.updateIUser(iUser);
@@ -79,7 +77,41 @@ public class RouletteServiceImpl implements RouletteService {
 		if (chance > 50) {
 			couponDto.chanceFlg = true;
 		}
+		return couponDto;
+	}
+	
+	@Override
+	public CouponDto execRouletteByPoint(IUser iUser, Integer areaId, Integer areaDetailId, Integer businessId) {
 
+		Timestamp nowDate = CouponDateUtils.getCurrentDate();
+
+		// お店リスト取得
+		List<ShopBean> shopList = shopService.getShopBaens(areaId, areaDetailId, businessId);
+		Collections.shuffle(shopList);
+		ShopBean shopBean = shopList.get(0);
+
+		// ショップクーポンを抽出する
+		MShopCoupon shopCoupon = this.getRandomCoupon(shopBean.shopId, false);
+
+		// 登録
+		couponService.insertIUserCoupon(iUser.userId, shopCoupon);
+		
+		String needPoint = mConfigService.getConfigValue(MConfigKey.ONE_TIME_POINT_NORMAL);
+		iUser.point -= Integer.parseInt(needPoint);
+		iUser.updDatetime = nowDate;
+		userService.updateIUser(iUser);
+
+		CouponDto couponDto = new CouponDto();
+		couponDto.shopBean = shopBean;
+		couponDto.mShopCoupon = shopCoupon;
+
+		// スロットの止まる位置情報取得
+		couponDto.positionList = this.getStopPositionList(shopCoupon);
+
+		int chance = MathUtils.getRandomRange(1, 100);
+		if (chance > 50) {
+			couponDto.chanceFlg = true;
+		}
 		return couponDto;
 	}
 
@@ -98,7 +130,7 @@ public class RouletteServiceImpl implements RouletteService {
 		couponService.insertIUserCoupon(userId, shopCoupon);
 		
 		int oneTimeCoin = Integer.parseInt(mConfigService.getConfigValue(MConfigKey.ONE_TIME_COIN));
-		int oneTimePoint = Integer.parseInt(mConfigService.getConfigValue(MConfigKey.ONE_TIME_POINT));
+		int oneTimePoint = Integer.parseInt(mConfigService.getConfigValue(MConfigKey.ONE_TIME_POINT_PREMIUM));
 		
 		if (userPoint >= oneTimePoint) {
 			userService.usePoint(userId, oneTimePoint);

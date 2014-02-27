@@ -7,6 +7,8 @@ import java.util.List;
 
 import javax.annotation.Generated;
 
+import org.seasar.extension.jdbc.where.ComplexWhere;
+
 import coupon.entity.MShop;
 
 /**
@@ -35,4 +37,19 @@ public class MShopDao extends AbstractDao<MShop> {
     public List<MShop> findAllOrderById() {
         return select().orderBy(asc(shopId())).getResultList();
     }
+    
+	public List<MShop> findLikeShopName(String[] searchValues) {
+		ComplexWhere cw = new ComplexWhere();
+		int index = 0;
+		for (String value : searchValues) {
+			if (index > 0) {
+				cw.or();
+			}
+			cw.contains(shopName(), value);
+			index++;
+		}
+		return jdbcManager
+				.from(MShop.class)
+				.where(cw).getResultList();
+	}
 }

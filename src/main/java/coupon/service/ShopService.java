@@ -24,10 +24,9 @@ public interface ShopService {
 	 */
 	public abstract List<ShopBean> getShopBaens(Integer areaId, Integer areaDetailId, Integer businessId);
 	
-	
-	
 	public abstract List<MShopCoupon> getMShopCoupons(Integer shopId);
 	
-	
 	public abstract MShopCoupon getMShopCoupon(Integer shopId, Integer couponId);
+	
+	public abstract List<ShopBean> getShopBeans(String searchValue);
 }

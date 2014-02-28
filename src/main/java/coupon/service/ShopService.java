@@ -3,6 +3,7 @@ package coupon.service;
 import java.util.List;
 
 import coupon.bean.ShopBean;
+import coupon.entity.MShop;
 import coupon.entity.MShopCoupon;
 
 public interface ShopService {
@@ -29,4 +30,11 @@ public interface ShopService {
 	public abstract MShopCoupon getMShopCoupon(Integer shopId, Integer couponId);
 	
 	public abstract List<ShopBean> getShopBeans(String searchValue);
+	
+	
+	
+	
+	public abstract MShop getMShop(Integer shopId);
+	
+	public abstract void insertMShop(MShop mShop);
 }

@@ -5,28 +5,37 @@ import javax.annotation.Generated;
 import org.seasar.extension.jdbc.name.PropertyName;
 
 /**
- * {@link IUserCoin}のプロパティ名の集合です。
+ * {@link IAdminAuthentication}のプロパティ名の集合です。
  * 
  */
 @Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/02/27 19:55:41")
-public class IUserCoinNames {
+public class IAdminAuthenticationNames {
 
     /**
-     * userIdのプロパティ名を返します。
+     * shopIdのプロパティ名を返します。
      * 
-     * @return userIdのプロパティ名
+     * @return shopIdのプロパティ名
      */
-    public static PropertyName<Long> userId() {
-        return new PropertyName<Long>("userId");
+    public static PropertyName<Integer> shopId() {
+        return new PropertyName<Integer>("shopId");
     }
 
     /**
-     * coinのプロパティ名を返します。
+     * emailのプロパティ名を返します。
      * 
-     * @return coinのプロパティ名
+     * @return emailのプロパティ名
      */
-    public static PropertyName<Integer> coin() {
-        return new PropertyName<Integer>("coin");
+    public static PropertyName<String> email() {
+        return new PropertyName<String>("email");
+    }
+
+    /**
+     * passwordのプロパティ名を返します。
+     * 
+     * @return passwordのプロパティ名
+     */
+    public static PropertyName<String> password() {
+        return new PropertyName<String>("password");
     }
 
     /**
@@ -50,12 +59,12 @@ public class IUserCoinNames {
     /**
      * @author S2JDBC-Gen
      */
-    public static class _IUserCoinNames extends PropertyName<IUserCoin> {
+    public static class _IAdminAuthenticationNames extends PropertyName<IAdminAuthentication> {
 
         /**
          * インスタンスを構築します。
          */
-        public _IUserCoinNames() {
+        public _IAdminAuthenticationNames() {
         }
 
         /**
@@ -64,7 +73,7 @@ public class IUserCoinNames {
          * @param name
          *            名前
          */
-        public _IUserCoinNames(final String name) {
+        public _IAdminAuthenticationNames(final String name) {
             super(name);
         }
 
@@ -76,26 +85,35 @@ public class IUserCoinNames {
          * @param name
          *            名前
          */
-        public _IUserCoinNames(final PropertyName<?> parent, final String name) {
+        public _IAdminAuthenticationNames(final PropertyName<?> parent, final String name) {
             super(parent, name);
         }
 
         /**
-         * userIdのプロパティ名を返します。
+         * shopIdのプロパティ名を返します。
          *
-         * @return userIdのプロパティ名
+         * @return shopIdのプロパティ名
          */
-        public PropertyName<Long> userId() {
-            return new PropertyName<Long>(this, "userId");
+        public PropertyName<Integer> shopId() {
+            return new PropertyName<Integer>(this, "shopId");
         }
 
         /**
-         * coinのプロパティ名を返します。
+         * emailのプロパティ名を返します。
          *
-         * @return coinのプロパティ名
+         * @return emailのプロパティ名
          */
-        public PropertyName<Integer> coin() {
-            return new PropertyName<Integer>(this, "coin");
+        public PropertyName<String> email() {
+            return new PropertyName<String>(this, "email");
+        }
+
+        /**
+         * passwordのプロパティ名を返します。
+         *
+         * @return passwordのプロパティ名
+         */
+        public PropertyName<String> password() {
+            return new PropertyName<String>(this, "password");
         }
 
         /**

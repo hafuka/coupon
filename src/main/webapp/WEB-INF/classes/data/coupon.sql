@@ -12,6 +12,7 @@ DROP INDEX IDX_SHOP_NAME ON M_SHOP;
 
 /* Drop Tables */
 
+DROP TABLE I_ADMIN_AUTHENTICATION;
 DROP TABLE I_USER;
 DROP TABLE I_USER_AUTHENTICATION;
 DROP TABLE I_USER_COIN;
@@ -31,6 +32,17 @@ DROP TABLE M_SHOP_COUPON;
 
 
 /* Create Tables */
+
+CREATE TABLE I_ADMIN_AUTHENTICATION
+(
+	shop_id bigint NOT NULL,
+	password varchar(128) NOT NULL,
+	email varchar(128) NOT NULL,
+	upd_datetime datetime NOT NULL,
+	ins_datetime datetime NOT NULL,
+	PRIMARY KEY (shop_id)
+);
+
 
 CREATE TABLE I_USER
 (

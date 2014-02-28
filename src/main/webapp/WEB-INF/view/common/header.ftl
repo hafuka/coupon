@@ -22,7 +22,7 @@
                     </a>
                 </li>
                 <li class="menuList floatLeft textCenter">
-                    <a href="${urlPath}/shop_search">
+                    <a href="${urlPath}/shopSearch">
                         <div class="textCenter">
                             <img src="${imagePath}/images/nav/menu_search.png" width="46" height="46">
                         </div>

@@ -142,4 +142,14 @@ public class ShopServiceImpl implements ShopService {
 		return shopBeans;
 	}
 
+	@Override
+	public void insertMShop(MShop mShop) {
+		mShopDao.insert(mShop);
+	}
+
+	@Override
+	public MShop getMShop(Integer shopId) {
+		return mShopDao.findById(shopId);
+	}
+
 }

@@ -10,6 +10,7 @@ import javax.annotation.Generated;
 import org.seasar.extension.jdbc.where.SimpleWhere;
 
 import coupon.entity.IUserCoupon;
+import coupon.util.CouponDateUtils;
 
 /**
  * {@link IUserCoupon}のサービスクラスです。
@@ -45,7 +46,7 @@ public class IUserCouponDao extends AbstractDao<IUserCoupon> {
     public List<IUserCoupon> findByUserIdOrderByLimitDate(Long userId) {
     	return jdbcManager
 				.from(IUserCoupon.class)
-				.where(new SimpleWhere().eq(userId(), userId)).orderBy(asc(limitDatetime()))
+				.where(new SimpleWhere().eq(userId(), userId).gt(limitDatetime(), CouponDateUtils.getCurrentDate())).orderBy(asc(limitDatetime()))
 				.getResultList();
     }
 }

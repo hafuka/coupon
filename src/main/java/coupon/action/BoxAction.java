@@ -26,7 +26,7 @@ public class BoxAction extends BaseAction {
 	@Execute(validator = false)
 	public String index() {
 		
-		couponList = new ArrayList<>();
+		couponList = new ArrayList<CouponDto>();
 		
 		List<IUserCoupon> userCouponList = couponService.getIUserCoupons(loginUserDto.userId);
 		if (!CollectionUtils.isEmpty(userCouponList)) {

@@ -117,7 +117,7 @@ public class ShopServiceImpl implements ShopService {
 	}
 	
 	private List<ShopBean> convertShopBeans(List<MShop> mShops) {
-		List<ShopBean> shopBeans = new ArrayList<>(mShops.size());
+		List<ShopBean> shopBeans = new ArrayList<ShopBean>(mShops.size());
 		for (MShop mShop : mShops) {
 
 			MArea area = mAreaDao.findById(mShop.areaId);

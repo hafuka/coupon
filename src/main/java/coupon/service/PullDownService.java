@@ -14,4 +14,6 @@ public interface PullDownService {
 	
 	public abstract List<LabelValueBean> getBusinessList();
 	
+	public abstract List<LabelValueBean> getRarityList();
+	
 }

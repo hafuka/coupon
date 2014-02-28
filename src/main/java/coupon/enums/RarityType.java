@@ -1,14 +1,17 @@
 package coupon.enums;
 
 public enum RarityType {
-	N(1),
-	R(2),
-	SR(3),
+	N(1, "ノーマル"),
+	R(2, "レア"),
+	SR(3, "Ｓレア"),
 	;
 	public Integer value;
 	
-	private RarityType(Integer value) {
+	public String name;
+	
+	private RarityType(Integer value, String name) {
 		this.value = value;
+		this.name = name;
 	}
 	
 	public static RarityType getEnum(Integer value) {

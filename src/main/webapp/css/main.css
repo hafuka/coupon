@@ -101,6 +101,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 }
 
 /* 段落 設定 */
+.w50 { width: 50px !important; }
 .w140 { width: 140px !important; }
 .w200 { width: 200px !important; }
 .w300 { width: 300px !important; }
@@ -875,4 +876,14 @@ footer .menuList {
 
 .nCouponBg {
     background: #f6f6f6;
+}
+
+/* 確率表記 */
+.probability {
+    background: #fef0e0;
+    border: 2px solid #f7a443;
+}
+
+.probabilityTitle {
+    background: #f6ae59;
 }

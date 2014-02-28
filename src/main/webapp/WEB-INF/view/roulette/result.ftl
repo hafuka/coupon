@@ -44,7 +44,7 @@
                         <#break>
                     <#case 3>
                         <#-- SR -->
-                        <#assign ftl_rarityBg = 'SR'>
+                        <#assign ftl_rarityBg = 'Sレア'>
                         <#assign ftl_rarityImage = 'srCouponImg'>
                         <#break>
                     <#default>

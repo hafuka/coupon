@@ -100,11 +100,11 @@
 
                     <table class="fs12 textLeft borderBox w95per m10 autoMargin">
                         <tr>
-                            <th>住所：</th>
+                            <th class="w50">住所：</th>
                             <td>${shop.address!?html}</td>
                         </tr>
                         <tr>
-                            <th>ホームページ：</th>
+                            <th class="w50">HP：</th>
                             <td><a href="${shop.url!?html}" class="fcBlue underline" target="_blank">${shop.url!?html}</a></td>
                         </tr>
                     </table>
@@ -119,6 +119,18 @@
                     <div class="coinArea fs13 textCenter mv10 m0auto">
                         1回：<span class="fcOrange">100コイン</span><br>
                         所持コイン：<span class="fcOrange">${coin!?html}コイン</span>
+                    </div>
+                    
+                    <#-- 確率表記 -->
+                    <div class="probability m10">
+                        <div class="probabilityTitle fcWhite textCenter fs14 p5">
+                            クーポン出現率
+                        </div>
+                        <div class="p5 fs13 textCenter">
+                            <p class="lheight15">Sレア：10%</p>
+                            <p class="lheight15">レア：30%</p>
+                            <p class="lheight15">ノーマル：60%</p>
+                        </div>
                     </div>
                     
                 </div>
@@ -147,7 +159,7 @@
             //グローバルで使う変数を定義
             var urlPath = '${urlPath}';
             var imagePath = '${imagePath}';
-            var token = '${token}';
+            var token = '${token!?html}';
             
             //ftlで取得した変数を格納
             var shopDetail = window.shopDetail || {};

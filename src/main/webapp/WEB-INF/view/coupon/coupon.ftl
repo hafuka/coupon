@@ -6,47 +6,46 @@
     </head>
 
     <body class="outline secondContents">
-		
-				
-	
-		<#assign aDateTime = .now>
-		<#assign aDate = aDateTime?date>
-		<#assign aTime = aDateTime?time>
-		
+    
+        <#assign aDateTime = .now>
+        <#assign aDate = aDateTime?date>
+        <#assign aTime = aDateTime?time>
+        
         <#-- ヘッダーメニューのインクルード -->
         <#include "/common/header.ftl">
-	
-		<#-- ふきだしナビ -->
+
+        <#-- クーポン詳細 -->
         <section>
-            <h1 class="headline headlineNormal mt15">クーポン詳細</h1>
-        </section>
-	
-        <section>
-        	<div>
-        		現在日時：${aDateTime}
-        	</div>
-        	<div>
-        		ショップ名：${shopBean.shopName!?html}
-        	</div>
-        	<div>
-        		クーポン名：${userCoupon.name!?html}
-        	</div>
-        	<div>
-	        	クーポン詳細：${userCoupon.description!?html}
-	        </div>
-	        <div>
-        		<p class="fcRed fs13">クーポン期限：${userCoupon.limitDatetime!?html}</p>
-        	</div>
-        	<div>
-        		<p class="fcRed fs13">残り：<span id="js_remainTime">${remainTime!?html}</span></p>
-        	</div>
-        	
-        	<#if userCoupon.status != 1>
-        		<div>
-        			<a id="js_useBtn">使う</a>
-        		</div>
-        	</#if>
-        	
+            <h1 class="headline headlineNormal mt20">${shopBean.shopName!?html}</h1>
+            <div class="bgWhite borderBottomGreen relative">
+                <div class="couponInfoArea">
+                    <div class="pv5 ph10">
+                        <h2 class="bgRoundSmall">${userCoupon.name!?html}</h2>
+                        <p class="textCenter fcRed fs18 pv5">${userCoupon.description!?html}</p>
+                    </div>
+                </div>
+                <div class="absolute" style="top: -10px; right: 2px;">
+                    <img src="${imagePath}/images/coupon/srCouponImg.png" width="50">
+                </div>
+            </div>
+            
+            <div class="storeDetailText borderBox w95per m10 autoMargin">
+                <h2 class="bgGray borderBottomGray fs15 p5">クーポン期限</h2>
+                <p class="fs13 p5">${userCoupon.limitDatetime!?html}</p>
+            </div>
+            
+            <div class="storeDetailText borderBox w95per m10 autoMargin">
+                <h2 class="bgGray borderBottomGray fs15 p5">残り</h2>
+                <p class="fs13 p5"><span id="js_remainTime">${remainTime!?html}</span></p>
+            </div>
+            
+            <#if userCoupon.status != 1>
+                <div class="textCenter mv10">
+                    <a id="js_useBtn" class="btn btnSpecial jsTouchActive autoMargin">使っちゃお♪</a>
+                </div>
+            </#if>
+            
+            
         </section>
 
         <#-- リンクナビ -->
@@ -72,7 +71,13 @@
             var urlPath = '${urlPath}';
             var imagePath = '${imagePath}';
             var token = '${token!?html}';
-            var userCouponId = '${userCoupon.userCouponId!?html}';
+            
+            //ftlで取得した変数を格納
+            var couponDetail = window.couponDetail || {};
+            
+            couponDetail = {
+                userCouponId : '${userCoupon.userCouponId!?html}'
+            }
         </script>
     </body>
 

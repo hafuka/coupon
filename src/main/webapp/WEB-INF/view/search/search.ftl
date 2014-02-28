@@ -148,7 +148,7 @@
             //グローバルで使う変数を定義
             var urlPath = '${urlPath}';
             var imagePath = '${imagePath}';
-            var token = '${token}';
+            var token = '${token!?html}';
         </script>
         <#-- JsRenderテンプレート：検索リスト用 -->
         <script id="searchlist_template" type="text/x-jsrender">

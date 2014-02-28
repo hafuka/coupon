@@ -62,8 +62,8 @@
 					break;
 				}
                 
-                var status;
-                if (dataList.userCoupon.status) {
+                var status = '';
+                if (dataList.userCoupon.status == 1) {
                 	status = '<p class="fcRed fs13">使用中</p>';
                 	
                 }

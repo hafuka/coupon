@@ -197,6 +197,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 .ml20 { margin-left: 20px !important; }
 .mr5 { margin-right: 5px !important; }
 .mr10 { margin-right: 10px !important; }
+.mv3 { margin-top: 3px; margin-bottom: 3px; }
 .mv5 { margin-top: 5px; margin-bottom: 5px; }
 .mv10 { margin-top: 10px; margin-bottom: 10px; }
 .mv15 { margin-top: 15px; margin-bottom: 15px; }
@@ -225,7 +226,7 @@ input[type="text"], input[type="email"], input[type="password"] {
     font-size: 14px;
     color: #fff;
     text-align: center;
-    padding: 3px 5px;
+    padding: 3px 2px;
     width: 180px;
 }
 
@@ -742,6 +743,21 @@ footer .menuList {
 
 .couponList li:nth-child(even){
     background-color: #e6f4e6;
+}
+
+.couponList li.normalList {
+    background: url('/coupon/images/link_btn.png') 100% 50% no-repeat #fff;
+    background-size: 30px 30px;
+}
+
+.couponList li.rareList {
+    background: url('/coupon/images/link_btn.png') 100% 50% no-repeat #f5fde9;
+    background-size: 30px 30px;
+}
+
+.couponList li.sRareList {
+    background: url('/coupon/images/link_btn.png') 100% 50% no-repeat #fef5d9;
+    background-size: 30px 30px;
 }
 
 /* プレミアム */

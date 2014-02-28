@@ -12,7 +12,7 @@
 
         <#-- ふきだしナビ -->
         <section>
-            <h1 class="headline headlineNormal mt15">ドコ行く？ - 無料クーポン -</h1>
+            <h1 class="headline headlineNormal mt15">お店検索</h1>
             <div class="autoMargin mv10 table">
                 <div class="cell">
                     <img src="${imagePath}/images/saboten_normal.png" width="37" height="37" class="vBottom">
@@ -20,7 +20,7 @@
 
                 <div class="cell vMiddle relative pl10">
                     <div class="balloon">
-                        <p><span class="fcOrange">検索検索検索検索</span></p>
+                        <p><span class="fcOrange">お店の名前で検索ができるよ♪</span></p>
                     </div>
                 </div>
             </div>
@@ -29,10 +29,10 @@
         <#-- 検索エリア -->
         <section>
             <div class="selectArea table mb10 autoMargin">
-                <div class="cell">
+                <div class="cell vMiddle">
                     <div class="pv5">
-                        <p class="selectBox inlineBlock vMiddle">
-                            <input type="text" id="searchValue">
+                        <p class="w200 vMiddle ml10">
+                            <input type="text" id="searchValue" placeholder="お店の名前を入れてね♪">
                         </p>
                     </div>
                 </div>
@@ -77,6 +77,11 @@
         <nav>
             <div class="mb20">
                 <div class="textCenter mv10">
+                    <a href="${urlPath}/search" class="btn btnPrimary jsTouchActive autoMargin">ドコ行く？ページへ</a>
+                </div>
+            </div>
+            <div class="mb20">
+                <div class="textCenter mv10">
                     <a href="${urlPath}/mypage" class="btn btnNormal jsTouchActive autoMargin">マイページへ</a>
                 </div>
             </div>
@@ -94,6 +99,7 @@
             var imagePath = '${imagePath}';
             var token = '${token!?html}';
         </script>
+        
         <#-- JsRenderテンプレート：検索リスト用 -->
         <script id="searchlist_template" type="text/x-jsrender">
             <li>

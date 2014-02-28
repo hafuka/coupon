@@ -12,7 +12,7 @@
 
         <#-- ふきだしナビ -->
         <section>
-            <h1 class="headline headlineNormal mt15">ドコ行く？ - 無料クーポン -</h1>
+            <h1 class="headline headlineNormal mt15">ドコ行く？ - 1日1回無料クーポン -</h1>
             <div class="autoMargin mv10 table">
                 <div class="cell">
                     <img src="${imagePath}/images/saboten_normal.png" width="37" height="37" class="vBottom">
@@ -30,7 +30,7 @@
         <section>
             <div class="selectArea table mb10 autoMargin">
                 <div class="cell">
-                    <div class="pv5">
+                    <div class="pv3">
                         <p class="fcWhite fs14 textShadow inlineBlock w60">地域：</p>
                         <p class="selectBox inlineBlock vMiddle">
                             <select name="area" id="js_areaChange">
@@ -41,26 +41,21 @@
                             </select>
                         </p>
                     </div>
-                    <div class="pv5">
+                    <div class="pv3">
                         <p class="fcWhite fs14 textShadow inlineBlock w60">エリア：</p>
                         <p class="selectBox inlineBlock vMiddle">
                             <select id="js_searchAreaDetailList" name="areaDetail">
                                 <option value="0">ｴﾘｱを選択してください</option>
-                                <#--
-                                <#list areaDetailList as areaDetail>
-                                    <option value="${areaDetail.value!?html}">${areaDetail.label!?html}</option>
-                                </#list>
-                                -->
                             </select>
                         </p>
                     </div>
-                    <div class="pv5">
+                    <div class="pv3">
                         <p class="fcWhite fs14 textShadow inlineBlock w60">業種：</p>
                         <p class="selectBox inlineBlock vMiddle">
                             <select name="business">
                                 <option value="0">業種を選択してください</option>
                                 <#list businessList as business>
-                                <option value="${business.value!?html}">${business.label!?html}</option>
+                                    <option value="${business.value!?html}">${business.label!?html}</option>
                                 </#list>
                             </select>
                         </p>

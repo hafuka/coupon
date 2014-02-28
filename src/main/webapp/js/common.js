@@ -330,7 +330,7 @@ var sliderImages = function (elm, options) {
             ci.addClass(menuList[1], 'active');
         }else if( splitUrlList[4] == 'search' ){
             ci.addClass(menuList[2], 'active');
-        }else if( splitUrlList[4] == 'shop_search' ){
+        }else if( splitUrlList[4] == 'shopSearch' ){
             ci.addClass(menuList[3], 'active');
         }else if( splitUrlList[4] == 'box' ){
             ci.addClass(menuList[4], 'active');

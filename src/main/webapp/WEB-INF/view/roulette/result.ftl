@@ -12,7 +12,7 @@
         
         <#-- ふきだしナビ -->
         <section>
-            <h1 class="headline headlineNormal mt15">プレミアム♪ドコ行く？結果！</h1>
+            <h1 class="headline headlineNormal mt15">ドコ行く？スロット結果！</h1>
             <div class="autoMargin mv10 table">
                 <div class="cell">
                     <img src="${imagePath}/images/saboten_normal.png" width="37" height="37" class="vBottom">
@@ -29,22 +29,48 @@
         <section>
         
             <div class="couponResult">
+            
+                <#-- レアリティによって名前と画像を変更 -->
+                <#switch coupon.mShopCoupon.rarity>
+                    <#case 1>
+                        <#-- N -->
+                        <#assign ftl_rarityName = 'ノーマル'>
+                        <#assign ftl_rarityImage = 'nCouponImg'>
+                        <#break>
+                    <#case 2>
+                        <#-- R -->
+                        <#assign ftl_rarityBg = 'レア'>
+                        <#assign ftl_rarityImage = 'rCouponImg'>
+                        <#break>
+                    <#case 3>
+                        <#-- SR -->
+                        <#assign ftl_rarityBg = 'SR'>
+                        <#assign ftl_rarityImage = 'srCouponImg'>
+                        <#break>
+                    <#default>
+                        <#assign ftl_rarityBg = ''>
+                        <#assign ftl_rarityImage = ''>
+                        <#break>
+                </#switch>
+                
                 <h1 class="headline headlinePriority">${coupon.shopBean.shopName!?html}</h1>
-                <div class="bgWhite borderBottomOrange relative">
-                        <div>
-                            <img src="${imagePath}/images/storeThumnail.jpg" width="320" height="150">
+                <div class="bgWhite borderBottomOrange p5 relative">
+                    <div class="table m0auto relative">
+                        <div class="cell pr10">
+                            <img src="${imagePath}/images/${coupon.shopBean.imgPath!?html}" width="100" height="100" class="borderGray">
                         </div>
-                        <div class="couponInfoArea m5 pv5 ph10">
-                            <div class="pv5">
-                                <h2 class="bgRoundSmall m0auto">SRクーポン</h2>
+                        <div class="cell couponInfoArea vTop">
+                            <div class="pv5 ph10">
+                                <h2 class="bgRoundSmall">${ftl_rarityName}クーポン</h2>
                                 <p class="textCenter fcRed fs18 pv5">${coupon.mShopCoupon.couponName!?html}</p>
-                                <p class="textRight fs14 pv5"><a href="" class="link1">お店の詳細はこちら&gt;&gt;</a></p>
+                                <p class="textRight fs14 pv5"><a href="${coupon.shopBean.url}" class="link1">お店の詳細はこちら&gt;&gt;</a></p>
                             </div>
                         </div>
+                        <div class="absolute" style="top: -10px; right: 2px;">
+                            <img src="${imagePath}/images/coupon/${ftl_rarityImage}.png" width="50">
+                        </div>
                     </div>
-                    <div class="absolute" style="top: 5px; right: 5px;">
-                        <img src="${imagePath}/images/storeThumnail.jpg" width="60" height="60">
-                    </div>
+                </div>
             </div>
             
         </section>
@@ -52,10 +78,10 @@
         <#-- リンクナビ -->
         <nav>
             <div class="textCenter mv10">
-                <a href="${urlPath}/box" class="btn btnPrimary jsTouchActive autoMargin">クーポンBOXへ</a>
+                <a href="${urlPath}/box" class="btn btnPrimary jsTouchActive autoMargin">今すぐクーポンを使いにいく♪</a>
             </div>
             <div class="textCenter mv20">
-                <a href="${urlPath}/mypage" class="btn btnNormal jsTouchActive autoMargin">マイアイランドへ</a>
+                <a href="${urlPath}/mypage" class="btn btnNormal jsTouchActive autoMargin">マイページへ</a>
             </div>
         </nav>
 

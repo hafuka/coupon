@@ -6,8 +6,8 @@
     </head>
 
     <body class="outline secondContents">
-		<input type="hidden" id="hdn_shopId" value="${shop.shopId}">
-		
+        <input type="hidden" id="hdn_shopId" value="${shop.shopId}">
+        
         <#-- ヘッダーメニューのインクルード -->
         <#include "/common/header.ftl">
 
@@ -19,57 +19,65 @@
                     <div class="bgWhite relative">
                         <div class="table m0auto">
                             <div class="cell p10">
-                                <img src="${imagePath}/images/storeThumnail.jpg" width="150" height="150" class="vBottom">
+                                <img src="${imagePath}/images/${shop.imgPath!?html}" width="150" height="150" class="vBottom">
                             </div>
                             <div class="cell vMiddle">
                                 <div class="pv10 pr10">
-                                    <a href="" class="btn btnPrimary autoMargin w140">
-                                        <img src="${imagePath}/images/btn_txt_tel.png" width="100" height="22" alt="${shop.tell!?html}">
+                                    <a href="tel:${shop.tell!?html}" class="btn btnPrimary autoMargin w140">
+                                        <img src="${imagePath}/images/btn_txt_tel.png" width="100" height="22">
                                     </a>
                                 </div>
-                                <div class="pv20 pr10">
+                                <div class="pv10 pr10">
                                     <a href="" class="btn btnPrimary autoMargin w140">
                                         <img src="${imagePath}/images/btn_txt_map.png" width="100" height="22" alt="${shop.mapUrl!?html}">
                                     </a>
                                 </div>
-                                <div class="pv20 pr10">
-                            		<a id="js_deleteFavoriteBtn" class="btn btnPrimary autoMargin w140">
-                                        お気に削除
-                                    </a>
-                                	<a id="js_addFavoriteBtn" class="btn btnPrimary autoMargin w140">
-                                        お気に登録
-                                    </a>
+                                <div id="js_favoriteJudgeArea" class="textCenter pv10 pr10">
+                                    <#if shop.isFavorite!?string == 'true'>
+                                        <a id="js_deleteFavoriteBtn" class="btn btnPrimary autoMargin w140">お気に削除</a>
+                                    <#else>
+                                        <a id="js_addFavoriteBtn" class="btn btnNormal autoMargin w140">お気に登録</a>
+                                    </#if>
                                 </div>
                             </div>
                         </div>
                         <ul class="mb10">
-                        	<#list couponList as coupon>
-                        		<li class="couponDetailList srCouponBg">
-	                                <div class="table">
-	                                    <div class="cell pl5 pr10">
-											<#switch coupon.rarity>
-											<#case 1>
-												<#-- N -->
-												<img src="${imagePath}/images/coupon/nCouponImg.png" width="45" height="50" class="vMiddle">
-												<#break>
-											<#case 2>
-												<#-- R -->
-												<img src="${imagePath}/images/coupon/rCouponImg.png" width="45" height="50" class="vMiddle">
-												<#break>
-											<#case 3>
-												<#-- SR -->
-												<img src="${imagePath}/images/coupon/srCouponImg.png" width="45" height="50" class="vMiddle">
-												<#break>
-											<#default>
-												<#break>
-											</#switch> 
-	                                    </div>
-	                                    <div class="cell vMiddle fcRed">
-	                                        ${coupon.couponName!?html}
-	                                    </div>
-	                                </div>
-	                            </li>
-                        	</#list>
+                            <#list couponList as coupon>
+                            
+                                <#-- レアリティによって画像と背景を変更 -->
+                                <#switch coupon.rarity>
+                                    <#case 1>
+                                        <#-- N -->
+                                        <#assign ftl_rarityBg = 'nCouponBg'>
+                                        <#assign ftl_rarityImage = 'nCouponImg'>
+                                        <#break>
+                                    <#case 2>
+                                        <#-- R -->
+                                        <#assign ftl_rarityBg = 'rCouponBg'>
+                                        <#assign ftl_rarityImage = 'rCouponImg'>
+                                        <#break>
+                                    <#case 3>
+                                        <#-- SR -->
+                                        <#assign ftl_rarityBg = 'srCouponBg'>
+                                        <#assign ftl_rarityImage = 'srCouponImg'>
+                                        <#break>
+                                    <#default>
+                                        <#assign ftl_rarityBg = ''>
+                                        <#assign ftl_rarityImage = ''>
+                                        <#break>
+                                </#switch> 
+                            
+                                <li class="couponDetailList ${ftl_rarityBg}">
+                                    <div class="table">
+                                        <div class="cell pl5 pr10">
+                                            <img src="${imagePath}/images/coupon/${ftl_rarityImage}.png" width="45" height="50" class="vMiddle">
+                                        </div>
+                                        <div class="cell vMiddle fcRed">
+                                            ${coupon.couponName!?html}
+                                        </div>
+                                    </div>
+                                </li>
+                            </#list>
                         </ul>
                     </div>
                     
@@ -135,18 +143,19 @@
         <#-- 共通JavaScriptのインクルード -->
         <#include "/common/htmlFoot.ftl">
         <script src="/coupon/js/detail.js"></script>
-		<script>
+        <script>
             //グローバルで使う変数を定義
             var urlPath = '${urlPath}';
             var imagePath = '${imagePath}';
             var token = '${token}';
-        </script>
-        <script type="text/javascript" charset="utf-8">
-        	var isFavorite = ${shop.isFavorite!?string};
-            if (isFavorite == "true") {
-            } else {
+            
+            //ftlで取得した変数を格納
+            var shopDetail = window.shopDetail || {};
+            
+            shopDetail = {
+                shopId : '${shop.shopId}'
             }
-        </script
+        </script>
     </body>
 
 </html>

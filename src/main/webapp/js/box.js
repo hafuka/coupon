@@ -29,7 +29,7 @@
                     $("#searchlist_template").render(returnSearchList(data))
                 );
             } else {
-            	$searchList.html('<li class="noList">対象のクーポンがありませんm(_ _)m</li>');
+                $searchList.html('<li class="noList">対象のクーポンがありませんm(_ _)m</li>');
             }
         }
         
@@ -44,27 +44,27 @@
                 var rarityStyle;
                 var rarityImage;
                 switch (dataList.mShopCoupon.rarity) {
-				case 1:
-					rarityStyle = 'normalList';
-					rarityImage = 'nCouponImg';
-					break;
-				case 2:
-					rarityStyle = 'rareList';
-					rarityImage = 'rCouponImg';
-					break;
-				case 3:
-					rarityStyle = 'sRareList';
-					rarityImage = 'srCouponImg';
-					break;
-				default:
-					rarityStyle = '';
-					rarityImage = '';
-					break;
-				}
+                case 1:
+                    rarityStyle = 'normalList';
+                    rarityImage = 'nCouponImg';
+                    break;
+                case 2:
+                    rarityStyle = 'rareList';
+                    rarityImage = 'rCouponImg';
+                    break;
+                case 3:
+                    rarityStyle = 'sRareList';
+                    rarityImage = 'srCouponImg';
+                    break;
+                default:
+                    rarityStyle = '';
+                    rarityImage = '';
+                    break;
+                }
                 
                 var status = '';
                 if (dataList.userCoupon.status == 1) {
-                	status = '<p class="fcRed fs13">使用中</p>';
+                    status = '<p class="fcRed fs13">使用中</p>';
                 }
                 
                 var limitDate = new Date(dataList.userCoupon.limitDatetime);
@@ -89,7 +89,7 @@
         
         
         function slice(value) {
-       	    return ("0"+value).slice(-2);
+               return ("0"+value).slice(-2);
         }
         
     });

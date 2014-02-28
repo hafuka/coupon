@@ -32,26 +32,24 @@
         
         <#-- 検索エリア -->
         <section>
-            <div class="selectArea table mb10 autoMargin">
-                <div class="cell">
-                    <div class="pv3">
-                        <p class="fcWhite fs14 textShadow inlineBlock w60">レア度：</p>
-                        <p class="selectBox inlineBlock vMiddle">
-                            <select name="rarity" id="js_rarityChange">
-                                <option value="0">レア度を選択してください</option>
-                                <#list rarityList as rarity>
-                                    <option value="${rarity.value!?html}">${rarity.label!?html}</option>
-                                </#list>
-                            </select>
-                        </p>
-                    </div>
+            <div class="selectArea mb10 autoMargin">
+                <div class="pv3 textCenter">
+                    <p class="fcWhite fs14 textShadow inlineBlock w60">レア度：</p>
+                    <p class="selectBox inlineBlock vMiddle">
+                        <select name="rarity" id="js_rarityChange" class="w180">
+                            <option value="0">レア度を選択してください</option>
+                            <#list rarityList as rarity>
+                                <option value="${rarity.value!?html}">${rarity.label!?html}</option>
+                            </#list>
+                        </select>
+                    </p>
                 </div>
             </div>
         </section>
 
         <#-- クーポンリスト -->
         <section>
-            <h1 class="headline headlineNormal">クーポン</h1>
+            <h1 class="headline headlineNormal">クーポン一覧</h1>
             <ul id="js_searchList" class="couponList">
             
                 <#if couponList?has_content>
@@ -92,7 +90,7 @@
                                         <p class="fs13">業種：${coupon.shopBean.businessName!?html}</p>
                                         <p class="fs13">最寄駅：${coupon.shopBean.station!?html}</p>
                                         <p class="bgRound">${coupon.mShopCoupon.couponName!?html}</p>
-                                        <p class="fcRed fs13">有効期限：${coupon.userCoupon.limitDatetime!?html}</p>
+                                        <p class="fcRed fs13">有効期限：<br>${coupon.userCoupon.limitDatetime!?html}</p>
                                         <#if coupon.userCoupon.status == 1>
                                             <p class="fcRed fs13">使用中</p>
                                         </#if>
@@ -155,7 +153,7 @@
                             <p class="fs13">業種：{{:business}}</p>
                             <p class="fs13">最寄駅：{{:station}}</p>
                             <p class="bgRound">{{:couponName}}</p>
-                            <p class="fcRed fs13">有効期限：{{:limitDate}}</p>
+                            <p class="fcRed fs13">有効期限：<br>{{:limitDate}}</p>
                             {{:status}}
                         </div>
                     </div>

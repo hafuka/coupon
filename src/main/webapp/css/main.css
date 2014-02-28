@@ -101,12 +101,6 @@ input[type="text"], input[type="email"], input[type="password"] {
 }
 
 /* 段落 設定 */
-.w50 { width: 50px !important; }
-.w140 { width: 140px !important; }
-.w200 { width: 200px !important; }
-.w300 { width: 300px !important; }
-.w320 { width: 320px !important; }
-.w95per { width: 95% !important; }
 .relative { position: relative; }
 .absolute { position: absolute; }
 .block { display: block; }
@@ -143,7 +137,14 @@ input[type="text"], input[type="email"], input[type="password"] {
 }
 
 /* width */
-.w60 { width: 60px;}
+.w50 { width: 50px !important; }
+.w60 { width: 60px !important; }
+.w140 { width: 140px !important; }
+.w180 { width: 180px !important; }
+.w200 { width: 200px !important; }
+.w300 { width: 300px !important; }
+.w320 { width: 320px !important; }
+.w95per { width: 95% !important; }
 
 /* margin , padding */
 .m0auto { margin: 0 auto; }
@@ -757,7 +758,7 @@ footer .menuList {
 }
 
 .couponList li.sRareList {
-    background: url('/coupon/images/link_btn.png') 100% 50% no-repeat #fef5d9;
+    background: url('/coupon/images/link_btn.png') 100% 50% no-repeat #fff3fe;
     background-size: 30px 30px;
 }
 
@@ -867,7 +868,7 @@ footer .menuList {
 }
 
 .srCouponBg {
-    background: #fee4c7;
+    background: #fde3fa;
 }
 
 .rCouponBg {

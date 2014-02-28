@@ -14,6 +14,7 @@ import coupon.dao.MBusinessDao;
 import coupon.entity.MArea;
 import coupon.entity.MAreaDetail;
 import coupon.entity.MBusiness;
+import coupon.enums.RarityType;
 import coupon.service.PullDownService;
 
 public class PullDownServiceImpl implements PullDownService {
@@ -93,6 +94,18 @@ public class PullDownServiceImpl implements PullDownService {
 				bean.setLabel(mAreaDetail.detailName);
 				list.add(bean);
 			}
+		}
+		return list;
+	}
+
+	@Override
+	public List<LabelValueBean> getRarityList() {
+		List<LabelValueBean> list = new ArrayList<LabelValueBean>();
+		for (RarityType rarityType : RarityType.values()) {
+			LabelValueBean bean = new LabelValueBean();
+			bean.setValue(rarityType.value.toString());
+			bean.setLabel(rarityType.name);
+			list.add(bean);
 		}
 		return list;
 	}

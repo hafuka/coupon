@@ -29,11 +29,30 @@
                 </div>
             </div>
         </section>
+        
+        <#-- 検索エリア -->
+        <section>
+            <div class="selectArea table mb10 autoMargin">
+                <div class="cell">
+                    <div class="pv3">
+                        <p class="fcWhite fs14 textShadow inlineBlock w60">レア度：</p>
+                        <p class="selectBox inlineBlock vMiddle">
+                            <select name="rarity" id="js_rarityChange">
+                                <option value="0">レア度を選択してください</option>
+                                <#list rarityList as rarity>
+                                    <option value="${rarity.value!?html}">${rarity.label!?html}</option>
+                                </#list>
+                            </select>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <#-- クーポンリスト -->
         <section>
             <h1 class="headline headlineNormal">クーポン</h1>
-            <ul class="couponList">
+            <ul id="js_searchList" class="couponList">
             
                 <#if couponList?has_content>
                 
@@ -117,7 +136,35 @@
 
         <#-- 共通JavaScriptのインクルード -->
         <#include "/common/htmlFoot.ftl">
-
+		<script src="/coupon/js/box.js"></script>
+        <script>
+            //グローバルで使う変数を定義
+            var urlPath = '${urlPath}';
+            var imagePath = '${imagePath}';
+        </script>
+        <#-- JsRenderテンプレート：検索リスト用 -->
+        <script id="searchlist_template" type="text/x-jsrender">
+            <li class="relative {{:rarityStyle}}">
+                <a href="${urlPath}/coupon?userCouponId={{:userCouponId}}">
+                    <div class="table">
+                        <div class="cell pr10">
+                            <img src="${imagePath}/images/{{:shopImgPath}}" width="85" height="85" class="borderGray">
+                        </div>
+                        <div class="cell vTop pr20">
+                            <p class="fcBlue underline">{{:shopName}}</p>
+                            <p class="fs13">業種：{{:business}}</p>
+                            <p class="fs13">最寄駅：{{:station}}</p>
+                            <p class="bgRound">{{:couponName}}</p>
+                            <p class="fcRed fs13">有効期限：{{:limitDate}}</p>
+                            {{:status}}
+                        </div>
+                    </div>
+                    <div class="absolute" style="bottom: 0; left: 5px;">
+                        <img src="${imagePath}/images/coupon/{{:rarityImage}}.png" width="40">
+                    </div>
+                </a>
+            </li>
+        </script>
     </body>
 
 </html>

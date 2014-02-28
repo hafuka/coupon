@@ -65,8 +65,10 @@
                 var status = '';
                 if (dataList.userCoupon.status == 1) {
                 	status = '<p class="fcRed fs13">使用中</p>';
-                	
                 }
+                
+                var limitDate = new Date(dataList.userCoupon.limitDatetime);
+                var convLimitDate = limitDate.getFullYear() + "/" + slice(limitDate.getMonth()) + "/" + slice(limitDate.getDate()) + " " + slice(limitDate.getHours()) + ":" + slice(limitDate.getMinutes()) + ":" + slice(limitDate.getSeconds());
                 
                 targetList = {
                     "rarityStyle": rarityStyle,
@@ -76,13 +78,18 @@
                     "business": dataList.shopBean.businessName,
                     "station": dataList.shopBean.station,
                     "couponName": dataList.mShopCoupon.couponName,
-                    "limitDate": dataList.userCoupon.limitDatetime,
+                    "limitDate": convLimitDate,
                     "status": status,
                     "rarityImage":rarityImage
                 };
                 couponList.push(targetList);
             }
             return couponList;
+        }
+        
+        
+        function slice(value) {
+       	    return ("0"+value).slice(-2);
         }
         
     });

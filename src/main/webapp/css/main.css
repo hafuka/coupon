@@ -91,7 +91,8 @@ input[type="text"], input[type="email"], input[type="password"] {
 .lheight0 { line-height: 0; }
 .lheight15 { line-height: 1.5; }
 .lheight20 { line-height: 2.0; }
-.textShadow {text-shadow: 1px 1px 2px #666;}
+.textShadow {text-shadow: 1px 1px 2px #666; }
+.underline { text-decolation: underline; }
 .callText {
     background: #fff;
     padding: 2px 10px;
@@ -142,6 +143,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 .w140 { width: 140px !important; }
 .w180 { width: 180px !important; }
 .w200 { width: 200px !important; }
+.w260 { width: 260px !important; }
 .w300 { width: 300px !important; }
 .w320 { width: 320px !important; }
 .w95per { width: 95% !important; }
@@ -149,6 +151,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 /* margin , padding */
 .m0auto { margin: 0 auto; }
 .autoMargin { margin-right: auto; margin-left: auto; }
+.p3 { padding: 3px !important; }
 .p5 { padding: 5px !important; }
 .p10 { padding: 10px !important; }
 .p15 { padding: 15px !important; }
@@ -846,10 +849,25 @@ footer .menuList {
 }
 
 /* detail */
-.couponInfoArea {
-    border: 2px solid #ff0000;
-    background: #fdf1b7;
-    box-shadow: 5px 5px 0px #ff9934 inset, -5px -5px 0px #ff9934 inset;
+.couponInfoAreaN {
+    background: url('/coupon/images/box/coupon_bg_n.png') top left no-repeat #fff;
+    background-size: 315px 220px;
+    width: 315px;
+    height: 220px;
+}
+
+.couponInfoAreaR {
+    background: url('/coupon/images/box/coupon_bg_r.png') top left no-repeat #fff;
+    background-size: 315px 220px;
+    width: 315px;
+    height: 220px;
+}
+
+.couponInfoAreaSR {
+    background: url('/coupon/images/box/coupon_bg_r.png') top left no-repeat #fff;
+    background-size: 315px 220px;
+    width: 315px;
+    height: 220px;
 }
 
 .storeDetailText {

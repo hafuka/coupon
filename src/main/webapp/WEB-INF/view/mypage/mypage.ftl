@@ -44,8 +44,8 @@
                         </a>
                     </div>
                     <div class="cell vTop">
-                        <a href="${urlPath}/premium" class="mypagePremierbtn jsTouchActive fs15 relative zIndex20 pt20 mv5">
-                            プレミアム<br>今日ドコ行く？
+                        <a href="${urlPath}/box" class="mypagePremierbtn jsTouchActive fs15 relative zIndex20 pt20 mv5">
+                            クーポン<br>BOX
                         </a>
                     </div>
                 </div>
@@ -57,7 +57,7 @@
         <nav>
             <div class="mb20">
                 <div class="textCenter mv10">
-                    <a href="${urlPath}/mypage" class="btn btnPrimary jsTouchActive autoMargin">遊び方♪</a>
+                    <a href="${urlPath}/static/?page=howto" class="btn btnPrimary jsTouchActive autoMargin">遊び方♪</a>
                 </div>
             </div>
         </nav>

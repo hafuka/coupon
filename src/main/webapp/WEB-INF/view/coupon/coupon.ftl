@@ -16,32 +16,35 @@
 
         <#-- クーポン詳細 -->
         <section>
-            <h1 class="headline headlineNormal mt20">${shopBean.shopName!?html}</h1>
-            <div class="bgWhite borderBottomGreen relative">
-                <div class="couponInfoArea">
-                    <div class="pv5 ph10">
-                        <h2 class="bgRoundSmall">${userCoupon.name!?html}</h2>
-                        <p class="textCenter fcRed fs18 pv5">${userCoupon.description!?html}</p>
+            <h1 class="headline headlineNormal mt20">クーポン</h1>
+            <div class="bgWhite borderBottomGreen pv5 relative">
+                <div class="couponInfoArea autoMargin">
+                    <h2 class="textCenter underline fs18" style="padding-top: 75px;">${shopBean.shopName!?html}</h2>
+                    <div class="pv5">
+                        <p class="bgWhite textCenter fcRed fs18 w260 autoMargin p3">${userCoupon.name!?html}</p>
+                    </div>
+                    <div class="pv5">
+                        <p class="textCenter fcOrange fs14">有効期限：${userCoupon.limitDatetime!?html}</p>
                     </div>
                 </div>
-                <div class="absolute" style="top: -10px; right: 2px;">
-                    <img src="${imagePath}/images/coupon/srCouponImg.png" width="50">
+                
+                <div class="storeDetailText borderBox w95per m10 autoMargin">
+                    <h2 class="bgGray borderBottomGray fs15 p5">残り期間</h2>
+                    <p class="fs13 fcRed p5"><span id="js_remainTime">${remainTime!?html}</span></p>
                 </div>
-            </div>
-            
-            <div class="storeDetailText borderBox w95per m10 autoMargin">
-                <h2 class="bgGray borderBottomGray fs15 p5">クーポン期限</h2>
-                <p class="fs13 p5">${userCoupon.limitDatetime!?html}</p>
-            </div>
-            
-            <div class="storeDetailText borderBox w95per m10 autoMargin">
-                <h2 class="bgGray borderBottomGray fs15 p5">残り</h2>
-                <p class="fs13 p5"><span id="js_remainTime">${remainTime!?html}</span></p>
+                
+                <p class="textCenter fs12">
+                    ※「使う」ボタンを押してから有効期限は24時間です。
+                </p>
             </div>
             
             <#if userCoupon.status != 1>
+                <div class="underballoonLight fs13 fcOrange textCenter autoMargin mt10">
+                    「使う」ボタンを押すとクーポンが使えるよ♪<br>
+                    そしたら、お店の人にこのページを見せてね♪
+                </div>
                 <div class="textCenter mv10">
-                    <a id="js_useBtn" class="btn btnSpecial jsTouchActive autoMargin">使っちゃお♪</a>
+                    <a id="js_useBtn" class="btn btnSpecial jsTouchActive autoMargin">このクーポンを使う♪</a>
                 </div>
             </#if>
             

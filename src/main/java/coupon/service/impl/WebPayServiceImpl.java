@@ -90,7 +90,6 @@ public class WebPayServiceImpl implements WebPayService {
 			Customer customer = client.customers.retrieve(iUser.customerId).getCustomer();
 			return customer.getActiveCard();
 		}
-		
 		return null;
 	}
 

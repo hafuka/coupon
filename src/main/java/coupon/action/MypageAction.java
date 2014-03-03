@@ -34,7 +34,7 @@ public class MypageAction extends BaseAction {
 
 	@Execute(validator = false)
 	public String index() {
-
+		
 		// 日毎処理チェック
 		dailyProcessCheck();
 

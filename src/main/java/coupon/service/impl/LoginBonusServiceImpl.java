@@ -15,6 +15,7 @@ import coupon.enums.MConfigKey;
 import coupon.service.LoginBonusService;
 import coupon.service.MConfigService;
 import coupon.service.UserService;
+import coupon.util.CouponActivityLogger;
 import coupon.util.CouponDateUtils;
 
 public class LoginBonusServiceImpl implements LoginBonusService {
@@ -78,6 +79,8 @@ public class LoginBonusServiceImpl implements LoginBonusService {
 			iUser.loginBonusDatetime = nowDate;
 			iUser.updDatetime = nowDate;
 			userService.updateIUser(iUser);
+			
+			CouponActivityLogger.loginBonusLog(userId);
 		}
 
 		return mLoginBonus;

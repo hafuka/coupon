@@ -13,6 +13,7 @@ import coupon.entity.IUserCoin;
 import coupon.entity.MCoin;
 import coupon.service.PaymentService;
 import coupon.service.WebPayService;
+import coupon.util.CouponActivityLogger;
 import coupon.util.CouponDateUtils;
 
 public class PaymentServiceImpl implements PaymentService {
@@ -44,16 +45,19 @@ public class PaymentServiceImpl implements PaymentService {
 	}
 
 	@Override
-	public void execPayment(Long userId, Integer coinId, String cardName, String cardNo, Integer month, Integer year, Integer cvc, Integer amount, boolean saveCard) {
+	public void execPayment(Long userId, Integer coinId, String cardName, String cardNo, Integer month, Integer year, Integer cvc, boolean saveCard) {
 
 		MCoin mCoin = getCoin(coinId);
+		if (mCoin == null) {
+			throw new IllegalArgumentException("コイン情報取得エラー。selectCoinId="+coinId);
+		}
 
 		if (StringUtils.startsWith(cardNo, "*") && saveCard) {
 			// カード決済処理
-			webPayService.doPaymentByCustomerId(userId, amount);
+			webPayService.doPaymentByCustomerId(userId, mCoin.yen);
 		} else {
 			// カード決済処理
-			webPayService.doPayment(userId, cardName, cardNo, month, year, cvc, amount, saveCard);
+			webPayService.doPayment(userId, cardName, cardNo, month, year, cvc, mCoin.yen, saveCard);
 		}
 
 		// ユーザーのコインを増やす
@@ -71,6 +75,8 @@ public class PaymentServiceImpl implements PaymentService {
 			userCoin.updDatetime = nowDate;
 			iUserCoinDao.update(userCoin);
 		}
+		
+		CouponActivityLogger.paymentLog(userId, mCoin.yen);
 	}
 
 }

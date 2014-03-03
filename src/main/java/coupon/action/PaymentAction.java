@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import jp.webpay.exception.CardException;
+import jp.webpay.exception.InvalidRequestException;
 import jp.webpay.model.Card;
 
 import org.seasar.struts.annotation.Execute;
@@ -82,10 +83,17 @@ public class PaymentAction extends BaseAction {
 	@Execute(validator=false, reset="saveCardReset")
 	public String card() {
 		IUser iUser = userService.getIUser(loginUserDto.userId);
-		cardInfo = webPayService.getCardInfo(iUser);
-		if (iUser.saveCardFlg == 1) {
-			saveCard = true;
+		try{
+			if (iUser.saveCardFlg == 1) {
+				cardInfo = webPayService.getCardInfo(iUser);
+				saveCard = true;
+			}
+		} catch (InvalidRequestException e) {
+			iUser.customerId = null;
+			iUser.saveCardFlg = 0;
+			userService.updateIUser(iUser);
 		}
+		
 		return "/payment/payment-card.ftl";
 	}
 	
@@ -109,22 +117,17 @@ public class PaymentAction extends BaseAction {
 		if (!isValidToken(token)) {
 			throw new IllegalArgumentException("Tokenエラー");
 		}
-		// コイン情報取得
-		MCoin mCoin = paymentService.getCoin(coinId);
-		if (mCoin == null) {
-			throw new IllegalArgumentException("コイン情報取得エラー。selectCoinId="+coinId);
-		}
 
 		// 課金処理
 		try {
-			paymentService.execPayment(loginUserDto.userId, coinId, cardName, cardNo, month, year, cvc, mCoin.yen, saveCard);
+			paymentService.execPayment(loginUserDto.userId, coinId, cardName, cardNo, month, year, cvc, saveCard);
 		} catch (CardException e) {
 			cardError = CardErrorMessage.getEnum(e.getCode());
 			errorMsg = cardError.msg;
 			errorTagId = cardError.tagId;
 			return "/payment/payment-card.ftl";
 		}
-
+		
 		Integer shopId = (Integer)super.getTransactionData(loginUserDto.userId, TransactionType.TO_PAYMENT);
 		if (shopId != null) {
 			super.setTransactionData(loginUserDto.userId, shopId, TransactionType.TO_ROULETTE);

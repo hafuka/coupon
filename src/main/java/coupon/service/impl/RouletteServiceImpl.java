@@ -21,6 +21,7 @@ import coupon.service.MConfigService;
 import coupon.service.RouletteService;
 import coupon.service.ShopService;
 import coupon.service.UserService;
+import coupon.util.CouponActivityLogger;
 import coupon.util.CouponDateUtils;
 import coupon.util.MathUtils;
 
@@ -77,6 +78,9 @@ public class RouletteServiceImpl implements RouletteService {
 		if (chance > 50) {
 			couponDto.chanceFlg = true;
 		}
+		
+		CouponActivityLogger.rouletteLog(iUser.userId, shopCoupon.shopId, shopCoupon.couponId, shopCoupon.rarity);
+		
 		return couponDto;
 	}
 	
@@ -112,6 +116,9 @@ public class RouletteServiceImpl implements RouletteService {
 		if (chance > 50) {
 			couponDto.chanceFlg = true;
 		}
+		
+		CouponActivityLogger.rouletteLog(iUser.userId, shopCoupon.shopId, shopCoupon.couponId, shopCoupon.rarity);
+		
 		return couponDto;
 	}
 
@@ -150,6 +157,8 @@ public class RouletteServiceImpl implements RouletteService {
 		if (chance > 50) {
 			couponDto.chanceFlg = true;
 		}
+		
+		CouponActivityLogger.rouletteLog(userId, shopCoupon.shopId, shopCoupon.couponId, shopCoupon.rarity);
 
 		return couponDto;
 	}

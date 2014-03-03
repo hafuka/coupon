@@ -28,7 +28,7 @@
                                     </a>
                                 </div>
                                 <div class="pv10 pr10">
-                                    <a href="" class="btn btnPrimary autoMargin w140">
+                                    <a href="${urlPath}/map?shopId=${shop.shopId!?html}" class="btn btnPrimary autoMargin w140">
                                         <img src="${imagePath}/images/btn_txt_map.png" width="100" height="22" alt="${shop.mapUrl!?html}">
                                     </a>
                                 </div>

@@ -30,23 +30,47 @@
                 
                 <div class="storeDetailText borderBox w95per m10 autoMargin">
                     <h2 class="bgGray borderBottomGray fs15 p5">残り期間</h2>
-                    <p class="fs13 fcRed p5"><span id="js_remainTime">${remainTime!?html}</span></p>
+                    <p class="fs13 fcRed p5">
+                        <span id="js_remainTime">${remainTime!?html}</span>
+                    </p>
                 </div>
                 
-                <p class="textCenter fs12">
-                    ※「使う」ボタンを押してから有効期限は24時間です。
-                </p>
+                <#-- 使うボタンを押してない時に表示 -->
+                <div id="js_timeNoticeText">
+                    <#if userCoupon.status != 1>
+                        <p class="textCenter fs12">
+                            ※「使う」ボタンを押してから有効期限は24時間です。
+                        </p>
+                    </#if>
+                </div>
             </div>
             
+            
+            <#-- 使うボタン -->
             <#if userCoupon.status != 1>
-                <div class="underballoonLight fs13 fcOrange textCenter autoMargin mt10">
-                    「使う」ボタンを押すとクーポンが使えるよ♪<br>
-                    そしたら、お店の人にこのページを見せてね♪
-                </div>
-                <div class="textCenter mv10">
-                    <a id="js_useBtn" class="btn btnSpecial jsTouchActive autoMargin">このクーポンを使う♪</a>
+                <div id="js_useBtnArea">
+                    <div class="underballoonLight fs13 fcOrange textCenter autoMargin mt10">
+                        「使う」ボタンを押すとクーポンが使えるよ♪<br>
+                        そしたら、お店の人にこのページを見せてね♪
+                    </div>
+                    <div class="textCenter mv10">
+                        <a id="js_useBtn" class="btn btnSpecial jsTouchActive autoMargin">このクーポンを使う♪</a>
+                    </div>
                 </div>
             </#if>
+            
+            <#-- 使うボタンを押されたら表示 -->
+            <#if userCoupon.status == 1>
+                <#assign ftl_usableTextDisplay = 'block'>
+            <#else>
+                <#assign ftl_usableTextDisplay = 'none'>
+            </#if>
+            
+            <div id="js_usableTicketText" class="${ftl_usableTextDisplay}">
+                <div class="normalBalloon fcOrange textCenter autoMargin mt10 fs14">
+                    この画面をお店の人に見せてね♪<br>クーポンが使えるよ♪
+                </div>
+            </div>
             
             
         </section>

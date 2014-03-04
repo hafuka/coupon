@@ -35,7 +35,7 @@ DROP TABLE M_SHOP_COUPON;
 
 CREATE TABLE I_ADMIN_AUTHENTICATION
 (
-	shop_id bigint NOT NULL,
+	shop_id int NOT NULL,
 	password varchar(128) NOT NULL,
 	email varchar(128) NOT NULL,
 	upd_datetime datetime NOT NULL,
@@ -93,6 +93,7 @@ CREATE TABLE I_USER_COUPON
 	limit_datetime datetime,
 	name varchar(128) NOT NULL,
 	description varchar(255),
+	rarity int,
 	status int NOT NULL,
 	upd_datetime datetime NOT NULL,
 	ins_datetime datetime NOT NULL,

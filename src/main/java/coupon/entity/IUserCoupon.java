@@ -47,6 +47,10 @@ public class IUserCoupon implements Serializable {
     @Column(length = 255, nullable = true, unique = false)
     public String description;
     
+    /** rarityプロパティ */
+    @Column(precision = 10, nullable = false, unique = false)
+    public Integer rarity;
+    
     /** statusプロパティ */
     @Column(precision = 10, nullable = false, unique = false)
     public Integer status;

@@ -31,24 +31,21 @@
             <div class="bgWhite borderTopGreen borderBottomGreen pv5 relative">
                 
                 <div class="autoMargin couponInfoArea_${coupon.mShopCoupon.rarity}">
-                    <h2 class="textCenter underline fs18" style="padding-top: 75px;">${coupon.shopBean.shopName!?html}</h2>
-                    <div class="pv5">
+                    <h2 class="textCenter underline fs18" style="padding-top: 90px;">${coupon.shopBean.shopName!?html}</h2>
+                    <div class="pt10">
                         <p class="bgWhite textCenter fcRed fs18 w260 autoMargin p3">${coupon.mShopCoupon.couponName!?html}</p>
-                    </div>
-                    <div class="pv5">
-                        <p class="textCenter fcOrange fs14">有効期限：${userCoupon.limitDatetime!?html}</p>
                     </div>
                 </div>
                 
-                <div class="borderTopOrange p5 relative">
+                <div class="borderTopOrange pt5 mt5 relative">
                     <div class="table m0auto relative">
                         <div class="cell pr10">
                             <img src="${imagePath}/images/${coupon.shopBean.imgPath!?html}" width="100" height="100" class="borderGray">
                         </div>
                         <div class="cell vMiddle">
                             <div class="pv5 ph10">
-                                <p class="textCenter fcRed fs18 pv5">${coupon.shopBean.shopName!?html}</p>
-                                <p class="textRight fs14 pv5">
+                                <p class="textCenter fs18 pv5">${coupon.shopBean.shopName!?html}</p>
+                                <p class="textCenter fs14 pv5">
                                     <a href="${coupon.shopBean.url}" class="link1">お店の詳細はこちら&gt;&gt;</a>
                                 </p>
                             </div>

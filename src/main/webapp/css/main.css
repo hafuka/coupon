@@ -850,21 +850,21 @@ footer .menuList {
 }
 
 /* detail */
-.couponInfoAreaN {
+.couponInfoArea_1 {
     background: url('/coupon/images/box/coupon_bg_n.png') top left no-repeat #fff;
     background-size: 315px 220px;
     width: 315px;
     height: 220px;
 }
 
-.couponInfoAreaR {
+.couponInfoArea_2 {
     background: url('/coupon/images/box/coupon_bg_r.png') top left no-repeat #fff;
     background-size: 315px 220px;
     width: 315px;
     height: 220px;
 }
 
-.couponInfoAreaSR {
+.couponInfoArea_3 {
     background: url('/coupon/images/box/coupon_bg_sr.png') top left no-repeat #fff;
     background-size: 315px 220px;
     width: 315px;

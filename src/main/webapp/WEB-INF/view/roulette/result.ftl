@@ -28,46 +28,30 @@
 
         <section>
         
-            <div class="couponResult">
-            
-                <#-- レアリティによって名前と画像を変更 -->
-                <#switch coupon.mShopCoupon.rarity>
-                    <#case 1>
-                        <#-- N -->
-                        <#assign ftl_rarityName = 'ノーマル'>
-                        <#assign ftl_rarityImage = 'nCouponImg'>
-                        <#break>
-                    <#case 2>
-                        <#-- R -->
-                        <#assign ftl_rarityBg = 'レア'>
-                        <#assign ftl_rarityImage = 'rCouponImg'>
-                        <#break>
-                    <#case 3>
-                        <#-- SR -->
-                        <#assign ftl_rarityBg = 'Sレア'>
-                        <#assign ftl_rarityImage = 'srCouponImg'>
-                        <#break>
-                    <#default>
-                        <#assign ftl_rarityBg = ''>
-                        <#assign ftl_rarityImage = ''>
-                        <#break>
-                </#switch>
+            <div class="bgWhite borderTopGreen borderBottomGreen pv5 relative">
                 
-                <h1 class="headline headlinePriority">${coupon.shopBean.shopName!?html}</h1>
-                <div class="bgWhite borderBottomOrange p5 relative">
+                <div class="autoMargin couponInfoArea_${coupon.mShopCoupon.rarity}">
+                    <h2 class="textCenter underline fs18" style="padding-top: 75px;">${coupon.shopBean.shopName!?html}</h2>
+                    <div class="pv5">
+                        <p class="bgWhite textCenter fcRed fs18 w260 autoMargin p3">${coupon.mShopCoupon.couponName!?html}</p>
+                    </div>
+                    <div class="pv5">
+                        <p class="textCenter fcOrange fs14">有効期限：${userCoupon.limitDatetime!?html}</p>
+                    </div>
+                </div>
+                
+                <div class="borderTopOrange p5 relative">
                     <div class="table m0auto relative">
                         <div class="cell pr10">
                             <img src="${imagePath}/images/${coupon.shopBean.imgPath!?html}" width="100" height="100" class="borderGray">
                         </div>
-                        <div class="cell couponInfoArea vTop">
+                        <div class="cell vMiddle">
                             <div class="pv5 ph10">
-                                <h2 class="bgRoundSmall">${ftl_rarityName}クーポン</h2>
-                                <p class="textCenter fcRed fs18 pv5">${coupon.mShopCoupon.couponName!?html}</p>
-                                <p class="textRight fs14 pv5"><a href="${coupon.shopBean.url}" class="link1">お店の詳細はこちら&gt;&gt;</a></p>
+                                <p class="textCenter fcRed fs18 pv5">${coupon.shopBean.shopName!?html}</p>
+                                <p class="textRight fs14 pv5">
+                                    <a href="${coupon.shopBean.url}" class="link1">お店の詳細はこちら&gt;&gt;</a>
+                                </p>
                             </div>
-                        </div>
-                        <div class="absolute" style="top: -10px; right: 2px;">
-                            <img src="${imagePath}/images/coupon/${ftl_rarityImage}.png" width="50">
                         </div>
                     </div>
                 </div>

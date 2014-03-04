@@ -18,7 +18,7 @@
         <section>
             <h1 class="headline headlineNormal mt20">クーポン</h1>
             <div class="bgWhite borderBottomGreen pv5 relative">
-                <div class="couponInfoArea autoMargin">
+                <div class="couponInfoArea_${userCoupon.rarity!?html} autoMargin">
                     <h2 class="textCenter underline fs18" style="padding-top: 75px;">${shopBean.shopName!?html}</h2>
                     <div class="pv5">
                         <p class="bgWhite textCenter fcRed fs18 w260 autoMargin p3">${userCoupon.name!?html}</p>

@@ -61,6 +61,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 .underline { text-decoration: underline; }
 .borderGray { border: 2px solid #ccc; }
 .borderTopGreen { border-top: 2px solid #99cc66; }
+.borderTopOrange { border-top: 2px solid #ff6633; }
 .borderBottomGreen { border-bottom: 2px solid #99cc66; }
 .borderBottomOrange { border-bottom: 2px solid #ff6633; }
 .borderBottomGray { border-bottom: 2px solid #b3b3b3; }
@@ -864,7 +865,7 @@ footer .menuList {
 }
 
 .couponInfoAreaSR {
-    background: url('/coupon/images/box/coupon_bg_r.png') top left no-repeat #fff;
+    background: url('/coupon/images/box/coupon_bg_sr.png') top left no-repeat #fff;
     background-size: 315px 220px;
     width: 315px;
     height: 220px;

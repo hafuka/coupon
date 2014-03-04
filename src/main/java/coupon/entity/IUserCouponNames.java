@@ -8,7 +8,7 @@ import org.seasar.extension.jdbc.name.PropertyName;
  * {@link IUserCoupon}のプロパティ名の集合です。
  * 
  */
-@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/02/27 19:55:41")
+@Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/03/04 10:13:12")
 public class IUserCouponNames {
 
     /**
@@ -72,6 +72,15 @@ public class IUserCouponNames {
      */
     public static PropertyName<String> description() {
         return new PropertyName<String>("description");
+    }
+
+    /**
+     * rarityのプロパティ名を返します。
+     * 
+     * @return rarityのプロパティ名
+     */
+    public static PropertyName<Integer> rarity() {
+        return new PropertyName<Integer>("rarity");
     }
 
     /**
@@ -195,6 +204,15 @@ public class IUserCouponNames {
          */
         public PropertyName<String> description() {
             return new PropertyName<String>(this, "description");
+        }
+
+        /**
+         * rarityのプロパティ名を返します。
+         *
+         * @return rarityのプロパティ名
+         */
+        public PropertyName<Integer> rarity() {
+            return new PropertyName<Integer>(this, "rarity");
         }
 
         /**

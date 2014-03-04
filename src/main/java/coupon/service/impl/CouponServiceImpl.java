@@ -46,6 +46,7 @@ public class CouponServiceImpl implements CouponService {
 		record.limitDatetime = CouponDateUtils.add(nowDate, mShopCoupon.limitDays, Calendar.DATE);
 		record.name = mShopCoupon.couponName;
 		record.description = mShopCoupon.description;
+		record.rarity = mShopCoupon.rarity;
 		record.status = UserCouponStatus.INIT.key;
 		record.updDatetime = nowDate;
 		record.insDatetime = nowDate;

@@ -20,7 +20,6 @@
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 version="2.4">
-
 <!-- 
     <context-param>
         <param-name>sastruts.VIEW_PREFIX</param-name>
@@ -28,6 +27,7 @@ version="2.4">
     </context-param>
 -->
     <!-- freemarkerの設定 start -->
+    
 	<servlet>
 		<servlet-name>freemarker</servlet-name>
 		<servlet-class>freemarker.ext.servlet.FreemarkerServlet</servlet-class>
@@ -179,7 +179,7 @@ version="2.4">
     <welcome-file-list>
     </welcome-file-list>
 	-->
-    
+    <!-- 
     <jsp-config>
     	<jsp-property-group>
     		<url-pattern>*.jsp</url-pattern>
@@ -189,4 +189,5 @@ version="2.4">
     		<include-prelude>/WEB-INF/view/common/common.jsp</include-prelude>
     	</jsp-property-group>
     </jsp-config>
+     -->
 </web-app>

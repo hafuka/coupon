@@ -23,6 +23,7 @@ import coupon.entity.MShopCoupon;
 import coupon.entity.MShopNames;
 import coupon.enums.RarityType;
 import coupon.service.ShopService;
+import coupon.util.Images;
 
 public class ShopServiceImpl implements ShopService {
 
@@ -48,29 +49,6 @@ public class ShopServiceImpl implements ShopService {
 		
 		List<MShop> shopList = mShopDao.findByCondition(conditions);
 		return this.convertShopBeans(shopList);
-//		for (MShop mShop : shopList) {
-//			
-//			MArea area = mAreaDao.findById(mShop.areaId);
-//			MAreaDetail areaDetail = mAreaDetailDao.findById(mShop.areaId, mShop.areaDetailId);
-//			MBusiness business = mBusinessDao.findById(mShop.businessId);
-//			
-//			ShopBean bean = new ShopBean();
-//			BeanUtil.copyProperties(mShop, bean);
-//			bean.areaName = area.areaName;
-//			bean.areaDetailName = areaDetail.detailName;
-//			bean.businessName = business.name;
-//			
-//			List<MShopCoupon> couponList = this.getMShopCoupons(mShop.shopId);
-//			for (MShopCoupon mShopCoupon : couponList) {
-//				if (RarityType.isSR(mShopCoupon.rarity)) {
-//					bean.featuredCoupon = mShopCoupon.couponName;
-//					break;
-//				}
-//			}
-//			shopBeans.add(bean);
-//		}
-//		
-//		return shopBeans;
 	}
 
 	@Override
@@ -91,6 +69,7 @@ public class ShopServiceImpl implements ShopService {
 		bean.areaName = area.areaName;
 		bean.areaDetailName = areaDetail.detailName;
 		bean.businessName = business.name;
+		bean.imgPath = Images.getImageFilePath(mShop.shopId);
 		
 		List<MShopCoupon> couponList = this.getMShopCoupons(mShop.shopId);
 		for (MShopCoupon mShopCoupon : couponList) {
@@ -129,7 +108,8 @@ public class ShopServiceImpl implements ShopService {
 			bean.areaName = area.areaName;
 			bean.areaDetailName = areaDetail.detailName;
 			bean.businessName = business.name;
-
+			bean.imgPath = Images.getImageFilePath(mShop.shopId);
+			
 			List<MShopCoupon> couponList = this.getMShopCoupons(mShop.shopId);
 			for (MShopCoupon mShopCoupon : couponList) {
 				if (RarityType.isSR(mShopCoupon.rarity)) {

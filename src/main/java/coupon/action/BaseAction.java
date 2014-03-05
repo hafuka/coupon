@@ -22,13 +22,12 @@ public abstract class BaseAction {
 	protected HttpServletRequest request;
 	@Resource
 	protected HttpServletResponse response;
-
+	
 	@Resource
 	public LoginUserDto loginUserDto;
-
+	
 	public String token;
-
-
+	
 	protected String getAccountConfirmToken() {
 		String token = RandomStringUtils.randomAlphanumeric(20);
         if (token == null) {

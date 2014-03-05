@@ -96,7 +96,7 @@
                             <a href="${urlPath}/detail?shopId=${shop.shopId}">
                                 <div class="table">
                                     <div class="cell pr10">
-                                        <img src="${imagePath}/images/${shop.imgPath!?html}" width="85" height="85" class="borderGray">
+                                        <img src="${shop.imgPath!?html}" width="85" height="85" class="borderGray">
                                     </div>
                                     <div class="cell vTop pr20">
                                         <p class="fcBlue underline">${shop.shopName!?html}</p>

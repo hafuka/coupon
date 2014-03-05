@@ -2,8 +2,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>coupon</groupId>
 	<artifactId>coupon</artifactId>
-	<version>0.0.1</version>
-	<packaging>war</packaging>
+	<version>1.0-SNAPSHOP</version>
+	<packaging>jar</packaging>
 	<name>coupon</name>
 	<build>
 		<sourceDirectory>src/main/java</sourceDirectory>

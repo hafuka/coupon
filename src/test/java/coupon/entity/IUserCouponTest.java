@@ -1,6 +1,7 @@
 package coupon.entity;
 
 import javax.annotation.Generated;
+
 import org.seasar.extension.jdbc.JdbcManager;
 import org.seasar.extension.unit.S2TestCase;
 
@@ -30,6 +31,6 @@ public class IUserCouponTest extends S2TestCase {
      * @throws Exception
      */
     public void testFindById() throws Exception {
-        jdbcManager.from(IUserCoupon.class).id(1L, 1, 1, 1).getSingleResult();
+        jdbcManager.from(IUserCoupon.class).id("1").getSingleResult();
     }
 }

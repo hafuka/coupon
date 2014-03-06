@@ -19,7 +19,7 @@
                     <div class="bgWhite relative">
                         <div class="table m0auto">
                             <div class="cell p10">
-                                <img src="${imagePath}/images/${shop.imgPath!?html}" width="150" height="150" class="vBottom">
+                                <img src="${shop.imgPath!?html}" width="150" height="150" class="vBottom">
                             </div>
                             <div class="cell vMiddle">
                                 <div class="pv10 pr10">

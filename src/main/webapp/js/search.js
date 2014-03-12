@@ -36,7 +36,7 @@
                     $("#searchlist_template").render(returnSearchList(data))
                 );
                 $activeRouletteBtn.html(
-                    '<a href="' + urlPath + '/rouletteAnimation?token=' + token + '&areaId=' + areaId + '&areaDetailId=' + areaDetailId + '&businessId=' + businessId + '" class="btn btnSpecial getActive jsTouchActive autoMargin">ドコ行く？</a>'
+                    '<a href="' + urlPath + '/rouletteAnimation?token=' + token + '&areaId=' + areaId + '&areaDetailId=' + areaDetailId + '&businessId=' + businessId + '" class="btn btnSpecial jsTouchActive autoMargin">ドコ行く？</a>'
                 );
             } else {
                 $searchList.html('<li class="noList">対象のお店がありませんm(_ _)m</li>');

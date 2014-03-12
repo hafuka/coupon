@@ -15,7 +15,7 @@
             <h1 class="headline headlineNormal mt15">お店検索</h1>
             <div class="autoMargin mv10 table">
                 <div class="cell">
-                    <img src="${imagePath}/images/saboten_normal.png" width="37" height="37" class="vBottom">
+                    <img src="${imagePath}/images/common/saboten_normal.png" width="37" height="37" class="vBottom">
                 </div>
 
                 <div class="cell vMiddle relative pl10">
@@ -106,7 +106,7 @@
                 <a href="${urlPath}/detail?shopId={{:shopId}}">
                     <div class="table">
                         <div class="cell pr10">
-                            <img src="${imagePath}/images/{{:imgPath}}" width="85" height="85" class="borderGray">
+                            <img src="{{:imgPath}}" width="85" height="85" class="borderGray">
                         </div>
                         <div class="cell vTop pr20">
                             <p class="fcBlue underline">{{:shopName}}</p>

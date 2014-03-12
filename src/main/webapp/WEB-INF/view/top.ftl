@@ -9,11 +9,11 @@
 
         <section>
             <div class="mt10 headMarqueeArea relative">
-                <img src="${imagePath}/images/airship.png" width="230" height="47" class="marqueeImage">
+                <img src="${imagePath}/images/top/airship.png" width="230" height="47" class="marqueeImage">
             </div>
 
             <div class="textCenter mt5">
-                <img src="${imagePath}/images/top_main.png" width="290" height="290">
+                <img src="${imagePath}/images/top/top_main.png" width="290" height="290">
             </div>
         </section>
 

@@ -154,6 +154,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 .autoMargin { margin-right: auto; margin-left: auto; }
 .p3 { padding: 3px !important; }
 .p5 { padding: 5px !important; }
+.p7 { padding: 7px !important; }
 .p10 { padding: 10px !important; }
 .p15 { padding: 15px !important; }
 .p20 { padding: 20px !important; }
@@ -368,17 +369,6 @@ input[type="text"], input[type="email"], input[type="password"] {
     box-shadow: 1px 1px 1px #eee inset, -1px -1px 1px #eee inset, 0 2px 0 #da3d71, 0 5px 3px #d5b3c0;
 }
 
-/*
-.btnSpecial.getActive {
-    -webkit-box-shadow: 1px 1px 1px #fde1ed inset, -1px -1px 1px #fde1ed inset, 0 5px 0 #f864a3, 0 7px 3px #e5c0d0,
-                        -2px -2px 5px #fff, 2px -2px 5px #fff;
-    box-shadow: 1px 1px 1px #fde1ed inset, -1px -1px 1px #fde1ed inset, 0 5px 0 #f864a3, 0 7px 3px #e5c0d0,
-                -2px -2px 5px #fff, 2px -2px 5px #fff;
-    -webkit-animation: lightActive 0.5s ease 0 infinite alternate;
-    animation: lightActive 0.5s ease 0 infinite alternate;
-}
-*/
-
 @-webkit-keyframes lightActive {
     0% {
         opacity:1;
@@ -454,19 +444,19 @@ input[type="text"], input[type="email"], input[type="password"] {
 }
 
 .btnSpecial.getActive:before {
-    content: url("/coupon/images/get_active_icon_left.png");
+    content: url("/coupon/images/common/get_active_icon_left.png");
     position: absolute;
     top: -10px;
-    left: -33px;
-    width: 32px;
+    left: -26px;
+    width: 24px;
 }
 
 .btnSpecial.getActive:after {
-    content: url("/coupon/images/get_active_icon_right.png");
+    content: url("/coupon/images/common/get_active_icon_right.png");
     position: absolute;
     top: -10px;
-    right: -33px;
-    width: 32px;
+    right: -26px;
+    width: 24px;
 }
 
 .blinking {
@@ -553,7 +543,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 
 .underballoon {
     position: relative;
-    width: 230px;
+    width: 250px;
     background: #fff;
     padding: 5px;
     border: 2px solid #538610;
@@ -746,7 +736,7 @@ footer .menuList {
 /* リスト表示 */
 .couponList li {
     border-bottom: 2px solid #99cc66;
-    background: url('/coupon/images/link_btn.png') 100% 50% no-repeat #fff;
+    background: url('/coupon/images/common/link_btn.png') 100% 50% no-repeat #fff;
     background-size: 30px 30px;
     padding: 8px;
 }
@@ -763,17 +753,17 @@ footer .menuList {
 }
 
 .couponList li.normalList {
-    background: url('/coupon/images/link_btn.png') 100% 50% no-repeat #fff;
+    background: url('/coupon/images/common/link_btn.png') 100% 50% no-repeat #fff;
     background-size: 30px 30px;
 }
 
 .couponList li.rareList {
-    background: url('/coupon/images/link_btn.png') 100% 50% no-repeat #f5fde9;
+    background: url('/coupon/images/common/link_btn.png') 100% 50% no-repeat #f5fde9;
     background-size: 30px 30px;
 }
 
 .couponList li.sRareList {
-    background: url('/coupon/images/link_btn.png') 100% 50% no-repeat #fff3fe;
+    background: url('/coupon/images/common/link_btn.png') 100% 50% no-repeat #fff3fe;
     background-size: 30px 30px;
 }
 
@@ -917,4 +907,21 @@ footer .menuList {
 
 .probabilityTitle {
     background: #f6ae59;
+}
+
+/* コイン購入画面 */
+.paymentRadioList li {
+    border-top: 2px solid #ccc;
+}
+
+.paymentRadioList li:nth-child(odd) {
+    background: #f1f5f9;
+}
+
+.paymentRadioList li:nth-child(even) {
+    background: #e6f0f9;
+}
+
+.paymentRadioList li:last-child {
+    border-bottom: 1px solid #ccc;
 }

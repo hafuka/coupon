@@ -24,12 +24,12 @@
                             <div class="cell vMiddle">
                                 <div class="pv10 pr10">
                                     <a href="tel:${shop.tell!?html}" class="btn btnPrimary autoMargin w140">
-                                        <img src="${imagePath}/images/btn_txt_tel.png" width="100" height="22">
+                                        <img src="${imagePath}/images/common/btn_txt_tel.png" width="100" height="22">
                                     </a>
                                 </div>
                                 <div class="pv10 pr10">
                                     <a href="${urlPath}/map?shopId=${shop.shopId!?html}" class="btn btnPrimary autoMargin w140">
-                                        <img src="${imagePath}/images/btn_txt_map.png" width="100" height="22" alt="${shop.mapUrl!?html}">
+                                        <img src="${imagePath}/images/common/btn_txt_map.png" width="100" height="22" alt="${shop.mapUrl!?html}">
                                     </a>
                                 </div>
                                 <div id="js_favoriteJudgeArea" class="textCenter pv10 pr10">
@@ -49,17 +49,17 @@
                                     <#case 1>
                                         <#-- N -->
                                         <#assign ftl_rarityBg = 'nCouponBg'>
-                                        <#assign ftl_rarityImage = 'nCouponImg'>
+                                        <#assign ftl_rarityImage = 'medal_n'>
                                         <#break>
                                     <#case 2>
                                         <#-- R -->
                                         <#assign ftl_rarityBg = 'rCouponBg'>
-                                        <#assign ftl_rarityImage = 'rCouponImg'>
+                                        <#assign ftl_rarityImage = 'medal_r'>
                                         <#break>
                                     <#case 3>
                                         <#-- SR -->
                                         <#assign ftl_rarityBg = 'srCouponBg'>
-                                        <#assign ftl_rarityImage = 'srCouponImg'>
+                                        <#assign ftl_rarityImage = 'medal_sr'>
                                         <#break>
                                     <#default>
                                         <#assign ftl_rarityBg = ''>
@@ -70,7 +70,7 @@
                                 <li class="couponDetailList ${ftl_rarityBg}">
                                     <div class="table">
                                         <div class="cell pl5 pr10">
-                                            <img src="${imagePath}/images/coupon/${ftl_rarityImage}.png" width="45" height="50" class="vMiddle">
+                                            <img src="${imagePath}/images/coupon/${ftl_rarityImage}.png" width="50" height="50" class="vMiddle">
                                         </div>
                                         <div class="cell vMiddle fcRed">
                                             ${coupon.couponName!?html}
@@ -86,7 +86,7 @@
                         このお店のクーポンのどれか１つがGETできるよ♪
                     </p>
                     <div class="textCenter mv10">
-                        <a href="${urlPath}/premiumRouletteAnimation?token=${token!?html}&shopId=${shopId}" class="btn btnSpecial getActive jsTouchActive autoMargin">プレミアム♪ドコ行く？</a>
+                        <a href="${urlPath}/premiumRouletteAnimation?token=${token!?html}&shopId=${shopId}" class="btn btnSpecial jsTouchActive autoMargin">プレミアム♪ドコ行く？</a>
                     </div>
                     <div class="coinArea fs13 textCenter mv10 m0auto">
                         1回：<span class="fcOrange">100コイン</span><br>
@@ -100,12 +100,12 @@
 
                     <table class="fs12 textLeft borderBox w95per m10 autoMargin">
                         <tr>
-                            <th class="w50">住所：</th>
-                            <td>${shop.address!?html}</td>
+                            <th class="textCenter w50">住所：</th>
+                            <td class="p7">${shop.address!?html}</td>
                         </tr>
                         <tr>
-                            <th class="w50">HP：</th>
-                            <td><a href="${shop.url!?html}" class="fcBlue underline" target="_blank">${shop.url!?html}</a></td>
+                            <th class="textCenter w50">HP：</th>
+                            <td class="p7"><a href="${shop.url!?html}" class="fcBlue underline" target="_blank">${shop.url!?html}</a></td>
                         </tr>
                     </table>
 
@@ -114,7 +114,7 @@
                         このお店のクーポンのどれか１つがGETできるよ♪
                     </p>
                     <div class="textCenter mv10">
-                        <a href="${urlPath}/premiumRouletteAnimation?token=${token!?html}&shopId=${shopId}" class="btn btnSpecial getActive jsTouchActive autoMargin">プレミアム♪ドコ行く？</a>
+                        <a href="${urlPath}/premiumRouletteAnimation?token=${token!?html}&shopId=${shopId}" class="btn btnSpecial jsTouchActive autoMargin">プレミアム♪ドコ行く？</a>
                     </div>
                     <div class="coinArea fs13 textCenter mv10 m0auto">
                         1回：<span class="fcOrange">100コイン</span><br>

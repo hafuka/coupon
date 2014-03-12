@@ -11,6 +11,13 @@
         <#assign aDate = aDateTime?date>
         <#assign aTime = aDateTime?time>
         
+        <#-- 使うボタンを押されたら表示 -->
+        <#if userCoupon.status == 1>
+            <#assign ftl_usableTextDisplay = 'block'>
+        <#else>
+            <#assign ftl_usableTextDisplay = 'none'>
+        </#if>
+        
         <#-- ヘッダーメニューのインクルード -->
         <#include "/common/header.ftl">
 
@@ -18,13 +25,21 @@
         <section>
             <h1 class="headline headlineNormal mt20">クーポン</h1>
             <div class="bgWhite borderBottomGreen pv5 relative">
-                <div class="couponInfoArea_${userCoupon.rarity!?html} autoMargin">
+                <div class="couponInfoArea_${userCoupon.rarity!?html} autoMargin relative">
                     <h2 class="textCenter underline fs18" style="padding-top: 75px;">${shopBean.shopName!?html}</h2>
                     <div class="pv5">
                         <p class="bgWhite textCenter fcRed fs18 w260 autoMargin p3">${userCoupon.name!?html}</p>
                     </div>
                     <div class="pv5">
-                        <p class="textCenter fcOrange fs14">有効期限：${userCoupon.limitDatetime!?html}</p>
+                        <#if userCoupon.status == 1>
+                            <p class="textCenter fcOrange fs14">使用期限：${userCoupon.limitDatetime!?html}</p>
+                        <#else>
+                            <p class="textCenter fcOrange fs14"><span id="js_termText">有効期限：</span>${userCoupon.limitDatetime!?html}</p>
+                        </#if>
+                    </div>
+                    <#-- 使うボタンが押されてたら表示 -->
+                    <div id="js_usableIcon" class="absolute ${ftl_usableTextDisplay}" style="top: 10px; right: 10px;">
+                        <img src="${imagePath}/images/common/useful_flg.png" width="60">
                     </div>
                 </div>
                 
@@ -59,12 +74,6 @@
                 </div>
             </#if>
             
-            <#-- 使うボタンを押されたら表示 -->
-            <#if userCoupon.status == 1>
-                <#assign ftl_usableTextDisplay = 'block'>
-            <#else>
-                <#assign ftl_usableTextDisplay = 'none'>
-            </#if>
             
             <div id="js_usableTicketText" class="${ftl_usableTextDisplay}">
                 <div class="normalBalloon fcOrange textCenter autoMargin mt10 fs14">
@@ -80,6 +89,9 @@
             <div class="mv20">
                 <div class="textCenter mv10">
                     <a href="${urlPath}/search" class="btn btnPrimary jsTouchActive autoMargin">ドコ行く？TOPへ</a>
+                </div>
+                <div class="textCenter mv10">
+                    <a href="${urlPath}/box" class="btn btnPrimary jsTouchActive autoMargin">クーポン一覧へ</a>
                 </div>
                 <div class="textCenter mv10">
                     <a href="${urlPath}/mypage" class="btn btnNormal jsTouchActive autoMargin">マイページへ</a>

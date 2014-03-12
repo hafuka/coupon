@@ -29,7 +29,7 @@
                     $("#searchlist_template").render(returnSearchList(data))
                 );
             } else {
-                $searchList.html('<li class="noList">対象のクーポンがありませんm(_ _)m</li>');
+                $areaSearchList.html('<li class="noList">対象のクーポンがありませんm(_ _)m</li>');
             }
         }
         
@@ -46,15 +46,15 @@
                 switch (dataList.mShopCoupon.rarity) {
                 case 1:
                     rarityStyle = 'normalList';
-                    rarityImage = 'nCouponImg';
+                    rarityImage = 'medal_n';
                     break;
                 case 2:
                     rarityStyle = 'rareList';
-                    rarityImage = 'rCouponImg';
+                    rarityImage = 'medal_r';
                     break;
                 case 3:
                     rarityStyle = 'sRareList';
-                    rarityImage = 'srCouponImg';
+                    rarityImage = 'medal_sr';
                     break;
                 default:
                     rarityStyle = '';
@@ -62,9 +62,9 @@
                     break;
                 }
                 
-                var status = '';
+                var status = 0;
                 if (dataList.userCoupon.status == 1) {
-                    status = '<p class="fcRed fs13">使用中</p>';
+                    status = 1;
                 }
                 
                 var limitDate = new Date(dataList.userCoupon.limitDatetime);

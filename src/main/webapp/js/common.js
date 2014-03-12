@@ -244,14 +244,13 @@ function ajaxJsonGlobal(url, data, onSuccess){
         url: url,
         cache: false,
         data: data,
-        dataType: 'json',
-        success: function (data, status, xhr) {
-            onSuccess(data);
-            console.log(data);
-        },
-        error: function(msg){
-            console.log('通信にエラーが発生しました。しばらくしてから再度お試しください。');
-        }
+        dataType: 'json'})
+    .done(function (data) {
+        onSuccess(data);
+        console.log(data);
+    })
+    .fail(function(){
+        console.log('通信にエラーが発生しました。しばらくしてから再度お試しください。');
     });
 };
 

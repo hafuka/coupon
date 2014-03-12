@@ -15,7 +15,7 @@
             <h1 class="headline headlineNormal mt15">クーポンBOX</h1>
             <div class="autoMargin mv10 table">
                 <div class="cell">
-                    <img src="${imagePath}/images/saboten_normal.png" width="37" height="37" class="vBottom">
+                    <img src="${imagePath}/images/common/saboten_normal.png" width="37" height="37" class="vBottom">
                 </div>
 
                 <div class="cell vMiddle relative pl10">
@@ -61,17 +61,17 @@
                             <#case 1>
                                 <#-- N -->
                                 <#assign ftl_rarityBgStyle = 'normalList'>
-                                <#assign ftl_rarityImage = 'nCouponImg'>
+                                <#assign ftl_rarityImage = 'medal_n'>
                                 <#break>
                             <#case 2>
                                 <#-- R -->
                                 <#assign ftl_rarityBgStyle = 'rareList'>
-                                <#assign ftl_rarityImage = 'rCouponImg'>
+                                <#assign ftl_rarityImage = 'medal_r'>
                                 <#break>
                             <#case 3>
                                 <#-- SR -->
                                 <#assign ftl_rarityBgStyle = 'sRareList'>
-                                <#assign ftl_rarityImage = 'srCouponImg'>
+                                <#assign ftl_rarityImage = 'medal_sr'>
                                 <#break>
                             <#default>
                                 <#assign ftl_rarityBg = ''>
@@ -83,20 +83,26 @@
                             <a href="${urlPath}/coupon?userCouponId=${coupon.userCoupon.userCouponId!?html}">
                                 <div class="table">
                                     <div class="cell pr10">
-                                        <img src="${imagePath}/images/${coupon.shopBean.imgPath!?html}" width="85" height="85" class="borderGray">
+                                        <img src="${coupon.shopBean.imgPath!?html}" width="85" height="85" class="borderGray">
                                     </div>
                                     <div class="cell vTop pr20">
                                         <p class="fcBlue underline">${coupon.shopBean.shopName!?html}</p>
                                         <p class="fs13">業種：${coupon.shopBean.businessName!?html}</p>
                                         <p class="fs13">最寄駅：${coupon.shopBean.station!?html}</p>
                                         <p class="bgRound">${coupon.mShopCoupon.couponName!?html}</p>
-                                        <p class="fcRed fs13">有効期限：<br>${coupon.userCoupon.limitDatetime!?html}</p>
                                         <#if coupon.userCoupon.status == 1>
-                                            <p class="fcRed fs13">使用中</p>
+                                            <p class="fcRed fs14">使用期限：<br>${coupon.userCoupon.limitDatetime!?html}</p>
+                                        <#else>
+                                            <p class="fcOrange fs13">有効期限：<br>${coupon.userCoupon.limitDatetime!?html}</p>
+                                        </#if>
+                                        <#if coupon.userCoupon.status == 1>
+                                            <div class="absolute" style="bottom: 0; right: 2px;">
+                                                <img src="${imagePath}/images/common/useful_flg.png" width="50">
+                                            </div>
                                         </#if>
                                     </div>
                                 </div>
-                                <div class="absolute" style="bottom: 0; left: 5px;">
+                                <div class="absolute" style="top: 75px; left: 2px;">
                                     <img src="${imagePath}/images/coupon/${ftl_rarityImage}.png" width="40">
                                 </div>
                             </a>
@@ -134,7 +140,7 @@
 
         <#-- 共通JavaScriptのインクルード -->
         <#include "/common/htmlFoot.ftl">
-		<script src="/coupon/js/box.js"></script>
+        <script src="/coupon/js/box.js"></script>
         <script>
             //グローバルで使う変数を定義
             var urlPath = '${urlPath}';
@@ -146,18 +152,22 @@
                 <a href="${urlPath}/coupon?userCouponId={{:userCouponId}}">
                     <div class="table">
                         <div class="cell pr10">
-                            <img src="${imagePath}/images/{{:shopImgPath}}" width="85" height="85" class="borderGray">
+                            <img src="{{:shopImgPath}}" width="85" height="85" class="borderGray">
                         </div>
                         <div class="cell vTop pr20">
                             <p class="fcBlue underline">{{:shopName}}</p>
                             <p class="fs13">業種：{{:business}}</p>
                             <p class="fs13">最寄駅：{{:station}}</p>
                             <p class="bgRound">{{:couponName}}</p>
-                            <p class="fcRed fs13">有効期限：<br>{{:limitDate}}</p>
-                            {{:status}}
+                            <p class="{{if status == 1}}fcRed fs14{{else}}fcOrange fs13{{/if}}">{{if status == 1}}使用{{else}}有効{{/if}}期限：<br>{{:limitDate}}</p>
+                            {{if status == 1}}
+                                <div class="absolute" style="bottom: 0; right: 2px;">
+                                    <img src="${imagePath}/images/common/useful_flg.png" width="50">
+                                </div>
+                            {{/if}}
                         </div>
                     </div>
-                    <div class="absolute" style="bottom: 0; left: 5px;">
+                    <div class="absolute" style="top: 75px; left: 2px;">
                         <img src="${imagePath}/images/coupon/{{:rarityImage}}.png" width="40">
                     </div>
                 </a>

@@ -20,9 +20,9 @@
 
             <div class="relative mt10">
                 <div class="autoMargin w320">
-                    <div class="underballoon mh10">
+                    <div class="underballoon fs14 mh10">
                         <#if (count > 0)>
-                        	<p>${count!?html}回プレミアムクーポンがひけるよ♪</p>
+                            <p>${count!?html}回プレミアムクーポンがひけるよ♪</p>
                         </#if>
                         <p class="pointArea">所持コイン：${coin!html}コイン</p>
                         <p class="pointArea">現在のポイント：${point!?html}pt</p>
@@ -44,7 +44,7 @@
                         </a>
                     </div>
                     <div class="cell vTop">
-                        <a href="${urlPath}/box" class="mypagePremierbtn jsTouchActive fs15 relative zIndex20 pt20 mv5">
+                        <a href="${urlPath}/box" class="mypagePremierbtn jsTouchActive fs16 relative zIndex20 pt20 mv5">
                             クーポン<br>BOX
                         </a>
                     </div>

@@ -11,21 +11,21 @@
         <#include "/common/header.ftl">
 
 
-		<section>
+        <section>
             <div class="formArea autoMargin m10">
-            	<h1>コイン購入の確認</h1>
-            	<div>
-					コイン ${coin.coin!?html}コイン
-				</div>
-				<div>
-					購入金額 ${coin.yen!?html}円
-				</div>
-            	<form method="post" action="${urlPath!?html}/payment/card" name="frm">
-            		<input type="hidden" name="coinId" value="${coin.id!?html}">
-            		<div class="textCenter mv10">
-               			<a id="js_confirmBtn" href="javascript:void(0)" class="btn btnPrimary jsTouchActive autoMargin">購入する</a>
-            		</div>
-            	</form>
+                <h1 class="textCenter">コイン購入の確認</h1>
+                <div class="p5">
+                    コイン：<span class="fcOrange">${coin.coin!?html}コイン</span>
+                </div>
+                <div class="p5">
+                    購入金額：<span class="fcOrange">${coin.yen!?html}円</span>
+                </div>
+                <form method="post" action="${urlPath!?html}/payment/card" name="frm">
+                    <input type="hidden" name="coinId" value="${coin.id!?html}">
+                    <div class="textCenter mv10">
+                           <a id="js_confirmBtn" href="javascript:void(0)" class="btn btnPrimary jsTouchActive autoMargin">購入する</a>
+                    </div>
+                </form>
             </div>
         </section>
 

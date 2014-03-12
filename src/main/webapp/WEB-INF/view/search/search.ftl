@@ -15,7 +15,7 @@
             <h1 class="headline headlineNormal mt15">ドコ行く？ - 1日1回無料クーポン -</h1>
             <div class="autoMargin mv10 table">
                 <div class="cell">
-                    <img src="${imagePath}/images/saboten_normal.png" width="37" height="37" class="vBottom">
+                    <img src="${imagePath}/images/common/saboten_normal.png" width="37" height="37" class="vBottom">
                 </div>
 
                 <div class="cell vMiddle relative pl10">
@@ -71,7 +71,7 @@
                     <p class="callText fcRed fs14">1日1回無料でクーポンGETできるよ♪</p>
                     <#if rouletteFlg>
                         <div class="js_activeRouletteBtn">
-                            <p class="btn btnSpecial autoMargin">地域と業種を選んでね♪</p>
+                            <p class="btn btnNoActive autoMargin">地域と業種を選んでね♪</p>
                         </div>
                     <#else>
                         <p class="btn btnNoActive autoMargin">また明日きてね♪</p>
@@ -121,7 +121,7 @@
                 <p class="callText fcRed fs14">1日1回無料でクーポンGETできるよ♪</p>
                 <#if rouletteFlg>
                     <div class="js_activeRouletteBtn">
-                        <p class="btn btnSpecial autoMargin">地域と業種を選んでね♪</p>
+                        <p class="btn btnNoActive autoMargin">地域と業種を選んでね♪</p>
                     </div>
                 <#else>
                     <p class="btn btnNoActive autoMargin">また明日きてね♪</p>
@@ -131,6 +131,11 @@
 
         <#-- リンクナビ -->
         <nav>
+            <div class="mb20">
+                <div class="textCenter mv10">
+                    <a href="${urlPath}/shopSearch" class="btn btnPrimary jsTouchActive autoMargin">お店検索ページへ</a>
+                </div>
+            </div>
             <div class="mb20">
                 <div class="textCenter mv10">
                     <a href="${urlPath}/mypage" class="btn btnNormal jsTouchActive autoMargin">マイページへ</a>
@@ -156,7 +161,7 @@
                 <a href="${urlPath}/detail?shopId={{:shopId}}">
                     <div class="table">
                         <div class="cell pr10">
-                            <img src="${imagePath}/images/{{:imgPath}}" width="85" height="85" class="borderGray">
+                            <img src="{{:imgPath}}" width="85" height="85" class="borderGray">
                         </div>
                         <div class="cell vTop pr20">
                             <p class="fcBlue underline">{{:shopName}}</p>

@@ -11,6 +11,10 @@
         var $timeNoticeText = $('#js_timeNoticeText');
         // 注意テキスト（使うボタン押した後）
         var $usableTicketText = $('#js_usableTicketText');
+        // 使えるアイコン
+        var $usableIcon = $('#js_usableIcon');
+        // 有効期限テキスト
+        var $termText = $('#js_termText');
         
         // 使うボタン押したらajax通信を開始
         $useBtn.on('click', function(){
@@ -28,11 +32,15 @@
         // 使うajax成功
         function useSuccess(data){
             if (data != '') {
+                console.log(data);
                 $remainTime.html(data.remainTime);
                 $useBtnArea.addClass('none');
                 $timeNoticeText.addClass('none');
                 $usableTicketText.removeClass('none');
                 $usableTicketText.addClass('block');
+                $usableIcon.removeClass('none');
+                $usableIcon.addClass('block');
+                $termText.text('使用期限：');
             }
         }
     });

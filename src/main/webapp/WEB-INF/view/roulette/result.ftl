@@ -15,7 +15,7 @@
             <h1 class="headline headlineNormal mt15">ドコ行く？スロット結果！</h1>
             <div class="autoMargin mv10 table">
                 <div class="cell">
-                    <img src="${imagePath}/images/saboten_normal.png" width="37" height="37" class="vBottom">
+                    <img src="${imagePath}/images/common/saboten_normal.png" width="37" height="37" class="vBottom">
                 </div>
 
                 <div class="cell vMiddle relative pl10">
@@ -40,7 +40,7 @@
                 <div class="borderTopOrange pt5 mt5 relative">
                     <div class="table m0auto relative">
                         <div class="cell pr10">
-                            <img src="${imagePath}/images/${coupon.shopBean.imgPath!?html}" width="100" height="100" class="borderGray">
+                            <img src="${coupon.shopBean.imgPath!?html}" width="100" height="100" class="borderGray">
                         </div>
                         <div class="cell vMiddle">
                             <div class="pv5 ph10">

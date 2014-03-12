@@ -9,30 +9,39 @@
 
         <#-- ヘッダーメニューのインクルード -->
         <#include "/common/header.ftl">
-		
-		
-		<section>
+        
+        
+        <section>
             <div class="formArea autoMargin m10">
-            	<h1>購入内容の確認</h1>
-            	<div>
-					合計 100コイン
-				</div>
-				<div>
-					利用可能コイン ${userCoin!?html}コイン
-				</div>
-            	<form method="post" action="${urlPath!?html}/payment/confirm" name="frm">
-            		<#list coinList as coin>
-            			<div class="mt5">
-            				<input type="radio" name="coinId" value="${coin.id!?html}" <#if coin_index == 0>checked="checked"</#if>>${coin.coin!?html}コイン(${coin.yen!?html}円)
-            			</div>
-            		</#list>
-            		<div class="textCenter mv10">
-               			<a id="js_confirmBtn" href="javascript:void(0)" class="btn btnPrimary jsTouchActive autoMargin">内容を確認する</a>
-            		</div>
-            	</form>
+                <h1 class="textCenter">購入内容の確認</h1>
+                <div class="p5">
+                    合計：<span class="fcOrange">100コイン</span>
+                </div>
+                <div class="p5">
+                    利用可能コイン：<span class="fcOrange">${userCoin!?html}コイン</span>
+                </div>
+                <form method="post" action="${urlPath!?html}/payment/confirm" name="frm">
+                    <ul class="paymentRadioList">
+                        <#list coinList as coin>
+                            <li class="p5">
+                                <div class="table">
+                                    <div class="cell pr10">
+                                        <input type="radio" name="coinId" value="${coin.id!?html}" <#if coin_index == 0>checked="checked"</#if>>
+                                    </div>
+                                    <div class="cell">
+                                        <span class="fcRed">${coin.coin!?html}</span>コイン(<span class="fcBlue">${coin.yen!?html}円</span>)
+                                    </div>
+                                </div>
+                            </li>
+                        </#list>
+                    </ul>
+                    <div class="textCenter mv10">
+                        <a id="js_confirmBtn" href="javascript:void(0)" class="btn btnPrimary jsTouchActive autoMargin">内容を確認する</a>
+                    </div>
+                </form>
             </div>
         </section>
-		
+        
         <#-- フッターメニューのインクルード -->
         <#include "/common/footer.ftl">
 

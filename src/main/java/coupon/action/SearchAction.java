@@ -42,6 +42,8 @@ public class SearchAction extends BaseAction {
 	public List<LabelValueBean> businessList;
 	public boolean rouletteFlg;
 	public boolean execPointFlg;
+	public Integer needPoint;
+	public Long userPoint;
 
 	/**
 	 * 初期表示
@@ -59,9 +61,10 @@ public class SearchAction extends BaseAction {
 		businessList = pullDownService.getBusinessList();
 
 		IUser iUser = userService.getIUser(loginUserDto.userId);
+		userPoint = iUser.point;
 		rouletteFlg = rouletteService.checkDailyRoulette(iUser);
-		String needPointStr = mConfigService.getConfigValue(MConfigKey.ONE_TIME_POINT_NORMAL);
-		if (iUser.point >= Integer.parseInt(needPointStr)) {
+		needPoint = Integer.parseInt(mConfigService.getConfigValue(MConfigKey.ONE_TIME_POINT_NORMAL));
+		if (userPoint >= needPoint) {
 			execPointFlg = true;
 		}
 		super.getFormToken();

@@ -39,6 +39,8 @@ public class DetailAction extends BaseAction {
 	public List<MShopCoupon> couponList;
 	public Integer coin;
 	public boolean execPointFlg;
+	public Integer needPoint;
+	public Long userPoint;
 
 	@Execute(validator=false)
 	public String index() {
@@ -66,8 +68,9 @@ public class DetailAction extends BaseAction {
 		}
 
 		IUser iUser = userService.getIUser(loginUserDto.userId);
-		String needPointStr = mConfigService.getConfigValue(MConfigKey.ONE_TIME_POINT_NORMAL);
-		if (iUser.point >= Integer.parseInt(needPointStr)) {
+		userPoint = iUser.point;
+		needPoint = Integer.parseInt(mConfigService.getConfigValue(MConfigKey.ONE_TIME_POINT_PREMIUM));
+		if (userPoint >= needPoint) {
 			execPointFlg = true;
 		}
 

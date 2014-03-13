@@ -14,7 +14,7 @@
         <section>
             <div class="autoMargin mv20 table">
                 <div class="cell">
-                    <img src="${imagePath}/images/saboten_normal.png" width="37" height="37" class="vBottom">
+                    <img src="${imagePath}/images/common/saboten_normal.png" width="37" height="37" class="vBottom">
                 </div>
 
                 <div class="cell vMiddle relative pl10">

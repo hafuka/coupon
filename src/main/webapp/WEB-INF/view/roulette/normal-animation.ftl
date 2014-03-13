@@ -6,10 +6,10 @@
 <#-- 共通headのインクルード -->
 <#include "/common/htmlHead.ftl">
 <#-- createJS関連 -->
-<script src="/coupon/js/createJs/easeljs-0.7.0.min.js"></script>
-<script src="/coupon/js/createJs/tweenjs-0.5.0.min.js"></script>
-<script src="/coupon/js/createJs/movieclip-0.7.0.min.js"></script>
-<script src="/coupon/js/createJs/preloadjs-0.4.0.min.js"></script>
+<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
+<script src="http://code.createjs.com/tweenjs-0.5.0.min.js"></script>
+<script src="http://code.createjs.com/movieclip-0.7.0.min.js"></script>
+<script src="http://code.createjs.com/preloadjs-0.4.0.min.js"></script>
 <#-- 共通JavaScriptのインクルード -->
 <#include "/common/htmlFoot.ftl">
 <script src="/coupon/js/coupon_animation.js"></script>

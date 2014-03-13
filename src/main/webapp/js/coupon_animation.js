@@ -690,7 +690,7 @@ p.nominalBounds = new cjs.Rectangle(-98.6,-259.4,489.4,653.7);
 				setTimeout(function(){
 					clearInterval(timer2);
 					var timer2Dash = setInterval(function(){
-						n2.text = Math.floor(Math.random()*10);
+						n2.text = selectNumThree;
 					}, 200);
 					setTimeout(function(){
 						clearInterval(timer2Dash);

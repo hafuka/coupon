@@ -43,11 +43,8 @@
                     </div>
                 </div>
                 
-                <div class="storeDetailText borderBox w95per m10 autoMargin">
-                    <h2 class="bgGray borderBottomGray fs15 p5">残り期間</h2>
-                    <p class="fs13 fcRed p5">
-                        <span id="js_remainTime">${remainTime!?html}</span>
-                    </p>
+                <div class="storeDetailText borderBox w95per mv10 autoMargin p5 textCenter">
+                    残り期間：<span id="js_remainTime" class="fcRed">${remainTime!?html}</span>
                 </div>
                 
                 <#-- 使うボタンを押してない時に表示 -->

@@ -22,10 +22,12 @@
                 <div class="autoMargin w320">
                     <div class="underballoon fs14 mh10">
                         <#if (count > 0)>
-                            <p>${count!?html}回プレミアムクーポンがひけるよ♪</p>
+                            <p class="textCenter">${count!?html}回プレミアムスロットできるよ♪</p>
                         </#if>
-                        <p class="pointArea">所持コイン：${coin!html}コイン</p>
-                        <p class="pointArea">現在のポイント：${point!?html}pt</p>
+                        <p class="pointArea">
+                            所持コイン：${coin!html}コイン<br>
+                            現在のポイント：${point!?html}pt
+                        </p>
                     </div>
                 </div>
                 <div class="mtMinus30">

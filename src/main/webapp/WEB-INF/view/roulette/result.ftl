@@ -46,7 +46,7 @@
                             <div class="pv5 ph10">
                                 <p class="textCenter fs18 pv5">${coupon.shopBean.shopName!?html}</p>
                                 <p class="textCenter fs14 pv5">
-                                    <a href="${coupon.shopBean.url}" class="link1">お店の詳細はこちら&gt;&gt;</a>
+                                    <a href="${urlPath}/detail/?shopId=${coupon.shopBean.shopId}" class="link1">お店の詳細はこちら&gt;&gt;</a>
                                 </p>
                             </div>
                         </div>

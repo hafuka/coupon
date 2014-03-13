@@ -20,10 +20,15 @@
 
                 <div class="cell vMiddle relative pl10">
                     <div class="balloon">
-                        <p><span class="fcOrange">地域と業種を選んでね。<br>今日は何が当たるかな？</span></p>
+                        <p>
+                            <span class="fcOrange">地域と業種を選んでね。<br>今日は何が当たるかな？</span><br>
+                        </p>
                     </div>
                 </div>
             </div>
+            <p class="callText fs13 textCenter mb5">
+                <span class="fcRed">ポイント</span>を使ってもスロットが回せるよ♪<br><span class="fcRed">1回あたり${needPoint}pt♪</span>
+            </p>
         </section>
 
         <#-- 検索エリア -->
@@ -68,10 +73,21 @@
 
             <div class="mb15">
                 <div class="textCenter mv10">
-                    <p class="callText fcRed fs14">1日1回無料でクーポンGETできるよ♪</p>
                     <#if rouletteFlg>
+                        <#-- 1日1回無料スロット -->
+                        <p class="callText fcRed fs14">1日1回無料でクーポンGETできるよ♪</p>
                         <div class="js_activeRouletteBtn">
                             <p class="btn btnNoActive autoMargin">地域と業種を選んでね♪</p>
+                        </div>
+                    <#elseif execPointFlg>
+                        <#-- ポイントでスロット -->
+                        <p class="callText fcRed fs14">${needPoint}ポイントで1回スロットを回せるよ♪</p>
+                        <div class="js_activeRouletteBtn">
+                            <p class="btn btnNoActive autoMargin">地域と業種を選んでね♪</p>
+                        </div>
+                        <div class="coinArea fs13 textCenter mv10 m0auto">
+                            1回：<span class="fcOrange">${needPoint}ポイント</span><br>
+                            所持ポイント：<span class="fcOrange">${userPoint}ポイント</span>
                         </div>
                     <#else>
                         <p class="btn btnNoActive autoMargin">また明日きてね♪</p>
@@ -82,9 +98,8 @@
 
         <#-- クーポンリスト -->
         <section>
-            <h1 class="underballoonLight fs13 fcRed textCenter m0auto">
-                下のリストのどれか１つが当たるよ♪<br>
-                <span class="fs12 fcBlack">※クーポンは1店舗あたり3種類あるよ</span>
+            <h1 id="js_couponListText" class="underballoonLight fs13 fcRed textCenter m0auto">
+                ↓こんなお店のクーポンが当たるよ♪↓
             </h1>
             
             <ul id="js_searchList" class="couponList borderTopGreen mt10">
@@ -118,10 +133,21 @@
         
         <div class="mb20">
             <div class="textCenter mv10">
-                <p class="callText fcRed fs14">1日1回無料でクーポンGETできるよ♪</p>
                 <#if rouletteFlg>
+                    <#-- 1日1回無料スロット -->
+                    <p class="callText fcRed fs14">1日1回無料でクーポンGETできるよ♪</p>
                     <div class="js_activeRouletteBtn">
                         <p class="btn btnNoActive autoMargin">地域と業種を選んでね♪</p>
+                    </div>
+                <#elseif execPointFlg>
+                    <#-- ポイントでスロット -->
+                    <p class="callText fcRed fs14">${needPoint}ポイントで1回スロットを回せるよ♪</p>
+                    <div class="js_activeRouletteBtn">
+                        <p class="btn btnNoActive autoMargin">地域と業種を選んでね♪</p>
+                    </div>
+                    <div class="coinArea fs13 textCenter mv10 m0auto">
+                        1回：<span class="fcOrange">${needPoint}ポイント</span><br>
+                        所持ポイント：<span class="fcOrange">${userPoint}ポイント</span>
                     </div>
                 <#else>
                     <p class="btn btnNoActive autoMargin">また明日きてね♪</p>

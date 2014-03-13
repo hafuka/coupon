@@ -20,7 +20,7 @@ import coupon.service.ShopService;
 import coupon.service.UserService;
 
 public class SearchAction extends BaseAction {
-	
+
 	@Resource
 	protected PullDownService pullDownService;
 	@Resource
@@ -29,28 +29,29 @@ public class SearchAction extends BaseAction {
 	protected UserService userService;
 	@Resource
 	protected MConfigService mConfigService;
-	
+
 	////////// IN項目 /////////
 	public Integer areaId;
 	public Integer areaDetailId;
 	public Integer businessId;
-	
+
 	///////// OUT項目 ////////
 	public List<ShopBean> shopList;
 	public List<LabelValueBean> areaList;
 	public List<LabelValueBean> areaDetailList;
 	public List<LabelValueBean> businessList;
 	public boolean rouletteFlg;
+	public boolean execPointFlg;
 
 	/**
 	 * 初期表示
 	 */
 	@Resource
 	protected ShopService shopService;
-	
+
 	@Execute(validator = false)
 	public String index() {
-		
+
 		shopList = shopService.getShopBaens(null, null, null);
 		Collections.shuffle(shopList);
 		areaList = pullDownService.getAreaList();
@@ -59,18 +60,14 @@ public class SearchAction extends BaseAction {
 
 		IUser iUser = userService.getIUser(loginUserDto.userId);
 		rouletteFlg = rouletteService.checkDailyRoulette(iUser);
-		if (!rouletteFlg) {
-			String needPointStr = mConfigService.getConfigValue(MConfigKey.ONE_TIME_POINT_NORMAL);
-			if (iUser.point < Integer.parseInt(needPointStr)) {
-				rouletteFlg = false;
-			} else {
-				rouletteFlg = true;
-			}
+		String needPointStr = mConfigService.getConfigValue(MConfigKey.ONE_TIME_POINT_NORMAL);
+		if (iUser.point >= Integer.parseInt(needPointStr)) {
+			execPointFlg = true;
 		}
 		super.getFormToken();
         return "/search/search.ftl";
 	}
-	
+
 	/**
 	 * 検索処理(ajax)
 	 * @return
@@ -83,9 +80,9 @@ public class SearchAction extends BaseAction {
         super.setJsonData(shopList);
 		return null;
 	}
-	
+
 	/**
-	 * 
+	 *
 	 * @return
 	 * @throws IOException
 	 */
@@ -98,8 +95,8 @@ public class SearchAction extends BaseAction {
         super.setJsonData(areaDetailList);
 		return null;
 	}
-	
-	
+
+
 	private void checkParam() {
 		if (this.areaId == 0) {
 			this.areaId = null;

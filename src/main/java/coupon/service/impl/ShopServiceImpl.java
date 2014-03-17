@@ -37,16 +37,16 @@ public class ShopServiceImpl implements ShopService {
 	protected MAreaDetailDao mAreaDetailDao;
 	@Resource
 	protected MBusinessDao mBusinessDao;
-	
+
 
 	@Override
 	public List<ShopBean> getShopBaens(Integer areaId, Integer areaDetailId, Integer businessId) {
-		
+
 		BeanMap conditions = new BeanMap();
 		conditions.put(MShopNames.areaId().toString(), areaId);
 		conditions.put(MShopNames.areaDetailId().toString(), areaDetailId);
 		conditions.put(MShopNames.businessId().toString(), businessId);
-		
+
 		List<MShop> shopList = mShopDao.findByCondition(conditions);
 		return this.convertShopBeans(shopList);
 	}
@@ -58,19 +58,19 @@ public class ShopServiceImpl implements ShopService {
 
 	@Override
 	public ShopBean getShopBean(Integer shopId) {
-		
+
 		MShop mShop = mShopDao.findById(shopId);
 		MArea area = mAreaDao.findById(mShop.areaId);
 		MAreaDetail areaDetail = mAreaDetailDao.findById(mShop.areaId, mShop.areaDetailId);
 		MBusiness business = mBusinessDao.findById(mShop.businessId);
-		
+
 		ShopBean bean = new ShopBean();
 		BeanUtil.copyProperties(mShop, bean);
 		bean.areaName = area.areaName;
 		bean.areaDetailName = areaDetail.detailName;
 		bean.businessName = business.name;
 		bean.imgPath = Images.getImageFilePath(mShop.shopId);
-		
+
 		List<MShopCoupon> couponList = this.getMShopCoupons(mShop.shopId);
 		for (MShopCoupon mShopCoupon : couponList) {
 			if (RarityType.isSR(mShopCoupon.rarity)) {
@@ -90,11 +90,11 @@ public class ShopServiceImpl implements ShopService {
 	public List<ShopBean> getShopBeans(String searchValue) {
 		searchValue = StringUtils.replace(searchValue, "　", " ");
 		String[] searchValues = searchValue.split(" ");
-		
+
 		List<MShop> shopList = mShopDao.findLikeShopName(searchValues);
 		return this.convertShopBeans(shopList);
 	}
-	
+
 	private List<ShopBean> convertShopBeans(List<MShop> mShops) {
 		List<ShopBean> shopBeans = new ArrayList<ShopBean>(mShops.size());
 		for (MShop mShop : mShops) {
@@ -109,7 +109,7 @@ public class ShopServiceImpl implements ShopService {
 			bean.areaDetailName = areaDetail.detailName;
 			bean.businessName = business.name;
 			bean.imgPath = Images.getImageFilePath(mShop.shopId);
-			
+
 			List<MShopCoupon> couponList = this.getMShopCoupons(mShop.shopId);
 			for (MShopCoupon mShopCoupon : couponList) {
 				if (RarityType.isSR(mShopCoupon.rarity)) {
@@ -130,6 +130,12 @@ public class ShopServiceImpl implements ShopService {
 	@Override
 	public MShop getMShop(Integer shopId) {
 		return mShopDao.findById(shopId);
+	}
+
+	@Override
+	public Integer findNextShopId() {
+		Integer maxShopId = mShopDao.findMaxShopId();
+		return maxShopId + 1;
 	}
 
 }

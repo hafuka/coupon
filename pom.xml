@@ -92,7 +92,7 @@
             <version>2.4</version>
             <scope>test</scope>
         </dependency>
-        <!-- 
+        <!--
         <dependency>
             <groupId>org.freemarker</groupId>
             <artifactId>freemarker</artifactId>
@@ -165,7 +165,7 @@
 			<artifactId>commons-collections</artifactId>
 			<version>3.2.1</version>
 		</dependency>
-         
+
         <dependency>
             <groupId>commons-digester</groupId>
             <artifactId>commons-digester</artifactId>
@@ -301,6 +301,7 @@
             <artifactId>sa-struts</artifactId>
             <version>1.0.4-sp9</version>
         </dependency>
+        <!--
         <dependency>
             <groupId>org.seasar.mai</groupId>
             <artifactId>s2mai-tiger</artifactId>
@@ -318,6 +319,7 @@
             <version>1.2.3</version>
             <scope>compile</scope>
         </dependency>
+         -->
         <dependency>
             <groupId>struts</groupId>
             <artifactId>struts</artifactId>

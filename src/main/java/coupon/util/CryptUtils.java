@@ -15,7 +15,7 @@ public final class CryptUtils {
 	/** コンストラクタ（生成不可）*/
     private CryptUtils(){}
 
-    /** デフォルトキー：yuka_pit */
+    /** デフォルトキー：masayuki-satoshi */
     private static final String KEY_DEFALT = "masayuki-satoshi";
 
     /**

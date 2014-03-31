@@ -33,8 +33,9 @@ public interface ShopService {
 
 	public abstract MShop getMShop(Integer shopId);
 
-	public abstract void insertMShop(MShop mShop);
+	public abstract void registMShop(MShop mShop);
 
+	public abstract void registMShopCoupon(MShopCoupon mShopCoupon);
 
 	public abstract Integer findNextShopId();
 }

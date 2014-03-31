@@ -123,8 +123,13 @@ public class ShopServiceImpl implements ShopService {
 	}
 
 	@Override
-	public void insertMShop(MShop mShop) {
-		mShopDao.insert(mShop);
+	public void registMShop(MShop mShop) {
+		MShop shop = this.getMShop(mShop.shopId);
+		if (shop == null) {
+			mShopDao.insert(mShop);
+		} else {
+			mShopDao.update(mShop);
+		}
 	}
 
 	@Override
@@ -136,6 +141,16 @@ public class ShopServiceImpl implements ShopService {
 	public Integer findNextShopId() {
 		Integer maxShopId = mShopDao.findMaxShopId();
 		return maxShopId + 1;
+	}
+
+	@Override
+	public void registMShopCoupon(MShopCoupon mShopCoupon) {
+		MShopCoupon coupon =  mShopCouponDao.findById(mShopCoupon.shopId, mShopCoupon.couponId);
+		if (coupon == null) {
+			mShopCouponDao.insert(mShopCoupon);
+		} else {
+			mShopCouponDao.update(mShopCoupon);
+		}
 	}
 
 }

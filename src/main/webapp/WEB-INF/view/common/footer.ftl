@@ -1,7 +1,7 @@
         <footer>
             <div class="footerArea">
-                <div class="footerContents">
-                    【広告スペース】
+                <div class="textCenter fcWhite fs12">
+                    COUPON ISLAND
                 </div>
             </div>
         </footer>

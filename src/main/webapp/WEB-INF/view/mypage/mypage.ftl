@@ -62,6 +62,9 @@
                     <a href="${urlPath}/static/?page=howto" class="btn btnPrimary jsTouchActive autoMargin">遊び方♪</a>
                 </div>
             </div>
+            <div class="textCenter mb20">
+                <a href="${urlPath}/static/?page=terms" class="link2">利用規約</a>
+            </div>
         </nav>
 
         <#-- フッターメニューのインクルード -->

@@ -14,14 +14,14 @@ import coupon.util.CryptUtils;
 
 /**
  * {@link IAdminAuthentication}のサービスクラスです。
- * 
+ *
  */
 @Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.ServiceModelFactoryImpl"}, date = "2014/02/27 19:35:36")
 public class IAdminAuthenticationDao extends AbstractDao<IAdminAuthentication> {
 
     /**
      * 識別子でエンティティを検索します。
-     * 
+     *
      * @param shopId
      *            識別子
      * @return エンティティ
@@ -32,16 +32,20 @@ public class IAdminAuthenticationDao extends AbstractDao<IAdminAuthentication> {
 
     /**
      * 識別子の昇順ですべてのエンティティを検索します。
-     * 
+     *
      * @return エンティティのリスト
      */
     public List<IAdminAuthentication> findAllOrderById() {
         return select().orderBy(asc(shopId())).getResultList();
     }
-    
-    
+
+
     public IAdminAuthentication findByEmailAndPassword(String email, String password) throws Exception {
     	String pwd = CryptUtils.encrypt(password);
     	return jdbcManager.from(IAdminAuthentication.class).where(new SimpleWhere().eq(email(), email).eq(password(), pwd)).getSingleResult();
     }
+
+    public Integer findMaxShopId() {
+		return jdbcManager.selectBySql(Integer.class, "SELECT MAX(SHOP_ID) FROM I_ADMIN_AUTHENTICATION").getSingleResult();
+	}
 }

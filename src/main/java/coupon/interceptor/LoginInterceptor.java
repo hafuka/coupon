@@ -11,6 +11,7 @@ import org.seasar.struts.util.ResponseUtil;
 
 import coupon.dto.LoginUserDto;
 import coupon.entity.IUserLogin;
+import coupon.service.CookieService;
 import coupon.service.LoginService;
 
 
@@ -21,6 +22,8 @@ public class LoginInterceptor extends AbstractInterceptor {
 	protected LoginUserDto loginUserDto;
 	@Resource
 	protected LoginService loginService;
+	@Resource
+	protected CookieService cookieService;
 
 	/**
 	 * AbstractInterceptorを継承する際に、実装する必要のあるメソッド。
@@ -28,24 +31,16 @@ public class LoginInterceptor extends AbstractInterceptor {
 	 */
 	@Override
 	public Object invoke(MethodInvocation invocation) throws Throwable {
-		
+
 //		Map<String, Object> sessionScope = SingletonS2Container.getComponent("sessionScope");
 //		LoginUserDto loginDto = (LoginUserDto) sessionScope.get("loginUserDto");
 //		// loginDtoがNULLだったり、NULLでなくてもコードがNULLの場合タイムアウトと見なす。
 //		if (loginDto == null || loginDto.userId == null) {
 //			// タイムアウト画面
-//			return "/";	
+//			return "/";
 //		}
-		
-		String cookieValue = null;
-		Cookie cookie[] = RequestUtil.getRequest().getCookies();
-    	if(cookie != null){
-    	    for(int i = 0; i < cookie.length; i++){
-    	        if(cookie[i].getName().equals("_coupon_island_login_")){
-    	        	cookieValue = cookie[i].getValue();
-    	        }
-    	    }
-    	}
+
+		String cookieValue = cookieService.getCookieValue("_coupon_island_login_");
     	if (StringUtils.isEmpty(cookieValue)) {
     		return "/";
     	}
@@ -57,9 +52,9 @@ public class LoginInterceptor extends AbstractInterceptor {
     		ResponseUtil.getResponse().addCookie(c);
     		return "/";
     	}
-    	
+
     	loginUserDto.userId = userLogin.userId;
-    	
+
 		return invocation.proceed();
 	}
 }

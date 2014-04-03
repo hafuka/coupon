@@ -81,8 +81,8 @@
                         </ul>
                     </div>
                     
-                    <p class="callText fs13 textCenter mb5">
-                        <span class="fcRed">ポイント</span>を使ってもプレミアムスロットが回せるよ♪<span class="fcRed">1回あたり${needPoint}pt♪</span>
+                    <p class="callText borderGray fs13 textCenter mb10">
+                        <span class="fcRed">ポイント</span>でもプレミアムスロットが回せるよ♪<br><span class="fcRed">1回：${needPoint}pt</span>、<span class="fcRed">現在：${userPoint}pt♪</span>
                     </p>
                     
                     <#-- プレミアムボタン -->
@@ -96,7 +96,7 @@
                     <div class="textCenter mv10">
                         <a href="${urlPath}/premiumRouletteAnimation?token=${token!?html}&shopId=${shopId}" class="btn btnSpecial jsTouchActive autoMargin">プレミアムスロットを回す♪</a>
                     </div>
-                    <div class="coinArea fs13 textCenter mv10 m0auto">
+                    <div class="coinArea fs13 textCenter mt15 mb10 autoMargin">
                         <#if execPointFlg>
                             1回：<span class="fcOrange">${needPoint}ポイント</span><br>
                             所持ポイント：<span class="fcOrange">${userPoint}ポイント</span>
@@ -133,7 +133,7 @@
                     <div class="textCenter mv10">
                         <a href="${urlPath}/premiumRouletteAnimation?token=${token!?html}&shopId=${shopId}" class="btn btnSpecial jsTouchActive autoMargin">プレミアムスロットを回す♪</a>
                     </div>
-                    <div class="coinArea fs13 textCenter mv10 m0auto">
+                    <div class="coinArea fs13 textCenter mt15 mb10 autoMargin">
                         <#if execPointFlg>
                             1回：<span class="fcOrange">${needPoint}ポイント</span><br>
                             所持ポイント：<span class="fcOrange">${userPoint}ポイント</span>
@@ -149,9 +149,18 @@
                             クーポン出現率
                         </div>
                         <div class="p5 fs13 textCenter">
-                            <p class="lheight15">Sレア：10%</p>
-                            <p class="lheight15">レア：30%</p>
-                            <p class="lheight15">ノーマル：60%</p>
+                            <#list couponList as coupon>
+                                <p class="lheight15">
+                                    <#if coupon_index == 0>
+                                        Sレア：
+                                    <#elseif coupon_index == 1>
+                                        レア：
+                                    <#elseif coupon_index == 2>
+                                        ノーマル：
+                                    </#if>
+                                    ${coupon.probability}%
+                                </p>
+                            </#list>
                         </div>
                     </div>
                     
@@ -162,10 +171,10 @@
         <#-- リンクナビ -->
         <nav>
             <div class="mv20">
-                <div class="textCenter mv10">
+                <div class="textCenter mb20">
                     <a href="${urlPath}/search" class="btn btnPrimary jsTouchActive autoMargin">ドコ行く？TOPへ</a>
                 </div>
-                <div class="textCenter mv10">
+                <div class="textCenter mb20">
                     <a href="${urlPath}/mypage" class="btn btnNormal jsTouchActive autoMargin">マイページへ</a>
                 </div>
             </div>

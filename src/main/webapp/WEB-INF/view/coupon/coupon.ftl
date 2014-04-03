@@ -84,13 +84,13 @@
         <#-- リンクナビ -->
         <nav>
             <div class="mv20">
-                <div class="textCenter mv10">
+                <div class="textCenter mb20">
                     <a href="${urlPath}/search" class="btn btnPrimary jsTouchActive autoMargin">ドコ行く？TOPへ</a>
                 </div>
-                <div class="textCenter mv10">
+                <div class="textCenter mb20">
                     <a href="${urlPath}/box" class="btn btnPrimary jsTouchActive autoMargin">クーポン一覧へ</a>
                 </div>
-                <div class="textCenter mv10">
+                <div class="textCenter mb20">
                     <a href="${urlPath}/mypage" class="btn btnNormal jsTouchActive autoMargin">マイページへ</a>
                 </div>
             </div>

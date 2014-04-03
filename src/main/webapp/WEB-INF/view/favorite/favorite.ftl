@@ -12,8 +12,8 @@
 
         <#-- ふきだしナビ -->
         <section>
-            <h1 class="headline headlineNormal mt15">お気に一覧</h1>
-            <div class="autoMargin mv10 table">
+            <h1 class="headline headlineNormal mt10">お気に一覧</h1>
+            <div class="autoMargin mv15 table">
                 <div class="cell">
                     <img src="${imagePath}/images/common/saboten_normal.png" width="37" height="37" class="vBottom">
                 </div>
@@ -37,12 +37,12 @@
                             <a href="${urlPath}/detail?shopId=${shop.shopId}">
                                 <div class="table">
                                     <div class="cell pr10">
-                                        <img src="${shop.imgPath!?html}" width="85" height="85" class="borderGray">
+                                        <img src="${shop.imgPath!?html}" width="85" height="85">
                                     </div>
-                                    <div class="cell vTop pr20">
-                                        <p class="fcBlue underline">${shop.shopName!?html}</p>
-                                        <p class="fs13">業種：${shop.businessName!?html}</p>
-                                        <p class="fs13">最寄駅：${shop.station!?html}</p>
+                                    <div class="cell vMiddle pr20">
+                                        <p class="fcBlue underline fs16">${shop.shopName!?html}</p>
+                                        <p class="fs14">業種：${shop.businessName!?html}</p>
+                                        <p class="fs14">最寄駅：${shop.station!?html}</p>
                                         <p class="fcRed textCenter fs13">↓目玉クーポン↓</p>
                                         <p class="bgRound">${shop.featuredCoupon!?html}</p>
                                     </div>
@@ -66,13 +66,11 @@
         
         <#-- リンクナビ -->
         <nav>
-            <div class="mb20">
-                <div class="textCenter mv10">
+            <div class="mv20">
+                <div class="textCenter mb20">
                     <a href="${urlPath}/search" class="btn btnPrimary jsTouchActive autoMargin">ドコ行く？スロットページへ</a>
                 </div>
-            </div>
-            <div class="mb20">
-                <div class="textCenter mv10">
+                <div class="textCenter mb20">
                     <a href="${urlPath}/mypage" class="btn btnNormal jsTouchActive autoMargin">マイページへ</a>
                 </div>
             </div>

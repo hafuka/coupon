@@ -23,7 +23,7 @@
                     <a href="${urlPath}/login" class="btn btnNormal jsTouchActive autoMargin">ログイン</a>
                 </div>
 
-                <div class="textCenter mb10">
+                <div class="textCenter mb20">
                     <a href="${urlPath}/register" class="btn btnPrimary jsTouchActive autoMargin">かんたん新規会員登録>></a>
                 </div>
             </div>

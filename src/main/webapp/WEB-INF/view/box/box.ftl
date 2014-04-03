@@ -13,7 +13,7 @@
         <#-- ふきだしナビ -->
         <section>
             <h1 class="headline headlineNormal mt15">クーポンBOX</h1>
-            <div class="autoMargin mv10 table">
+            <div class="autoMargin mv15 table">
                 <div class="cell">
                     <img src="${imagePath}/images/common/saboten_normal.png" width="37" height="37" class="vBottom">
                 </div>
@@ -49,7 +49,7 @@
 
         <#-- クーポンリスト -->
         <section>
-            <h1 class="headline headlineNormal">クーポン一覧</h1>
+            <h1 class="headline headlineSecond">クーポン一覧</h1>
             <ul id="js_searchList" class="couponList">
             
                 <#if couponList?has_content>
@@ -83,17 +83,17 @@
                             <a href="${urlPath}/coupon?userCouponId=${coupon.userCoupon.userCouponId!?html}">
                                 <div class="table">
                                     <div class="cell pr10">
-                                        <img src="${coupon.shopBean.imgPath!?html}" width="85" height="85" class="borderGray">
+                                        <img src="${coupon.shopBean.imgPath!?html}" width="85" height="85">
                                     </div>
-                                    <div class="cell vTop pr20">
-                                        <p class="fcBlue underline">${coupon.shopBean.shopName!?html}</p>
-                                        <p class="fs13">業種：${coupon.shopBean.businessName!?html}</p>
-                                        <p class="fs13">最寄駅：${coupon.shopBean.station!?html}</p>
+                                    <div class="cell vMiddle pr20">
+                                        <p class="fcBlue underline fs16">${coupon.shopBean.shopName!?html}</p>
+                                        <p class="fs14">業種：${coupon.shopBean.businessName!?html}</p>
+                                        <p class="fs14">最寄駅：${coupon.shopBean.station!?html}</p>
                                         <p class="bgRound">${coupon.mShopCoupon.couponName!?html}</p>
                                         <#if coupon.userCoupon.status == 1>
-                                            <p class="fcRed fs14">使用期限：<br>${coupon.userCoupon.limitDatetime!?html}</p>
+                                            <p class="fcRed pt5 fs15">使用期限：<br>${coupon.userCoupon.limitDatetime!?html}</p>
                                         <#else>
-                                            <p class="fcOrange fs13">有効期限：<br>${coupon.userCoupon.limitDatetime!?html}</p>
+                                            <p class="fcOrange pt5 fs14">有効期限：<br>${coupon.userCoupon.limitDatetime!?html}</p>
                                         </#if>
                                         <#if coupon.userCoupon.status == 1>
                                             <div class="absolute" style="bottom: 0; right: 2px;">
@@ -123,17 +123,23 @@
 
         <#-- リンクナビ -->
         <nav>
-            <div class="mb20">
-                <div class="textCenter mv10">
+            <div class="mv20">
+                <div class="textCenter mb20">
                     <a href="${urlPath}/search" class="btn btnPrimary jsTouchActive autoMargin">ドコ行く？スロットページへ</a>
                 </div>
-            </div>
-            <div class="mb20">
-                <div class="textCenter mv10">
+                <div class="textCenter mb20">
                     <a href="${urlPath}/mypage" class="btn btnNormal jsTouchActive autoMargin">マイページへ</a>
                 </div>
             </div>
         </nav>
+        
+        <div class="noticeArea mb20 mh10">
+            <h1>ご注意ください</h1>
+            <p class="fs12">
+                ・所持しているクーポン券の有効期限内であっても、対応するお店が閉店していた場合、クーポン券の効力は無効になりますので、ご注意ください。<br>
+                ・上記の場合、クーポン券、ポイントの再発行、コインの払い戻しは行いませんので、ご注意ください。
+            </p>
+        </div>
 
         <#-- フッターメニューのインクルード -->
         <#include "/common/footer.ftl">
@@ -152,14 +158,14 @@
                 <a href="${urlPath}/coupon?userCouponId={{:userCouponId}}">
                     <div class="table">
                         <div class="cell pr10">
-                            <img src="{{:shopImgPath}}" width="85" height="85" class="borderGray">
+                            <img src="{{:shopImgPath}}" width="85" height="85">
                         </div>
-                        <div class="cell vTop pr20">
-                            <p class="fcBlue underline">{{:shopName}}</p>
-                            <p class="fs13">業種：{{:business}}</p>
-                            <p class="fs13">最寄駅：{{:station}}</p>
+                        <div class="cell vMiddle pr20">
+                            <p class="fcBlue underline fs16">{{:shopName}}</p>
+                            <p class="fs14">業種：{{:business}}</p>
+                            <p class="fs14">最寄駅：{{:station}}</p>
                             <p class="bgRound">{{:couponName}}</p>
-                            <p class="{{if status == 1}}fcRed fs14{{else}}fcOrange fs13{{/if}}">{{if status == 1}}使用{{else}}有効{{/if}}期限：<br>{{:limitDate}}</p>
+                            <p class="{{if status == 1}}fcRed pt5 fs15{{else}}fcOrange pt5 fs14{{/if}}">{{if status == 1}}使用{{else}}有効{{/if}}期限：<br>{{:limitDate}}</p>
                             {{if status == 1}}
                                 <div class="absolute" style="bottom: 0; right: 2px;">
                                     <img src="${imagePath}/images/common/useful_flg.png" width="50">

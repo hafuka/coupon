@@ -12,8 +12,8 @@
 
         <#-- ふきだしナビ -->
         <section>
-            <h1 class="headline headlineNormal mt15">ドコ行く？ - 1日1回無料クーポン -</h1>
-            <div class="autoMargin mv10 table">
+            <h1 class="headline headlineNormal mt10">ドコ行く？ - 1日1回無料クーポン -</h1>
+            <div class="autoMargin mv15 table">
                 <div class="cell">
                     <img src="${imagePath}/images/common/saboten_normal.png" width="37" height="37" class="vBottom">
                 </div>
@@ -21,12 +21,12 @@
                 <div class="cell vMiddle relative pl10">
                     <div class="balloon">
                         <p>
-                            <span class="fcOrange">地域と業種を選んでね。<br>今日は何が当たるかな？</span><br>
+                            <span class="fcOrange">地域と業種を選んでね。何が当たるかな？</span>
                         </p>
                     </div>
                 </div>
             </div>
-            <p class="callText fs13 textCenter mb5">
+            <p class="callText fs13 textCenter mb10">
                 <span class="fcRed">ポイント</span>を使ってもスロットが回せるよ♪<br><span class="fcRed">1回あたり${needPoint}pt♪</span>
             </p>
         </section>
@@ -75,13 +75,13 @@
                 <div class="textCenter mv10">
                     <#if rouletteFlg>
                         <#-- 1日1回無料スロット -->
-                        <p class="callText fcRed fs14">1日1回無料でクーポンGETできるよ♪</p>
+                        <p class="callText fcRed fs14 mb10">1日1回無料でクーポンGETできるよ♪</p>
                         <div class="js_activeRouletteBtn">
                             <p class="btn btnNoActive autoMargin">地域と業種を選んでね♪</p>
                         </div>
                     <#elseif execPointFlg>
                         <#-- ポイントでスロット -->
-                        <p class="callText fcRed fs14">${needPoint}ポイントで1回スロットを回せるよ♪</p>
+                        <p class="callText fcRed fs14 mb10">${needPoint}ポイントで1回スロットを回せるよ♪</p>
                         <div class="js_activeRouletteBtn">
                             <p class="btn btnNoActive autoMargin">地域と業種を選んでね♪</p>
                         </div>
@@ -90,6 +90,7 @@
                             所持ポイント：<span class="fcOrange">${userPoint}ポイント</span>
                         </div>
                     <#else>
+                        <p class="callText fcRed fs14 mb10">お店ごとのプレミアムスロットは<br>いつでも回せるよ♪</p>
                         <p class="btn btnNoActive autoMargin">また明日きてね♪</p>
                     </#if>
                 </div>
@@ -98,11 +99,11 @@
 
         <#-- クーポンリスト -->
         <section>
-            <h1 id="js_couponListText" class="underballoonLight fs13 fcRed textCenter m0auto">
+            <h1 id="js_couponListText" class="underballoonLight fs14 fcRed textCenter m0auto">
                 ↓こんなお店のクーポンが当たるよ♪↓
             </h1>
             
-            <ul id="js_searchList" class="couponList borderTopGreen mt10">
+            <ul id="js_searchList" class="couponList borderTopGreen mv15">
                 
                 <#if shopList!?has_content>
                 
@@ -111,12 +112,12 @@
                             <a href="${urlPath}/detail?shopId=${shop.shopId}">
                                 <div class="table">
                                     <div class="cell pr10">
-                                        <img src="${shop.imgPath!?html}" width="85" height="85" class="borderGray">
+                                        <img src="${shop.imgPath!?html}" width="85" height="85">
                                     </div>
-                                    <div class="cell vTop pr20">
-                                        <p class="fcBlue underline">${shop.shopName!?html}</p>
-                                        <p class="fs13">業種：${shop.businessName!?html}</p>
-                                        <p class="fs13">最寄駅：${shop.station!?html}</p>
+                                    <div class="cell vMiddle pr20">
+                                        <p class="fcBlue underline fs16">${shop.shopName!?html}</p>
+                                        <p class="fs14">業種：${shop.businessName!?html}</p>
+                                        <p class="fs14">最寄駅：${shop.station!?html}</p>
                                         <p class="fcRed textCenter fs13">↓目玉クーポン↓</p>
                                         <p class="bgRound">${shop.featuredCoupon!?html}</p>
                                     </div>
@@ -135,13 +136,13 @@
             <div class="textCenter mv10">
                 <#if rouletteFlg>
                     <#-- 1日1回無料スロット -->
-                    <p class="callText fcRed fs14">1日1回無料でクーポンGETできるよ♪</p>
+                    <p class="callText fcRed fs14 mb10">1日1回無料でクーポンGETできるよ♪</p>
                     <div class="js_activeRouletteBtn">
                         <p class="btn btnNoActive autoMargin">地域と業種を選んでね♪</p>
                     </div>
                 <#elseif execPointFlg>
                     <#-- ポイントでスロット -->
-                    <p class="callText fcRed fs14">${needPoint}ポイントで1回スロットを回せるよ♪</p>
+                    <p class="callText fcRed fs14 mb10">${needPoint}ポイントで1回スロットを回せるよ♪</p>
                     <div class="js_activeRouletteBtn">
                         <p class="btn btnNoActive autoMargin">地域と業種を選んでね♪</p>
                     </div>
@@ -150,6 +151,7 @@
                         所持ポイント：<span class="fcOrange">${userPoint}ポイント</span>
                     </div>
                 <#else>
+                    <p class="callText fcRed fs14 mb10">お店ごとのプレミアムスロットは<br>いつでも回せるよ♪</p>
                     <p class="btn btnNoActive autoMargin">また明日きてね♪</p>
                 </#if>
             </div>
@@ -157,13 +159,11 @@
 
         <#-- リンクナビ -->
         <nav>
-            <div class="mb20">
-                <div class="textCenter mv10">
+            <div class="mv20">
+                <div class="textCenter mb20">
                     <a href="${urlPath}/shopSearch" class="btn btnPrimary jsTouchActive autoMargin">お店検索ページへ</a>
                 </div>
-            </div>
-            <div class="mb20">
-                <div class="textCenter mv10">
+                <div class="textCenter mb20">
                     <a href="${urlPath}/mypage" class="btn btnNormal jsTouchActive autoMargin">マイページへ</a>
                 </div>
             </div>
@@ -187,12 +187,12 @@
                 <a href="${urlPath}/detail?shopId={{:shopId}}">
                     <div class="table">
                         <div class="cell pr10">
-                            <img src="{{:imgPath}}" width="85" height="85" class="borderGray">
+                            <img src="{{:imgPath}}" width="85" height="85">
                         </div>
-                        <div class="cell vTop pr20">
-                            <p class="fcBlue underline">{{:shopName}}</p>
-                            <p class="fs13">業種：{{:businessName}}</p>
-                            <p class="fs13">最寄駅：{{:station}}</p>
+                        <div class="cell vMiddle pr20">
+                            <p class="fcBlue underline fs16">{{:shopName}}</p>
+                            <p class="fs14">業種：{{:businessName}}</p>
+                            <p class="fs14">最寄駅：{{:station}}</p>
                             <p class="fcRed textCenter fs13">↓目玉クーポン↓</p>
                             <p class="bgRound">{{:featuredCoupon}}</p>
                         </div>

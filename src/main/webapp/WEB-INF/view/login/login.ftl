@@ -6,10 +6,6 @@
     </head>
 
     <body class="outline formContents">
-        <!--
-        <script src="http://connect.facebook.net/en_US/all.js"></script>
-        <script>FB.init({ appId:'343136175832911', cookie:true, status:true, xfbml:true });</script>
-        -->
         <#if errorMsg!?has_content>
             <div>
                 ${errorMsg!?html}
@@ -20,7 +16,7 @@
             <div class="formArea autoMargin m10">
                 <h1>Facebookでかんたんログイン</h1>
                 <div class="mt5 autoMargin">
-                    <p><a href="http://133.242.205.64/coupon_login/redirect.php"><img src="${imagePath}/images/facebook/fb_login.png"></a></p>
+                    <p><a href="${urlPath}/facebookLogin"><img src="${imagePath}/images/facebook/fb_login.png"></a></p>
                 </div>
             </div>
         </section>

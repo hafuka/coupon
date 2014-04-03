@@ -243,7 +243,9 @@
                 </div>
                 <h3>問い合わせ先</h3>
                 <div>
-                    メールにてお問い合わせください。
+                    メールにてお問い合わせください。<br>
+                    HUBFACTORY（屋号） 太田/羽深宛<br>
+                    メールアドレス：coupon-island@hubfactory.jp
                 </div>
                 <h3>商品販売価格</h3>
                 <div>

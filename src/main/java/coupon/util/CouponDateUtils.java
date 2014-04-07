@@ -8,10 +8,10 @@ import java.util.GregorianCalendar;
 import org.apache.commons.lang.time.DateUtils;
 
 public class CouponDateUtils {
-	
-	
+
+
 	public static final String HIFUN_YYYYMMDDHHMMSS = "yyyy-MM-dd HH:mm:ss";
-	
+
 	/**
 	 * 現在日時取得
 	 * @return
@@ -19,7 +19,7 @@ public class CouponDateUtils {
 	public static Timestamp getCurrentDate() {
 		return new Timestamp(System.currentTimeMillis());
 	}
-	
+
 	/**
      * 今日かどうかを判定
      *
@@ -29,7 +29,7 @@ public class CouponDateUtils {
     public static boolean isToday(Timestamp date) {
         return DateUtils.isSameDay(getCurrentDate(), date);
     }
-    
+
     /**
      * 指定日の指定時、分をもつ日時を返す
      *
@@ -47,7 +47,7 @@ public class CouponDateUtils {
     	c.set(Calendar.MILLISECOND, 0);
     	return new Timestamp(c.getTimeInMillis());
     }
-    
+
     /**
      * 指定された日数分の過去日付を取得する
      *
@@ -58,7 +58,7 @@ public class CouponDateUtils {
         Date date = DateUtils.addDays(getCurrentDate(), -day);
         return new Timestamp(DateUtils.truncate(date, Calendar.DATE).getTime());
     }
-    
+
     /**
      * 日付差を取得
      * @param source 元の日時
@@ -66,19 +66,19 @@ public class CouponDateUtils {
      * @return 日付の差
      */
     public static int diffDays(Timestamp source, Timestamp target) {
-    	
+
     	Date from = convertZeroHourDate(CouponDateUtils.toDate(source));
     	Date to = convertZeroHourDate(CouponDateUtils.toDate(target));
-    	
+
     	// 日付をlong値に変換します。
         long dateTimeTo = to.getTime();
         long dateTimeFrom = from.getTime();
-    	
+
         // 差分の日数を算出します。
         long dayDiff = ( dateTimeTo - dateTimeFrom  ) / (1000 * 60 * 60 * 24 );
     	return (int) (dayDiff);
     }
-    
+
     /**
      * 与えられた日時の 00:00:00.000 Dateを返す
      * @param source
@@ -92,7 +92,7 @@ public class CouponDateUtils {
     	cal.set(Calendar.MILLISECOND, 0);
     	return cal.getTime();
 	}
-    
+
     /**
 	 * 日付の加減算を行います。
 	 * @param target 対象日付
@@ -106,7 +106,7 @@ public class CouponDateUtils {
 		cal.add(addKind, addNum);
 		return new Timestamp(new Date(cal.getTimeInMillis()).getTime());
 	}
-	
+
 	/**
 	 * TimestampからDateに変換する
 	 * @param ts
@@ -118,7 +118,7 @@ public class CouponDateUtils {
 		}
 		return new Date(ts.getTime());
 	}
-	
+
 	/**
      * targetDateまでの残り日にちを返す
      *
@@ -140,7 +140,7 @@ public class CouponDateUtils {
         }
         return null;
     }
-	
+
     /**
      * targetDateまでの残り時間を返す(24時間を超える部分は除く)
      *
@@ -206,7 +206,7 @@ public class CouponDateUtils {
         }
         return null;
     }
-    
+
     /**
      * 指定された日付より現在が過去なのか判定
      * @param targetDate 対象日時
@@ -217,7 +217,7 @@ public class CouponDateUtils {
         long now = getCurrentDate().getTime() / 1000L;
         return target >= now;
     }
-    
+
     /**
      * 対象日時が基準日時以降か判定する。
      * @param baseDate 基準時間
@@ -228,5 +228,24 @@ public class CouponDateUtils {
         long target = targetDate != null ? targetDate.getTime() / 1000L : Long.MIN_VALUE;
         long base = baseDate.getTime() / 1000L;
         return target >= base;
+    }
+
+    /**
+     * 今日が、指定された開始日時、終了日時の期間内かどうかを判定する
+     *
+     * <pre>
+     * 秒単位まで確認し、境界を含む
+     * 開始日時が nullの場合、最小値。 終了日時が nullの場合、最大値として判断する
+     * </pre>
+     *
+     * @param startDate 開始日時
+     * @param endDate 終了日時
+     * @return 判定結果
+     */
+    public static boolean isWithin(Date startDate, Date endDate) {
+        long start = startDate != null ? startDate.getTime() / 1000L : Long.MIN_VALUE;
+        long end = endDate != null ? endDate.getTime() / 1000L : Long.MAX_VALUE;
+        long now = getCurrentDate().getTime() / 1000L;
+        return start <= now && now <= end;
     }
 }

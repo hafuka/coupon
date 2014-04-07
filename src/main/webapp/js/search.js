@@ -24,6 +24,10 @@
             areaDetailId = $('select[name="areaDetail"]').val();
             businessId = $('select[name="business"]').val();
             
+            var url = urlPath + "/search/search";
+            var formData = "areaId=" + areaId + "&areaDetailId=" + areaDetailId + "&businessId=" + businessId;
+            ajaxJsonGlobal(url, formData, searchSuccess);
+            /*
             if(areaId == 0){
                 alert('地域を選択してね♪');
             }else if(areaDetailId == 0){
@@ -35,6 +39,7 @@
                 var formData = "areaId=" + areaId + "&areaDetailId=" + areaDetailId + "&businessId=" + businessId;
                 ajaxJsonGlobal(url, formData, searchSuccess);
             }
+            */
         }
         
         // ajax成功
@@ -47,9 +52,11 @@
                 $activeRouletteBtn.html(
                     '<a href="' + urlPath + '/rouletteAnimation?token=' + token + '&areaId=' + areaId + '&areaDetailId=' + areaDetailId + '&businessId=' + businessId + '" class="btn btnSpecial jsTouchActive autoMargin">ドコ行く？スロットを回す♪</a>'
                 );
+                /*
                 $couponListText.html(
                     '下のリストのどれか１つが当たるよ♪<br><span class="fs12 fcBlack">※クーポンは1店舗あたり3種類あるよ</span>'
                 );
+                */
             } else {
                 $searchList.html('<li class="noList">対象のお店がありませんm(_ _)m</li>');
                 $activeRouletteBtn.html(

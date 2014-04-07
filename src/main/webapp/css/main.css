@@ -279,7 +279,8 @@ input[type="text"], input[type="email"], input[type="password"] {
 }
 
 .outline.mypageContents {
-    background: #ffff9b;
+    //background: #ffff9b;
+    background: #fff;
     padding: 0 0 40px 0;
 }
 

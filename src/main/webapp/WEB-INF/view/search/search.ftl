@@ -75,15 +75,15 @@
                 <div class="textCenter mv10">
                     <#if rouletteFlg>
                         <#-- 1日1回無料スロット -->
-                        <p class="callText fcRed fs14 mb10">1日1回無料でクーポンGETできるよ♪</p>
+                        <#-- <p class="callText fcRed fs14 mb10">1日1回無料でクーポンGETできるよ♪</p> -->
                         <div class="js_activeRouletteBtn">
-                            <p class="btn btnNoActive autoMargin">地域と業種を選んでね♪</p>
+                            <p class="btn btnNoActive autoMargin">地域や業種を選んでね♪</p>
                         </div>
                     <#elseif execPointFlg>
                         <#-- ポイントでスロット -->
                         <p class="callText fcRed fs14 mb10">${needPoint}ポイントで1回スロットを回せるよ♪</p>
                         <div class="js_activeRouletteBtn">
-                            <p class="btn btnNoActive autoMargin">地域と業種を選んでね♪</p>
+                            <p class="btn btnNoActive autoMargin">地域や業種を選んでね♪</p>
                         </div>
                         <div class="coinArea fs13 textCenter mv10 m0auto">
                             1回：<span class="fcOrange">${needPoint}ポイント</span><br>
@@ -99,9 +99,11 @@
 
         <#-- クーポンリスト -->
         <section>
+            <#--
             <h1 id="js_couponListText" class="underballoonLight fs14 fcRed textCenter m0auto">
                 ↓こんなお店のクーポンが当たるよ♪↓
             </h1>
+            -->
             
             <ul id="js_searchList" class="couponList borderTopGreen mv15">
                 
@@ -136,15 +138,15 @@
             <div class="textCenter mv10">
                 <#if rouletteFlg>
                     <#-- 1日1回無料スロット -->
-                    <p class="callText fcRed fs14 mb10">1日1回無料でクーポンGETできるよ♪</p>
+                    <#-- <p class="callText fcRed fs14 mb10">1日1回無料でクーポンGETできるよ♪</p> -->
                     <div class="js_activeRouletteBtn">
-                        <p class="btn btnNoActive autoMargin">地域と業種を選んでね♪</p>
+                        <p class="btn btnNoActive autoMargin">地域や業種を選んでね♪</p>
                     </div>
                 <#elseif execPointFlg>
                     <#-- ポイントでスロット -->
                     <p class="callText fcRed fs14 mb10">${needPoint}ポイントで1回スロットを回せるよ♪</p>
                     <div class="js_activeRouletteBtn">
-                        <p class="btn btnNoActive autoMargin">地域と業種を選んでね♪</p>
+                        <p class="btn btnNoActive autoMargin">地域や業種を選んでね♪</p>
                     </div>
                     <div class="coinArea fs13 textCenter mv10 m0auto">
                         1回：<span class="fcOrange">${needPoint}ポイント</span><br>

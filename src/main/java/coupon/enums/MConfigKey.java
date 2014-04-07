@@ -12,6 +12,10 @@ public enum MConfigKey {
 	ONE_TIME_POINT_PREMIUM("ONE_TIME_POINT_PREMIUM"),
 	/** クーポン使用時の有効時間 */
 	USE_COUPON_LIMIT_TIME("USE_COUPON_LIMIT_TIME"),
+	/** クーポン有効期限 */
+	COUPON_LIMIT_DAYS("COUPON_LIMIT_DAYS"),
+	/** webpayメンテナンス */
+	WEB_PAY_MAINTENANCE("WEB_PAY_MAINTENANCE"),
 	;
 
 	/** DB上の区分 */

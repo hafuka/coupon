@@ -4,6 +4,8 @@ insert into M_CONFIG values('ONE_TIME_COIN', '100', null,null);
 insert into M_CONFIG values('ONE_TIME_POINT_NORMAL', '20', null,null);
 insert into M_CONFIG values('ONE_TIME_POINT_PREMIUM', '1000', null,null);
 insert into M_CONFIG values('USE_COUPON_LIMIT_TIME', '24', null,null);
+insert into M_CONFIG values('COUPON_LIMIT_DAYS', '7', null,null);
+insert into M_CONFIG values('WEB_PAY_MAINTENANCE', '1', '2014-04-01 00:00:00','2014-04-30 00:00:00');
 
 #insert into M_AREA values(1,'北海道');
 #insert into M_AREA values(2,'青森県');
@@ -139,10 +141,10 @@ insert into M_SHOP_COUPON values(3,2,'30%OFF', '30%OFF', 30, 3, 2);
 insert into M_SHOP_COUPON values(3,3,'50%OFF', '50%OFF', 10, 3, 3);
 
 
-insert into M_COIN values(1,110,105,null,null);
-insert into M_COIN values(2,330,315,null,null);
-insert into M_COIN values(3,550,525,null,null);
-insert into M_COIN values(4,1200,1050,null,null);
+insert into M_COIN values(1,110,108,null,null);
+insert into M_COIN values(2,350,324,null,null);
+insert into M_COIN values(3,580,540,null,null);
+insert into M_COIN values(4,1200,1080,null,null);
 
 
 

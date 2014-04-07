@@ -11,30 +11,32 @@
         <#include "/common/header.ftl">
 
         <section>
-            <h1 class="textCenter relative">
-                <img src="${imagePath}/images/mypage/mypage_title.png" width="100%" height="62" class="vTop">
-                <p class="islandName">
-                    ${name!?html}アイランド
-                </p>
-            </h1>
-
-            <div class="relative mt10">
-                <div class="autoMargin w320">
-                    <div class="underballoon fs14 mh10">
-                        <#if (count > 0)>
-                            <p class="textCenter">${count!?html}回プレミアムスロットできるよ♪</p>
-                        </#if>
-                        <p class="pointArea">
-                            所持コイン：${coin!html}コイン<br>
-                            現在のポイント：${point!?html}pt
-                        </p>
+            <div class="mypageBg">
+                <h1 class="textCenter relative">
+                    <img src="${imagePath}/images/mypage/mypage_title.png" width="100%" height="62" class="vTop">
+                    <p class="islandName">
+                        ${name!?html}アイランド
+                    </p>
+                </h1>
+    
+                <div class="relative mt10">
+                    <div class="autoMargin w320">
+                        <div class="underballoon fs14 mh10">
+                            <#if (count > 0)>
+                                <p class="textCenter">${count!?html}回プレミアムスロットできるよ♪</p>
+                            </#if>
+                            <p class="pointArea">
+                                所持コイン：${coin!html}コイン<br>
+                                現在のポイント：${point!?html}pt
+                            </p>
+                        </div>
                     </div>
-                </div>
-                <div class="mtMinus30">
-                    <img src="${imagePath}/images/mypage/mypage_field.png" width="100%" class="vTop">
-                </div>
-                <div class="gullImage">
-                    <img src="${imagePath}/images/mypage/mypage_kamome.png" width="65" height="25">
+                    <div class="mtMinus30">
+                        <img src="${imagePath}/images/mypage/mypage_field.png" width="100%" class="vTop">
+                    </div>
+                    <div class="gullImage">
+                        <img src="${imagePath}/images/mypage/mypage_kamome.png" width="65" height="25">
+                    </div>
                 </div>
             </div>
 

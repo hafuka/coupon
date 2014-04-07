@@ -878,6 +878,11 @@ footer .menuList {
     padding: 5px;
 }
 
+.mypageBg {
+    background: url('/coupon/images/mypage/bg.jpg') top left no-repeat;
+    background-size: 100% 80%;
+}
+
 /* detail */
 .couponInfoArea_1 {
     background: url('/coupon/images/box/coupon_bg_n.png') top left no-repeat #fff;

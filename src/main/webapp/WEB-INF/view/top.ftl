@@ -20,7 +20,9 @@
         <nav>
             <div>
             	<div class="textCenter mb10">
-                    <a href="${urlPath}/facebookLogin"><img src="${imagePath}/images/facebook/fb_login.png"></a>
+                    <a href="${urlPath}/facebookLogin" class="btn btnBlue jsTouchActive autoMargin">
+                        <img src="${imagePath}/images/facebook/fb_logo.png" width="30" height="30">
+                    </a>
 	            </div>
                 <div class="textCenter mb10">
                     <a href="${urlPath}/login" class="btn btnNormal jsTouchActive autoMargin">ログイン</a>

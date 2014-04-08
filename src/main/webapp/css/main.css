@@ -363,6 +363,13 @@ input[type="text"], input[type="email"], input[type="password"] {
     box-shadow: 1px 1px 1px #fde1ed inset, -1px -1px 1px #fde1ed inset, 0 5px 0 #f864a3, 0 7px 3px #e5c0d0;
 }
 
+.btnBlue {
+    border: 2px solid #3b5998;
+    background: #466cbd;
+    -webkit-box-shadow: 1px 1px 1px #a5c0fa inset, -1px -1px 1px #a5c0fa inset, 0 5px 0 #3b5998, 0 7px 3px #58698d;
+    box-shadow: 1px 1px 1px #a5c0fa inset, -1px -1px 1px #a5c0fa inset, 0 5px 0 #3b5998, 0 7px 3px #58698d;
+}
+
 .btnPrimary.touchActive {
     top: 3px;
     -webkit-box-shadow: 1px 1px 1px #eee inset, -1px -1px 1px #eee inset, 0 2px 0 #304e12, 0 5px 3px #ced8c4;
@@ -379,6 +386,12 @@ input[type="text"], input[type="email"], input[type="password"] {
     top: 3px;
     -webkit-box-shadow: 1px 1px 1px #eee inset, -1px -1px 1px #eee inset, 0 2px 0 #da3d71, 0 5px 3px #d5b3c0;
     box-shadow: 1px 1px 1px #eee inset, -1px -1px 1px #eee inset, 0 2px 0 #da3d71, 0 5px 3px #d5b3c0;
+}
+
+.btnBlue.touchActive {
+    top: 3px;
+    -webkit-box-shadow: 1px 1px 1px #eee inset, -1px -1px 1px #eee inset, 0 2px 0 #12234e, 0 5px 3px #c4c4d8;
+    box-shadow: 1px 1px 1px #eee inset, -1px -1px 1px #eee inset, 0 2px 0 #12234e, 0 5px 3px #c4c4d8;
 }
 
 @-webkit-keyframes lightActive {

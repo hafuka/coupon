@@ -14,15 +14,6 @@
 
         <section>
             <div class="formArea autoMargin m10">
-                <h1>Facebookでかんたんログイン</h1>
-                <div class="mt5 autoMargin">
-                    <p><a href="${urlPath}/facebookLogin"><img src="${imagePath}/images/facebook/fb_login.png"></a></p>
-                </div>
-            </div>
-        </section>
-
-        <section>
-            <div class="formArea autoMargin m10">
                 <h1>メールアドレスでログイン</h1>
                 <form method="post" action="${urlPath!?html}/login/login" name="frm">
                     <div class="mt5">

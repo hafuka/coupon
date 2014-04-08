@@ -7,7 +7,7 @@
 
     <body class="outline secondContents">
         <input type="hidden" id="hdn_shopId" value="${shop.shopId}">
-        
+
         <#-- ヘッダーメニューのインクルード -->
         <#include "/common/header.ftl">
 
@@ -19,7 +19,11 @@
                     <div class="bgWhite relative">
                         <div class="table m0auto">
                             <div class="cell p10">
-                                <img src="${shop.imgPath!?html}" width="150" height="150" class="vBottom">
+                                <#if shop.imgPath!?has_content>
+                            		<img src="${shop.imgPath!?html}" width="150" height="150" class="vBottom">
+                            	<#else>
+                            		<img src="${imagePath}/images/common/no_image.png" width="150" height="150" class="vBottom">
+                            	</#if>
                             </div>
                             <div class="cell vMiddle">
                                 <div class="pv10 pr10">
@@ -43,7 +47,7 @@
                         </div>
                         <ul class="mb10">
                             <#list couponList as coupon>
-                            
+
                                 <#-- レアリティによって画像と背景を変更 -->
                                 <#switch coupon.rarity>
                                     <#case 1>
@@ -65,8 +69,8 @@
                                         <#assign ftl_rarityBg = ''>
                                         <#assign ftl_rarityImage = ''>
                                         <#break>
-                                </#switch> 
-                            
+                                </#switch>
+
                                 <li class="couponDetailList ${ftl_rarityBg}">
                                     <div class="table">
                                         <div class="cell pl5 pr10">
@@ -80,11 +84,11 @@
                             </#list>
                         </ul>
                     </div>
-                    
+
                     <p class="callText borderGray fs13 textCenter mb10">
                         <span class="fcRed">ポイント</span>でもプレミアムスロットが回せるよ♪<br><span class="fcRed">1回：${needPoint}pt</span>、<span class="fcRed">現在：${userPoint}pt♪</span>
                     </p>
-                    
+
                     <#-- プレミアムボタン -->
                     <p class="underballoonLight fs12 fcOrange textCenter m0auto">
                         このお店のクーポンのどれか１つがGETできるよ♪
@@ -142,7 +146,7 @@
                             所持コイン：<span class="fcOrange">${coin}コイン</span>
                         </#if>
                     </div>
-                    
+
                     <#-- 確率表記 -->
                     <div class="probability m10">
                         <div class="probabilityTitle fcWhite textCenter fs14 p5">
@@ -163,7 +167,7 @@
                             </#list>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </section>
@@ -191,10 +195,10 @@
             var urlPath = '${urlPath}';
             var imagePath = '${imagePath}';
             var token = '${token!?html}';
-            
+
             //ftlで取得した変数を格納
             var shopDetail = window.shopDetail || {};
-            
+
             shopDetail = {
                 shopId : '${shop.shopId}'
             }

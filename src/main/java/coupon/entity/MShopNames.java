@@ -1,18 +1,19 @@
 package coupon.entity;
 
 import javax.annotation.Generated;
+
 import org.seasar.extension.jdbc.name.PropertyName;
 
 /**
  * {@link MShop}のプロパティ名の集合です。
- * 
+ *
  */
 @Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/03/04 10:13:12")
 public class MShopNames {
 
     /**
      * shopIdのプロパティ名を返します。
-     * 
+     *
      * @return shopIdのプロパティ名
      */
     public static PropertyName<Integer> shopId() {
@@ -21,7 +22,7 @@ public class MShopNames {
 
     /**
      * businessIdのプロパティ名を返します。
-     * 
+     *
      * @return businessIdのプロパティ名
      */
     public static PropertyName<Integer> businessId() {
@@ -30,7 +31,7 @@ public class MShopNames {
 
     /**
      * shopNameのプロパティ名を返します。
-     * 
+     *
      * @return shopNameのプロパティ名
      */
     public static PropertyName<String> shopName() {
@@ -39,7 +40,7 @@ public class MShopNames {
 
     /**
      * descriptionのプロパティ名を返します。
-     * 
+     *
      * @return descriptionのプロパティ名
      */
     public static PropertyName<String> description() {
@@ -48,7 +49,7 @@ public class MShopNames {
 
     /**
      * urlのプロパティ名を返します。
-     * 
+     *
      * @return urlのプロパティ名
      */
     public static PropertyName<String> url() {
@@ -57,7 +58,7 @@ public class MShopNames {
 
     /**
      * tellのプロパティ名を返します。
-     * 
+     *
      * @return tellのプロパティ名
      */
     public static PropertyName<String> tell() {
@@ -66,7 +67,7 @@ public class MShopNames {
 
     /**
      * addressのプロパティ名を返します。
-     * 
+     *
      * @return addressのプロパティ名
      */
     public static PropertyName<String> address() {
@@ -75,7 +76,7 @@ public class MShopNames {
 
     /**
      * mapUrlのプロパティ名を返します。
-     * 
+     *
      * @return mapUrlのプロパティ名
      */
     public static PropertyName<String> mapUrl() {
@@ -84,7 +85,7 @@ public class MShopNames {
 
     /**
      * areaIdのプロパティ名を返します。
-     * 
+     *
      * @return areaIdのプロパティ名
      */
     public static PropertyName<Integer> areaId() {
@@ -93,7 +94,7 @@ public class MShopNames {
 
     /**
      * areaDetailIdのプロパティ名を返します。
-     * 
+     *
      * @return areaDetailIdのプロパティ名
      */
     public static PropertyName<Integer> areaDetailId() {
@@ -102,7 +103,7 @@ public class MShopNames {
 
     /**
      * stationのプロパティ名を返します。
-     * 
+     *
      * @return stationのプロパティ名
      */
     public static PropertyName<String> station() {
@@ -111,11 +112,20 @@ public class MShopNames {
 
     /**
      * premiumFlgのプロパティ名を返します。
-     * 
+     *
      * @return premiumFlgのプロパティ名
      */
     public static PropertyName<Integer> premiumFlg() {
         return new PropertyName<Integer>("premiumFlg");
+    }
+
+    /**
+     * imgPathのプロパティ名を返します。
+     *
+     * @return imgPathのプロパティ名
+     */
+    public static PropertyName<String> imgPath() {
+        return new PropertyName<String>("imgPath");
     }
 
     /**
@@ -131,7 +141,7 @@ public class MShopNames {
 
         /**
          * インスタンスを構築します。
-         * 
+         *
          * @param name
          *            名前
          */
@@ -141,7 +151,7 @@ public class MShopNames {
 
         /**
          * インスタンスを構築します。
-         * 
+         *
          * @param parent
          *            親
          * @param name
@@ -257,6 +267,15 @@ public class MShopNames {
          */
         public PropertyName<Integer> premiumFlg() {
             return new PropertyName<Integer>(this, "premiumFlg");
+        }
+
+        /**
+         * imgPathのプロパティ名を返します。
+         *
+         * @return imgPathのプロパティ名
+         */
+        public PropertyName<String> imgPath() {
+            return new PropertyName<String>(this, "imgPath");
         }
     }
 }

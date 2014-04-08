@@ -104,17 +104,21 @@
                 ↓こんなお店のクーポンが当たるよ♪↓
             </h1>
             -->
-            
+
             <ul id="js_searchList" class="couponList borderTopGreen mv15">
-                
+
                 <#if shopList!?has_content>
-                
+
                     <#list shopList as shop>
                         <li>
                             <a href="${urlPath}/detail?shopId=${shop.shopId}">
                                 <div class="table">
                                     <div class="cell pr10">
-                                        <img src="${shop.imgPath!?html}" width="85" height="85">
+                                        <#if shop.imgPath!?has_content>
+		                            		<img src="${shop.imgPath!?html}"width="85" height="85">
+		                            	<#else>
+		                            		<img src="${imagePath}/images/common/no_image.png" width="85" height="85">
+		                            	</#if>
                                     </div>
                                     <div class="cell vMiddle pr20">
                                         <p class="fcBlue underline fs16">${shop.shopName!?html}</p>
@@ -127,13 +131,13 @@
                             </a>
                         </li>
                     </#list>
-                    
+
                 </#if>
-                
+
             </ul>
-            
+
         </section>
-        
+
         <div class="mb20">
             <div class="textCenter mv10">
                 <#if rouletteFlg>
@@ -202,12 +206,12 @@
                 </a>
             </li>
         </script>
-        
+
         <#-- JsRenderテンプレート：エリア検索リスト用 -->
         <script id="searchAreaDetailList_template" type="text/x-jsrender">
             <option value="{{:areaValue}}">{{:areaName}}</option>
         </script>
-        
+
     </body>
 
 </html>

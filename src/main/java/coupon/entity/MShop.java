@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 /**
  * MShopエンティティクラス
- * 
+ *
  */
 @Entity
 @Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.EntityModelFactoryImpl"}, date = "2014/01/10 15:41:38")
@@ -41,7 +41,7 @@ public class MShop implements Serializable {
     /** tellプロパティ */
     @Column(length = 16, nullable = true, unique = false)
     public String tell;
-    
+
     /** addressプロパティ */
     @Column(length = 255, nullable = true, unique = false)
     public String address;
@@ -65,5 +65,9 @@ public class MShop implements Serializable {
     /** premiumFlgプロパティ */
     @Column(precision = 10, nullable = false, unique = false)
     public Integer premiumFlg;
+
+    /** imgPathプロパティ */
+    @Column(length = 255, nullable = true, unique = false)
+    public String imgPath;
 
 }

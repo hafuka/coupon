@@ -89,17 +89,21 @@
                 下のリストのどれか１つが当たるよ♪<br>
                 <span class="fs12 fcBlack">※クーポンは1店舗あたり3種類あるよ</span>
             </h1>
-            
+
             <ul id="js_searchList" class="couponList borderTopGreen mt10">
-                
+
                 <#if shopList!?has_content>
-                
+
                     <#list shopList as shop>
                         <li>
                             <a href="${urlPath}/detail?shopId=${shop.shopId}">
                                 <div class="table">
                                     <div class="cell pr10">
-                                        <img src="${imagePath}/images/${shop.imgPath!?html}" width="85" height="85" class="borderGray">
+                                        <#if shop.imgPath!?has_content>
+		                            		<img src="${shop.imgPath!?html}" width="85" height="85" class="borderGray">
+		                            	<#else>
+		                            		<img src="${imagePath}/images/common/no_image.png" width="85" height="85" class="borderGray">
+		                            	</#if>
                                     </div>
                                     <div class="cell vTop pr20">
                                         <p class="fcBlue underline">${shop.shopName!?html}</p>
@@ -112,13 +116,13 @@
                             </a>
                         </li>
                     </#list>
-                    
+
                 </#if>
-                
+
             </ul>
-            
+
         </section>
-        
+
         <div class="mb20">
             <div class="textCenter mv10">
                 <p class="callText fcRed fs14">1日1回無料でクーポンGETできるよ♪</p>
@@ -172,7 +176,7 @@
                 </a>
             </li>
         </script>
-        
+
     </body>
 
 </html>

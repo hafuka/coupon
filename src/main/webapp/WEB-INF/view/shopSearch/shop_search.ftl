@@ -45,15 +45,19 @@
         <#-- クーポンリスト -->
         <section>
             <ul id="js_searchList" class="couponList borderTopGreen mt10">
-                
+
                 <#if shopList!?has_content>
-                
+
                     <#list shopList as shop>
                         <li>
                             <a href="${urlPath}/detail?shopId=${shop.shopId}">
                                 <div class="table">
                                     <div class="cell pr10">
-                                        <img src="${shop.imgPath!?html}" width="85" height="85">
+                                    	<#if shop.imgPath!?has_content>
+                                    		<img src="${shop.imgPath!?html}" width="85" height="85">
+                                    	<#else>
+                                    		<img src="${imagePath}/images/common/no_image.png" width="85" height="85">
+                                    	</#if>
                                     </div>
                                     <div class="cell vMiddle pr20">
                                         <p class="fcBlue underline fs16">${shop.shopName!?html}</p>
@@ -66,13 +70,13 @@
                             </a>
                         </li>
                     </#list>
-                    
+
                 </#if>
-                
+
             </ul>
-            
+
         </section>
-        
+
         <#-- リンクナビ -->
         <nav>
             <div class="mv20">
@@ -97,7 +101,7 @@
             var imagePath = '${imagePath}';
             var token = '${token!?html}';
         </script>
-        
+
         <#-- JsRenderテンプレート：検索リスト用 -->
         <script id="searchlist_template" type="text/x-jsrender">
             <li>

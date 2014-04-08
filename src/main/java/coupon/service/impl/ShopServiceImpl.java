@@ -23,7 +23,6 @@ import coupon.entity.MShopCoupon;
 import coupon.entity.MShopNames;
 import coupon.enums.RarityType;
 import coupon.service.ShopService;
-import coupon.util.Images;
 
 public class ShopServiceImpl implements ShopService {
 
@@ -69,7 +68,7 @@ public class ShopServiceImpl implements ShopService {
 		bean.areaName = area.areaName;
 		bean.areaDetailName = areaDetail.detailName;
 		bean.businessName = business.name;
-		bean.imgPath = Images.getImageFilePath(mShop.shopId);
+//		bean.imgPath = Images.getImageFilePath(mShop.shopId);
 
 		List<MShopCoupon> couponList = this.getMShopCoupons(mShop.shopId);
 		for (MShopCoupon mShopCoupon : couponList) {
@@ -108,7 +107,8 @@ public class ShopServiceImpl implements ShopService {
 			bean.areaName = area.areaName;
 			bean.areaDetailName = areaDetail.detailName;
 			bean.businessName = business.name;
-			bean.imgPath = Images.getImageFilePath(mShop.shopId);
+
+//			bean.imgPath = Images.getImageFilePath(mShop.shopId);
 
 			List<MShopCoupon> couponList = this.getMShopCoupons(mShop.shopId);
 			for (MShopCoupon mShopCoupon : couponList) {

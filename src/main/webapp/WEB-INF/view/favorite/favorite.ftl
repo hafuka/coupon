@@ -29,15 +29,19 @@
         <#-- クーポンリスト -->
         <section>
             <ul class="couponList borderTopGreen mt10">
-                
+
                 <#if shopList!?has_content>
-                
+
                     <#list shopList as shop>
                         <li>
                             <a href="${urlPath}/detail?shopId=${shop.shopId}">
                                 <div class="table">
                                     <div class="cell pr10">
-                                        <img src="${shop.imgPath!?html}" width="85" height="85">
+                                        <#if shop.imgPath!?has_content>
+		                            		<img src="${shop.imgPath!?html}" width="85" height="85">
+		                            	<#else>
+		                            		<img src="${imagePath}/images/common/no_image.png" width="85" height="85">
+		                            	</#if>
                                     </div>
                                     <div class="cell vMiddle pr20">
                                         <p class="fcBlue underline fs16">${shop.shopName!?html}</p>
@@ -50,20 +54,20 @@
                             </a>
                         </li>
                     </#list>
-                    
+
                 <#else>
-                    
+
                     <li class="noList">
                         お気に入りのお店が登録されてないよ♪<br>
                         お気に入りのお店を追加するとすぐにお店のページを見ることができるよ♪
                     </li>
-                    
+
                 </#if>
-                
+
             </ul>
-            
+
         </section>
-        
+
         <#-- リンクナビ -->
         <nav>
             <div class="mv20">
@@ -81,7 +85,7 @@
 
         <#-- 共通JavaScriptのインクルード -->
         <#include "/common/htmlFoot.ftl">
-        
+
     </body>
 
 </html>

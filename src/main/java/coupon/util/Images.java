@@ -11,19 +11,19 @@ import org.seasar.framework.util.ResourceUtil;
 
 /**
  * 画像ファイル操作ユーディリティ
- * 
+ *
  * @author hafuka
- * 
+ *
  */
 public final class Images {
-	
+
 	// サーバーの画像パス
 	public static final String IMAGE_URL = ResourceUtil.getProperties("coupon.properties").getProperty("imageUrl");
 	// 画像作成用のパス
 	public static final String IMAGE_FILE_PATH = "/var/www/images/coupon/";
 
 	private Images(){}
-	
+
 	/**
 	 * 画像出力
 	 * @param filePath
@@ -39,9 +39,13 @@ public final class Images {
 		}
 		ImageIO.write(image, "jpg", file);
 	}
-	
+
 	public static String getImageFilePath(Integer shopId) {
 		return IMAGE_URL + shopId + ".jpg";
+	}
+
+	public static String getNoImagePath() {
+		return "/coupon/no_image.png";
 	}
 
 }

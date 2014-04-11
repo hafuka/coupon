@@ -18,7 +18,7 @@
                         ${name!?html}アイランド
                     </p>
                 </h1>
-    
+
                 <div class="relative mt10">
                     <div class="autoMargin w320">
                         <div class="underballoon fs14 mh10">

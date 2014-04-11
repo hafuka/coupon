@@ -128,6 +128,9 @@ public class ShopServiceImpl implements ShopService {
 		if (shop == null) {
 			mShopDao.insert(mShop);
 		} else {
+			if (StringUtils.isNotEmpty(shop.imgPath) && StringUtils.isEmpty(mShop.imgPath)) {
+				mShop.imgPath = shop.imgPath;
+			}
 			mShopDao.update(mShop);
 		}
 	}

@@ -5,9 +5,12 @@ import java.util.Properties;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.lang.StringUtils;
 import org.seasar.struts.annotation.Execute;
 
 import coupon.entity.IUser;
+import coupon.entity.IUserAuthentication;
+import coupon.service.CookieService;
 import coupon.service.LoginService;
 import coupon.service.UserService;
 import facebook4j.Facebook;
@@ -22,11 +25,18 @@ public class FacebookLoginAction extends BaseAction {
 	protected UserService userService;
 	@Resource
 	protected LoginService loginService;
+	@Resource
+	protected CookieService cookieService;
 
 	private static final String PERMISSION = "email,publish_stream";
 
 	@Execute(validator = false)
 	public String index() throws IOException {
+
+		// ログイン済みの場合はmypageへリダイレクト
+		if (StringUtils.isNotEmpty(cookieService.getCookieValue("_coupon_island_login_"))) {
+			return "/mypage?redirect=true";
+		}
 
 		Properties prop = new Properties();
         prop.load(this.getClass().getClassLoader().getResourceAsStream("facebook.properties"));
@@ -63,6 +73,13 @@ public class FacebookLoginAction extends BaseAction {
         User user = facebook.getMe();
 
         String accountConfirmToken = super.getAccountConfirmToken();
+
+        IUserAuthentication iUserAuthentication = userService.getIUserAuth(user.getEmail(), user.getId());
+		if (iUserAuthentication != null) {
+			String cookieValue = loginService.insertIUserLogin(iUserAuthentication.userId);
+			super.setCookie(cookieValue);
+			return "/mypage?redirect=true";
+		}
 
         // ユーザー情報登録
  		IUser iUser = userService.registUser(user.getEmail(), user.getId(), user.getName(), accountConfirmToken);

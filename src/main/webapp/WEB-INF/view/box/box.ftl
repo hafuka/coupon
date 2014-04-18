@@ -9,7 +9,7 @@
 
         <#-- ヘッダーメニューのインクルード -->
         <#include "/common/header.ftl">
-        
+
         <#-- ふきだしナビ -->
         <section>
             <h1 class="headline headlineNormal mt15">クーポンBOX</h1>
@@ -29,7 +29,7 @@
                 </div>
             </div>
         </section>
-        
+
         <#-- 検索エリア -->
         <section>
             <div class="selectArea mb10 autoMargin">
@@ -51,11 +51,11 @@
         <section>
             <h1 class="headline headlineSecond">クーポン一覧</h1>
             <ul id="js_searchList" class="couponList">
-            
+
                 <#if couponList?has_content>
-                
+
                     <#list couponList as coupon>
-                    
+
                         <#-- レアリティによって画像と背景を変更 -->
                         <#switch coupon.mShopCoupon.rarity>
                             <#case 1>
@@ -77,13 +77,17 @@
                                 <#assign ftl_rarityBg = ''>
                                 <#assign ftl_rarityImage = ''>
                                 <#break>
-                        </#switch> 
-                    
+                        </#switch>
+
                         <li class="relative ${ftl_rarityBgStyle}">
                             <a href="${urlPath}/coupon?userCouponId=${coupon.userCoupon.userCouponId!?html}">
                                 <div class="table">
                                     <div class="cell pr10">
-                                        <img src="${coupon.shopBean.imgPath!?html}" width="85" height="85">
+                                    	<#if coupon.shopBean.imgPath!?has_content>
+                                    		<img src="${coupon.shopBean.imgPath!?html}" width="85" height="85">
+                                    	<#else>
+                                    		<img src="${imagePath}/images/common/no_image.png" width="85" height="85">
+                                    	</#if>
                                     </div>
                                     <div class="cell vMiddle pr20">
                                         <p class="fcBlue underline fs16">${coupon.shopBean.shopName!?html}</p>
@@ -107,16 +111,16 @@
                                 </div>
                             </a>
                         </li>
-                        
+
                     </#list>
-                    
+
                 <#else>
-                
+
                     <li class="noList">
                         クーポンがないよ。<br>
                         スロットを回してクーポンをGETしよう♪
                     </li>
-                    
+
                 </#if>
             </ul>
         </section>
@@ -132,7 +136,7 @@
                 </div>
             </div>
         </nav>
-        
+
         <div class="noticeArea mb20 mh10">
             <h1>ご注意ください</h1>
             <p class="fs12">

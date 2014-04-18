@@ -6,18 +6,18 @@
     </head>
 
     <body class="outline secondContents">
-    
+
         <#assign aDateTime = .now>
         <#assign aDate = aDateTime?date>
         <#assign aTime = aDateTime?time>
-        
+
         <#-- 使うボタンを押されたら表示 -->
         <#if userCoupon.status == 1>
             <#assign ftl_usableTextDisplay = 'block'>
         <#else>
             <#assign ftl_usableTextDisplay = 'none'>
         </#if>
-        
+
         <#-- ヘッダーメニューのインクルード -->
         <#include "/common/header.ftl">
 
@@ -42,11 +42,17 @@
                         <img src="${imagePath}/images/common/useful_flg.png" width="60">
                     </div>
                 </div>
-                
+
                 <div class="storeDetailText borderBox w95per mv10 autoMargin p5 textCenter">
                     残り期間：<span id="js_remainTime" class="fcRed">${remainTime!?html}</span>
                 </div>
-                
+
+                <#if userCoupon.description!?has_content>
+	                <div class="storeDetailText borderBox w95per mv10 autoMargin p5 textCenter">
+	                    <p class="fcRed">※${userCoupon.description!?html}</p>
+	                </div>
+                </#if>
+
                 <#-- 使うボタンを押してない時に表示 -->
                 <div id="js_timeNoticeText">
                     <#if userCoupon.status != 1>
@@ -56,8 +62,8 @@
                     </#if>
                 </div>
             </div>
-            
-            
+
+
             <#-- 使うボタン -->
             <#if userCoupon.status != 1>
                 <div id="js_useBtnArea">
@@ -70,15 +76,15 @@
                     </div>
                 </div>
             </#if>
-            
-            
+
+
             <div id="js_usableTicketText" class="${ftl_usableTextDisplay}">
                 <div class="normalBalloon fcOrange textCenter autoMargin mt10 fs14">
                     この画面をお店の人に見せてね♪<br>クーポンが使えるよ♪
                 </div>
             </div>
-            
-            
+
+
         </section>
 
         <#-- リンクナビ -->
@@ -107,10 +113,10 @@
             var urlPath = '${urlPath}';
             var imagePath = '${imagePath}';
             var token = '${token!?html}';
-            
+
             //ftlで取得した変数を格納
             var couponDetail = window.couponDetail || {};
-            
+
             couponDetail = {
                 userCouponId : '${userCoupon.userCouponId!?html}'
             }

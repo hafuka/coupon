@@ -31,6 +31,9 @@
                     <a href="${urlPath}/register" class="btn btnPrimary jsTouchActive autoMargin">かんたん新規会員登録>></a>
                 </div>
             </div>
+            <div class="textCenter mb20">
+                <a href="${urlPath}/static/?page=terms" class="link2">利用規約</a>
+            </div>
         </nav>
 
         <#-- 共通JavaScriptのインクルード -->

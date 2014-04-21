@@ -8,7 +8,6 @@ import org.seasar.struts.annotation.Execute;
 
 import coupon.bean.ShopBean;
 import coupon.entity.IUser;
-import coupon.entity.IUserCoin;
 import coupon.entity.IUserFavorite;
 import coupon.entity.MShopCoupon;
 import coupon.enums.MConfigKey;
@@ -60,12 +59,8 @@ public class DetailAction extends BaseAction {
 			throw new IllegalArgumentException("shopが存在しません。shopId=" + shopId);
 		}
 
-		IUserCoin userCoin = coinService.getIUserCoin(loginUserDto.userId);
-		if (userCoin == null || userCoin.coin == null) {
-			this.coin = 0;
-		} else {
-			this.coin = userCoin.coin;
-		}
+		// スロット券枚数
+		this.coin = coinService.getIUserCoinCount(loginUserDto.userId);
 
 		IUser iUser = userService.getIUser(loginUserDto.userId);
 		userPoint = iUser.point;

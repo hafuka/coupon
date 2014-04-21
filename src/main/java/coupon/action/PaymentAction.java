@@ -15,6 +15,7 @@ import coupon.entity.MCoin;
 import coupon.entity.MConfig;
 import coupon.enums.CardErrorMessage;
 import coupon.enums.TransactionType;
+import coupon.service.CoinService;
 import coupon.service.MConfigService;
 import coupon.service.PaymentService;
 import coupon.service.UserService;
@@ -34,6 +35,8 @@ public class PaymentAction extends BaseAction {
 	protected UserService userService;
 	@Resource
 	protected MConfigService mConfigService;
+	@Resource
+	protected CoinService coinService;
 
 	public Integer userCoin;
 	public List<MCoin> coinList;
@@ -70,7 +73,7 @@ public class PaymentAction extends BaseAction {
 		// コイン一覧取得
 		coinList = paymentService.getCoinList();
 		// ユーザーのコイン情報取得
-		userCoin = paymentService.getIUserCoin(loginUserDto.userId);
+		userCoin = coinService.getIUserCoinCount(loginUserDto.userId);
 		return "/payment/payment-top.ftl";
 	}
 
@@ -173,7 +176,7 @@ public class PaymentAction extends BaseAction {
 			return "/premiumRouletteAnimation?redirect=true&token=" + token;
 		}
 
-		throw new IllegalArgumentException("shopId is null.");
+		return "/payment/payment-result.ftl";
 	}
 
 	public void saveCardReset() {

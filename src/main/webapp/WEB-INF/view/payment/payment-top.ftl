@@ -44,6 +44,13 @@
             </div>
         </section>
 
+		<div class="noticeArea mb20 mh10">
+            <h1>ご注意ください</h1>
+            <p class="fs12">
+                ・スロット券の有効期限は購入時から6カ月です。<br>
+            </p>
+        </div>
+
         <#-- フッターメニューのインクルード -->
         <#include "/common/footer.ftl">
 

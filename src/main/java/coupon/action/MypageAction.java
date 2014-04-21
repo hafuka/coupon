@@ -5,7 +5,6 @@ import javax.annotation.Resource;
 import org.seasar.struts.annotation.Execute;
 
 import coupon.entity.IUser;
-import coupon.entity.IUserCoin;
 import coupon.enums.MConfigKey;
 import coupon.service.CoinService;
 import coupon.service.DailyProcessService;
@@ -34,7 +33,7 @@ public class MypageAction extends BaseAction {
 
 	@Execute(validator = false)
 	public String index() {
-		
+
 		// 日毎処理チェック
 		dailyProcessCheck();
 
@@ -42,15 +41,13 @@ public class MypageAction extends BaseAction {
 		if (loginBonusService.isLoginBonus(loginUserDto.userId)) {
 			return "/loginBonus?redirect=true&token=" + super.getFormToken();
 		}
-		
+
 		IUser iUser = userService.getIUser(loginUserDto.userId);
 		point = iUser.point;
 		name = iUser.name;
-		
-		IUserCoin iUserCoin = coinService.getIUserCoin(loginUserDto.userId);
-		if (iUserCoin != null) {
-			coin = iUserCoin.coin;
-		}
+
+		// スロット券枚数
+		this.coin = coinService.getIUserCoinCount(loginUserDto.userId);
 
 		int needCoin = Integer.parseInt(mConfigService.getConfigValue(MConfigKey.ONE_TIME_COIN));
 		count = coin / needCoin;

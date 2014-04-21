@@ -11,9 +11,20 @@
         <#include "/common/header.ftl">
 
         <section>
-            購入完了
+        	<div class="textCenter mb20">
+            	購入完了
+            </div>
         </section>
 
+
+		<#-- リンクナビ -->
+        <nav>
+            <div class="mv20">
+                <div class="textCenter mb20">
+                    <a href="${urlPath}/mypage" class="btn btnNormal jsTouchActive autoMargin">マイページへ</a>
+                </div>
+            </div>
+        </nav>
 
         <#-- フッターメニューのインクルード -->
         <#include "/common/footer.ftl">

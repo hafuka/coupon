@@ -66,10 +66,12 @@ CREATE TABLE M_SHOP_COUPON
 CREATE TABLE I_USER_COIN
 (
 	user_id bigint NOT NULL,
+	id int NOT NULL,
 	coin int NOT NULL,
+	limit_datetime datetime NOT NULL,
 	upd_datetime datetime NOT NULL,
 	ins_datetime datetime NOT NULL,
-	PRIMARY KEY (user_id)
+	PRIMARY KEY (user_id, id)
 );
 
 

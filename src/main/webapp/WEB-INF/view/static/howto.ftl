@@ -6,16 +6,16 @@
     </head>
 
     <body class="outline secondContents">
-    
+
         <#-- ヘッダーメニューのインクルード -->
         <#include "/common/header.ftl">
-        
+
         <section>
-        
+
             <h1 class="textCenter mv10">
                 <img src="${imagePath}/images/howto/howtoplay_title.png" width="245" height="45">
             </h1>
-            
+
             <#-- ポイント１ -->
             <div class="bgWhite autoMargin m10 ph5 pb10 pt20 relative">
                 <h2 class="absolute" style="top:-10px; left:-10px;">
@@ -39,7 +39,7 @@
                     <img src="${imagePath}/images/howto/point_1_image_2.png" width="268" height="120">
                 </div>
             </div>
-            
+
             <#-- ポイント２ -->
             <div class="bgWhite autoMargin mh10 mb10 mt20 ph5 pb10 pt20 relative">
                 <h2 class="absolute" style="top:-10px; left:-10px;">
@@ -53,11 +53,11 @@
                 </div>
                 <p class="lheight15 fs14 pv5">
                     ①お店のリストからお店の詳細ページへ。<br>
-                    ②<span class="fcRed">1回100コイン</span>で<span class="fcRed">[プレミアム♪ドコ行く？]スロット</span>を回そう！！<br>
+                    ②<span class="fcRed">1回スロット券1枚</span>で<span class="fcRed">[プレミアム♪ドコ行く？]スロット</span>を回そう！！<br>
                     ③そのお店のクーポンの中からどれか１つが当たるよ♪
                 </p>
             </div>
-            
+
             <#-- ポイント３ -->
             <div class="bgWhite autoMargin mh10 mv20 ph5 pb10 pt20 relative">
                 <h2 class="absolute" style="top:-10px; left:-10px;">
@@ -78,9 +78,9 @@
                     </div>
                 </div>
             </div>
-            
+
         </section>
-        
+
         <#-- リンクナビ -->
         <nav>
             <div class="mb20">
@@ -94,7 +94,7 @@
                 </div>
             </div>
         </nav>
-    
+
         <#-- フッターメニューのインクルード -->
         <#include "/common/footer.ftl">
 

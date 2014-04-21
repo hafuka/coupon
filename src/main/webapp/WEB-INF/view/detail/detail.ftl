@@ -100,6 +100,11 @@
                     <div class="textCenter mv10">
                         <a href="${urlPath}/premiumRouletteAnimation?token=${token!?html}&shopId=${shopId}" class="btn btnSpecial jsTouchActive autoMargin">プレミアムスロットを回す♪</a>
                     </div>
+
+                    <div class="textCenter mv10">
+                    	<a href="${urlPath}/ticket">スロット券一覧</a>
+                    </div>
+
                     <div class="coinArea fs13 textCenter mt15 mb10 autoMargin">
                         <#if execPointFlg>
                             1回：<span class="fcOrange">${needPoint}ポイント</span><br>

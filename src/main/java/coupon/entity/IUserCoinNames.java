@@ -1,19 +1,21 @@
 package coupon.entity;
 
 import java.sql.Timestamp;
+
 import javax.annotation.Generated;
+
 import org.seasar.extension.jdbc.name.PropertyName;
 
 /**
  * {@link IUserCoin}のプロパティ名の集合です。
- * 
+ *
  */
 @Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/03/04 10:13:12")
 public class IUserCoinNames {
 
     /**
      * userIdのプロパティ名を返します。
-     * 
+     *
      * @return userIdのプロパティ名
      */
     public static PropertyName<Long> userId() {
@@ -21,8 +23,17 @@ public class IUserCoinNames {
     }
 
     /**
+     * idのプロパティ名を返します。
+     *
+     * @return userIdのプロパティ名
+     */
+    public static PropertyName<Long> id() {
+        return new PropertyName<Long>("id");
+    }
+
+    /**
      * coinのプロパティ名を返します。
-     * 
+     *
      * @return coinのプロパティ名
      */
     public static PropertyName<Integer> coin() {
@@ -30,8 +41,17 @@ public class IUserCoinNames {
     }
 
     /**
+     * limitDatetimeのプロパティ名を返します。
+     *
+     * @return limitDatetimeのプロパティ名
+     */
+    public static PropertyName<Timestamp> limitDatetime() {
+        return new PropertyName<Timestamp>("limitDatetime");
+    }
+
+    /**
      * updDatetimeのプロパティ名を返します。
-     * 
+     *
      * @return updDatetimeのプロパティ名
      */
     public static PropertyName<Timestamp> updDatetime() {
@@ -40,7 +60,7 @@ public class IUserCoinNames {
 
     /**
      * insDatetimeのプロパティ名を返します。
-     * 
+     *
      * @return insDatetimeのプロパティ名
      */
     public static PropertyName<Timestamp> insDatetime() {
@@ -60,7 +80,7 @@ public class IUserCoinNames {
 
         /**
          * インスタンスを構築します。
-         * 
+         *
          * @param name
          *            名前
          */
@@ -70,7 +90,7 @@ public class IUserCoinNames {
 
         /**
          * インスタンスを構築します。
-         * 
+         *
          * @param parent
          *            親
          * @param name
@@ -90,12 +110,30 @@ public class IUserCoinNames {
         }
 
         /**
+         * idのプロパティ名を返します。
+         *
+         * @return idのプロパティ名
+         */
+        public PropertyName<Long> id() {
+            return new PropertyName<Long>(this, "id");
+        }
+
+        /**
          * coinのプロパティ名を返します。
          *
          * @return coinのプロパティ名
          */
         public PropertyName<Integer> coin() {
             return new PropertyName<Integer>(this, "coin");
+        }
+
+        /**
+         * limitDatetimeのプロパティ名を返します。
+         *
+         * @return limitDatetimeのプロパティ名
+         */
+        public PropertyName<Timestamp> limitDatetime() {
+            return new PropertyName<Timestamp>(this, "limitDatetime");
         }
 
         /**

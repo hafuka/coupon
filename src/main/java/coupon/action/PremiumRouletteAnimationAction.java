@@ -9,7 +9,6 @@ import org.seasar.struts.annotation.Execute;
 
 import coupon.dto.CouponDto;
 import coupon.entity.IUser;
-import coupon.entity.IUserCoin;
 import coupon.enums.MConfigKey;
 import coupon.enums.TransactionType;
 import coupon.service.CoinService;
@@ -56,8 +55,8 @@ public class PremiumRouletteAnimationAction extends BaseAction {
 			super.setTransactionData(loginUserDto.userId, shopId, TransactionType.TO_PAYMENT);
 			return "/payment?redirect=true";
 		}
-		
-		
+
+
 		IUser iUser = userService.getIUser(loginUserDto.userId);
 
 		// ルーレット実行処理
@@ -70,16 +69,16 @@ public class PremiumRouletteAnimationAction extends BaseAction {
 
 	private boolean checkRoulette() {
 		String needCoin = mConfigService.getConfigValue(MConfigKey.ONE_TIME_COIN);
-		IUserCoin iUserCoin = coinService.getIUserCoin(loginUserDto.userId);
-		
+		Integer ticketNum = coinService.getIUserCoinCount(loginUserDto.userId);
+
 		String pointStr = mConfigService.getConfigValue(MConfigKey.ONE_TIME_POINT_PREMIUM);
 		IUser iUser = userService.getIUser(loginUserDto.userId);
-		
+
 		if (Integer.parseInt(pointStr) < iUser.point) {
 			return true;
 		}
-		
-		if (iUserCoin == null || iUserCoin.coin == null || iUserCoin.coin < Integer.parseInt(needCoin)) {
+
+		if (ticketNum < Integer.parseInt(needCoin)) {
 			return false;
 		}
 		return true;

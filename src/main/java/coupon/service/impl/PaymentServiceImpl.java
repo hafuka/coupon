@@ -1,6 +1,7 @@
 package coupon.service.impl;
 
 import java.sql.Timestamp;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -11,6 +12,8 @@ import coupon.dao.IUserCoinDao;
 import coupon.dao.MCoinDao;
 import coupon.entity.IUserCoin;
 import coupon.entity.MCoin;
+import coupon.enums.MConfigKey;
+import coupon.service.MConfigService;
 import coupon.service.PaymentService;
 import coupon.service.WebPayService;
 import coupon.util.CouponActivityLogger;
@@ -24,15 +27,8 @@ public class PaymentServiceImpl implements PaymentService {
 	protected MCoinDao mCoinDao;
 	@Resource
 	protected WebPayService webPayService;
-
-	@Override
-	public int getIUserCoin(Long userId) {
-		IUserCoin userCoin = iUserCoinDao.findById(userId);
-		if (userCoin != null) {
-			return userCoin.coin;
-		}
-		return 0;
-	}
+	@Resource
+	protected MConfigService mConfigService;
 
 	@Override
 	public List<MCoin> getCoinList() {
@@ -60,22 +56,22 @@ public class PaymentServiceImpl implements PaymentService {
 			webPayService.doPayment(userId, cardName, cardNo, month, year, cvc, mCoin.yen, saveCard);
 		}
 
+		// スロット券有効期限
+		String itemLimitMonth = mConfigService.getConfigValue(MConfigKey.ITEM_LIMIT_MONTH);
+
 		// ユーザーのコインを増やす
 		Timestamp nowDate = CouponDateUtils.getCurrentDate();
-		IUserCoin userCoin = iUserCoinDao.findById(userId);
-		if (userCoin == null) {
-			userCoin = new IUserCoin();
-			userCoin.userId = userId;
-			userCoin.coin = mCoin.coin;
-			userCoin.insDatetime = nowDate;
-			userCoin.updDatetime = nowDate;
-			iUserCoinDao.insert(userCoin);
-		} else {
-			userCoin.coin = userCoin.coin + mCoin.coin;
-			userCoin.updDatetime = nowDate;
-			iUserCoinDao.update(userCoin);
-		}
-		
+		int id = iUserCoinDao.findUserMaxId(userId);
+		id += 1;
+		IUserCoin userCoin = new IUserCoin();
+		userCoin.userId = userId;
+		userCoin.id = id;
+		userCoin.coin = mCoin.coin;
+		userCoin.limitDatetime = CouponDateUtils.add(nowDate, Integer.parseInt(itemLimitMonth), Calendar.MONTH);
+		userCoin.insDatetime = nowDate;
+		userCoin.updDatetime = nowDate;
+		iUserCoinDao.insert(userCoin);
+
 		CouponActivityLogger.paymentLog(userId, mCoin.yen);
 	}
 

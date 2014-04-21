@@ -16,6 +16,8 @@ public enum MConfigKey {
 	COUPON_LIMIT_DAYS("COUPON_LIMIT_DAYS"),
 	/** webpayメンテナンス */
 	WEB_PAY_MAINTENANCE("WEB_PAY_MAINTENANCE"),
+	/** スロット券期限 */
+	ITEM_LIMIT_MONTH("ITEM_LIMIT_MONTH"),
 	;
 
 	/** DB上の区分 */

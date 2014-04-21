@@ -13,9 +13,9 @@
 
         <section>
             <div class="formArea autoMargin m10">
-                <h1 class="textCenter">コイン購入の確認</h1>
+                <h1 class="textCenter">スロット券購入の確認</h1>
                 <div class="p5">
-                    コイン：<span class="fcOrange">${coin.coin!?html}コイン</span>
+                    スロット券：<span class="fcOrange">${coin.coin!?html}枚</span>
                 </div>
                 <div class="p5">
                     購入金額：<span class="fcOrange">${coin.yen!?html}円</span>

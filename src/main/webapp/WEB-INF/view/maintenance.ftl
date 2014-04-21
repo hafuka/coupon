@@ -21,7 +21,7 @@
                     <div class="balloon">
                         <p>
                             申し訳ございません。<br>
-                            ${config.startDatetime!?html}～${config.endDatetime!?html}の期間はメンテナンスの為現在コイン購入処理ができません。<br>
+                            ${config.startDatetime!?html}～${config.endDatetime!?html}の期間はメンテナンスの為現在スロット券購入処理ができません。<br>
                         </p>
                     </div>
                 </div>

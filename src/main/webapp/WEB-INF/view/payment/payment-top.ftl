@@ -9,16 +9,18 @@
 
         <#-- ヘッダーメニューのインクルード -->
         <#include "/common/header.ftl">
-        
-        
+
+
         <section>
             <div class="formArea autoMargin m10">
                 <h1 class="textCenter">購入内容の確認</h1>
+                <#--
                 <div class="p5">
                     合計：<span class="fcOrange">100コイン</span>
                 </div>
+                -->
                 <div class="p5">
-                    利用可能コイン：<span class="fcOrange">${userCoin!?html}コイン</span>
+                    利用可能スロット券：<span class="fcOrange">${userCoin!?html}枚</span>
                 </div>
                 <form method="post" action="${urlPath!?html}/payment/confirm" name="frm">
                     <ul class="paymentRadioList">
@@ -29,7 +31,7 @@
                                         <input type="radio" name="coinId" value="${coin.id!?html}" <#if coin_index == 0>checked="checked"</#if>>
                                     </div>
                                     <div class="cell">
-                                        <span class="fcRed">${coin.coin!?html}</span>コイン(<span class="fcBlue">${coin.yen!?html}円</span>)
+                                        <span class="fcRed">${coin.coin!?html}</span>枚(<span class="fcBlue">${coin.yen!?html}円</span>)
                                     </div>
                                 </div>
                             </li>
@@ -41,20 +43,20 @@
                 </form>
             </div>
         </section>
-        
+
         <#-- フッターメニューのインクルード -->
         <#include "/common/footer.ftl">
 
         <#-- 共通JavaScriptのインクルード -->
         <#include "/common/htmlFoot.ftl">
-        
-        
+
+
         <#-- JS - 新規登録 - -->
         <script>
             (function(){
-                
+
                 var confirmBtn = ci.qs('#js_confirmBtn');
-                
+
                 ci.bind(confirmBtn, 'click', function(){
                     document.frm.submit();
                 });

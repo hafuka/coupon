@@ -25,7 +25,7 @@
                 </div>
             </div>
         </section>
-        
+
         <#-- 検索エリア -->
         <section>
             <div class="selectArea table mb10 autoMargin">
@@ -77,17 +77,17 @@
                 <a href="${urlPath}/rouletteAnimation?token=${token!?html}" class="btn btnSpecial getActive jsTouchActive autoMargin">プレミアム♪ドコ行く？</a>
             </div>
             <div class="coinArea fs13 textCenter mv10 m0auto">
-                1回：<span class="fcOrange">100コイン</span><br>
-                所持コイン：<span class="fcOrange">0コイン</span>
+                1回：<span class="fcOrange">1枚</span><br>
+                所持スロット券：<span class="fcOrange">0枚</span>
             </div>
         </section>
 
         <#-- クーポンリスト -->
         <section>
             <ul class="couponList borderTopGreen mt10">
-                
+
                 <#if shopList!?has_content>
-                
+
                     <#list shopList as shop>
                         <li>
                             <a href="${urlPath}/detail">
@@ -106,18 +106,18 @@
                             </a>
                         </li>
                     </#list>
-                    
+
                 </#if>
-                
+
             </ul>
         </section>
-        
+
         <div class="textCenter mv10">
             <a href="${urlPath}/rouletteAnimation?token=${token!?html}" class="btn btnSpecial getActive jsTouchActive autoMargin">プレミアム♪ドコ行く？</a>
         </div>
         <div class="coinArea fs13 textCenter mv10 m0auto">
-            1回：<span class="fcOrange">100コイン</span><br>
-            所持コイン：<span class="fcOrange">0コイン</span>
+            1回：<span class="fcOrange">1枚</span><br>
+            所持スロット券：<span class="fcOrange">0枚</span>
         </div>
 
         <#-- リンクナビ -->

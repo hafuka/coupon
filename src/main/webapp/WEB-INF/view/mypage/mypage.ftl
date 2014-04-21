@@ -26,7 +26,7 @@
                                 <p class="textCenter">${count!?html}回プレミアムスロットできるよ♪</p>
                             </#if>
                             <p class="pointArea">
-                                所持コイン：${coin!html}コイン<br>
+                                所持スロット券：${coin!html}枚<br>
                                 現在のポイント：${point!?html}pt
                             </p>
                         </div>

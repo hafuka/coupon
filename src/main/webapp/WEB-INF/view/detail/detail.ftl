@@ -94,7 +94,7 @@
                         このお店のクーポンのどれか１つがGETできるよ♪
                         <#if execPointFlg>
                             <br>
-                            <span class="fcBlack">※コインよりポイントが優先されるよ♪</span>
+                            <span class="fcBlack">※スロット券よりポイントが優先されるよ♪</span>
                         </#if>
                     </p>
                     <div class="textCenter mv10">
@@ -105,8 +105,8 @@
                             1回：<span class="fcOrange">${needPoint}ポイント</span><br>
                             所持ポイント：<span class="fcOrange">${userPoint}ポイント</span>
                         <#else>
-                            1回：<span class="fcOrange">100コイン</span><br>
-                            所持コイン：<span class="fcOrange">${coin}コイン</span>
+                            1回：<span class="fcOrange">1枚</span><br>
+                            所持スロット券：<span class="fcOrange">${coin}枚</span>
                         </#if>
                     </div>
 
@@ -131,7 +131,7 @@
                         このお店のクーポンのどれか１つがGETできるよ♪
                         <#if execPointFlg>
                             <br>
-                            <span class="fcBlack">※コインよりポイントが優先されるよ♪</span>
+                            <span class="fcBlack">※スロット券よりポイントが優先されるよ♪</span>
                         </#if>
                     </p>
                     <div class="textCenter mv10">
@@ -142,8 +142,8 @@
                             1回：<span class="fcOrange">${needPoint}ポイント</span><br>
                             所持ポイント：<span class="fcOrange">${userPoint}ポイント</span>
                         <#else>
-                            1回：<span class="fcOrange">100コイン</span><br>
-                            所持コイン：<span class="fcOrange">${coin}コイン</span>
+                            1回：<span class="fcOrange">1枚</span><br>
+                            所持スロット券：<span class="fcOrange">${coin}枚</span>
                         </#if>
                     </div>
 

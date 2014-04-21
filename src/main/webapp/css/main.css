@@ -232,6 +232,10 @@ input[type="text"], input[type="email"], input[type="password"] {
     background: #eeeeee;
 }
 
+.bgLightYellow {
+    background: #fdfbc2;
+}
+
 .bgRound {
     background: #ff9933;
     border-radius: 18px;
@@ -363,13 +367,6 @@ input[type="text"], input[type="email"], input[type="password"] {
     box-shadow: 1px 1px 1px #fde1ed inset, -1px -1px 1px #fde1ed inset, 0 5px 0 #f864a3, 0 7px 3px #e5c0d0;
 }
 
-.btnBlue {
-    border: 2px solid #3b5998;
-    background: #466cbd;
-    -webkit-box-shadow: 1px 1px 1px #a5c0fa inset, -1px -1px 1px #a5c0fa inset, 0 5px 0 #3b5998, 0 7px 3px #58698d;
-    box-shadow: 1px 1px 1px #a5c0fa inset, -1px -1px 1px #a5c0fa inset, 0 5px 0 #3b5998, 0 7px 3px #58698d;
-}
-
 .btnPrimary.touchActive {
     top: 3px;
     -webkit-box-shadow: 1px 1px 1px #eee inset, -1px -1px 1px #eee inset, 0 2px 0 #304e12, 0 5px 3px #ced8c4;
@@ -388,10 +385,44 @@ input[type="text"], input[type="email"], input[type="password"] {
     box-shadow: 1px 1px 1px #eee inset, -1px -1px 1px #eee inset, 0 2px 0 #da3d71, 0 5px 3px #d5b3c0;
 }
 
+.topbtn {
+    position: relative;
+    display: block;
+    width: 280px;
+    height: 40px;
+    border-radius: 20px;
+    padding: 10px 0 0 0;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-weight: bold;
+    font-size: 17px;
+    color: #fff;
+    line-height: 1.2;
+}
+
+.btnBlue {
+    background: #6187da;
+}
+
+.btnOrange {
+    background: #f6995b;
+}
+
+.btnGreen {
+    background: #6fdc34;
+}
+
 .btnBlue.touchActive {
-    top: 3px;
-    -webkit-box-shadow: 1px 1px 1px #eee inset, -1px -1px 1px #eee inset, 0 2px 0 #12234e, 0 5px 3px #c4c4d8;
-    box-shadow: 1px 1px 1px #eee inset, -1px -1px 1px #eee inset, 0 2px 0 #12234e, 0 5px 3px #c4c4d8;
+    background: #4e6daf;
+}
+
+.btnOrange.touchActive {
+    background: #d4834c;
+}
+
+.btnGreen.touchActive {
+    background: #71c941;
 }
 
 @-webkit-keyframes lightActive {

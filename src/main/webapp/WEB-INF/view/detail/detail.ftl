@@ -20,10 +20,10 @@
                         <div class="table m0auto">
                             <div class="cell p10">
                                 <#if shop.imgPath!?has_content>
-                            		<img src="${shop.imgPath!?html}" width="150" height="150" class="vBottom">
-                            	<#else>
-                            		<img src="${imagePath}/images/common/no_image.png" width="150" height="150" class="vBottom">
-                            	</#if>
+                                    <img src="${shop.imgPath!?html}" width="150" height="150" class="vBottom">
+                                <#else>
+                                    <img src="${imagePath}/images/common/no_image.png" width="150" height="150" class="vBottom">
+                                </#if>
                             </div>
                             <div class="cell vMiddle">
                                 <div class="pv10 pr10">
@@ -102,7 +102,7 @@
                     </div>
 
                     <div class="textCenter mv10">
-                    	<a href="${urlPath}/ticket">スロット券一覧</a>
+                        <a href="${urlPath}/ticket">スロット券一覧</a>
                     </div>
 
                     <div class="coinArea fs13 textCenter mt15 mb10 autoMargin">

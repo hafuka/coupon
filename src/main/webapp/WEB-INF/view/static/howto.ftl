@@ -29,7 +29,7 @@
                 </div>
                 <p class="lheight15 fs14 pv5">
                     ①地域・エリア・業種を選んで検索。<br>
-                    ②<span class="fcRed">[ドコ行く？]ボタン</span>でスロットを回そう♪<br>
+                    ②<span class="fcRed">[ドコ行く？スロットを回す♪]ボタン</span>でスロットを回そう♪<br>
                     ③検索した地域の中で<span class="fcRed">どこか１つのお店</span>のクーポンが当たるよ♪
                 </p>
                 <p class="fcOrange textCenter pb5">
@@ -53,8 +53,9 @@
                 </div>
                 <p class="lheight15 fs14 pv5">
                     ①お店のリストからお店の詳細ページへ。<br>
-                    ②<span class="fcRed">1回スロット券1枚</span>で<span class="fcRed">[プレミアム♪ドコ行く？]スロット</span>を回そう！！<br>
-                    ③そのお店のクーポンの中からどれか１つが当たるよ♪
+                    ②<span class="fcRed">1回スロット券1枚</span>で<span class="fcRed">[プレミアムスロット]</span>を回そう！！<br>
+                    ③そのお店のクーポンの中からどれか１つが当たるよ♪<br>
+                    <span class="fs12">※スロット券は1枚あたり:108円で購入できます。</span>
                 </p>
             </div>
 

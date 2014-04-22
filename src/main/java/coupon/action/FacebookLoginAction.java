@@ -10,7 +10,6 @@ import org.seasar.struts.annotation.Execute;
 
 import coupon.entity.IUser;
 import coupon.entity.IUserAuthentication;
-import coupon.service.CookieService;
 import coupon.service.LoginService;
 import coupon.service.UserService;
 import facebook4j.Facebook;
@@ -25,8 +24,6 @@ public class FacebookLoginAction extends BaseAction {
 	protected UserService userService;
 	@Resource
 	protected LoginService loginService;
-	@Resource
-	protected CookieService cookieService;
 
 	private static final String PERMISSION = "email,publish_stream";
 
@@ -34,7 +31,7 @@ public class FacebookLoginAction extends BaseAction {
 	public String index() throws IOException {
 
 		// ログイン済みの場合はmypageへリダイレクト
-		if (StringUtils.isNotEmpty(cookieService.getCookieValue("_coupon_island_login_"))) {
+		if (StringUtils.isNotEmpty(super.getCookie(FB_LOGIN_COOKIE_KEY))) {
 			return "/mypage?redirect=true";
 		}
 
@@ -77,7 +74,7 @@ public class FacebookLoginAction extends BaseAction {
         IUserAuthentication iUserAuthentication = userService.getIUserAuth(user.getEmail(), user.getId());
 		if (iUserAuthentication != null) {
 			String cookieValue = loginService.insertIUserLogin(iUserAuthentication.userId);
-			super.setCookie(cookieValue);
+			super.setCookie(FB_LOGIN_COOKIE_KEY, cookieValue);
 			return "/mypage?redirect=true";
 		}
 
@@ -86,7 +83,7 @@ public class FacebookLoginAction extends BaseAction {
 
  		loginUserDto.userId = iUser.userId;
  		String cookieValue = loginService.insertIUserLogin(iUser.userId);
-		super.setCookie(cookieValue);
+		super.setCookie(FB_LOGIN_COOKIE_KEY, cookieValue);
 
         System.out.println("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★");
 

@@ -18,17 +18,13 @@
                     <img src="${imagePath}/images/common/saboten_normal.png" width="37" height="37" class="vBottom">
                 </div>
 
-				<#--
                 <div class="cell vMiddle relative pl10">
                     <div class="balloon">
                         <#if couponList?has_content>
-                            <p><span class="fcOrange">${couponList?size}枚</span>のクーポン券があるよ♪</p>
-                        <#else>
-                            <p>クーポン券をゲットしよう♪</p>
+                            <p><span class="fcOrange">${ticketList?size}枚</span>のスロット券があるよ♪</p>
                         </#if>
                     </div>
                 </div>
-                -->
             </div>
         </section>
 
@@ -57,9 +53,6 @@
         <#-- リンクナビ -->
         <nav>
             <div class="mv20">
-                <div class="textCenter mb20">
-                    <a href="${urlPath}/payment" class="btn btnPrimary jsTouchActive autoMargin">スロット券購入へ</a>
-                </div>
                 <div class="textCenter mb20">
                     <a href="${urlPath}/mypage" class="btn btnNormal jsTouchActive autoMargin">マイページへ</a>
                 </div>

@@ -29,7 +29,7 @@ public class LoginAction extends BaseAction {
 	public String index() throws Exception {
 
 		// ログイン済みの場合はmypageへリダイレクト
-		if (StringUtils.isNotEmpty(cookieService.getCookieValue("_coupon_island_login_"))) {
+		if (StringUtils.isNotEmpty(super.getCookie(LOGIN_COOKIE_KEY))) {
 			return "/mypage?redirect=true";
 		}
 
@@ -64,7 +64,7 @@ public class LoginAction extends BaseAction {
 		loginUserDto.userId = iUser.userId;
 
 		String cookieValue = loginService.insertIUserLogin(iUser.userId);
-		super.setCookie(cookieValue);
+		super.setCookie(LOGIN_COOKIE_KEY, cookieValue);
 
 		return "/mypage?redirect=true";
 	}

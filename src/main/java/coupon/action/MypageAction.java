@@ -2,6 +2,7 @@ package coupon.action;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.lang.StringUtils;
 import org.seasar.struts.annotation.Execute;
 
 import coupon.entity.IUser;
@@ -67,8 +68,19 @@ public class MypageAction extends BaseAction {
 		if (iUser.loginDatetime == null || !CouponDateUtils.isToday(iUser.loginDatetime)) {
 			// 日毎ログイン処理
 			dailyProcessService.doDailyProcess(iUser);
-			// クッキーの有効期限を更新
-			super.updateCookieLimit();
+
+			String loginCookie = super.getCookie(LOGIN_COOKIE_KEY);
+			String fbLoginCookie = super.getCookie(FB_LOGIN_COOKIE_KEY);
+
+			if (StringUtils.isNotEmpty(loginCookie)) {
+				// クッキーの有効期限を更新
+				super.updateCookieLimit(loginCookie);
+			} else {
+				if (StringUtils.isNotEmpty(fbLoginCookie)) {
+					// クッキーの有効期限を更新
+					super.updateCookieLimit(fbLoginCookie);
+				}
+			}
 		}
 	}
 }

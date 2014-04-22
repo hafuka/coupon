@@ -18,16 +18,20 @@ import coupon.enums.TransactionType;
 
 public abstract class BaseAction {
 
+	public static final String LOGIN_COOKIE_KEY = "_coupon_island_login_";
+
+	public static final String FB_LOGIN_COOKIE_KEY = "_coupon_island_fb_login_";
+
 	@Resource
 	protected HttpServletRequest request;
 	@Resource
 	protected HttpServletResponse response;
-	
+
 	@Resource
 	public LoginUserDto loginUserDto;
-	
+
 	public String token;
-	
+
 	protected String getAccountConfirmToken() {
 		String token = RandomStringUtils.randomAlphanumeric(20);
         if (token == null) {
@@ -96,28 +100,28 @@ public abstract class BaseAction {
     	request.getSession().removeAttribute(key);
     	return data;
     }
-    
-    protected void setCookie(String cookieValue) {
-    	Cookie c = new Cookie("_coupon_island_login_", cookieValue);
+
+    protected void setCookie(String cookieKey, String cookieValue) {
+    	Cookie c = new Cookie(cookieKey, cookieValue);
     	c.setMaxAge(60*60*24*7);  // cookieの生存期間 1週間
     	c.setPath(this.request.getContextPath());
     	this.response.addCookie(c);
     }
-    
-    protected String getCookie() {
+
+    protected String getCookie(String cookieKey) {
     	Cookie cookie[] = this.request.getCookies();
     	if(cookie != null){
     	    for(int i = 0; i < cookie.length; i++){
-    	        if(cookie[i].getName().equals("_coupon_island_login_")){
+    	        if(cookie[i].getName().equals(cookieKey)){
     	            return cookie[i].getValue();
     	        }
     	    }
     	}
     	return null;
     }
-    
-    protected void updateCookieLimit() {
-    	String cookieValue = this.getCookie();
-    	this.setCookie(cookieValue);
+
+    protected void updateCookieLimit(String cookieKey) {
+    	String cookieValue = this.getCookie(cookieKey);
+    	this.setCookie(cookieKey, cookieValue);
     }
 }

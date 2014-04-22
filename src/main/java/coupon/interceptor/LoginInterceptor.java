@@ -40,18 +40,32 @@ public class LoginInterceptor extends AbstractInterceptor {
 //			return "/";
 //		}
 
-		String cookieValue = cookieService.getCookieValue("_coupon_island_login_");
-    	if (StringUtils.isEmpty(cookieValue)) {
+		String loginCookieValue = cookieService.getCookieValue("_coupon_island_login_");
+		String fbLoginCookieValue = cookieService.getCookieValue("_coupon_island_fb_login_");
+    	IUserLogin userLogin = null;
+		if (StringUtils.isEmpty(loginCookieValue) && StringUtils.isEmpty(fbLoginCookieValue)) {
     		return "/";
+    	} else if (StringUtils.isNotEmpty(loginCookieValue)) {
+    		userLogin = loginService.getIUserLogin(loginCookieValue);
+        	if (userLogin == null) {
+        		Cookie c = new Cookie("_coupon_island_login_", null);
+        		c.setMaxAge(0);  // 即死にする
+        		c.setPath(RequestUtil.getRequest().getContextPath());
+        		ResponseUtil.getResponse().addCookie(c);
+        	}
+    	} else if (StringUtils.isNotEmpty(fbLoginCookieValue)) {
+    		userLogin = loginService.getIUserLogin(fbLoginCookieValue);
+        	if (userLogin == null) {
+        		Cookie c = new Cookie("_coupon_island_fb_login_", null);
+        		c.setMaxAge(0);  // 即死にする
+        		c.setPath(RequestUtil.getRequest().getContextPath());
+        		ResponseUtil.getResponse().addCookie(c);
+        	}
     	}
-    	IUserLogin userLogin = loginService.getIUserLogin(cookieValue);
-    	if (userLogin == null) {
-    		Cookie c = new Cookie("_coupon_island_login_", null);
-    		c.setMaxAge(0);  // 即死にする
-    		c.setPath(RequestUtil.getRequest().getContextPath());
-    		ResponseUtil.getResponse().addCookie(c);
-    		return "/";
-    	}
+
+		if (userLogin == null) {
+			return "/";
+		}
 
     	loginUserDto.userId = userLogin.userId;
 

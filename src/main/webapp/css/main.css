@@ -173,6 +173,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 .pb10 { padding-bottom: 10px !important; }
 .pb15 { padding-bottom: 15px !important; }
 .pb20 { padding-bottom: 20px !important; }
+.pb40 { padding-bottom: 40px !important; }
 .pl5 { padding-left: 5px !important; }
 .pl10 { padding-left: 10px !important; }
 .pl15 { padding-left: 15px !important; }

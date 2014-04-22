@@ -66,26 +66,31 @@
             </div>
 
             <#-- ポイント２ -->
-            <div class="bgWhite autoMargin mh10 mb10 mt20 ph5 pb10 pt20 relative">
-                <h2 class="absolute" style="top:-10px; left:-10px;">
-                    <img src="${imagePath}/images/howto/point_2.png" width="120" height="28">
-                </h2>
-                <h3 class="textCenter">
-                    <img src="${imagePath}/images/howto/point_2_title.png" width="245" height="45">
-                </h3>
-                <div class="textCenter">
-                    <img src="${imagePath}/images/howto/point_2_image_1.png" width="245" height="155">
+            <div class="bgGray">
+                <div class="bgGray autoMargin mh10 mt20 ph5 pb20 pt20 relative">
+                    <h2 class="absolute" style="top:-10px; left:-10px;">
+                        <img src="${imagePath}/images/howto/point_2.png" width="120" height="28">
+                    </h2>
+                    <h3 class="textCenter">
+                        <img src="${imagePath}/images/howto/point_2_title.png" width="245" height="45">
+                    </h3>
+                    <div class="textCenter">
+                        <img src="${imagePath}/images/howto/point_2_image_1.png" width="250" height="157">
+                    </div>
+                    <p class="lheight15 fs14 pv5">
+                        ①お店のリストからお店の詳細ページへ。<br>
+                        ②<span class="fcRed">1回スロット券1枚</span>で<span class="fcRed">[プレミアムスロット]</span>を回そう！！<br>
+                        ③そのお店のクーポンの中からどれか１つが当たるよ♪<br>
+                        <span class="fs12">
+                            ※スロット券は1枚あたり:108円で購入できます。<br>
+                            ※スロット券の有効期限は6ヶ月です。
+                        </span>
+                    </p>
                 </div>
-                <p class="lheight15 fs14 pv5">
-                    ①お店のリストからお店の詳細ページへ。<br>
-                    ②<span class="fcRed">1回スロット券1枚</span>で<span class="fcRed">[プレミアムスロット]</span>を回そう！！<br>
-                    ③そのお店のクーポンの中からどれか１つが当たるよ♪<br>
-                    <span class="fs12">※スロット券は1枚あたり:108円で購入できます。</span>
-                </p>
             </div>
 
             <#-- ポイント３ -->
-            <div class="bgWhite autoMargin mh10 mv20 ph5 pb10 pt20 relative">
+            <div class="bgWhite autoMargin mh10 mb20 ph5 pb10 pt20 relative">
                 <h2 class="absolute" style="top:-10px; left:-10px;">
                     <img src="${imagePath}/images/howto/point_3.png" width="120" height="28">
                 </h2>
@@ -105,7 +110,7 @@
                 </div>
             </div>
 
-            <div class="textCenter pb20">
+            <div class="textCenter pb40">
                 <a href="${urlPath}/static/?page=terms" class="link2">利用規約</a>
             </div>
             

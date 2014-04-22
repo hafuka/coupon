@@ -101,10 +101,6 @@
                         <a href="${urlPath}/premiumRouletteAnimation?token=${token!?html}&shopId=${shopId}" class="btn btnSpecial jsTouchActive autoMargin">プレミアムスロットを回す♪</a>
                     </div>
 
-                    <div class="textCenter mv10">
-                        <a href="${urlPath}/ticket">スロット券一覧</a>
-                    </div>
-
                     <div class="coinArea fs13 textCenter mt15 mb10 autoMargin">
                         <#if execPointFlg>
                             1回：<span class="fcOrange">${needPoint}ポイント</span><br>
@@ -113,6 +109,10 @@
                             1回：<span class="fcOrange">1枚</span><br>
                             所持スロット券：<span class="fcOrange">${coin}枚</span>
                         </#if>
+                    </div>
+                    
+                    <div class="textRight mv10 pr10 fs14">
+                        <a href="${urlPath}/ticket" class="fcBlue underline">スロット券一覧</a>
                     </div>
 
                     <div class="storeDetailText borderBox w95per m10 autoMargin">

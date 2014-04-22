@@ -49,13 +49,16 @@
                     <img src="${imagePath}/images/howto/point_2_title.png" width="245" height="45">
                 </h3>
                 <div class="textCenter">
-                    <img src="${imagePath}/images/howto/point_2_image_1.png" width="245" height="155">
+                    <img src="${imagePath}/images/howto/point_2_image_1.png" width="250" height="157">
                 </div>
                 <p class="lheight15 fs14 pv5">
                     ①お店のリストからお店の詳細ページへ。<br>
                     ②<span class="fcRed">1回スロット券1枚</span>で<span class="fcRed">[プレミアムスロット]</span>を回そう！！<br>
                     ③そのお店のクーポンの中からどれか１つが当たるよ♪<br>
-                    <span class="fs12">※スロット券は1枚あたり:108円で購入できます。</span>
+                    <span class="fs12">
+                        ※スロット券は1枚あたり:108円で購入できます。<br>
+                        ※スロット券の有効期限は6ヶ月です。
+                    </span>
                 </p>
             </div>
 

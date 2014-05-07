@@ -204,6 +204,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 .mb10 { margin-bottom: 10px !important; }
 .mb15 { margin-bottom: 15px !important; }
 .mb20 { margin-bottom: 20px !important; }
+.mb40 { margin-bottom: 40px !important; }
 .ml5 { margin-left: 5px !important; }
 .ml10 { margin-left: 10px !important; }
 .ml15 { margin-left: 15px !important; }
@@ -841,6 +842,12 @@ footer .menuList {
     background-size: 30px 30px;
 }
 
+.couponNoLinkList li {
+    border-bottom: 2px solid #99cc66;
+    background: #fff;
+    padding: 13px 5px 13px 8px;
+}
+
 /* プレミアム */
 .coinArea {
     width: 280px;
@@ -927,6 +934,15 @@ footer .menuList {
 .mypageBg {
     background: url('/coupon/images/mypage/bg.jpg') top left no-repeat;
     background-size: 100% 80%;
+}
+
+.footerLinkList li {
+    background: #99cc99;
+    border-top: 1px solid #006600;
+}
+
+.footerLinkList li:last-child {
+    border-bottom: 1px solid #006600;
 }
 
 /* detail */

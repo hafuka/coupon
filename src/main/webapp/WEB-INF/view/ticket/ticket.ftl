@@ -22,6 +22,8 @@
                     <div class="balloon">
                         <#if ticketList?has_content>
                             <p><span class="fcOrange">${ticketList?size}枚</span>のスロット券があるよ♪</p>
+                        <#else>
+                            <p>お店の詳細ページでスロット券が購入できるよ♪</p>
                         </#if>
                     </div>
                 </div>
@@ -31,21 +33,19 @@
         <#-- スロット券リスト -->
         <section>
             <h1 class="headline headlineSecond">スロット券一覧</h1>
-            <ul id="js_searchList" class="couponList">
+            <ul id="js_searchList" class="couponNoLinkList">
                 <#if ticketList?has_content>
                     <#list ticketList as ticket>
                         <li class="relative">
-                            <div>
-                            	<p class="fcRed pt5 fs15">スロット券：${ticket.coin!?html}枚</p>
-								<p class="fcRed pt5 fs15">使用期限：${ticket.limitDatetime!?html}</p>
-                            </div>
+                            <p class="fcRed pt5 fs15">スロット券：${ticket.coin!?html}枚</p>
+                            <p class="fcRed pt5 fs15">使用期限：${ticket.limitDatetime!?html}</p>
                         </li>
                     </#list>
                 <#else>
-	                <li class="noList">
-	                    スロット券がないよ。<br>
-	                    スロット券を購入しよう♪
-	                </li>
+                    <li class="noList">
+                        スロット券がないよ。<br>
+                        スロット券を購入しよう♪
+                    </li>
                 </#if>
             </ul>
         </section>
@@ -62,7 +62,8 @@
         <div class="noticeArea mb20 mh10">
             <h1>ご注意ください</h1>
             <p class="fs12">
-				・スロット券は使用期限が短いものから消費されます。
+                ・スロット券は使用期限が短いものから消費されます。<br>
+                ・スロット券の使用期限は購入後、6ヶ月です。
             </p>
         </div>
 

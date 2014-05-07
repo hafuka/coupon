@@ -40,7 +40,7 @@
                 </div>
             </div>
 
-            <div class="mypageBtnArea mtMinus65 mh10">
+            <div class="mypageBtnArea mtMinus65 mh10 mb40">
                 <div class="table autoMargin">
                     <div class="cell pr20">
                         <a href="${urlPath}/search" class="mypagePremierbtn jsTouchActive fs16 relative zIndex20 pt20 mv5">
@@ -58,17 +58,15 @@
         </section>
 
         <#-- リンクナビ -->
-        <nav>
-            <div class="mb20">
-                <div class="textCenter mv10">
-                    <a href="${urlPath}/static/?page=howto" class="btn btnPrimary jsTouchActive autoMargin">遊び方♪</a>
-                </div>
-            </div>
-            <#--
-            <div class="textCenter mb20">
-                <a href="${urlPath}/static/?page=terms" class="link2">利用規約</a>
-            </div>
-            -->
+        <nav style="margin-bottom: -6px;">
+            <ul class="footerLinkList">
+                <li class="textRight pv5 pr10">
+                    <a href="${urlPath}/static/?page=howto" class="fcWhite">遊び方♪ &gt;&gt;</a>
+                </li>
+                <li class="textRight pv5 pr10">
+                    <a href="${urlPath}/static/?page=terms" class="fcWhite">利用規約 &gt;&gt;</a>
+                </li>
+            </ul>
         </nav>
 
         <#-- フッターメニューのインクルード -->

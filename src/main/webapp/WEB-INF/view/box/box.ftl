@@ -83,11 +83,11 @@
                             <a href="${urlPath}/coupon?userCouponId=${coupon.userCoupon.userCouponId!?html}">
                                 <div class="table">
                                     <div class="cell pr10">
-                                    	<#if coupon.shopBean.imgPath!?has_content>
-                                    		<img src="${coupon.shopBean.imgPath!?html}" width="85" height="85">
-                                    	<#else>
-                                    		<img src="${imagePath}/images/common/no_image.png" width="85" height="85">
-                                    	</#if>
+                                        <#if coupon.shopBean.imgPath!?has_content>
+                                            <img src="${coupon.shopBean.imgPath!?html}" width="85" height="85">
+                                        <#else>
+                                            <img src="${imagePath}/images/common/no_image.png" width="85" height="85">
+                                        </#if>
                                     </div>
                                     <div class="cell vMiddle pr20">
                                         <p class="fcBlue underline fs16">${coupon.shopBean.shopName!?html}</p>
@@ -141,7 +141,7 @@
             <h1>ご注意ください</h1>
             <p class="fs12">
                 ・所持しているクーポン券の有効期限内であっても、対応するお店が閉店していた場合、クーポン券の効力は無効になりますので、ご注意ください。<br>
-                ・上記の場合、クーポン券、ポイントの再発行、スロット券の払い戻しは行いませんので、ご注意ください。
+                ・上記の場合、クーポン券、ポイントの再発行は行いませんので、ご注意ください。
             </p>
         </div>
 

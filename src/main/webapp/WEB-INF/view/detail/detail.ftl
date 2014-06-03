@@ -86,34 +86,35 @@
                     </div>
 
                     <p class="callText borderGray fs13 textCenter mb10">
-                        <span class="fcRed">ポイント</span>でもプレミアムスロットが回せるよ♪<br><span class="fcRed">1回：${needPoint}pt</span>、<span class="fcRed">現在：${userPoint}pt♪</span>
+                        <span class="fcRed">ポイント</span>が貯まると<br><span class="fcRed">プレミアムスロット</span>が回せるよ♪
                     </p>
 
                     <#-- プレミアムボタン -->
                     <p class="underballoonLight fs12 fcOrange textCenter m0auto">
                         このお店のクーポンのどれか１つがGETできるよ♪
-                        <#if execPointFlg>
-                            <br>
-                            <span class="fcBlack">※スロット券よりポイントが優先されるよ♪</span>
-                        </#if>
                     </p>
                     <div class="textCenter mv10">
-                        <a href="${urlPath}/premiumRouletteAnimation?token=${token!?html}&shopId=${shopId}" class="btn btnSpecial jsTouchActive autoMargin">プレミアムスロットを回す♪</a>
+                        <#if execPointFlg>
+                            <a href="${urlPath}/premiumRouletteAnimation?token=${token!?html}&shopId=${shopId}" class="btn btnSpecial jsTouchActive autoMargin">
+                                プレミアムスロットを回す♪
+                            </a>
+                        <#else>
+                            <p class="btn btnNoActive autoMargin fs14" style="height: 45px;">
+                                毎日ログインして<br>ポイントを貯めよう♪
+                            </p>
+                        </#if>
                     </div>
 
                     <div class="coinArea fs13 textCenter mt15 mb10 autoMargin">
-                        <#if execPointFlg>
-                            1回：<span class="fcOrange">${needPoint}ポイント</span><br>
-                            所持ポイント：<span class="fcOrange">${userPoint}ポイント</span>
-                        <#else>
-                            1回：<span class="fcOrange">1枚</span><br>
-                            所持スロット券：<span class="fcOrange">${coin}枚</span>
-                        </#if>
+                        1回：<span class="fcOrange">${needPoint}ポイント</span><br>
+                        所持ポイント：<span class="fcOrange">${userPoint}ポイント</span>
                     </div>
                     
+                    <#--
                     <div class="textRight mv10 pr10 fs14">
                         <a href="${urlPath}/ticket" class="fcBlue underline">スロット券一覧</a>
                     </div>
+                    -->
 
                     <div class="storeDetailText borderBox w95per m10 autoMargin">
                         <h2 class="bgGray borderBottomGray fs15 p5">お店のこだわり</h2>
@@ -131,26 +132,6 @@
                         </tr>
                     </table>
 
-                    <#-- プレミアムボタン -->
-                    <p class="underballoonLight fs12 fcOrange textCenter m0auto">
-                        このお店のクーポンのどれか１つがGETできるよ♪
-                        <#if execPointFlg>
-                            <br>
-                            <span class="fcBlack">※スロット券よりポイントが優先されるよ♪</span>
-                        </#if>
-                    </p>
-                    <div class="textCenter mv10">
-                        <a href="${urlPath}/premiumRouletteAnimation?token=${token!?html}&shopId=${shopId}" class="btn btnSpecial jsTouchActive autoMargin">プレミアムスロットを回す♪</a>
-                    </div>
-                    <div class="coinArea fs13 textCenter mt15 mb10 autoMargin">
-                        <#if execPointFlg>
-                            1回：<span class="fcOrange">${needPoint}ポイント</span><br>
-                            所持ポイント：<span class="fcOrange">${userPoint}ポイント</span>
-                        <#else>
-                            1回：<span class="fcOrange">1枚</span><br>
-                            所持スロット券：<span class="fcOrange">${coin}枚</span>
-                        </#if>
-                    </div>
 
                     <#-- 確率表記 -->
                     <div class="probability m10">

@@ -70,11 +70,11 @@ function handleComplete() {
     }
     #canvas {
         position: absolute;
-        //background-color: #000;
-        //background-image: url("${imagePath}/images/common/loading.gif");
-        //background-repeat: no-repeat;
-        //background-position: center;
-        //background-size: 70px 72px;
+        background-color: #000;
+        background-image: url("${imagePath}/images/common/loading.gif");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 45px 45px;
     }
 </style>
 </head>

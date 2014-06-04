@@ -52,7 +52,7 @@
                 <div class="textCenter">
                     <img src="${imagePath}/images/howto/point_1_image_1.png" width="235" height="110">
                 </div>
-                <p class="lheight15 fs14 pv5">
+                <p class="lheight20 fs14 pv5">
                     ①地域・エリア・業種を選んで検索。<br>
                     ②<span class="fcRed">[ドコ行く？スロットを回す♪]ボタン</span>でスロットを回そう♪<br>
                     ③検索した地域の中で<span class="fcRed">どこか１つのお店</span>のクーポンが当たるよ♪
@@ -63,6 +63,10 @@
                 <div class="textCenter">
                     <img src="${imagePath}/images/howto/point_1_image_2.png" width="268" height="120">
                 </div>
+                <p class="lheight20 fs14 pv5 textCenter">
+                    <span class="fcOrange">★ポイントでもスロットが回せるよ★</span><br>
+                    ※ポイントは毎日のログインボーナスでためられるよ
+                </p>
             </div>
 
             <#-- ポイント２ -->
@@ -75,15 +79,14 @@
                         <img src="${imagePath}/images/howto/point_2_title.png" width="245" height="45">
                     </h3>
                     <div class="textCenter">
-                        <img src="${imagePath}/images/howto/point_2_image_1.png" width="250" height="157">
+                        <img src="${imagePath}/images/howto/point_2_image_1.png" width="250" height="150">
                     </div>
-                    <p class="lheight15 fs14 pv5">
+                    <p class="lheight20 fs14 pv5">
                         ①お店のリストからお店の詳細ページへ。<br>
-                        ②<span class="fcRed">1回スロット券1枚</span>で<span class="fcRed">[プレミアムスロット]</span>を回そう！！<br>
+                        ②<span class="fcRed">ポイント</span>をためて<span class="fcRed">[プレミアムスロット]</span>を回そう！！<br>
                         ③そのお店のクーポンの中からどれか１つが当たるよ♪<br>
-                        <span class="fs12">
-                            ※スロット券は1枚あたり:108円で購入できます。<br>
-                            ※スロット券の有効期限は6ヶ月です。
+                        <span class="fs14 fcOrange">
+                            ※ポイントは毎日のログインボーナスでためられるよ
                         </span>
                     </p>
                 </div>
@@ -101,17 +104,18 @@
                     <div class="cell">
                         <img src="${imagePath}/images/howto/point_3_image_1.png" width="122" height="97">
                     </div>
-                    <div class="cell vTop">
-                    <p class="lheight15 fs14 pv5">
-                        クーポンBOXで[使う♪]ボタンを押してクーポンを使おう！<br>
-                        ボタンを押してから24時間以内に使ってね♪
-                    </p>
+                    <div class="cell vMiddle">
+                        <p class="lheight20 fs14 pv5">
+                            クーポンBOXで[このクーポンを使う♪]ボタンを押してクーポンを使おう！
+                        </p>
                     </div>
                 </div>
+                <p class="fs12">※[使う♪]ボタンを押して、お店の方にページを見せるとクーポンが使えます。</p>
+                <p class="fs12">※有効期限はボタンを押してから24時間です。</p>
             </div>
 
             <div class="textCenter pb40">
-                <a href="${urlPath}/static/?page=terms" class="link2">利用規約</a>
+                <a href="${urlPath}/static/?page=terms" class="link2">ご利用規約</a>
             </div>
             
         </section>

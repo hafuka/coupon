@@ -93,7 +93,7 @@ function handleComplete() {
         background-image: url("${imagePath}/images/common/loading.gif");
         background-repeat: no-repeat;
         background-position: center;
-        background-size: 90px 52px;
+        background-size: 45px 45px;
     }
 </style>
 </head>

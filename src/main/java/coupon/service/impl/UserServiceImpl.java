@@ -132,7 +132,7 @@ public class UserServiceImpl implements UserService {
 		record.updDatetime = CouponDateUtils.getCurrentDate();
 		iUserDao.update(record);
 	}
-	
+
 	@Override
 	public String generateCookieValue(Long userId) throws Exception {
 		return CryptUtils.encrypt(userId.toString()) + "_" + Long.toString(System.nanoTime()) + "_" + Math.random();

@@ -11,7 +11,6 @@ import coupon.entity.IUser;
 import coupon.entity.IUserFavorite;
 import coupon.entity.MShopCoupon;
 import coupon.enums.MConfigKey;
-import coupon.service.CoinService;
 import coupon.service.FavoriteService;
 import coupon.service.MConfigService;
 import coupon.service.ShopService;
@@ -21,8 +20,6 @@ public class DetailAction extends BaseAction {
 
 	@Resource
 	protected ShopService shopService;
-	@Resource
-	protected CoinService coinService;
 	@Resource
 	protected FavoriteService favoriteService;
 	@Resource
@@ -60,7 +57,7 @@ public class DetailAction extends BaseAction {
 		}
 
 		// スロット券枚数
-		this.coin = coinService.getIUserCoinCount(loginUserDto.userId);
+//		this.coin = coinService.getIUserCoinCount(loginUserDto.userId);
 
 		IUser iUser = userService.getIUser(loginUserDto.userId);
 		userPoint = iUser.point;

@@ -102,6 +102,21 @@
             </div>
         </nav>
 
+        <#if firstRouletteFlg>
+			<select name="year">
+	            <option value="0">生まれた年を選択して下さい</option>
+	            <#list yearList as year>
+	                <option value="${year.value!?html}">${year.label!?html}</option>
+	            </#list>
+	        </select>
+	        <select name="sex">
+	            <option value="0">性別を選択して下さい</option>
+	            <#list sexList as sex>
+	                <option value="${sex.value!?html}">${sex.label!?html}</option>
+	            </#list>
+	        </select>
+		</#if>
+
         <#-- フッターメニューのインクルード -->
         <#include "/common/footer.ftl">
 

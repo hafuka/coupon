@@ -25,6 +25,8 @@ public class RouletteAnimationAction extends BaseAction {
 	public Integer areaId;
 	public Integer areaDetailId;
 	public Integer businessId;
+	public Integer year;
+	public Integer sex;
 
 	/***** OUT項目 *****/
 	public CouponDto coupon;
@@ -34,9 +36,9 @@ public class RouletteAnimationAction extends BaseAction {
 		if (!isValidToken(token)) {
 			throw new IllegalArgumentException("Tokenエラー");
 		}
-		
+
 		this.checkParam();
-		
+
 		IUser iUser = userService.getIUser(loginUserDto.userId);
 		boolean rouletteFlg = rouletteService.checkDailyRoulette(iUser);
 		boolean usePointFlg = false;
@@ -48,21 +50,27 @@ public class RouletteAnimationAction extends BaseAction {
 				usePointFlg = true;
 			}
 		}
-		
+
 		// ルーレット実行処理
 		if (usePointFlg) {
 			coupon = rouletteService.execRouletteByPoint(iUser, areaId, areaDetailId, businessId);
 		} else {
 			coupon = rouletteService.execRoulette(iUser, areaId, areaDetailId, businessId);
 		}
-		
+
+		if (year != null && sex != null) {
+			iUser.age = year;
+			iUser.sex = sex;
+			userService.updateIUser(iUser);
+		}
+
 		setTransactionData(loginUserDto.userId, coupon, TransactionType.NORMAL_ROULETTE);
 		super.getFormToken();
 
 		return "/roulette/normal-animation.ftl";
 	}
-	
-	
+
+
 	private void checkParam() {
 		if (this.areaId == 0) {
 			this.areaId = null;

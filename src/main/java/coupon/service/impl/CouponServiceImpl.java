@@ -10,17 +10,21 @@ import org.apache.commons.collections.CollectionUtils;
 
 import coupon.dao.IUserCouponDao;
 import coupon.entity.IUserCoupon;
+import coupon.entity.MShop;
 import coupon.entity.MShopCoupon;
 import coupon.enums.MConfigKey;
 import coupon.enums.UserCouponStatus;
 import coupon.service.CouponService;
 import coupon.service.MConfigService;
+import coupon.service.ShopService;
 import coupon.util.CouponDateUtils;
 
 public class CouponServiceImpl implements CouponService {
 
 	@Resource
 	protected MConfigService mConfigService;
+	@Resource
+	protected ShopService shopService;
 	@Resource
 	protected IUserCouponDao iUserCouponDao;
 
@@ -39,14 +43,15 @@ public class CouponServiceImpl implements CouponService {
 		Timestamp nowDate = CouponDateUtils.getCurrentDate();
 
 		// クーポン有効期限
-		String couponLimitDays = mConfigService.getConfigValue(MConfigKey.COUPON_LIMIT_DAYS);
+		MShop mShop = shopService.getMShop(mShopCoupon.shopId);
+		Integer couponLimitDays = mShop.couponLimitDays;
 
 		IUserCoupon record = new IUserCoupon();
 		record.userCouponId = generateUserCouponId(userId);
 		record.userId = userId;
 		record.shopId = mShopCoupon.shopId;
 		record.couponId = mShopCoupon.couponId;
-		record.limitDatetime = CouponDateUtils.add(nowDate, Integer.parseInt(couponLimitDays), Calendar.DATE);
+		record.limitDatetime = CouponDateUtils.add(nowDate, couponLimitDays, Calendar.DATE);
 		record.name = mShopCoupon.couponName;
 		record.description = mShopCoupon.description;
 		record.rarity = mShopCoupon.rarity;

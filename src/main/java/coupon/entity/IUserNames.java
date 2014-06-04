@@ -1,19 +1,21 @@
 package coupon.entity;
 
 import java.sql.Timestamp;
+
 import javax.annotation.Generated;
+
 import org.seasar.extension.jdbc.name.PropertyName;
 
 /**
  * {@link IUser}のプロパティ名の集合です。
- * 
+ *
  */
 @Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/03/04 10:13:12")
 public class IUserNames {
 
     /**
      * userIdのプロパティ名を返します。
-     * 
+     *
      * @return userIdのプロパティ名
      */
     public static PropertyName<Long> userId() {
@@ -22,7 +24,7 @@ public class IUserNames {
 
     /**
      * emailのプロパティ名を返します。
-     * 
+     *
      * @return emailのプロパティ名
      */
     public static PropertyName<String> email() {
@@ -31,7 +33,7 @@ public class IUserNames {
 
     /**
      * nameのプロパティ名を返します。
-     * 
+     *
      * @return nameのプロパティ名
      */
     public static PropertyName<String> name() {
@@ -40,7 +42,7 @@ public class IUserNames {
 
     /**
      * pointのプロパティ名を返します。
-     * 
+     *
      * @return pointのプロパティ名
      */
     public static PropertyName<Long> point() {
@@ -49,7 +51,7 @@ public class IUserNames {
 
     /**
      * loginDatetimeのプロパティ名を返します。
-     * 
+     *
      * @return loginDatetimeのプロパティ名
      */
     public static PropertyName<Timestamp> loginDatetime() {
@@ -58,7 +60,7 @@ public class IUserNames {
 
     /**
      * loginBonusDatetimeのプロパティ名を返します。
-     * 
+     *
      * @return loginBonusDatetimeのプロパティ名
      */
     public static PropertyName<Timestamp> loginBonusDatetime() {
@@ -67,7 +69,7 @@ public class IUserNames {
 
     /**
      * consecutiveDaysのプロパティ名を返します。
-     * 
+     *
      * @return consecutiveDaysのプロパティ名
      */
     public static PropertyName<Long> consecutiveDays() {
@@ -76,7 +78,7 @@ public class IUserNames {
 
     /**
      * normalRouletteDatetimeのプロパティ名を返します。
-     * 
+     *
      * @return normalRouletteDatetimeのプロパティ名
      */
     public static PropertyName<Timestamp> normalRouletteDatetime() {
@@ -85,7 +87,7 @@ public class IUserNames {
 
     /**
      * customerIdのプロパティ名を返します。
-     * 
+     *
      * @return customerIdのプロパティ名
      */
     public static PropertyName<String> customerId() {
@@ -94,7 +96,7 @@ public class IUserNames {
 
     /**
      * saveCardFlgのプロパティ名を返します。
-     * 
+     *
      * @return saveCardFlgのプロパティ名
      */
     public static PropertyName<Integer> saveCardFlg() {
@@ -102,8 +104,26 @@ public class IUserNames {
     }
 
     /**
+     * ageのプロパティ名を返します。
+     *
+     * @return ageのプロパティ名
+     */
+    public static PropertyName<Integer> age() {
+        return new PropertyName<Integer>("age");
+    }
+
+    /**
+     * sexのプロパティ名を返します。
+     *
+     * @return sexのプロパティ名
+     */
+    public static PropertyName<Integer> sex() {
+        return new PropertyName<Integer>("sex");
+    }
+
+    /**
      * updDatetimeのプロパティ名を返します。
-     * 
+     *
      * @return updDatetimeのプロパティ名
      */
     public static PropertyName<Timestamp> updDatetime() {
@@ -112,7 +132,7 @@ public class IUserNames {
 
     /**
      * insDatetimeのプロパティ名を返します。
-     * 
+     *
      * @return insDatetimeのプロパティ名
      */
     public static PropertyName<Timestamp> insDatetime() {
@@ -132,7 +152,7 @@ public class IUserNames {
 
         /**
          * インスタンスを構築します。
-         * 
+         *
          * @param name
          *            名前
          */
@@ -142,7 +162,7 @@ public class IUserNames {
 
         /**
          * インスタンスを構築します。
-         * 
+         *
          * @param parent
          *            親
          * @param name
@@ -240,6 +260,24 @@ public class IUserNames {
          */
         public PropertyName<Integer> saveCardFlg() {
             return new PropertyName<Integer>(this, "saveCardFlg");
+        }
+
+        /**
+         * ageのプロパティ名を返します。
+         *
+         * @return ageのプロパティ名
+         */
+        public PropertyName<Integer> age() {
+            return new PropertyName<Integer>(this, "age");
+        }
+
+        /**
+         * sexのプロパティ名を返します。
+         *
+         * @return sexのプロパティ名
+         */
+        public PropertyName<Integer> sex() {
+            return new PropertyName<Integer>(this, "sex");
         }
 
         /**

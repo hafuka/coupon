@@ -11,6 +11,7 @@ import org.apache.struts.util.LabelValueBean;
 import coupon.dao.MAreaDao;
 import coupon.dao.MAreaDetailDao;
 import coupon.dao.MBusinessDao;
+import coupon.dao.MShopDao;
 import coupon.entity.MArea;
 import coupon.entity.MAreaDetail;
 import coupon.entity.MBusiness;
@@ -18,27 +19,33 @@ import coupon.enums.RarityType;
 import coupon.service.PullDownService;
 
 public class PullDownServiceImpl implements PullDownService {
-	
+
 	@Resource
 	protected MAreaDao mAreaDao;
 	@Resource
 	protected MAreaDetailDao mAreaDetailDao;
 	@Resource
 	protected MBusinessDao mBusinessDao;
-	
+	@Resource
+	protected MShopDao mShopDao;
+
 	@Override
 	public List<LabelValueBean> getAreaList() {
-		
+
 		List<LabelValueBean> list = null;
-		
+
 		List<MArea> areaList = mAreaDao.findAll();
 		if (!CollectionUtils.isEmpty(areaList)) {
 			list = new ArrayList<LabelValueBean>(areaList.size());
 			for (MArea mArea : areaList) {
-				LabelValueBean bean = new LabelValueBean();
-				bean.setValue(mArea.areaId.toString());
-				bean.setLabel(mArea.areaName);
-				list.add(bean);
+
+				Integer count = mShopDao.findAreaCount(mArea.areaId);
+				if (count != null && count > 0) {
+					LabelValueBean bean = new LabelValueBean();
+					bean.setValue(mArea.areaId.toString());
+					bean.setLabel(mArea.areaName);
+					list.add(bean);
+				}
 			}
 		}
 		return list;
@@ -46,9 +53,9 @@ public class PullDownServiceImpl implements PullDownService {
 
 	@Override
 	public List<LabelValueBean> getAreaDetailList() {
-		
+
 		List<LabelValueBean> list = null;
-		
+
 		List<MAreaDetail> areaDetailList = mAreaDetailDao.findAll();
 		if (!CollectionUtils.isEmpty(areaDetailList)) {
 			list = new ArrayList<LabelValueBean>(areaDetailList.size());
@@ -60,13 +67,13 @@ public class PullDownServiceImpl implements PullDownService {
 			}
 		}
 		return list;
-		
+
 	}
 
 	@Override
 	public List<LabelValueBean> getBusinessList() {
 		List<LabelValueBean> list = null;
-		
+
 		List<MBusiness> businessList = mBusinessDao.findAll();
 		if (!CollectionUtils.isEmpty(businessList)) {
 			list = new ArrayList<LabelValueBean>(businessList.size());
@@ -82,9 +89,9 @@ public class PullDownServiceImpl implements PullDownService {
 
 	@Override
 	public List<LabelValueBean> getAreaDetailList(Integer areaId) {
-		
+
 		List<LabelValueBean> list = null;
-		
+
 		List<MAreaDetail> areaDetailList = mAreaDetailDao.findByAreaId(areaId);
 		if (!CollectionUtils.isEmpty(areaDetailList)) {
 			list = new ArrayList<LabelValueBean>(areaDetailList.size());

@@ -57,4 +57,9 @@ public class MShopDao extends AbstractDao<MShop> {
 	public Integer findMaxShopId() {
 		return jdbcManager.selectBySql(Integer.class, "SELECT MAX(SHOP_ID) FROM M_SHOP").getSingleResult();
 	}
+
+
+	public Integer findAreaCount(Integer areaId) {
+		return jdbcManager.selectBySql(Integer.class, "SELECT COUNT(*) FROM M_SHOP WHERE AREA_ID = ?", areaId).getSingleResult();
+	}
 }

@@ -80,6 +80,7 @@ CREATE TABLE M_COIN
 	id int NOT NULL,
 	coin int NOT NULL,
 	yen int NOT NULL,
+	paypal_item_id varchar(16) NOT NULL,
 	start_datetime datetime,
 	end_datetime datetime,
 	PRIMARY KEY (id)

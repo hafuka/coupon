@@ -142,10 +142,10 @@ insert into M_SHOP_COUPON values(3,2,'30%OFF', '30%OFF', 30, 3, 2);
 insert into M_SHOP_COUPON values(3,3,'50%OFF', '50%OFF', 10, 3, 3);
 
 
-insert into M_COIN values(1,1,108,null,null);
-insert into M_COIN values(2,3,324,null,null);
-insert into M_COIN values(3,6,540,null,null);
-insert into M_COIN values(4,12,1080,null,null);
+insert into M_COIN values(1,1,108,'CMASUZE3RKZRN',null,null);
+insert into M_COIN values(2,3,324,'3AQ46C6KBV8K8',null,null);
+insert into M_COIN values(3,6,540,'T3LHY5MDCPNWQ',null,null);
+insert into M_COIN values(4,12,1080,'GFST2YBJ5M9RE',null,null);
 
 
 

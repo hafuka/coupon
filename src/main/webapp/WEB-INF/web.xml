@@ -20,14 +20,14 @@
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
 version="2.4">
-<!-- 
+<!--
     <context-param>
         <param-name>sastruts.VIEW_PREFIX</param-name>
         <param-value>/WEB-INF/view</param-value>
     </context-param>
 -->
     <!-- freemarkerの設定 start -->
-    
+
 	<servlet>
 		<servlet-name>freemarker</servlet-name>
 		<servlet-class>freemarker.ext.servlet.FreemarkerServlet</servlet-class>
@@ -53,7 +53,7 @@ version="2.4">
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
-	
+
 	<servlet-mapping>
 	<servlet-name>freemarker</servlet-name>
 	<url-pattern>*.ftl</url-pattern>
@@ -87,12 +87,12 @@ version="2.4">
             <param-value>false</param-value>
         </init-param>
     </filter>
-    
+
     <filter>
         <filter-name>requestDumpFilter</filter-name>
         <filter-class>org.seasar.extension.filter.RequestDumpFilter</filter-class>
     </filter>
-        
+
     <filter-mapping>
         <filter-name>encodingfilter</filter-name>
         <url-pattern>/*</url-pattern>
@@ -115,13 +115,13 @@ version="2.4">
         <dispatcher>INCLUDE</dispatcher>
         <dispatcher>ERROR</dispatcher>
     </filter-mapping>
-    
+
     <filter-mapping>
         <filter-name>routingfilter</filter-name>
         <url-pattern>/*</url-pattern>
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
-    
+
     <filter-mapping>
         <filter-name>requestDumpFilter</filter-name>
         <url-pattern>*.do</url-pattern>
@@ -130,7 +130,7 @@ version="2.4">
         <dispatcher>INCLUDE</dispatcher>
         <dispatcher>ERROR</dispatcher>
     </filter-mapping>
-    
+
     <servlet>
         <servlet-name>action</servlet-name>
         <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
@@ -152,13 +152,13 @@ version="2.4">
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
-    
+
     <servlet>
         <servlet-name>s2container</servlet-name>
         <servlet-class>org.seasar.framework.container.servlet.S2ContainerServlet</servlet-class>
         <load-on-startup>2</load-on-startup>
     </servlet>
-  
+
     <servlet-mapping>
         <servlet-name>action</servlet-name>
         <url-pattern>*.do</url-pattern>
@@ -168,7 +168,7 @@ version="2.4">
         <servlet-name>s2container</servlet-name>
         <url-pattern>/s2container/*</url-pattern>
     </servlet-mapping>
-    
+
 	<!--
     <session-config>
         <session-timeout>1</session-timeout>
@@ -179,7 +179,7 @@ version="2.4">
     <welcome-file-list>
     </welcome-file-list>
 	-->
-    <!-- 
+    <!--
     <jsp-config>
     	<jsp-property-group>
     		<url-pattern>*.jsp</url-pattern>
@@ -190,4 +190,23 @@ version="2.4">
     	</jsp-property-group>
     </jsp-config>
      -->
+    <!-- dev用ベージック認証
+    <security-constraint>
+      <web-resource-collection>
+          <web-resource-name>Authentication of BasicAuth</web-resource-name>
+          <url-pattern>/*</url-pattern>
+      </web-resource-collection>
+      <auth-constraint>
+          <role-name>role_basic</role-name>
+      </auth-constraint>
+  </security-constraint>
+
+  <login-config>
+      <auth-method>BASIC</auth-method>
+      <realm-name>UserDatabaseRealm</realm-name>
+  </login-config>
+  <security-role>
+      <role-name>role_basic</role-name>
+  </security-role>
+   -->
 </web-app>

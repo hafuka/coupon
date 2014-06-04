@@ -10,7 +10,7 @@ import javax.persistence.Id;
 
 /**
  * MConfigエンティティクラス
- * 
+ *
  */
 @Entity
 @Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.EntityModelFactoryImpl"}, date = "2014/01/09 15:38:42")
@@ -26,10 +26,14 @@ public class MCoin implements Serializable {
     /** coinプロパティ */
     @Column(precision = 10, nullable = false, unique = false)
     public Integer coin;
-    
+
     /** yenプロパティ */
     @Column(precision = 10, nullable = false, unique = false)
     public Integer yen;
+
+    /** paypalItemIdプロパティ */
+    @Column(length = 16, nullable = false, unique = false)
+    public String paypalItemId;
 
     /** startDatetimeプロパティ */
     @Column(nullable = true, unique = false)

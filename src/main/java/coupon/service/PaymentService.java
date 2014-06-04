@@ -12,4 +12,7 @@ public interface PaymentService {
 	public abstract MCoin getCoin(Integer id);
 
 	public void execPayment(Long userId, Integer coinId, String cardName, String cardNo, Integer month, Integer year, Integer cvc, boolean saveCard);
+
+
+	public void execPayment(Long userId, String paypalItemId);
 }

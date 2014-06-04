@@ -75,4 +75,36 @@ public class PaymentServiceImpl implements PaymentService {
 		CouponActivityLogger.paymentLog(userId, mCoin.yen);
 	}
 
+	@Override
+	public void execPayment(Long userId, String paypalItemId) {
+
+		MCoin targetCoin = null;
+
+		List<MCoin> coinList = this.getCoinList();
+		for (MCoin mCoin : coinList) {
+			if (StringUtils.equals(mCoin.paypalItemId, paypalItemId)) {
+				targetCoin = mCoin;
+				break;
+			}
+		}
+
+		// スロット券有効期限
+		String itemLimitMonth = mConfigService.getConfigValue(MConfigKey.ITEM_LIMIT_MONTH);
+
+		// ユーザーのスロット券を増やす
+		Timestamp nowDate = CouponDateUtils.getCurrentDate();
+		int id = iUserCoinDao.findUserMaxId(userId);
+		id += 1;
+		IUserCoin userCoin = new IUserCoin();
+		userCoin.userId = userId;
+		userCoin.id = id;
+		userCoin.coin = targetCoin.coin;
+		userCoin.limitDatetime = CouponDateUtils.add(nowDate, Integer.parseInt(itemLimitMonth), Calendar.MONTH);
+		userCoin.insDatetime = nowDate;
+		userCoin.updDatetime = nowDate;
+		iUserCoinDao.insert(userCoin);
+
+		CouponActivityLogger.paymentLog(userId, targetCoin.yen);
+	}
+
 }

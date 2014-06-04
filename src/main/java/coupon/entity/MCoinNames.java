@@ -1,19 +1,21 @@
 package coupon.entity;
 
 import java.sql.Timestamp;
+
 import javax.annotation.Generated;
+
 import org.seasar.extension.jdbc.name.PropertyName;
 
 /**
  * {@link MCoin}のプロパティ名の集合です。
- * 
+ *
  */
 @Generated(value = {"S2JDBC-Gen 2.4.46", "org.seasar.extension.jdbc.gen.internal.model.NamesModelFactoryImpl"}, date = "2014/03/04 10:13:12")
 public class MCoinNames {
 
     /**
      * idのプロパティ名を返します。
-     * 
+     *
      * @return idのプロパティ名
      */
     public static PropertyName<Integer> id() {
@@ -22,7 +24,7 @@ public class MCoinNames {
 
     /**
      * coinのプロパティ名を返します。
-     * 
+     *
      * @return coinのプロパティ名
      */
     public static PropertyName<Integer> coin() {
@@ -31,7 +33,7 @@ public class MCoinNames {
 
     /**
      * yenのプロパティ名を返します。
-     * 
+     *
      * @return yenのプロパティ名
      */
     public static PropertyName<Integer> yen() {
@@ -39,8 +41,17 @@ public class MCoinNames {
     }
 
     /**
+     * paypalItemIdのプロパティ名を返します。
+     *
+     * @return paypalItemIdのプロパティ名
+     */
+    public static PropertyName<String> paypalItemId() {
+        return new PropertyName<String>("paypalItemId");
+    }
+
+    /**
      * startDatetimeのプロパティ名を返します。
-     * 
+     *
      * @return startDatetimeのプロパティ名
      */
     public static PropertyName<Timestamp> startDatetime() {
@@ -49,7 +60,7 @@ public class MCoinNames {
 
     /**
      * endDatetimeのプロパティ名を返します。
-     * 
+     *
      * @return endDatetimeのプロパティ名
      */
     public static PropertyName<Timestamp> endDatetime() {
@@ -69,7 +80,7 @@ public class MCoinNames {
 
         /**
          * インスタンスを構築します。
-         * 
+         *
          * @param name
          *            名前
          */
@@ -79,7 +90,7 @@ public class MCoinNames {
 
         /**
          * インスタンスを構築します。
-         * 
+         *
          * @param parent
          *            親
          * @param name
@@ -114,6 +125,15 @@ public class MCoinNames {
          */
         public PropertyName<Integer> yen() {
             return new PropertyName<Integer>(this, "yen");
+        }
+
+        /**
+         * paypalItemIdのプロパティ名を返します。
+         *
+         * @return paypalItemIdのプロパティ名
+         */
+        public PropertyName<String> paypalItemId() {
+            return new PropertyName<String>(this, "paypalItemId");
         }
 
         /**

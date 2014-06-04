@@ -129,6 +129,24 @@ public class MShopNames {
     }
 
     /**
+     * couponLimitDaysのプロパティ名を返します。
+     *
+     * @return couponLimitDaysのプロパティ名
+     */
+    public static PropertyName<Integer> couponLimitDays() {
+        return new PropertyName<Integer>("couponLimitDays");
+    }
+
+    /**
+     * closeFlgのプロパティ名を返します。
+     *
+     * @return closeFlgのプロパティ名
+     */
+    public static PropertyName<Integer> closeFlg() {
+        return new PropertyName<Integer>("closeFlg");
+    }
+
+    /**
      * @author S2JDBC-Gen
      */
     public static class _MShopNames extends PropertyName<MShop> {
@@ -276,6 +294,24 @@ public class MShopNames {
          */
         public PropertyName<String> imgPath() {
             return new PropertyName<String>(this, "imgPath");
+        }
+
+        /**
+         * couponLimitDaysのプロパティ名を返します。
+         *
+         * @return couponLimitDaysのプロパティ名
+         */
+        public PropertyName<Integer> couponLimitDays() {
+            return new PropertyName<Integer>(this, "couponLimitDays");
+        }
+
+        /**
+         * closeFlgのプロパティ名を返します。
+         *
+         * @return closeFlgのプロパティ名
+         */
+        public PropertyName<Integer> closeFlg() {
+            return new PropertyName<Integer>(this, "closeFlg");
         }
     }
 }

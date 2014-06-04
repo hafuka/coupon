@@ -67,6 +67,7 @@ public class SearchAction extends BaseAction {
 		if (userPoint >= needPoint) {
 			execPointFlg = true;
 		}
+
 		super.getFormToken();
         return "/search/search.ftl";
 	}

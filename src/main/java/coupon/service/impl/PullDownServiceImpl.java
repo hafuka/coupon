@@ -1,6 +1,7 @@
 package coupon.service.impl;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -16,6 +17,7 @@ import coupon.entity.MArea;
 import coupon.entity.MAreaDetail;
 import coupon.entity.MBusiness;
 import coupon.enums.RarityType;
+import coupon.enums.Sex;
 import coupon.service.PullDownService;
 
 public class PullDownServiceImpl implements PullDownService {
@@ -112,6 +114,38 @@ public class PullDownServiceImpl implements PullDownService {
 			LabelValueBean bean = new LabelValueBean();
 			bean.setValue(rarityType.value.toString());
 			bean.setLabel(rarityType.name);
+			list.add(bean);
+		}
+		return list;
+	}
+
+	@Override
+	public List<LabelValueBean> getYearList() {
+		List<LabelValueBean> list = new ArrayList<LabelValueBean>();
+		Calendar cal = Calendar.getInstance();
+
+		int nowYear = cal.get(Calendar.YEAR);
+
+		for (int i = 0; i < 100; i++) {
+			LabelValueBean bean = new LabelValueBean();
+			bean.setValue(String.valueOf(i + 1));
+			if (i == 0) {
+				bean.setLabel(String.valueOf(nowYear));
+			} else {
+				bean.setLabel(String.valueOf(nowYear - i));
+			}
+			list.add(bean);
+		}
+		return list;
+	}
+
+	@Override
+	public List<LabelValueBean> getSexList() {
+		List<LabelValueBean> list = new ArrayList<LabelValueBean>();
+		for (Sex sex : Sex.values()) {
+			LabelValueBean bean = new LabelValueBean();
+			bean.setValue(sex.key.toString());
+			bean.setLabel(sex.value);
 			list.add(bean);
 		}
 		return list;

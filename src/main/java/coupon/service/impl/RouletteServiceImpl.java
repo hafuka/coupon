@@ -78,12 +78,12 @@ public class RouletteServiceImpl implements RouletteService {
 		if (chance > 50) {
 			couponDto.chanceFlg = true;
 		}
-		
+
 		CouponActivityLogger.rouletteLog(iUser.userId, shopCoupon.shopId, shopCoupon.couponId, shopCoupon.rarity);
-		
+
 		return couponDto;
 	}
-	
+
 	@Override
 	public CouponDto execRouletteByPoint(IUser iUser, Integer areaId, Integer areaDetailId, Integer businessId) {
 
@@ -99,7 +99,7 @@ public class RouletteServiceImpl implements RouletteService {
 
 		// 登録
 		couponService.insertIUserCoupon(iUser.userId, shopCoupon);
-		
+
 		String needPoint = mConfigService.getConfigValue(MConfigKey.ONE_TIME_POINT_NORMAL);
 		iUser.point -= Integer.parseInt(needPoint);
 		iUser.updDatetime = nowDate;
@@ -116,9 +116,9 @@ public class RouletteServiceImpl implements RouletteService {
 		if (chance > 50) {
 			couponDto.chanceFlg = true;
 		}
-		
+
 		CouponActivityLogger.rouletteLog(iUser.userId, shopCoupon.shopId, shopCoupon.couponId, shopCoupon.rarity);
-		
+
 		return couponDto;
 	}
 
@@ -135,16 +135,17 @@ public class RouletteServiceImpl implements RouletteService {
 		MShopCoupon shopCoupon = this.getRandomCoupon(shopBean.shopId, true);
 		// クーポン付与
 		couponService.insertIUserCoupon(userId, shopCoupon);
-		
-		int oneTimeCoin = Integer.parseInt(mConfigService.getConfigValue(MConfigKey.ONE_TIME_COIN));
+
+//		int oneTimeCoin = Integer.parseInt(mConfigService.getConfigValue(MConfigKey.ONE_TIME_COIN));
 		int oneTimePoint = Integer.parseInt(mConfigService.getConfigValue(MConfigKey.ONE_TIME_POINT_PREMIUM));
-		
+
 		if (userPoint >= oneTimePoint) {
 			userService.usePoint(userId, oneTimePoint);
-		} else {
-			// コイン消費
-			coinService.useCoin(userId, oneTimeCoin);
 		}
+//		else {
+//			// コイン消費
+//			coinService.useCoin(userId, oneTimeCoin);
+//		}
 
 		CouponDto couponDto = new CouponDto();
 		couponDto.shopBean = shopBean;
@@ -157,7 +158,7 @@ public class RouletteServiceImpl implements RouletteService {
 		if (chance > 50) {
 			couponDto.chanceFlg = true;
 		}
-		
+
 		CouponActivityLogger.rouletteLog(userId, shopCoupon.shopId, shopCoupon.couponId, shopCoupon.rarity);
 
 		return couponDto;

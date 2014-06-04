@@ -98,6 +98,11 @@ public class ShopServiceImpl implements ShopService {
 		List<ShopBean> shopBeans = new ArrayList<ShopBean>(mShops.size());
 		for (MShop mShop : mShops) {
 
+			// 閉店フラグが1の場合対象外
+			if (mShop.closeFlg != null && mShop.closeFlg == 1) {
+				continue;
+			}
+
 			MArea area = mAreaDao.findById(mShop.areaId);
 			MAreaDetail areaDetail = mAreaDetailDao.findById(mShop.areaId, mShop.areaDetailId);
 			MBusiness business = mBusinessDao.findById(mShop.businessId);

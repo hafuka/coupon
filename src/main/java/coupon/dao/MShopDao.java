@@ -60,6 +60,6 @@ public class MShopDao extends AbstractDao<MShop> {
 
 
 	public Integer findAreaCount(Integer areaId) {
-		return jdbcManager.selectBySql(Integer.class, "SELECT COUNT(*) FROM M_SHOP WHERE AREA_ID = ?", areaId).getSingleResult();
+		return jdbcManager.selectBySql(Integer.class, "SELECT COUNT(*) FROM M_SHOP WHERE AREA_ID = ? AND (CLOSE_FLG = 0 OR CLOSE_FLG IS NULL)", areaId).getSingleResult();
 	}
 }

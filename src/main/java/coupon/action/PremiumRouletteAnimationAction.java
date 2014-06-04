@@ -1,8 +1,5 @@
 package coupon.action;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import javax.annotation.Resource;
 
 import org.seasar.struts.annotation.Execute;
@@ -29,6 +26,8 @@ public class PremiumRouletteAnimationAction extends BaseAction {
 
 	/***** IN項目 *****/
 	public Integer shopId;
+	public Integer year;
+	public Integer sex;
 
 	/***** OUT項目 *****/
 	public CouponDto coupon;
@@ -50,10 +49,11 @@ public class PremiumRouletteAnimationAction extends BaseAction {
 
 		// ルーレット実行可能チェック
 		if (!checkRoulette()) {
-			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("shopId", shopId);
-			super.setTransactionData(loginUserDto.userId, shopId, TransactionType.TO_PAYMENT);
-			return "/payment?redirect=true";
+			throw new IllegalArgumentException("必要ポイント不足エラー");
+//			Map<String, Object> map = new HashMap<String, Object>();
+//			map.put("shopId", shopId);
+//			super.setTransactionData(loginUserDto.userId, shopId, TransactionType.TO_PAYMENT);
+//			return "/payment?redirect=true";
 		}
 
 
@@ -61,6 +61,13 @@ public class PremiumRouletteAnimationAction extends BaseAction {
 
 		// ルーレット実行処理
 		coupon = rouletteService.execPremiumRoulette(loginUserDto.userId, shopId, iUser.point);
+
+		if (year != null && sex != null) {
+			iUser.age = year;
+			iUser.sex = sex;
+			userService.updateIUser(iUser);
+		}
+
 		setTransactionData(loginUserDto.userId, coupon, TransactionType.NORMAL_ROULETTE);
 		super.getFormToken();
 		return "/roulette/normal-animation.ftl";
@@ -68,8 +75,8 @@ public class PremiumRouletteAnimationAction extends BaseAction {
 
 
 	private boolean checkRoulette() {
-		String needCoin = mConfigService.getConfigValue(MConfigKey.ONE_TIME_COIN);
-		Integer ticketNum = coinService.getIUserCoinCount(loginUserDto.userId);
+//		String needCoin = mConfigService.getConfigValue(MConfigKey.ONE_TIME_COIN);
+//		Integer ticketNum = coinService.getIUserCoinCount(loginUserDto.userId);
 
 		String pointStr = mConfigService.getConfigValue(MConfigKey.ONE_TIME_POINT_PREMIUM);
 		IUser iUser = userService.getIUser(loginUserDto.userId);
@@ -77,10 +84,10 @@ public class PremiumRouletteAnimationAction extends BaseAction {
 		if (Integer.parseInt(pointStr) < iUser.point) {
 			return true;
 		}
-
-		if (ticketNum < Integer.parseInt(needCoin)) {
-			return false;
-		}
+//
+//		if (ticketNum < Integer.parseInt(needCoin)) {
+//			return false;
+//		}
 		return true;
 	}
 

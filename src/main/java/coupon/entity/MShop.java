@@ -70,4 +70,12 @@ public class MShop implements Serializable {
     @Column(length = 255, nullable = true, unique = false)
     public String imgPath;
 
+    /** couponLimitDaysプロパティ */
+    @Column(precision = 10, nullable = false, unique = false)
+    public Integer couponLimitDays;
+
+    /** closeFlgプロパティ */
+    @Column(precision = 10, nullable = true, unique = false)
+    public Integer closeFlg;
+
 }

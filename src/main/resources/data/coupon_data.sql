@@ -1,8 +1,8 @@
-insert into M_LOGIN_BONUS values(1,5,1);
+insert into M_LOGIN_BONUS values(1,100,1);
 insert into M_CONFIG values('LOGIN_BONUS_TIME', '00:00', null,null);
 insert into M_CONFIG values('ONE_TIME_COIN', '1', null,null);
-insert into M_CONFIG values('ONE_TIME_POINT_NORMAL', '20', null,null);
-insert into M_CONFIG values('ONE_TIME_POINT_PREMIUM', '1000', null,null);
+insert into M_CONFIG values('ONE_TIME_POINT_NORMAL', '200', null,null);
+insert into M_CONFIG values('ONE_TIME_POINT_PREMIUM', '500', null,null);
 insert into M_CONFIG values('USE_COUPON_LIMIT_TIME', '24', null,null);
 insert into M_CONFIG values('COUPON_LIMIT_DAYS', '7', null,null);
 insert into M_CONFIG values('ITEM_LIMIT_MONTH', '6', null,null);
@@ -115,10 +115,6 @@ insert into M_AREA_DETAIL values(14,19,'練馬・江古田・田無');
 insert into M_AREA_DETAIL values(14,20,'下北沢・明大前・成城学園前');
 insert into M_AREA_DETAIL values(14,21,'お台場・豊洲・湾岸');
 
-
-insert into M_SHOP values(1,1,'新宿ダイニング しおん','2～40名様まで個室完備、85名様まで、隠れ家居酒屋','http://r.gnavi.co.jp/d1wy8f180000/?back_id=gdhh000','080-8878-7752','東京都新宿区歌舞伎町1-6-5 新宿ゴールド第一ビルB1','https://maps.google.co.jp/maps?q=%E3%81%8B%E3%81%BE%E3%81%8F%E3%82%89%E5%BE%A1%E6%AE%BF%20%E6%B8%8B%E8%B0%B7%E5%BA%97&ie=UTF-8&ei=llYNU9OuPILOkwWur4CgAg&ved=0CAkQ_AUoAQ',14,1,'新宿',0);
-insert into M_SHOP values(2,1,'裏NO庭 銀座店','銀座での宴会、記念日、女子会、合コン、貸切パーティに','http://r.gnavi.co.jp/g725415/','050-5798-4137','東京都中央区銀座3-4-17 銀座オプティカビル4F','https://maps.google.co.jp/maps?q=%E8%A3%8FNO%E5%BA%AD+%E9%8A%80%E5%BA%A7%E5%BA%97&ie=UTF-8&ei=llYNU9OuPILOkwWur4CgAg&ved=0CAkQ_AUoAQ',14,2,'銀座',0);
-insert into M_SHOP values(3,1,'かまくら御殿 渋谷店','全席完全個室・渋谷隠れ家居酒屋','http://r.gnavi.co.jp/e113164/?back_id=e113164','03-3476-4047','東京都渋谷区宇田川町13-8 ちとせ会館4F','https://maps.google.co.jp/maps?q=%E3%81%8B%E3%81%BE%E3%81%8F%E3%82%89%E5%BE%A1%E6%AE%BF%20%E6%B8%8B%E8%B0%B7%E5%BA%97&ie=UTF-8&ei=llYNU9OuPILOkwWur4CgAg&ved=0CAkQ_AUoAQ',14,3,'渋谷',0);
 
 insert into M_BUSINESS values(1,'飲食店');
 insert into M_BUSINESS values(2,'美容院');

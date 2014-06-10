@@ -80,6 +80,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 .fcOrange { color: #ff6633; }
 .fcWhite { color: #fff; }
 .fcBlack { color: #333; }
+.fcGray { color: #999; }
 .fs22 { font-size: 22px !important; }
 .fs20 { font-size: 20px !important; }
 .fs18 { font-size: 18px !important; }
@@ -105,8 +106,8 @@ input[type="text"], input[type="email"], input[type="password"] {
 /* 段落 設定 */
 .relative { position: relative; }
 .absolute { position: absolute; }
-.block { display: block; }
-.none { display: none; }
+.block { display: block !important; }
+.none { display: none !important; }
 .table { display: table; }
 .cell { display: table-cell; }
 .inlineBlock { display: inline-block;}
@@ -415,6 +416,14 @@ input[type="text"], input[type="email"], input[type="password"] {
     background: #6fdc34;
 }
 
+.btnPink {
+    background: #fcabe8;
+}
+
+.btnGray {
+    background: #ccc;
+}
+
 .btnBlue.touchActive {
     background: #4e6daf;
 }
@@ -425,6 +434,10 @@ input[type="text"], input[type="email"], input[type="password"] {
 
 .btnGreen.touchActive {
     background: #71c941;
+}
+
+.btnPink.touchActive {
+    background: #efabde;
 }
 
 @-webkit-keyframes lightActive {
@@ -1043,4 +1056,62 @@ footer .menuList {
     font-size: 12px;
     color: #009900;
     border-bottom: 2px solid #ccc;
+}
+
+/* popup */
+.popup {
+    background: #fff;
+    border-radius: 5px;
+    padding: 5px;
+    width: 300px;
+    position: absolute;
+    display: none;
+    z-index: 150;
+}
+
+.popup h1 {
+    background: #bbb;
+    color: #fff;
+    padding:5px;
+    font-size: 16px;
+}
+
+.surveyName {
+    background: #9ec6fb;
+}
+
+.popupSelectBox select {
+    position: relative;
+    width: 270px;
+    height: 40px;
+    background: #eee;
+    border-radius: 3px;
+    border: 2px solid #ccc;
+    -webkit-appearance: none;
+    font-size: 12px;
+    padding: 0 0 0 5px;
+    margin: 10px;
+    color: #666;
+    font-weight: bold;
+}
+
+.popupSelectBox:after {
+    position: absolute;
+    top: 27px;
+    right: 20px;
+    content: "";
+    border-top: 6px solid #666;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+}
+
+.grayscale:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    z-index: 110;
+    background: rgba(0,0,0,0.3);
 }

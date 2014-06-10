@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" data-ng-app>
     <head>
         <#-- 共通headのインクルード -->
         <#include "/common/htmlHead.ftl">
     </head>
 
-    <body class="outline secondContents">
+    <body class="outline secondContents relative">
 
         <#assign aDateTime = .now>
         <#assign aDate = aDateTime?date>
@@ -48,9 +48,9 @@
                 </div>
 
                 <#if userCoupon.description!?has_content>
-	                <div class="storeDetailText borderBox w95per mv10 autoMargin p5 textCenter">
-	                    <p class="fcRed">※${userCoupon.description!?html}</p>
-	                </div>
+                    <div class="storeDetailText borderBox w95per mv10 autoMargin p5 textCenter">
+                        <p class="fcRed">※${userCoupon.description!?html}</p>
+                    </div>
                 </#if>
 
                 <#-- 使うボタンを押してない時に表示 -->
@@ -72,7 +72,11 @@
                         そしたら、お店の人にこのページを見せてね♪
                     </div>
                     <div class="textCenter mv10">
-                        <a id="js_useBtn" class="btn btnSpecial jsTouchActive autoMargin">このクーポンを使う♪</a>
+                        <#if firstRouletteFlg>
+                            <a id="js_firstPopup" class="btn btnSpecial jsTouchActive autoMargin">このクーポンを使う♪</a>
+                        <#else>
+                            <a id="js_useBtn" class="btn btnSpecial jsTouchActive autoMargin">このクーポンを使う♪</a>
+                        </#if>
                     </div>
                 </div>
             </#if>
@@ -103,25 +107,45 @@
         </nav>
 
         <#if firstRouletteFlg>
-			<select name="year">
-	            <option value="0">生まれた年を選択して下さい</option>
-	            <#list yearList as year>
-	                <option value="${year.value!?html}">${year.label!?html}</option>
-	            </#list>
-	        </select>
-	        <select name="sex">
-	            <option value="0">性別を選択して下さい</option>
-	            <#list sexList as sex>
-	                <option value="${sex.value!?html}">${sex.label!?html}</option>
-	            </#list>
-	        </select>
-		</#if>
+            <div id="firstUsePopup" class="popup dropShadow" data-ng-controller="mainCtrl">
+                <h1 class="textCenter">最初だけちょっと<br>アンケート</h1>
+                <div class="p5">
+                    <p class="surveyName fcWhite fs14 p3 mv5">【生まれた年】</p>
+                    <div class="popupSelectBox relative">
+                        <select name="year" data-ng-model="angYear" required>
+                            <option value="0">生まれた年を選択して下さい</option>
+                            <#list yearList as year>
+                                <option value="${year.value!?html}">${year.label!?html}</option>
+                            </#list>
+                        </select>
+                    </div>
+                    <p class="surveyName fcWhite fs14 p3 mv5">【性別】</p>
+                    <div class="popupSelectBox relative">
+                        <select name="sex" data-ng-model="angSex" required>
+                            <option value="0">性別を選択して下さい</option>
+                            <#list sexList as sex>
+                                <option value="${sex.value!?html}">${sex.label!?html}</option>
+                            </#list>
+                        </select>
+                    </div>
+                    <p class="textCenter fs14 fcGray">ご協力ありがとうございます！</p>
+                    <p class="textCenter">{{okMessage}}</p>
+                    
+                    <a id="js_noRegistBtn" class="topbtn btnGray autoMargin mv10 textCenter">このクーポンを使う♪</a>
+                    
+                    <a id="js_registBtn" class="topbtn btnPink jsTouchActive autoMargin mv10 textCenter none">このクーポンを使う♪</a>
+                    
+                </div>
+            </div>
+        </#if>
 
         <#-- フッターメニューのインクルード -->
         <#include "/common/footer.ftl">
 
         <#-- 共通JavaScriptのインクルード -->
         <#include "/common/htmlFoot.ftl">
+        <script src="/coupon/js/angular.min.js"></script>
+        <script src="/coupon/js/ang_coupon.js"></script>
         <script src="/coupon/js/coupon.js"></script>
         <script>
             //グローバルで使う変数を定義

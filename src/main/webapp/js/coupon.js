@@ -84,7 +84,7 @@
         //使うajax通信
         function ajaxUseCouponFirst() {
             var url = urlPath + "/coupon/use";
-            var formData = "userCouponId=" + couponDetail.userCouponId + "year=" + $('select[name=year]').val() + "sex=" + $('select[name=sex]').val();
+            var formData = "userCouponId=" + couponDetail.userCouponId + "&year=" + $('select[name=year]').val() + "&sex=" + $('select[name=sex]').val();
             ajaxJsonGlobal(url, formData, useSuccessFirst);
             console.log('success');
             console.log($('select[name=year]').val());

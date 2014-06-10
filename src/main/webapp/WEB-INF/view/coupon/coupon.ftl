@@ -34,7 +34,7 @@
                         <#if userCoupon.status == 1>
                             <p class="textCenter fcOrange fs14">使用期限：${userCoupon.limitDatetime!?html}</p>
                         <#else>
-                            <p class="textCenter fcOrange fs14"><span id="js_termText">有効期限：</span>${userCoupon.limitDatetime!?html}</p>
+                            <p class="textCenter fcOrange fs14"><span id="js_termText">有効期限：</span><span id="js_limitDatetime">${userCoupon.limitDatetime!?html}</span></p>
                         </#if>
                     </div>
                     <#-- 使うボタンが押されてたら表示 -->
@@ -130,11 +130,11 @@
                     </div>
                     <p class="textCenter fs14 fcGray">ご協力ありがとうございます！</p>
                     <p class="textCenter">{{okMessage}}</p>
-                    
+
                     <a id="js_noRegistBtn" class="topbtn btnGray autoMargin mv10 textCenter">このクーポンを使う♪</a>
-                    
+
                     <a id="js_registBtn" class="topbtn btnPink jsTouchActive autoMargin mv10 textCenter none">このクーポンを使う♪</a>
-                    
+
                 </div>
             </div>
         </#if>

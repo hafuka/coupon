@@ -26,8 +26,6 @@ public class PremiumRouletteAnimationAction extends BaseAction {
 
 	/***** IN項目 *****/
 	public Integer shopId;
-	public Integer year;
-	public Integer sex;
 
 	/***** OUT項目 *****/
 	public CouponDto coupon;
@@ -61,12 +59,6 @@ public class PremiumRouletteAnimationAction extends BaseAction {
 
 		// ルーレット実行処理
 		coupon = rouletteService.execPremiumRoulette(loginUserDto.userId, shopId, iUser.point);
-
-		if (year != null && sex != null) {
-			iUser.age = year;
-			iUser.sex = sex;
-			userService.updateIUser(iUser);
-		}
 
 		setTransactionData(loginUserDto.userId, coupon, TransactionType.NORMAL_ROULETTE);
 		super.getFormToken();

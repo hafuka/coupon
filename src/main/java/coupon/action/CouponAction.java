@@ -39,6 +39,8 @@ public class CouponAction extends BaseAction {
 
 	/** IN項目 */
 	public String userCouponId;
+	public Integer year;
+	public Integer sex;
 
 	/** OUT項目 */
 	public IUserCoupon userCoupon;
@@ -111,6 +113,7 @@ public class CouponAction extends BaseAction {
 			throw new IllegalArgumentException("limitDatetime is before.");
 		}
 
+		// クーポン使う処理
 		Timestamp limitDatetime = couponService.useCoupon(userCoupon);
 		Long days = CouponDateUtils.getRemainDays(limitDatetime);
 		Long hours = CouponDateUtils.getRemainHours(limitDatetime);
@@ -128,6 +131,14 @@ public class CouponAction extends BaseAction {
 		}
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("remainTime", remainTime);
+		map.put("limitDatetime", CouponDateUtils.toString(limitDatetime, CouponDateUtils.SLASH_YYYYMMDDHHMMSS));
+
+		IUser iUser = userService.getIUser(loginUserDto.userId);
+		if (year != null && sex != null) {
+			iUser.age = year;
+			iUser.sex = sex;
+			userService.updateIUser(iUser);
+		}
 
 		super.setJsonData(map);
 		return null;

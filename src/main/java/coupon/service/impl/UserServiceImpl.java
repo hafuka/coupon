@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.seasar.framework.beans.util.BeanMap;
+import org.seasar.framework.beans.util.BeanUtil;
 
 import coupon.dao.IUserAuthenticationDao;
 import coupon.dao.IUserCoinDao;
@@ -127,6 +128,7 @@ public class UserServiceImpl implements UserService {
 	public void usePoint(Long userId, Integer usePoint) {
 		IUser iUser = this.getIUser(userId);
 		IUser record = new IUser();
+		BeanUtil.copyProperties(iUser, record);
 		record.userId = userId;
 		record.point = iUser.point - usePoint;
 		record.updDatetime = CouponDateUtils.getCurrentDate();

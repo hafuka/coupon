@@ -1,6 +1,7 @@
 package coupon.util;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -11,6 +12,7 @@ public class CouponDateUtils {
 
 
 	public static final String HIFUN_YYYYMMDDHHMMSS = "yyyy-MM-dd HH:mm:ss";
+	public static final String SLASH_YYYYMMDDHHMMSS = "yyyy/MM/dd HH:mm:ss";
 
 	/**
 	 * 現在日時取得
@@ -247,5 +249,14 @@ public class CouponDateUtils {
         long end = endDate != null ? endDate.getTime() / 1000L : Long.MAX_VALUE;
         long now = getCurrentDate().getTime() / 1000L;
         return start <= now && now <= end;
+    }
+
+
+    public static String toString(Date date, String format) {
+    	if (date == null) {
+			return null;
+		}
+		SimpleDateFormat sdf = new SimpleDateFormat(format);
+		return sdf.format(date);
     }
 }

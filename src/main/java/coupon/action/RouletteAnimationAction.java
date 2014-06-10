@@ -25,8 +25,6 @@ public class RouletteAnimationAction extends BaseAction {
 	public Integer areaId;
 	public Integer areaDetailId;
 	public Integer businessId;
-	public Integer year;
-	public Integer sex;
 
 	/***** OUT項目 *****/
 	public CouponDto coupon;
@@ -56,12 +54,6 @@ public class RouletteAnimationAction extends BaseAction {
 			coupon = rouletteService.execRouletteByPoint(iUser, areaId, areaDetailId, businessId);
 		} else {
 			coupon = rouletteService.execRoulette(iUser, areaId, areaDetailId, businessId);
-		}
-
-		if (year != null && sex != null) {
-			iUser.age = year;
-			iUser.sex = sex;
-			userService.updateIUser(iUser);
 		}
 
 		setTransactionData(loginUserDto.userId, coupon, TransactionType.NORMAL_ROULETTE);

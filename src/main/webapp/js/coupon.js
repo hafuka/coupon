@@ -8,7 +8,7 @@
         this.show = function() {
             windowY = ( ($(window).width() / 2) - ($targetPopup.width() / 2) ) + "px";
             windowX = ( $(document).scrollTop() + ($(window).height() / 2) - ($targetPopup.height() / 2) ) + "px";
-            
+
             $('.outline').addClass('grayscale');
 
             $targetPopup
@@ -21,9 +21,9 @@
                 .fadeOut(500);
         };
     };
-    
+
     $(function(){
-        
+
         // 使うボタン
         var $useBtn = $('#js_useBtn');
         // 使うボタンエリア
@@ -38,13 +38,15 @@
         var $usableIcon = $('#js_usableIcon');
         // 有効期限テキスト
         var $termText = $('#js_termText');
-        
-        
+        // 使用期限
+        var $limitDatetime = $('#js_limitDatetime');
+
+
         // 使うボタン押したらajax通信を開始
         $useBtn.on('click', function(){
             ajaxUseCoupon();
         });
-        
+
         // 使うajax通信
         function ajaxUseCoupon() {
             var url = urlPath + "/coupon/use";
@@ -52,7 +54,7 @@
             ajaxJsonGlobal(url, formData, useSuccess);
             console.log('success');
         }
-        
+
         // 使うajax成功
         function useSuccess(data){
             if (data != '') {
@@ -65,17 +67,18 @@
                 $usableIcon.removeClass('none');
                 $usableIcon.addClass('block');
                 $termText.text('使用期限：');
+                $limitDatetime.html(data.limitDatetime);
             }
         }
-        
-        
+
+
         //初回のみアンケートのポップアップを出す
         var targetPopup = new popupWindow( $('#firstUsePopup') );
-        
+
         $('#js_firstPopup').on('click', function(){
             targetPopup.show();
         });
-        
+
       //使うボタン押したらajax通信を開始
         $('#js_registBtn').on('click', function(){
             ajaxUseCouponFirst();

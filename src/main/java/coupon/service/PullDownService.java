@@ -8,6 +8,8 @@ public interface PullDownService {
 
 	public abstract List<LabelValueBean> getAreaList();
 
+	public abstract List<LabelValueBean> getAllAreaList();
+
 	public abstract List<LabelValueBean> getAreaDetailList();
 
 	public abstract List<LabelValueBean> getAreaDetailList(Integer areaId);

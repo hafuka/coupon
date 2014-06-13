@@ -54,6 +54,23 @@ public class PullDownServiceImpl implements PullDownService {
 	}
 
 	@Override
+	public List<LabelValueBean> getAllAreaList() {
+		List<LabelValueBean> list = null;
+
+		List<MArea> areaList = mAreaDao.findAll();
+		if (!CollectionUtils.isEmpty(areaList)) {
+			list = new ArrayList<LabelValueBean>(areaList.size());
+			for (MArea mArea : areaList) {
+				LabelValueBean bean = new LabelValueBean();
+				bean.setValue(mArea.areaId.toString());
+				bean.setLabel(mArea.areaName);
+				list.add(bean);
+			}
+		}
+		return list;
+	}
+
+	@Override
 	public List<LabelValueBean> getAreaDetailList() {
 
 		List<LabelValueBean> list = null;

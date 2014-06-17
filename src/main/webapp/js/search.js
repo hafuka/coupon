@@ -49,9 +49,18 @@
                 $searchList.html(
                     $("#searchlist_template").render(returnSearchList(data))
                 );
-                $activeRouletteBtn.html(
-                    '<a href="' + urlPath + '/rouletteAnimation?token=' + token + '&areaId=' + areaId + '&areaDetailId=' + areaDetailId + '&businessId=' + businessId + '" class="btn btnSpecial jsTouchActive autoMargin">ドコ行く？スロットを回す♪</a>'
-                );
+                
+                if (pointRouletteFlg == 1) {
+                    // ポイントでルーレットを回す場合のボタン表示
+                    $activeRouletteBtn.html(
+                        '<a href="' + urlPath + '/rouletteAnimation?token=' + token + '&areaId=' + areaId + '&areaDetailId=' + areaDetailId + '&businessId=' + businessId + '" class="btn btnSpecial jsTouchActive autoMargin">無料で♪スロットを回す</a>'
+                    );
+                } else {
+                    // 無料でルーレットを回す場合のボタン表示
+                    $activeRouletteBtn.html(
+                        '<a href="' + urlPath + '/rouletteAnimation?token=' + token + '&areaId=' + areaId + '&areaDetailId=' + areaDetailId + '&businessId=' + businessId + '" class="btn btnSpecial jsTouchActive autoMargin">ポイントで♪スロットを回す</a>'
+                    );
+                }
                 /*
                 $couponListText.html(
                     '下のリストのどれか１つが当たるよ♪<br><span class="fs12 fcBlack">※クーポンは1店舗あたり3種類あるよ</span>'

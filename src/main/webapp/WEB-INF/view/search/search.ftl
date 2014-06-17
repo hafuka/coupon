@@ -26,9 +26,15 @@
                     </div>
                 </div>
             </div>
-            <p class="callText fs13 textCenter mb10">
-                <span class="fcRed">ポイント</span>を使ってもスロットが回せるよ♪<br><span class="fcRed">1回あたり${needPoint}pt♪</span>
-            </p>
+            <#if execPointFlg>
+                <p class="callText fs13 textCenter mb10">
+                    <span class="fcRed">1回${needPoint}pt</span>でスロットが回せるよ♪
+                </p>
+            <#else>
+                <p class="callText fs13 textCenter mb10">
+                    <span class="fcRed">ポイント</span>を使ってもスロットが回せるよ♪<br><span class="fcRed">1回あたり${needPoint}pt♪</span>
+                </p>
+            </#if>
         </section>
 
         <#-- 検索エリア -->
@@ -90,7 +96,7 @@
                             所持ポイント：<span class="fcOrange">${userPoint}ポイント</span>
                         </div>
                     <#else>
-                        <p class="callText fcRed fs14 mb10">お店ごとのプレミアムスロットは<br>いつでも回せるよ♪</p>
+                        <p class="callText fcRed fs14 mb10">お店ごとのプレミアムスロットも<br>ポイントで回せるよ♪</p>
                         <p class="btn btnNoActive autoMargin">また明日きてね♪</p>
                     </#if>
                 </div>
@@ -115,10 +121,10 @@
                                 <div class="table">
                                     <div class="cell pr10">
                                         <#if shop.imgPath!?has_content>
-		                            		<img src="${shop.imgPath!?html}"width="85" height="85">
-		                            	<#else>
-		                            		<img src="${imagePath}/images/common/no_image.png" width="85" height="85">
-		                            	</#if>
+                                            <img src="${shop.imgPath!?html}"width="85" height="85">
+                                        <#else>
+                                            <img src="${imagePath}/images/common/no_image.png" width="85" height="85">
+                                        </#if>
                                     </div>
                                     <div class="cell vMiddle pr20">
                                         <p class="fcBlue underline fs16">${shop.shopName!?html}</p>
@@ -157,7 +163,7 @@
                         所持ポイント：<span class="fcOrange">${userPoint}ポイント</span>
                     </div>
                 <#else>
-                    <p class="callText fcRed fs14 mb10">お店ごとのプレミアムスロットは<br>いつでも回せるよ♪</p>
+                    <p class="callText fcRed fs14 mb10">お店ごとのプレミアムスロットも<br>ポイントで回せるよ♪</p>
                     <p class="btn btnNoActive autoMargin">また明日きてね♪</p>
                 </#if>
             </div>
@@ -186,6 +192,14 @@
             var urlPath = '${urlPath}';
             var imagePath = '${imagePath}';
             var token = '${token!?html}';
+            
+            // ポイントでルーレットをひくフラグ
+            var pointRouletteFlg;
+            <#if execPointFlg>
+                pointRouletteFlg = 1;
+            <#else>
+                pointRouletteFlg = 0;
+            </#if>
         </script>
         <#-- JsRenderテンプレート：検索リスト用 -->
         <script id="searchlist_template" type="text/x-jsrender">

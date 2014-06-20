@@ -388,6 +388,20 @@ input[type="text"], input[type="email"], input[type="password"] {
     box-shadow: 1px 1px 1px #eee inset, -1px -1px 1px #eee inset, 0 2px 0 #da3d71, 0 5px 3px #d5b3c0;
 }
 
+.mypageMainBtn .leftSide {
+    -webkit-transform: rotate(-2deg);
+    transform: rotate(-2deg);
+}
+
+.mypageMainBtn .rightSide {
+    -webkit-transform: rotate(2deg);
+    transform: rotate(2deg);
+}
+
+.mypageMainBtn.touchActive {
+    top: 2px;
+}
+
 .topbtn {
     position: relative;
     display: block;
@@ -912,9 +926,9 @@ footer .menuList {
 /* mypage */
 .islandName {
     color: #fff;
-    font-size: 18px;
+    font-size: 16px;
     position: absolute;
-    top: 30px;
+    top: 10px;
     left: 0;
     text-align: center;
     width: 100%;

@@ -12,8 +12,8 @@
 
         <section>
             <div class="mypageBg">
-                <h1 class="textCenter relative">
-                    <img src="${imagePath}/images/mypage/mypage_title.png" width="100%" height="62" class="vTop">
+                <h1 class="textCenter relative pt5">
+                    <img src="${imagePath}/images/mypage/title_ribbon.png" width="100%" height="30" class="vTop">
                     <p class="islandName">
                         ${name!?html}アイランド
                     </p>
@@ -40,16 +40,16 @@
                 </div>
             </div>
 
-            <div class="mypageBtnArea mtMinus65 mh10 mb40">
+            <div class="mh10 mb40" style="margin-top: -115px;">
                 <div class="table autoMargin">
                     <div class="cell pr20">
-                        <a href="${urlPath}/search" class="mypagePremierbtn jsTouchActive fs16 relative zIndex20 pt20 mv5">
-                            今日<br>ドコ行く？
+                        <a href="${urlPath}/search" class="mypageMainBtn jsTouchActive fs16 relative zIndex20 pt20 mv5">
+                            <img src="${imagePath}/images/mypage/board_1.png" width="130" class="block leftSide">
                         </a>
                     </div>
                     <div class="cell vTop">
-                        <a href="${urlPath}/box" class="mypagePremierbtn jsTouchActive fs16 relative zIndex20 pt20 mv5">
-                            クーポン<br>BOX
+                        <a href="${urlPath}/box" class="mypageMainBtn jsTouchActive fs16 relative zIndex20 pt20 mv5">
+                            <img src="${imagePath}/images/mypage/board_2.png" width="130" class="block rightSide">
                         </a>
                     </div>
                 </div>

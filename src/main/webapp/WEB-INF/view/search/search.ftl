@@ -12,7 +12,7 @@
 
         <#-- ふきだしナビ -->
         <section>
-            <h1 class="headline headlineNormal mt10">ドコ行く？ - 1日1回無料クーポン -</h1>
+            <h1 class="headline headlineNormal mt10">1日1回無料スロット♪</h1>
             <div class="autoMargin mv15 table">
                 <div class="cell">
                     <img src="${imagePath}/images/common/saboten_normal.png" width="37" height="37" class="vBottom">
@@ -21,12 +21,14 @@
                 <div class="cell vMiddle relative pl10">
                     <div class="balloon">
                         <p>
-                            <span class="fcOrange">地域と業種を選んでね。何が当たるかな？</span>
+                            <span class="fcOrange">地域や業種</span>を選んで<span class="fcOrange">検索ボタン</span>を押そう！<br><span class="fcOrange">スロットが回せるよ♪</span>
                         </p>
                     </div>
                 </div>
             </div>
-            <#if execPointFlg>
+            <#if rouletteFlg>
+                <#-- 非表示 -->
+            <#elseif execPointFlg>
                 <p class="callText fs13 textCenter mb10">
                     <span class="fcRed">1回${needPoint}pt</span>でスロットが回せるよ♪
                 </p>
@@ -83,13 +85,13 @@
                         <#-- 1日1回無料スロット -->
                         <#-- <p class="callText fcRed fs14 mb10">1日1回無料でクーポンGETできるよ♪</p> -->
                         <div class="js_activeRouletteBtn">
-                            <p class="btn btnNoActive autoMargin">地域や業種を選んでね♪</p>
+                            <p class="btn btnNoActive autoMargin">無料で♪スロットを回す</p>
                         </div>
                     <#elseif execPointFlg>
                         <#-- ポイントでスロット -->
                         <p class="callText fcRed fs14 mb10">${needPoint}ポイントで1回スロットを回せるよ♪</p>
                         <div class="js_activeRouletteBtn">
-                            <p class="btn btnNoActive autoMargin">地域や業種を選んでね♪</p>
+                            <p class="btn btnNoActive autoMargin">ポイントで♪スロットを回す</p>
                         </div>
                         <div class="coinArea fs13 textCenter mv10 m0auto">
                             1回：<span class="fcOrange">${needPoint}ポイント</span><br>
@@ -105,11 +107,11 @@
 
         <#-- クーポンリスト -->
         <section>
-            <#--
-            <h1 id="js_couponListText" class="underballoonLight fs14 fcRed textCenter m0auto">
-                ↓こんなお店のクーポンが当たるよ♪↓
+            
+            <h1 id="js_couponListText" class="underballoonLight fs13 fcRed textCenter m0auto">
+                ↓どこかのお店のクーポンが当たるよ♪↓
             </h1>
-            -->
+            
 
             <ul id="js_searchList" class="couponList borderTopGreen mv15">
 
@@ -150,13 +152,13 @@
                     <#-- 1日1回無料スロット -->
                     <#-- <p class="callText fcRed fs14 mb10">1日1回無料でクーポンGETできるよ♪</p> -->
                     <div class="js_activeRouletteBtn">
-                        <p class="btn btnNoActive autoMargin">地域や業種を選んでね♪</p>
+                        <p class="btn btnNoActive autoMargin">無料で♪スロットを回す</p>
                     </div>
                 <#elseif execPointFlg>
                     <#-- ポイントでスロット -->
                     <p class="callText fcRed fs14 mb10">${needPoint}ポイントで1回スロットを回せるよ♪</p>
                     <div class="js_activeRouletteBtn">
-                        <p class="btn btnNoActive autoMargin">地域や業種を選んでね♪</p>
+                        <p class="btn btnNoActive autoMargin">ポイントで♪スロットを回す</p>
                     </div>
                     <div class="coinArea fs13 textCenter mv10 m0auto">
                         1回：<span class="fcOrange">${needPoint}ポイント</span><br>
@@ -193,12 +195,12 @@
             var imagePath = '${imagePath}';
             var token = '${token!?html}';
             
-            // ポイントでルーレットをひくフラグ
-            var pointRouletteFlg;
-            <#if execPointFlg>
-                pointRouletteFlg = 1;
+            // 無料でルーレットをひくフラグ
+            var freeRouletteFlg;
+            <#if rouletteFlg>
+                freeRouletteFlg = 1;
             <#else>
-                pointRouletteFlg = 0;
+                freeRouletteFlg = 0;
             </#if>
         </script>
         <#-- JsRenderテンプレート：検索リスト用 -->

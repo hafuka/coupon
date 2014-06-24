@@ -26,17 +26,17 @@
                                 </#if>
                             </div>
                             <div class="cell vMiddle">
-                                <div class="pv10 pr10">
+                                <div class="pv5 pr10">
                                     <a href="tel:${shop.tell!?html}" class="btn btnPrimary autoMargin w140">
                                         <img src="${imagePath}/images/common/btn_txt_tel.png" width="100" height="22">
                                     </a>
                                 </div>
-                                <div class="pv10 pr10">
+                                <div class="pv5 pr10">
                                     <a href="${urlPath}/map?shopId=${shop.shopId!?html}" class="btn btnPrimary autoMargin w140">
                                         <img src="${imagePath}/images/common/btn_txt_map.png" width="100" height="22" alt="${shop.mapUrl!?html}">
                                     </a>
                                 </div>
-                                <div id="js_favoriteJudgeArea" class="textCenter pv10 pr10">
+                                <div id="js_favoriteJudgeArea" class="textCenter pv5 pr10">
                                     <#if shop.isFavorite!?string == 'true'>
                                         <a id="js_deleteFavoriteBtn" class="btn btnPrimary autoMargin w140">お気に削除</a>
                                     <#else>
@@ -45,53 +45,20 @@
                                 </div>
                             </div>
                         </div>
-                        <ul class="mb10">
-                            <#list couponList as coupon>
-
-                                <#-- レアリティによって画像と背景を変更 -->
-                                <#switch coupon.rarity>
-                                    <#case 1>
-                                        <#-- N -->
-                                        <#assign ftl_rarityBg = 'nCouponBg'>
-                                        <#assign ftl_rarityImage = 'medal_n'>
-                                        <#break>
-                                    <#case 2>
-                                        <#-- R -->
-                                        <#assign ftl_rarityBg = 'rCouponBg'>
-                                        <#assign ftl_rarityImage = 'medal_r'>
-                                        <#break>
-                                    <#case 3>
-                                        <#-- SR -->
-                                        <#assign ftl_rarityBg = 'srCouponBg'>
-                                        <#assign ftl_rarityImage = 'medal_sr'>
-                                        <#break>
-                                    <#default>
-                                        <#assign ftl_rarityBg = ''>
-                                        <#assign ftl_rarityImage = ''>
-                                        <#break>
-                                </#switch>
-
-                                <li class="couponDetailList ${ftl_rarityBg}">
-                                    <div class="table">
-                                        <div class="cell pl5 pr10">
-                                            <img src="${imagePath}/images/coupon/${ftl_rarityImage}.png" width="50" height="50" class="vMiddle">
-                                        </div>
-                                        <div class="cell vMiddle fcRed">
-                                            ${coupon.couponName!?html}
-                                        </div>
-                                    </div>
-                                </li>
-                            </#list>
-                        </ul>
+                        
                     </div>
-
+                    
                     <p class="callText borderGray fs13 textCenter mb10">
-                        <span class="fcRed">ポイント</span>が貯まると<br><span class="fcRed">プレミアムスロット</span>が回せるよ♪
+                        <#if execPointFlg>
+                            <span class="fcRed">ポイント</span>を使って<br><span class="fcRed">プレミアムスロット</span>を回そう♪
+                        <#else>
+                            <span class="fcRed">ポイント</span>が貯まると<br><span class="fcRed">プレミアムスロット</span>が回せるよ♪
+                        </#if>
                     </p>
 
                     <#-- プレミアムボタン -->
                     <p class="underballoonLight fs12 fcOrange textCenter m0auto">
-                        このお店のクーポンのどれか１つがGETできるよ♪
+                        このお店のクーポンのどれか１つが当たるよ♪
                     </p>
                     <div class="textCenter mv10">
                         <#if execPointFlg>
@@ -109,6 +76,50 @@
                         1回：<span class="fcOrange">${needPoint}ポイント</span><br>
                         所持ポイント：<span class="fcOrange">${userPoint}ポイント</span>
                     </div>
+                    
+                    
+                    <h2 class="headline headlineSecond fs14">
+                        ${shop.shopName!?html}のクーポン一覧
+                    </h2>
+        
+                    <ul class="mb10">
+                        <#list couponList as coupon>
+
+                            <#-- レアリティによって画像と背景を変更 -->
+                            <#switch coupon.rarity>
+                                <#case 1>
+                                    <#-- N -->
+                                    <#assign ftl_rarityBg = 'nCouponBg'>
+                                    <#assign ftl_rarityImage = 'medal_n'>
+                                    <#break>
+                                <#case 2>
+                                    <#-- R -->
+                                    <#assign ftl_rarityBg = 'rCouponBg'>
+                                    <#assign ftl_rarityImage = 'medal_r'>
+                                    <#break>
+                                <#case 3>
+                                    <#-- SR -->
+                                    <#assign ftl_rarityBg = 'srCouponBg'>
+                                    <#assign ftl_rarityImage = 'medal_sr'>
+                                    <#break>
+                                <#default>
+                                    <#assign ftl_rarityBg = ''>
+                                    <#assign ftl_rarityImage = ''>
+                                    <#break>
+                            </#switch>
+
+                            <li class="couponDetailList ${ftl_rarityBg}">
+                                <div class="table">
+                                    <div class="cell pl5 pr10">
+                                        <img src="${imagePath}/images/coupon/${ftl_rarityImage}.png" width="50" height="50" class="vMiddle">
+                                    </div>
+                                    <div class="cell vMiddle fcRed">
+                                        ${coupon.couponName!?html}
+                                    </div>
+                                </div>
+                            </li>
+                        </#list>
+                    </ul>
                     
                     <#--
                     <div class="textRight mv10 pr10 fs14">
@@ -162,7 +173,7 @@
         <nav>
             <div class="mv20">
                 <div class="textCenter mb20">
-                    <a href="${urlPath}/search" class="btn btnPrimary jsTouchActive autoMargin">ドコ行く？TOPへ</a>
+                    <a href="${urlPath}/search" class="btn btnPrimary jsTouchActive autoMargin">スロットを回す♪TOPへ</a>
                 </div>
                 <div class="textCenter mb20">
                     <a href="${urlPath}/mypage" class="btn btnNormal jsTouchActive autoMargin">マイページへ</a>

@@ -29,7 +29,7 @@
                 </div>
                 <p class="lheight20 fs14 pv5">
                     ①地域・エリア・業種を選んで検索。<br>
-                    ②<span class="fcRed">[ドコ行く？スロットを回す♪]ボタン</span>でスロットを回そう♪<br>
+                    ②<span class="fcRed">[スロットを回す♪]ボタン</span>でスロットを回そう♪<br>
                     ③検索した地域の中で<span class="fcRed">どこか１つのお店</span>のクーポンが当たるよ♪
                 </p>
                 <p class="fcOrange textCenter pb5">
@@ -39,7 +39,9 @@
                     <img src="${imagePath}/images/howto/point_1_image_2.png" width="268" height="120">
                 </div>
                 <p class="lheight20 fs14 pv5 textCenter">
-                    <span class="fcOrange">★ポイントでもスロットが回せるよ★</span><br>
+                    <span class="fcOrange">★ポイントでもスロットが回せるよ★</span>
+                </p>
+                <p class="lheight16 fs14 pv5">
                     ※ポイントは毎日のログインボーナスでためられるよ
                 </p>
             </div>
@@ -58,10 +60,10 @@
                 <p class="lheight20 fs14 pv5">
                     ①お店のリストからお店の詳細ページへ。<br>
                     ②<span class="fcRed">ポイント</span>をためて<span class="fcRed">[プレミアムスロット]</span>を回そう！！<br>
-                    ③そのお店のクーポンの中からどれか１つが当たるよ♪<br>
-                    <span class="fs14 fcOrange">
-                        ※ポイントは毎日のログインボーナスでためられるよ
-                    </span>
+                    ③そのお店のクーポンの中からどれか１つが当たるよ♪
+                </p>
+                <p class="lheight16 fs14 pv5 fcOrange">
+                    ※ポイントは毎日のログインボーナスでためられるよ
                 </p>
             </div>
 
@@ -93,7 +95,7 @@
         <nav>
             <div class="mb20">
                 <div class="textCenter mv10">
-                    <a href="${urlPath}/search" class="btn btnPrimary jsTouchActive autoMargin">ドコ行く？スロットページへ</a>
+                    <a href="${urlPath}/search" class="btn btnPrimary jsTouchActive autoMargin">スロットページへ</a>
                 </div>
             </div>
             <div class="mb20">

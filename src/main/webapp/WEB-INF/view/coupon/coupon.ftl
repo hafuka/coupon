@@ -95,7 +95,7 @@
         <nav>
             <div class="mv20">
                 <div class="textCenter mb20">
-                    <a href="${urlPath}/search" class="btn btnPrimary jsTouchActive autoMargin">ドコ行く？TOPへ</a>
+                    <a href="${urlPath}/search" class="btn btnPrimary jsTouchActive autoMargin">スロットページへ</a>
                 </div>
                 <div class="textCenter mb20">
                     <a href="${urlPath}/box" class="btn btnPrimary jsTouchActive autoMargin">クーポン一覧へ</a>

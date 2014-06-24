@@ -287,7 +287,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 
 .outline.mypageContents {
     //background: #ffff9b;
-    background: #fff;
+    background: #8fc31f;
     padding: 0 0 40px 0;
 }
 
@@ -322,6 +322,11 @@ input[type="text"], input[type="email"], input[type="password"] {
     border-bottom: 2px solid #538610;
     border-top: 2px solid #538610;
     background: #339a03;
+}
+
+.topHeader {
+    background: #6fdc34;
+    border-bottom: 2px solid #fff;
 }
 
 /* ボタン */

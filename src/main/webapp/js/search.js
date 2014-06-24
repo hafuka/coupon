@@ -50,7 +50,7 @@
                     $("#searchlist_template").render(returnSearchList(data))
                 );
                 
-                if (pointRouletteFlg == 1) {
+                if (freeRouletteFlg == 1) {
                     // ポイントでルーレットを回す場合のボタン表示
                     $activeRouletteBtn.html(
                         '<a href="' + urlPath + '/rouletteAnimation?token=' + token + '&areaId=' + areaId + '&areaDetailId=' + areaDetailId + '&businessId=' + businessId + '" class="btn btnSpecial jsTouchActive autoMargin">無料で♪スロットを回す</a>'

@@ -72,7 +72,7 @@
         <nav>
             <div class="mv20">
                 <div class="textCenter mb20">
-                    <a href="${urlPath}/search" class="btn btnPrimary jsTouchActive autoMargin">ドコ行く？スロットページへ</a>
+                    <a href="${urlPath}/search" class="btn btnPrimary jsTouchActive autoMargin">スロットページへ</a>
                 </div>
                 <div class="textCenter mb20">
                     <a href="${urlPath}/mypage" class="btn btnNormal jsTouchActive autoMargin">マイページへ</a>

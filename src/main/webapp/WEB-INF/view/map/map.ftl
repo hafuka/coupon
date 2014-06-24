@@ -16,7 +16,10 @@
         
 
         <#-- リンクナビ -->
-        <nav>
+        <nav class="mt20">
+            <div class="textCenter mb20">
+                <a href="${urlPath}/detail/?shopId=${shopId}" class="btn btnPrimary jsTouchActive autoMargin">戻る</a>
+            </div>
             <div class="textCenter mv20">
                 <a href="${urlPath}/mypage" class="btn btnNormal jsTouchActive autoMargin">マイページへ</a>
             </div>

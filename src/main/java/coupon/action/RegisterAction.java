@@ -87,11 +87,11 @@ public class RegisterAction extends BaseAction {
 		}
 
 		//Eメール　の正規表現パターン
-		String emailPattern = "[0-9a-zA-Z_\\-]+@[0-9a-zA-Z_\\-]+(\\.[0-9a-zA-Z_\\-]+){1,}";
-		if (!email.matches(emailPattern)) {
-			errorMsg = "正しいemailアドレスを入力してください";
-			return false;
-		}
+//		String emailPattern = "[0-9a-zA-Z_\\-]+@[0-9a-zA-Z_\\-]+(\\.[0-9a-zA-Z_\\-]+){1,}";
+//		if (!email.matches(emailPattern)) {
+//			errorMsg = "正しいemailアドレスを入力してください";
+//			return false;
+//		}
 
 		return true;
 	}

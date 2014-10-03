@@ -1,8 +1,8 @@
 insert into M_LOGIN_BONUS values(1,100,1);
 insert into M_CONFIG values('LOGIN_BONUS_TIME', '00:00', null,null);
 insert into M_CONFIG values('ONE_TIME_COIN', '1', null,null);
-insert into M_CONFIG values('ONE_TIME_POINT_NORMAL', '200', null,null);
-insert into M_CONFIG values('ONE_TIME_POINT_PREMIUM', '500', null,null);
+replace into M_CONFIG values('ONE_TIME_POINT_NORMAL', '200', null,null);
+replace into M_CONFIG values('ONE_TIME_POINT_PREMIUM', '500', null,null);
 insert into M_CONFIG values('USE_COUPON_LIMIT_TIME', '24', null,null);
 insert into M_CONFIG values('COUPON_LIMIT_DAYS', '7', null,null);
 insert into M_CONFIG values('ITEM_LIMIT_MONTH', '6', null,null);
